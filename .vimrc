@@ -13,6 +13,7 @@ Plugin 'chriskempson/base16-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'w0rp/ale'
+Plugin 'airblade/vim-gitgutter'
 let g:airline_theme='base16'
 call vundle#end()
 
@@ -29,6 +30,12 @@ filetype plugin indent on
 set tabstop=2
 set shiftwidth=2
 set expandtab
+" Search down into subfolders
+" Provides tab-completion for all file-related tasks
 set path+=**
+" Display all matching files when we tab complete
+set wildmenu
+
+set wildignore+=**/node_modules/**
 set laststatus=2
 colorscheme gruvbox
