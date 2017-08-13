@@ -1,22 +1,45 @@
 " I haven't tweaked vim too much
 
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plug 'morhetz/gruvbox'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:airline_theme='base16'
+Plug 'w0rp/ale'
+Plug 'airblade/vim-gitgutter'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+Plug 'ternjs/tern_for_vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'mxw/vim-jsx'
+" Allow jsx in js files
+let g:jsx_ext_required = 0
+Plug 'scrooloose/nerdtree'
+" Open NERDTree automatically when vim starts up
+autocmd vimenter * NERDTree
+" Go to previous (last accessed) window.
+autocmd VimEnter * wincmd p
+" Close vim if the only window left open is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" Open path of active file and navigate to right buffer
+map <leader>\ :NERDTreeFind<cr><C-w>l
+" Open path of active file
+map <leader>n :NERDTreeFind<cr> 
+let NERDTreeShowHidden=1
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'Raimondi/delimitMate'
+let delimitMate_expand_cr = 1
+call plug#end()
+
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'morhetz/gruvbox'
-Plugin 'chriskempson/base16-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'w0rp/ale'
-Plugin 'airblade/vim-gitgutter'
-let g:airline_theme='base16'
-call vundle#end()
-
+set ic
 set hlsearch
 set incsearch
 set number
@@ -35,7 +58,29 @@ set expandtab
 set path+=**
 " Display all matching files when we tab complete
 set wildmenu
-
+" Make vsplit put the new buffer on the right of the current buffer
+set splitright
+" Make split put the new buffer below the current buffer:
+set splitbelow
 set wildignore+=**/node_modules/**
 set laststatus=2
 colorscheme gruvbox
+" Allow per project conf files
+set exrc
+" Disable unsafe commands in project-specific settings
+set secure
+set mouse=a
+
+" Disable highlight until next search
+nnoremap <silent><leader>c :let @/ = ""<CR>
+nnoremap <Leader>g :Ag<CR>
+nnoremap <Leader>f :Files<CR>
+"Custom Commands
+command DeleteWhiteSpace call DeleteWhiteSpace()
+
+" Functions
+fun! DeleteWhiteSpace()
+  let l:save = winsaveview()
+  %s/\s\+$//e
+  call winrestview(l:save)
+endfun
