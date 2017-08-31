@@ -1,6 +1,7 @@
 " I haven't tweaked vim too much
 
 call plug#begin('~/.vim/plugged')
+" Search down into subfolders
 Plug 'tpope/vim-fugitive'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'morhetz/gruvbox'
@@ -8,6 +9,9 @@ Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme='base16'
+" Just show the filename (no path) in the tab
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
@@ -35,6 +39,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'Raimondi/delimitMate'
 let delimitMate_expand_cr = 1
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 set nocompatible
@@ -70,14 +75,19 @@ set exrc
 " Disable unsafe commands in project-specific settings
 set secure
 set mouse=a
-
 " Disable highlight until next search
 nnoremap <silent><leader>c :let @/ = ""<CR>
-nnoremap <Leader>g :Ag<CR>
-nnoremap <Leader>f :Files<CR>
+nnoremap <leader>g :Ag<CR>
+nnoremap <leader>f :Files<CR>
+" Pass copied text to clipboard (works on normal and visual mode)
+nnoremap y "+y
+vnoremap y "+y
+" Make buffer modifiable
+set ma
 "Custom Commands
 command DeleteWhiteSpace call DeleteWhiteSpace()
-
+" Quit from current buffer and move to previous one (does not close active window)
+command Bd bp\|bd \#
 " Functions
 fun! DeleteWhiteSpace()
   let l:save = winsaveview()

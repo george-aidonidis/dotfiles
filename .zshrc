@@ -92,6 +92,7 @@ alias "xv=xclip -o"
 
 alias "delete-swap=find ./ -type f -name \"\.*sw[klmnop]\" -delete"
 
+alias "show-global-npm=npm list -g --depth=0"
 # Set vim as a global editor
 export VISUAL=vim
 export EDITOR="$VISUAL"
