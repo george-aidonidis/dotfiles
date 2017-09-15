@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.npm-packages/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH=/home/george/.oh-my-zsh
@@ -108,3 +108,5 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 #fzf
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# Place npm_token on another file
+source $HOME/.npm_token
