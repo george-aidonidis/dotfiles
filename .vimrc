@@ -48,6 +48,7 @@ set ic
 set hlsearch
 set incsearch
 set number
+set relativenumber
 set showmatch
 highlight Comment ctermfg=LightCyan
 set wrap
