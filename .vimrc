@@ -23,6 +23,8 @@ call plug#end()
 """""""""""""""""""""
 "  Plugin settings  "
 """""""""""""""""""""
+" Map ALEFix to a key shortcut
+nmap <F8> <Plug>(ale_fix)
 " Change ale symbol of error
 let g:ale_sign_error = '😵'
 " Configure js to use eslint
