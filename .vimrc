@@ -11,6 +11,7 @@ Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'pangloss/vim-javascript'
+Plug 'Shougo/neocomplete.vim'
 Plug 'tpope/vim-surround'
 Plug 'mxw/vim-jsx'
 Plug 'scrooloose/nerdtree'
@@ -31,6 +32,8 @@ let g:ale_sign_error = '😵'
 let g:ale_fixers = {
       \  'javascript': ['eslint']
       \}
+" Enable neocomplete at startup
+let g:neocomplete#enable_at_startup = 1
 let g:airline_theme='base16'
 " Just show the filename (no path) in the tab
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -38,7 +41,7 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 " Allow jsx in js files
 let g:jsx_ext_required = 0
 " Open NERDTree automatically when vim starts up
-autocmd vimenter * NERDTree
+" autocmd vimenter * NERDTree
 " Go to previous (last accessed) window.
 autocmd VimEnter * wincmd p
 " Close vim if the only window left open is NERDTree
@@ -137,19 +140,19 @@ set splitbelow
 nnoremap <silent><leader>c :let @/ = ""<CR>
 nnoremap <leader>g :Ag<CR>
 nnoremap <leader>f :Files<CR>
-" Pass copied text to clipboard (works on normal and visual mode)
+" Pass copied text to clipboard (works on normal)
 nnoremap Y "+Y
 nnoremap y "+y
-vnoremap p "+p
-vnoremap P "+P
 nnoremap D "+D
 nnoremap d "+d
 " Make buffer modifiable
 set ma
 
 """""""""""""""""""""""""
-" Miscallaneous Options "
+" Miscellaneous Options "
 """""""""""""""""""""""""
+" Automatically re-read files if unmodified inside Vim
+set autoread
 " Treat all numbers as decimal (instead of Vim's default octal! wtf??)
 set nrformats=
 " Allow per project conf files
@@ -159,7 +162,8 @@ set secure
 " set completeopt=longest,menuone
 " Disable swap files
 set noswapfile
-
+" Enable spellchecking
+set spell
 """"""""""""""""""
 "Custom Commands "
 """"""""""""""""""
