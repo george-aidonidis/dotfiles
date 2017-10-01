@@ -24,8 +24,6 @@ call plug#end()
 """""""""""""""""""""
 "  Plugin settings  "
 """""""""""""""""""""
-" Map ALEFix to a key shortcut
-nmap <F8> <Plug>(ale_fix)
 " Change ale symbol of error
 let g:ale_sign_error = '😵'
 " Configure js to use eslint
@@ -43,9 +41,15 @@ let g:jsx_ext_required = 0
 " Open NERDTree automatically when vim starts up
 " autocmd vimenter * NERDTree
 " Go to previous (last accessed) window.
-autocmd VimEnter * wincmd p
+"autocmd VimEnter * wincmd p
 " Close vim if the only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+"""""""""""""""""""""""""
+"  Plugin key bindings  "
+"""""""""""""""""""""""""
+" Map ALEFix to a key shortcut
+nmap <F8> <Plug>(ale_fix)
 " Open path of active file and navigate to right buffer
 map <leader>\ :NERDTreeFind<cr><C-w>l
 " Open path of active file
@@ -132,10 +136,21 @@ set number
 set splitright
 " Make split put the new buffer below the current buffer:
 set splitbelow
-
+set showcmd
 """"""""""""""""
 " Key bindings "
 """"""""""""""""
+let mapleader = " "
+let g:mapleader = " "
+" Navigate to active panes more easily
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" Split tab vertically
+nnoremap <leader>v <C-w>v
+" Split tab horizontally
+nnoremap <leader>s <C-w>s
 " Disable highlight until next search
 nnoremap <silent><leader>c :let @/ = ""<CR>
 nnoremap <leader>g :Ag<CR>
@@ -164,6 +179,10 @@ set secure
 set noswapfile
 " Enable spellchecking
 set spell
+" Set visual bell {not working in gnome terminal :'( }. Also disable sound
+" bells
+"set visualbell
+
 """"""""""""""""""
 "Custom Commands "
 """"""""""""""""""
