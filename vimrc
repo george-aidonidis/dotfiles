@@ -47,66 +47,9 @@ ino { {}<left>
 inoremap [<CR> [<CR>]<C-o>O
 inoremap {<CR> {<CR>}<C-o>O
 
-"""""""""""""""""""""
-"  Plugin settings  "
-"""""""""""""""""""""
-""""" Neocomplete """"""
-let g:neocomplete#enable_at_startup = 1
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default' : '',
-      \ 'vimshell' : $HOME.'/.vimshell_hist',
-      \ 'scheme' : $HOME.'/.gosh_completions'
-      \ }
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 2
-" Enable omni completion.
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 
-""""" Airline """""
-" Configure the Tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 7
-" Enable the patched Powerline fonts
-let g:airline_powerline_fonts = 1
-let g:airline_theme='base16'
-" Just show the filename (no path) in the tab
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
-" Change ale symbol of error
-let g:ale_sign_error = '😭'
-" Configure js to use eslint
-let g:ale_fixers = {
-      \  'javascript': ['eslint']
-      \}
-" Allow jsx in js files
-let g:jsx_ext_required = 0
-" Open NERDTree automatically when vim starts up
-" autocmd vimenter * NERDTree
-" Go to previous (last accessed) window.
-"autocmd VimEnter * wincmd p
-" Close vim if the only window left open is NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
-
-"""""""""""""""""""""""""
-"  Plugin key bindings  "
-"""""""""""""""""""""""""
-" Map ALEFix to a key shortcut
-nmap <F8> <Plug>(ale_fix)
-" Open path of active file and navigate to right buffer
-map <leader><leader> :NERDTreeFind<cr><C-w>l
-" Open path of active file
-map <leader>n :NERDTreeFind<cr>
-" Toggle nerd tree
-map <leader>b :NERDTreeToggle<cr>
-let NERDTreeShowHidden=1
-
+set runtimepath+=~/.fzf
 """"""""""""""""""""""
 " Performance options"
 """"""""""""""""""""""
@@ -223,6 +166,7 @@ set spell
 set autowrite
 " Hide history when switching to other buffers
 set hidden
+set clipboard=unnamedplus
 
 """"""""""""""""""
 "Custom Commands "
