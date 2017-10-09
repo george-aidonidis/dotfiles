@@ -47,12 +47,6 @@ ino { {}<left>
 inoremap [<CR> [<CR>]<C-o>O
 inoremap {<CR> {<CR>}<C-o>O
 
-"""""""""""
-" Plugins "
-"""""""""""
-call plug#begin('~/.vim/plugged')
-call plug#end()
-
 """""""""""""""""""""
 "  Plugin settings  "
 """""""""""""""""""""
