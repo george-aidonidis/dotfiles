@@ -40,3 +40,6 @@
 [submodule "vim/pack/plugins/start/vim-nerdtree-syntax-highlight"]
 	path = vim/pack/plugins/start/vim-nerdtree-syntax-highlight
 	url = git@github.com:tiagofumo/vim-nerdtree-syntax-highlight.git
+[submodule "vim/pack/plugins/start/gruvbox"]
+	path = vim/pack/plugins/start/gruvbox
+	url = git@github.com:morhetz/gruvbox.git
