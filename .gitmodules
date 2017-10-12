@@ -49,3 +49,6 @@
 [submodule "vim/pack/plugins/start/vim/pack/plugins/start/vim-fugitive"]
 	path = vim/pack/plugins/start/vim/pack/plugins/start/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule "vim/pack/plugins/start/neocomplete"]
+	path = vim/pack/plugins/start/neocomplete
+	url = git@github.com:Shougo/neocomplete.vim
