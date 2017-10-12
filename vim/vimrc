@@ -39,16 +39,11 @@ nnoremap K :Ag! <cword><CR>
 " Close buffer without closing the window
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 " Coding helpers "
-ino " ""<left>
-ino ' ''<left>
-ino ( ()<left>
-ino [ []<left>
-ino { {}<left>
 inoremap [<CR> [<CR>]<C-o>O
 inoremap {<CR> {<CR>}<C-o>O
-
-
-
+" Javascript
+vnoremap <leader>clg dOconsole.log(<esc>pA);<esc>$
+vnoremap <leader>cls dOconsole.log(JSON.stringify(<esc>pA));<esc>$
 set runtimepath+=~/.fzf
 """"""""""""""""""""""
 " Performance options"

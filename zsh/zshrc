@@ -2,7 +2,7 @@
 export PATH=$HOME/.npm-packages/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/george/.oh-my-zsh
+export ZSH=/home/george/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -51,8 +51,8 @@ export UPDATE_ZSH_DAYS=3
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
+plugins=(git vi-mode)
+source $HOME/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -110,3 +110,11 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Place npm_token on another file
 source $HOME/.npm_token
+
+#Functions
+# # Custom cd
+changeDirAndLs() {
+  cd $1;
+  ls;
+}
+alias cd="changeDirAndLs"
