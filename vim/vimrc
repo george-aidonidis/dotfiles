@@ -22,12 +22,13 @@ nnoremap <leader>s <C-w>s
 nnoremap <silent><leader>c :let @/ = ""<CR>
 nnoremap <leader>g :Ag<CR>
 nnoremap <leader>f :Files<CR>
-" Pass copied text to clipboard (works on normal)
+" Pass copied text to clipboard (works on normal and visual mode)
 nnoremap Y "+Y
 nnoremap y "+y
+vnoremap y "+y
 nnoremap D "+D
 nnoremap d "+d
-nnoremap d "+d
+vnoremap d "+d
 " Make buffer modifiable
 set ma
 " Jump through searches easily
@@ -161,7 +162,6 @@ set spell
 set autowrite
 " Hide history when switching to other buffers
 set hidden
-set clipboard=unnamedplus
 
 """"""""""""""""""
 "Custom Commands "
