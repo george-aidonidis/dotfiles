@@ -90,8 +90,6 @@ set hlsearch
 set incsearch
 " Automatically switch search to case-sensitive when search query contains an uppercase letter.
 set smartcase
-" Show line number on the current line and relative numbers on all other lines.
-set relativenumber
 " highlight matching [{()}]
 set showmatch
 let g:ackprg = 'ag --vimgrep'
