@@ -99,6 +99,9 @@ export EDITOR="$VISUAL"
 # direnv hook into the shell
 eval "$(direnv hook zsh)"
 
+# https://stackoverflow.com/questions/815686/unable-to-make-a-backward-tab-as-shift-tab-in-zsh
+bindkey '^[[Z' reverse-menu-complete
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Feed the output of ag into fzf
 #ag -g "" | fzf
