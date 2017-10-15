@@ -91,11 +91,11 @@ alias "xcc=xclip -selection clipboard"
 alias "xv=xclip -o"
 
 alias "delete-swap=find ./ -type f -name \"\.*sw[klmnop]\" -delete"
+alias "tmux-dev= tmux split-window -h -p 70 \; split-window -p 18"
 
 alias "npm-show-global=npm list -g --depth=0"
 # Set vim as a global editor
-export VISUAL=vim
-export EDITOR="$VISUAL"
+export EDITOR='vim'
 # direnv hook into the shell
 eval "$(direnv hook zsh)"
 
