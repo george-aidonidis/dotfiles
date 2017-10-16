@@ -92,7 +92,7 @@ alias "xv=xclip -o"
 
 alias "delete-swap=find ./ -type f -name \"\.*sw[klmnop]\" -delete"
 alias "tmux-dev= tmux split-window -h -p 70 \; split-window -p 18"
-
+alias "e=ranger"
 alias "npm-show-global=npm list -g --depth=0"
 # Set vim as a global editor
 export EDITOR='vim'
