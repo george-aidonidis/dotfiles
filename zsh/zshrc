@@ -95,7 +95,7 @@ alias "tmux-dev= tmux split-window -h -p 70 \; split-window -p 18"
 alias "e=ranger"
 alias "npm-show-global=npm list -g --depth=0"
 # Set vim as a global editor
-export EDITOR='vim'
+export EDITOR='nvim'
 # direnv hook into the shell
 eval "$(direnv hook zsh)"
 
