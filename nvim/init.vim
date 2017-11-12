@@ -3,11 +3,16 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
+" Javascript
+Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs'
+
 Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'pangloss/vim-javascript'
-Plug 'Shougo/neocomplete.vim'
 Plug 'mxw/vim-jsx'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
