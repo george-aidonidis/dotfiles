@@ -1,6 +1,9 @@
 call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'taohex/lightline-buffer'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
@@ -9,6 +12,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
 Plug 'carlitux/deoplete-ternjs'
 
+Plug 'christoomey/vim-system-copy'
 Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'

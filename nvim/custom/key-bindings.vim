@@ -5,6 +5,9 @@
 let mapleader = " "
 let g:mapleader = " "
 nnoremap <F5> :buffers<CR>:buffer<Space>
+" remap arrow keys
+nnoremap <Left> :bprev<CR>
+nnoremap <Right> :bnext<CR>
 nnoremap <C-n> :bnext<CR>
 nnoremap <C-p> :bprevious<CR>
 " Navigate to active panes more easily
@@ -21,12 +24,12 @@ nnoremap <silent><leader>c :let @/ = ""<CR>
 nnoremap <leader>g :Ag<CR>
 nnoremap <leader>f :Files<CR>
 " Pass copied text to clipboard (works on normal and visual mode)
-nnoremap Y "+Y
-nnoremap y "+y
-vnoremap y "+y
-nnoremap D "+D
-nnoremap d "+d
-vnoremap d "+d
+"nnoremap Y "+Y
+"nnoremap y "+y
+"vnoremap y "+y
+"nnoremap D "+D
+"nnoremap d "+d
+"vnoremap d "+d
 " Make buffer modifiable
 set ma
 " Jump through searches easily
