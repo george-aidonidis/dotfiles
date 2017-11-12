@@ -181,7 +181,7 @@ if has("autocmd")
   " Automatically clean trailing whitespace
   autocmd BufWritePre * call TrimWhiteSpace()
 endif
-"
+
 " Return to the same line you left off at
 augroup line_return
   au!
