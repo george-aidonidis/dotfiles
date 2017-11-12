@@ -1,14 +1,14 @@
-# Swap
-[._]*.s[a-v][a-z]
-[._]*.sw[a-p]
-[._]s[a-v][a-z]
-[._]sw[a-p]
-
-# Session
+## Vim ##
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
 Session.vim
-
-# Temporary
+# temporary
 .netrwhist
 *~
-# Auto-generated tag files
+# auto-generated tag files
 tags
+# Tern.js
+.tern-config
+
