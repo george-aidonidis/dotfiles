@@ -50,5 +50,6 @@ vnoremap <leader>cls dOconsole.log(JSON.stringify(<esc>pA));<esc>$
 set runtimepath+=~/.fzf
 
 " Esc allows to exit `insert` mode on terminal
-tnoremap <Leader><ESC> <C-\><C-n>
+tnoremap <Esc> <C-\><C-n>
+
 

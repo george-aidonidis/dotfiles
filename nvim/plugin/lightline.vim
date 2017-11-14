@@ -3,15 +3,21 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
       \ },
-      \ 'tabline': {
-      \   'left': [ [ 'bufferinfo' ], [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
-      \   'right': [ [ 'close' ], ],
-      \ },
+			\ 'tabline': {
+			\   'left': [ [ 'bufferinfo' ],
+			\             [ 'separator' ],
+			\             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
+			\   'right': [ [ 'close' ], ],
+			\ },
       \ 'component_expand': {
-      \   'buffercurrent': 'lightline#buffer#buffercurrent2',
+      \   'buffercurrent': 'lightline#buffer#buffercurrent',
+      \   'bufferbefore': 'lightline#buffer#bufferbefore',
+      \   'bufferafter': 'lightline#buffer#bufferafter',
       \ },
       \ 'component_type': {
       \   'buffercurrent': 'tabsel',
+      \   'bufferbefore': 'raw',
+      \   'bufferafter': 'raw',
       \ },
       \ 'component_function': {
       \   'gitbranch': 'GitBranchWithIcon',
@@ -21,6 +27,9 @@ let g:lightline = {
       \   'bufferafter': 'lightline#buffer#bufferafter',
       \   'bufferinfo': 'lightline#buffer#bufferinfo',
       \ },
+			\ 'component': {
+			\   'separator': '',
+			\ },
       \ }
 
 function! CustomModified()
