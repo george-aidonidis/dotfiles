@@ -6,6 +6,11 @@ set mouse=a
 " Always display the status bar
 set laststatus=2
 set background=dark
+
+let g:gruvbox_italic=1
+" let g:gruvbox_termcolors=16
+set termguicolors
+let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 " Highlight current line
 set cursorline
