@@ -50,8 +50,8 @@ export UPDATE_ZSH_DAYS=3
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(git vi-mode)
-plugins=(git nyan vi-mode)
+plugins=(git vi-mode)
+
 source $HOME/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -75,25 +75,6 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-alias "xc=xclip"
-# Copy selection to clipboard xcc < "example"
-alias "xcc=xclip -selection clipboard"
-# Paste
-alias "xv=xclip -o"
-
-alias "delete-swap=find ./ -type f -name \"\.*sw[klmnop]\" -delete"
-alias "tmux-dev= tmux split-window -h -p 70 \; split-window -p 18"
-alias "e=ranger"
-alias "npm-show-global=npm list -g --depth=0"
 # Set vim as a global editor
 export EDITOR='nvim'
 # direnv hook into the shell
@@ -102,11 +83,8 @@ eval "$(direnv hook zsh)"
 # https://stackoverflow.com/questions/815686/unable-to-make-a-backward-tab-as-shift-tab-in-zsh
 bindkey '^[[Z' reverse-menu-complete
 
+source $HOME/dotfiles/zsh/aliases.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# Feed the output of ag into fzf
-#ag -g "" | fzf
-# Global ignore for the silver searcher
-alias ag='ag --path-to-ignore ~/dotfiles/.ignore'
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 # Now fzf (w/o pipe) will use ag instead of find
