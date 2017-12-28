@@ -13,6 +13,54 @@
         },
         "rules": [
           {
+            "description": "Map Ctrl + right_arrow to left_command + ]",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "right_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "close_bracket",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Map Ctrl + left_arrow to left_command + [",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "left_arrow",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_control"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "open_bracket",
+                    "modifiers": [
+                      "left_command"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
             "description": "Enhance page_down to }",
             "manipulators": [
               {
@@ -216,6 +264,36 @@
               },
               "to": {
                 "key_code": "caps_lock"
+              }
+            }
+          ]
+        },
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": false,
+            "product_id": 24647,
+            "vendor_id": 6127
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": false,
+          "simple_modifications": [
+            {
+              "from": {
+                "key_code": "f11"
+              },
+              "to": {
+                "key_code": "rewind"
+              }
+            },
+            {
+              "from": {
+                "key_code": "f12"
+              },
+              "to": {
+                "key_code": "fastforward"
               }
             }
           ]
