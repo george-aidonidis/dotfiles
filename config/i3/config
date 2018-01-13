@@ -13,8 +13,8 @@ font pango:Sans 9, FontAwesome 8
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec gnome-terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec gnome-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+q kill
@@ -70,9 +70,9 @@ bindsym $mod+t floating toggle
 bindsym $mod+Tab focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $mod+p focus parent
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+c focus child
 
 ##############
 # Workspaces #
@@ -105,6 +105,9 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace $workspace10
+
+# Toggle float mode for specific apps
+# for_window [class="Enpass"] floating enable
 
 # Assign applications to workspaces
 assign [class="Google-chrome"] $workspace2
@@ -165,6 +168,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 
+# TODO: map 'XF86WLAN' key to enable/disable wifi
 # Open applications at startup
 exec spotify
 exec enpass
@@ -178,21 +182,36 @@ exec_always compton -f
 # Set key bindings and screen layout
 exec_always source $HOME/dotfiles/.xinitrc
 # Set background
-exec_always feh --bg-scale $HOME/Pictures/cloudy_hills_by_the5heepdev.jpg
+exec_always feh --bg-scale ~/.config/wall.png
 # Change to greek keyboard layout
-bindsym $mod+space exec "$HOME/dotfiles/scripts/layout-change.sh"
+bindsym $mod+space exec $HOME/dotfiles/scripts/layout-change.sh
 # Screen layout generated from arandr
 exec source $HOME/dotfiles/config/two-screens-layout.sh
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec $HOME/dotfiles/scripts/bose35-profile-switch.sh
 
+##############################################
+#                   Modes                    #
+##############################################
+
+####################
+# Bluetooth Headet #
+####################
+set $bluetooth_headset "  (0)Disconnect -   (1)Connect"
+mode  $bluetooth_headset {
+    bindsym 0 exec $HOME/dotfiles/scripts/disconnect-from-bose.sh; mode "default"
+    bindsym 1 exec $HOME/dotfiles/scripts/connect-to-bose.sh; mode "default"
+    bindsym q mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+F10 mode $bluetooth_headset
 ###################
 # Display chooser #
 ###################
 set $displays "    (0)Laptop -     (1)Main -     (2)All"
 mode  $displays {
     bindsym 0 exec $HOME/dotfiles/config/laptop-screen.sh; mode "default"
-    bindsym 1 exec $HOME/dotfiles/config/main-screen.sh; mode "default"
+    bindsym 1 exec $HOME/dotfiles/config/one-screen.sh; mode "default"
     bindsym 2 exec $HOME/dotfiles/config/two-screens-layout.sh; mode "default"
     bindsym q mode "default"
     bindsym Escape mode "default"
@@ -205,7 +224,7 @@ bindsym $mod+Shift+F7 mode $displays
 set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
     bindsym e exec $psst i3-msg exit; mode "default"
-    bindsym l exec $psst i3lock -c 282828; mode "default"
+    bindsym l exec $psst i3lock -c 282828; mode "default"
     bindsym p exec $psst systemctl poweroff; mode "default"
     bindsym r exec $psst systemctl reboot; mode "default"
 
@@ -229,15 +248,25 @@ set $aqua #689d68
 set $gray #a89984
 set $darkgray #1d2021
 set $white #ffffff
-
 set $softYellow #fbf1c7
-bindsym Control+Shift+F1 exec "/usr/bin/imgur-screenshot"
-bindsym $mod+shift+x exec "$HOME/dotfiles/scripts/lock.sh"
+
+######################
+# Screenshot helpers #
+######################
+bindsym Control+Shift+F1 exec $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
+# TODO: replace with maim
+# bindsym Shift+Print --release exec $screenshot_region_save
+bindsym Control+Shift+F4 exec $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
+
+bindsym $mod+shift+x exec $HOME/dotfiles/scripts/lock.sh
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
+
+# TODO: Find a way to condition wlan and eth to show only one traffic
+# set $wlp "wlp"
 bar {
         position top
-        status_command /usr/bin/bumblebee-status -m spotify weather cpu memory traffic nic bluetooth brightness pasink pasource layout battery date time -p interval=1 memory.usedonly="True" nic.showname=False traffic.exclude="lo,virbr,docker,vboxnet,veth,br,wlp" nic.exclude="lo,virbr,docker,vboxnet,veth,vmnet,br,en" time.format="%H:%M:%S" date.format="%a, %b %d %Y" weather.location="Agios Nikolaos" weather.apikey="80736ccfeba5c5733b8ef98426a301a8" home.path=/home -t gruvbox-powerline
+        status_command /usr/bin/bumblebee-status -m spotify weather cpu memory traffic bluetooth brightness redshift pasink pasource layout battery date time -p interval=1 memory.usedonly="True" nic.showname=False traffic.exclude="lo,virbr,docker,vboxnet,veth,br,wlp" time.format="%H:%M:%S" date.format="%a, %b %d %Y" weather.location="Agios Nikolaos" weather.apikey="80736ccfeba5c5733b8ef98426a301a8" home.path=/home -t gruvbox-powerline
         # status_command i3blocks -c ~/.config/i3/i3blocks.conf
         tray_output primary
         colors {
