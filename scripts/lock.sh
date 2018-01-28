@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Require `scrot`, `imagemagick`, `i3lock`
-icon="$HOME/dotfiles/config/images/key-lock.png"
+icon="$HOME/i3/.config/i3/images/key-lock.png"
 tmpbg='/tmp/screen.png'
 
 (( $# )) && { icon=$1; }
