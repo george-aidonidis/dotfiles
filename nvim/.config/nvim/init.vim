@@ -29,11 +29,11 @@ call plug#end()
 """"""""""""""""""""""
 set lazyredraw
 
-so ~/dotfiles/nvim/custom/key-bindings.vim
-so ~/dotfiles/nvim/custom/search.vim
-so ~/dotfiles/nvim/custom/indent.vim
-so ~/dotfiles/nvim/custom/text-render.vim
-so ~/dotfiles/nvim/custom/folding.vim
-so ~/dotfiles/nvim/custom/user-interface.vim
-so ~/dotfiles/nvim/custom/misc.vim
-so ~/dotfiles/nvim/custom/commands.vim
+so ~/dotfiles/nvim/.config/nvim/custom/key-bindings.vim
+so ~/dotfiles/nvim/.config/nvim/custom/search.vim
+so ~/dotfiles/nvim/.config/nvim/custom/indent.vim
+so ~/dotfiles/nvim/.config/nvim/custom/text-render.vim
+so ~/dotfiles/nvim/.config/nvim/custom/folding.vim
+so ~/dotfiles/nvim/.config/nvim/custom/user-interface.vim
+so ~/dotfiles/nvim/.config/nvim/custom/misc.vim
+so ~/dotfiles/nvim/.config/nvim/custom/commands.vim
