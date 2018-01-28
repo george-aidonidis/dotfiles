@@ -12,6 +12,16 @@
 #######
 alias "gcob=git checkout -b"
 alias "gfp=git fetch --prune"
+# Remove every local branch except master
+# git delete expect master branch
+alias "gdema=git branch | grep -v 'master' | xargs git branch -D"
+# Remove all merged branches
+# git delete merged
+alias "gdme=git branch --merged | grep -v \* | xargs git branch -D"
+
+########
+# Misc #
+########
 alias "xc=xclip"
 # Copy selection to clipboard xcc < "example"
 alias "xcc=xclip -selection clipboard"
