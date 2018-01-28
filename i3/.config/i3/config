@@ -80,6 +80,11 @@ set $workspace1 "1: ?"
 set $workspace2 "2: Browser "
 set $workspace3 "3: Code "
 set $workspace4 "4: Tcs "
+set $workspace5 "5"
+set $workspace6 "6"
+set $workspace7 "7"
+set $workspace8 "8"
+set $workspace9 "9"
 set $workspace10 "10: Music "
 
 # switch to workspace
@@ -87,11 +92,11 @@ bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
+bindsym $mod+7 workspace $workspace7
+bindsym $mod+8 workspace $workspace8
+bindsym $mod+9 workspace $workspace9
 bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
@@ -99,15 +104,17 @@ bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
+bindsym $mod+Shift+7 move container to workspace $workspace7
+bindsym $mod+Shift+8 move container to workspace $workspace8
+bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 # Toggle float mode for specific apps
-# for_window [class="Enpass"] floating enable
+for_window [class="Enpass"] floating enable
+for_window [class="Enpass"] resize set 600 300
+
 
 # Assign applications to workspaces
 assign [class="Google-chrome"] $workspace2
@@ -167,11 +174,15 @@ bindsym XF86Explorer exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
-
+bindsym XF86WLAN exec $HOME/dotfiles/scripts/wifi-toggle.sh
 # TODO: map 'XF86WLAN' key to enable/disable wifi
+
 # Open applications at startup
+exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
+exec nm-applet
 exec spotify
 exec enpass
+exec redshift
 exec parcellite
 
 ###################
@@ -186,7 +197,7 @@ exec_always feh --bg-scale ~/.config/wall.png
 # Change to greek keyboard layout
 bindsym $mod+space exec $HOME/dotfiles/scripts/layout-change.sh
 # Screen layout generated from arandr
-exec source $HOME/dotfiles/config/two-screens-layout.sh
+exec source $HOME/dotfiles/scripts/screens/two-screens-layout.sh
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec $HOME/dotfiles/scripts/bose35-profile-switch.sh
 
@@ -210,9 +221,9 @@ bindsym $mod+Shift+F10 mode $bluetooth_headset
 ###################
 set $displays "    (0)Laptop -     (1)Main -     (2)All"
 mode  $displays {
-    bindsym 0 exec $HOME/dotfiles/config/laptop-screen.sh; mode "default"
-    bindsym 1 exec $HOME/dotfiles/config/one-screen.sh; mode "default"
-    bindsym 2 exec $HOME/dotfiles/config/two-screens-layout.sh; mode "default"
+    bindsym 0 exec $HOME/dotfiles/scripts/screens/laptop-screen.sh; mode "default"
+    bindsym 1 exec $HOME/dotfiles/scripts/screens/one-screen.sh; mode "default"
+    bindsym 2 exec $HOME/dotfiles/scripts/screens/two-screens-layout.sh; mode "default"
     bindsym q mode "default"
     bindsym Escape mode "default"
 }
@@ -224,7 +235,7 @@ bindsym $mod+Shift+F7 mode $displays
 set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
     bindsym e exec $psst i3-msg exit; mode "default"
-    bindsym l exec $psst i3lock -c 282828; mode "default"
+    bindsym l exec betterlockscreen --lock; mode "default"
     bindsym p exec $psst systemctl poweroff; mode "default"
     bindsym r exec $psst systemctl reboot; mode "default"
 
@@ -258,12 +269,10 @@ bindsym Control+Shift+F1 exec $HOME/dotfiles/scripts/screenshot_upload_to_imgur.
 # bindsym Shift+Print --release exec $screenshot_region_save
 bindsym Control+Shift+F4 exec $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
 
-bindsym $mod+shift+x exec $HOME/dotfiles/scripts/lock.sh
+bindsym $mod+shift+x exec betterlockscreen --lock
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-
 # TODO: Find a way to condition wlan and eth to show only one traffic
-# set $wlp "wlp"
 bar {
         position top
         status_command /usr/bin/bumblebee-status -m spotify weather cpu memory traffic bluetooth brightness redshift pasink pasource layout battery date time -p interval=1 memory.usedonly="True" nic.showname=False traffic.exclude="lo,virbr,docker,vboxnet,veth,br,wlp" time.format="%H:%M:%S" date.format="%a, %b %d %Y" weather.location="Agios Nikolaos" weather.apikey="80736ccfeba5c5733b8ef98426a301a8" home.path=/home -t gruvbox-powerline
