@@ -2,8 +2,37 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $Slash_Question 61
 set $mod Mod4
+set $Slash_Question 61
+# qwertyuiop
+set $code_q 24
+set $code_w 25
+set $code_e 26
+set $code_r 27
+set $code_t 28
+set $code_y 29
+set $code_u 30
+set $code_i 31
+set $code_o 32
+set $code_p 33
+# asdfghjkl
+set $code_a 38
+set $code_s 39
+set $code_d 40
+set $code_f 41
+set $code_g 42
+set $code_h 43
+set $code_j 44
+set $code_k 45
+set $code_l 46
+# zxcvbnm
+set $code_z 52
+set $code_x 53
+set $code_c 54
+set $code_v 55
+set $code_b 56
+set $code_n 57
+set $code_m 58
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -17,18 +46,18 @@ bindsym $mod+Return exec gnome-terminal
 # bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
-bindsym $mod+q kill
-bindsym $mod+Shift+q kill
+bindcode $mod+$code_q kill
+bindcode $mod+Shift+$code_q kill
 
 # bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+d exec rofi -show run -lines 6
+bindcode $mod+$code_d exec rofi -show run -lines 6
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindcode $mod+$code_h focus left
+bindcode $mod+$code_j focus down
+bindcode $mod+$code_k focus up
+bindcode $mod+$code_l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -37,10 +66,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindcode $mod+Shift+$code_h move left
+bindcode $mod+Shift+$code_j move down
+bindcode $mod+Shift+$code_k move up
+bindcode $mod+Shift+$code_l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -53,26 +82,26 @@ bindsym $mod+Shift+Right move right
 # Modes #
 #########
 # split in horizontal orientation
-bindsym $mod+semicolon split h
+bindcode $mod+Shift+$code_v split h
 # split in vertical orientation
-bindsym $mod+v split v
+bindcode $mod+$code_v split v
 #
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindcode $mod+$code_f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindcode $mod+$code_s layout stacking
+bindcode $mod+$code_w layout tabbed
+bindcode $mod+$code_e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+t floating toggle
+bindcode $mod+$code_t floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+Tab focus mode_toggle
 
 # focus the parent container
-bindsym $mod+p focus parent
+bindcode $mod+$code_p focus parent
 # focus the child container
-bindsym $mod+c focus child
+bindcode $mod+$code_c focus child
 
 ##############
 # Workspaces #
@@ -124,13 +153,13 @@ assign [class="Enpass"] $workspace1
 for_window [class="Spotify"] move to workspace $workspace10
 
 # Reload the configuration file
-bindsym $mod+Shift+c reload
+bindcode $mod+Shift+$code_c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindcode $mod+Shift+$code_r restart
 # Exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindcode $mod+Shift+$code_e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+r mode "resize"
+bindcode $mod+$code_r mode "resize"
 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -139,10 +168,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindcode $code_h resize shrink width 10 px or 10 ppt
+        bindcode $code_j resize grow height 10 px or 10 ppt
+        bindcode $code_k resize shrink height 10 px or 10 ppt
+        bindcode $code_l resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -212,7 +241,7 @@ set $bluetooth_headset "  (0)Disconnect -   (1)Connect"
 mode  $bluetooth_headset {
     bindsym 0 exec $HOME/dotfiles/scripts/disconnect-from-bose.sh; mode "default"
     bindsym 1 exec $HOME/dotfiles/scripts/connect-to-bose.sh; mode "default"
-    bindsym q mode "default"
+    bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+F10 mode $bluetooth_headset
@@ -224,7 +253,7 @@ mode  $displays {
     bindsym 0 exec $HOME/dotfiles/scripts/screens/laptop-screen.sh; mode "default"
     bindsym 1 exec $HOME/dotfiles/scripts/screens/one-screen.sh; mode "default"
     bindsym 2 exec $HOME/dotfiles/scripts/screens/two-screens-layout.sh; mode "default"
-    bindsym q mode "default"
+    bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
 
@@ -234,12 +263,12 @@ bindsym $mod+Shift+F7 mode $displays
 ###################
 set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
-    bindsym e exec $psst i3-msg exit; mode "default"
-    bindsym l exec betterlockscreen --lock; mode "default"
-    bindsym p exec $psst systemctl poweroff; mode "default"
-    bindsym r exec $psst systemctl reboot; mode "default"
+    bindcode $code_e exec $psst i3-msg exit; mode "default"
+    bindcode $code_l exec betterlockscreen --lock; mode "default"
+    bindcode $code_p exec $psst systemctl poweroff; mode "default"
+    bindcode $code_r exec $psst systemctl reboot; mode "default"
 
-    bindsym q mode "default"
+    bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
 
@@ -269,7 +298,7 @@ bindsym Control+Shift+F1 exec $HOME/dotfiles/scripts/screenshot_upload_to_imgur.
 # bindsym Shift+Print --release exec $screenshot_region_save
 bindsym Control+Shift+F4 exec $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
 
-bindsym $mod+shift+x exec betterlockscreen --lock
+bindcode $mod+shift+$code_x exec betterlockscreen --lock
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 # TODO: Find a way to condition wlan and eth to show only one traffic
@@ -313,13 +342,13 @@ bindsym $mod+Mod1+Shift+minus gaps inner current plus 5
 bindsym $mod+Mod1+Shift+plus gaps inner current minus 5
 
 # Toggle border for all open windows
-bindsym $mod+b [class="^.*"] border toggle
+bindcode $mod+$code_b [class="^.*"] border toggle
 new_window normal 0
 new_float normal 0
 
-bindsym $mod+Mod1+h move workspace to output left
-bindsym $mod+Mod1+l move workspace to output right
-bindsym $mod+Control+l workspace next
-bindsym $mod+Control+h workspace prev
+bindcode $mod+Mod1+$code_h move workspace to output left
+bindcode $mod+Mod1+$code_l move workspace to output right
+bindcode $mod+Control+$code_l workspace next
+bindcode $mod+Control+$code_h workspace prev
 bindsym Control+Tab workspace next
 bindsym Control+Shift+Tab workspace prev
