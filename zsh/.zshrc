@@ -95,6 +95,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Place npm_token on another file
 source $HOME/.npm_token
 
+export MONITOR='eDP-1'
 #Functions
 
 # Fix for arrow-key searching

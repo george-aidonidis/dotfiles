@@ -1,0 +1,395 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+green = #00D965
+orange = #FF4500
+blue = #3581fc
+
+[fonts]
+avant_garde = AvantGarde LT Medium:size=10;3
+droid_sans_mono = DroidSansMonoForPowerline Nerd Font:style=Regular:size:10;3
+font_awesome = FontAwesome:style=Regular:size=10;3
+weather = Weather Icons:style=Regular:size=8;3
+material = MaterialDesignIcons:size=10;1
+
+[bar/example]
+monitor = ${env:MONITOR:}
+;monitor = ${env:MONITOR:eDP-1}
+width = 100%
+height = 20
+radius = 0.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = ${fonts.avant_garde}
+font-1 = ${fonts.droid_sans_mono}
+font-2 = ${fonts.font_awesome}
+font-3 = ${fonts.weather}
+font-4 = ${fonts.material}
+
+modules-left = bspwm i3
+modules-center =
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem volume cpu temperature memory eth wired-network wireless-network archupdates battery date xkeyboard powermenu
+
+tray-position = right
+tray-padding = 2
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.secondary}
+
+label-layout =  %layout%
+label-layout-underline = ${colors.secondary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted =  %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 2
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %index% %icon%
+label-focused-background = ${module/bspwm.label-focused-background}
+label-focused-padding = ${module/bspwm.label-focused-padding}
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index% %icon%
+label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index% %icon%
+label-visible-background = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index% %icon%
+label-urgent-background = ${module/bspwm.label-urgent-background}
+label-urgent-padding = ${module/bspwm.label-urgent-padding}
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8; 
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+
+[module/xbacklight]
+type = internal/xbacklight
+
+format = <label> <bar>
+label = BL
+
+[module/backlight-acpi]
+inherit = module/xbacklight
+type = internal/backlight
+card = acpi_video0
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+; label = %percentage:2%%
+format ="  <label>"
+label =%percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format = " <label>"
+format-prefix-foreground = ${colors.foreground-alt}
+label = %percentage_used%%
+
+[module/wlan]
+type = internal/network
+interface = wlp5s0
+interval = 3.0
+
+format-connected = <ramp-signal> <label-connected>
+label-connected = %{T5}%{T-}
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 1
+ramp-signal-1 = 2
+ramp-signal-2 = 3
+ramp-signal-3 = 4
+ramp-signal-4 = 5
+
+label-font = 5
+[module/eth]
+type = internal/network
+interface = enp4s0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+label-connected = %local_ip%
+
+format-disconnected =
+
+[module/wired-network]
+type = internal/network
+interface = enp4s0
+interval = 1
+
+label-connected =  %upspeed%  %downspeed%
+
+[module/wireless-network]
+type = internal/network
+interface = wlp5s0
+label-connected = %upspeed% %downspeed%
+interval = 1
+accumulate-stats = true
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = " %a, %b %d, %Y"
+;date = "%a, %d/%m/%Y"
+
+time = %H:%M:%S
+time-alt = %H:%M:%S
+
+format-prefix-foreground = ${colors.foreground-alt}
+
+label =  %date%  %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <label-volume>
+label-volume = %percentage%%
+label-volume-foreground = ${root.foreground}
+;label-muted-foreground = #66
+
+label-muted = 
+label-font = 3
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+label-charging = %percentage:3\%%
+label-discharging = %percentage:3\%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+
+ramp-capacity-0-foreground = ${colors.orange}
+
+format-full-foreground = ${colors.green}
+
+animation-charging-framerate = 750
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format-padding = 0
+format-margin = 0
+format-spacing = 0
+format-offset = -5
+format =  <label>
+format-warn =  <label-warn>
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+format-warn-foreground = ${colors.secondary}
+
+[settings]
+screenchange-reload = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+[module/powermenu]
+type = custom/menu
+format-padding = 1
+label-open = ""
+label-close =
+label-separator = "  "
+
+menu-0-0 = ""
+menu-0-0-exec = menu-open-1
+menu-0-1 = ""
+menu-0-1-exec = menu-open-2
+menu-0-2 = ""
+menu-0-2-exec = menu-open-3
+menu-0-3 = ""
+menu-0-3-exec = menu-open-4
+menu-0-4 = ""
+menu-0-4-exec = menu-open-5
+menu-0-5 = ""
+
+menu-1-0 = ""
+menu-1-0-exec = systemctl hibernate -i
+menu-1-1 = ""
+
+menu-2-0 = ""
+menu-2-0-exec = systemctl reboot -i
+menu-2-1 = ""
+
+menu-3-0 = ""
+menu-3-0-exec = systemctl poweroff -i
+menu-3-1 = ""
+
+menu-4-0 = ""
+menu-4-0-exec = i3-msg exit
+menu-4-1 = ""
+
+menu-5-0 = ""
+menu-5-0-exec = setxkbmap "us"; betterlockscreen --lock
+menu-5-1 = ""
+
+[module/spotify]
+type = custom/script
+format-prefix = " "
+format-padding = 1
+format-foreground = ${colors.green}
+; format-underline = ${colors.green}
+interval = 3
+exec = $HOME/dotfiles/scripts/polybar/spotify.sh --title
+exec-if = pgrep -x spotify
+tail = true
+label-maxlen = 35
+click-left = i3-msg workspace "10"
+click-right = playerctl play-pause
+
+[module/openweathermap-simple-icon]
+type = custom/script
+exec = $HOME/dotfiles/scripts/polybar/openweathermap-simple-icon.sh
+interval = 600
+label-font = 4
+format-padding = 0
+format-margin = 0
+format-spacing = 0
+format-offset = 0
+
+[module/openweathermap-simple-text]
+type = custom/script
+exec = $HOME/dotfiles/scripts/polybar/openweathermap-simple-text.sh
+interval = 600
+label-font = 1
+format-offset = -8
+
+[module/archupdates]
+type = custom/script
+interval = 1800
+format-foreground = ${colors.blue}
+format =  <label>
+exec = $HOME/dotfiles/scripts/polybar/archupdates.sh

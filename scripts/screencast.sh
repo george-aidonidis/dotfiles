@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# This is the ffmpeg command that the screencast shortcut in i3 will run.
+
+# Picks a file name for the output file based on availability:
+
+filename="$HOME/Videos/screencast-$(date +%F_%T).mkv"
+
+# The actual ffmpeg command:
+
+if [ $1 = 0 ]; then
+	screen=":0.0"
+else
+	screen=":0.0+1920,0"
+fi
+
+ffmpeg -y \
+-f x11grab \
+-s 1920x1080 \
+-i $screen \
+-f alsa -i default \
+ -c:v libx264 -r 30 -c:a flac $filename
+#-c:v ffvhuff -r 30 -c:a flac $filename
+# -s $(xdpyinfo | grep dimensions | awk '{print $2;}') \
+	#-f pulse -ac 1 -ar 44100 -i default \
