@@ -49,10 +49,12 @@ font pango:Sans 9, FontAwesome 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec gnome-terminal -e tmux
 # bindsym $mod+Return exec i3-sensible-terminal
 
 bindcode $mod+$code_a exec gnome-terminal -e ranger
+
+bindcode $mod+$code_n exec nautilus
 
 # kill focused window
 bindcode $mod+$code_q kill
@@ -168,7 +170,7 @@ bindcode $mod+Shift+$code_c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindcode $mod+Shift+$code_r restart
 # Exit i3 (logs you out of your X session)
-bindcode $mod+Shift+$code_e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindcode $mod+Shift+$code_e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 bindcode $mod+$code_r mode "resize"
 
@@ -204,8 +206,9 @@ bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -R
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+# Requires light package from aur
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 # decrease screen brightness
 
 # Media player controls
 bindsym XF86Search exec playerctl previous
@@ -221,6 +224,7 @@ bindsym XF86WLAN exec $HOME/dotfiles/scripts/wifi-toggle.sh
 exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
 exec nm-applet
 exec spotify
+exec dropbox
 exec enpass
 exec redshift
 exec parcellite

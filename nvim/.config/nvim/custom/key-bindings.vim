@@ -42,7 +42,7 @@ nmap <silent> <UP> :cprev<CR>
 map ; :
 noremap ;; ;
 " bind K to grep word under cursor
-nnoremap K :Ag! <cword><CR>
+nnoremap <leader>a :Ag <C-R><C-W><CR>
 " Close buffer without closing the window
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 " Coding helpers "

@@ -11,8 +11,12 @@ desktop=$(echo $DESKTOP_SESSION)
 
 if type "xrandr"; then
 	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-		MONITOR=$m polybar --reload example &
+    echo $m
+		# MONITOR=$m polybar --reload example &
 	done
+  MONITOR="HDMI-1" polybar --reload example &
+  sleep 1
+  MONITOR="eDP-1" polybar --reload example &
 else
 	polybar --reload example &
 fi

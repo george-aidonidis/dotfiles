@@ -25,6 +25,7 @@ droid_sans_mono = DroidSansMonoForPowerline Nerd Font:style=Regular:size:10;3
 font_awesome = FontAwesome:style=Regular:size=10;3
 weather = Weather Icons:style=Regular:size=8;3
 material = MaterialDesignIcons:size=10;1
+monospace = Monospace:size=10;3
 
 [bar/example]
 monitor = ${env:MONITOR:}
@@ -54,6 +55,7 @@ font-1 = ${fonts.droid_sans_mono}
 font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
+font-5 = ${fonts.monospace}
 
 modules-left = bspwm i3
 modules-center =
@@ -167,20 +169,17 @@ ws-icon-9 = 10;
 [module/xbacklight]
 type = internal/xbacklight
 
-format = <label> <bar>
-label = BL
+output = eDP-1
 
-[module/backlight-acpi]
-inherit = module/xbacklight
-type = internal/backlight
-card = acpi_video0
+label = %percentage%%
+format = <label>
 
 [module/cpu]
+label-font = 6
 type = internal/cpu
 interval = 2
-; label = %percentage:2%%
 format ="  <label>"
-label =%percentage%%
+label =%percentage:2%%
 
 [module/memory]
 type = internal/memory
@@ -188,6 +187,7 @@ interval = 2
 format = " <label>"
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage_used%%
+label-font = 6
 
 [module/wlan]
 type = internal/network
@@ -225,22 +225,23 @@ format-disconnected =
 type = internal/network
 interface = enp4s0
 interval = 1
+label-connected-font = 6
 
-label-connected =  %upspeed%  %downspeed%
+label-connected =  %upspeed:8%  %downspeed:8%
 
 [module/wireless-network]
 type = internal/network
 interface = wlp5s0
-label-connected = %upspeed% %downspeed%
+label-connected =  %upspeed:8%  %downspeed:8%
 interval = 1
 accumulate-stats = true
+label-connected-font = 6
 
 [module/date]
 type = internal/date
 interval = 1
 
 date = " %a, %b %d, %Y"
-;date = "%a, %d/%m/%Y"
 
 time = %H:%M:%S
 time-alt = %H:%M:%S
@@ -253,10 +254,17 @@ label =  %date%  %time%
 type = internal/volume
 
 format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage%%
+format-volume-font = 6
+label-volume-font = 6
+label-volume = %percentage:3%%
 label-volume-foreground = ${root.foreground}
-;label-muted-foreground = #66
-
+format-prefix-underline = ${colors.secondary}
+label-volume-underline = ${colors.secondary}
+label-ramp-volume-0-underline = ${colors.secondary}
+label-ramp-volume-1-underline = ${colors.secondary}
+label-ramp-volume-2-underline = ${colors.secondary}
+label-muted-underline = ${colors.secondary}
+label-muted-font = 6
 label-muted = 
 label-font = 3
 ramp-volume-0 = 
@@ -301,12 +309,14 @@ warn-temperature = 60
 format-padding = 0
 format-margin = 0
 format-spacing = 0
-format-offset = -5
+format-offset = 0
 format =  <label>
 format-warn =  <label-warn>
 
-label = %temperature%
-label-warn = %temperature%
+format-font = 6
+format-warn-font = 6
+label = %temperature:6%
+label-warn = %temperature:6%
 label-warn-foreground = ${colors.secondary}
 format-warn-foreground = ${colors.secondary}
 
@@ -361,7 +371,6 @@ type = custom/script
 format-prefix = " "
 format-padding = 1
 format-foreground = ${colors.green}
-; format-underline = ${colors.green}
 interval = 3
 exec = $HOME/dotfiles/scripts/polybar/spotify.sh --title
 exec-if = pgrep -x spotify

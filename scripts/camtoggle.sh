@@ -9,4 +9,4 @@ x_start=$(($screen_width-$width))
 y_start=$(($screen_height-$height))
 echo $x_start
 echo $y_start
-pkill -f /dev/video || mplayer -vf mirror -geometry $x_start:$y_start -tv driver=v4l2:gain=1:width=$width:height=$height:device=/dev/video0:fps=10:outfmt=rgb16 tv://
+pkill -f /dev/video || mplayer -vf mirror -geometry $x_start:$y_start -tv driver=v4l2:gain=1:width=$width:height=$height:device=/dev/video1:fps=10:outfmt=rgb16 tv://

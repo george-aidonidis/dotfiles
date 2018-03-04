@@ -1,6 +1,7 @@
 #!/bin/bash
 
-FILENAME="$HOME/Pictures/screenshot$(date +%F_%T).png"
+FILENAME="$HOME/Pictures/screenshots/screenshot$(date +%F_%T).png"
 
 maim -s $FILENAME
+notify-send "Saved region to $FILENAME"
 
