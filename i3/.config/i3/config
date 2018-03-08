@@ -49,10 +49,10 @@ font pango:Sans 9, FontAwesome 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal -e tmux
+bindsym $mod+Return exec terminator -e tmux
 # bindsym $mod+Return exec i3-sensible-terminal
 
-bindcode $mod+$code_a exec gnome-terminal -e ranger
+bindcode $mod+$code_a exec terminator -e ranger
 
 bindcode $mod+$code_n exec nautilus
 
@@ -162,7 +162,7 @@ for_window [class="Enpass"] resize set 600 300
 assign [class="Google-chrome"] $ws2
 assign [class="Slack"] $ws4
 assign [class="Code"] $ws3
-assign [class="Enpass"] $ws1
+assign [class="Enpass"] $ws7
 for_window [class="Spotify"] move to workspace $ws10
 
 # Reload the configuration file
@@ -233,7 +233,7 @@ exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 # Custom Commands #
 ###################
 # Apply fade-in/fade-out with the help of compton
-exec_always compton -f
+exec_always compton --config ~/.config/compton.conf -b -f
 # Set key bindings and screen layout
 exec_always source $HOME/dotfiles/.xinitrc
 # Set background
@@ -311,6 +311,7 @@ set $softYellow #fbf1c7
 bindsym Control+Shift+F1 exec $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
 bindsym Shift+Print --release exec $HOME/dotfiles/scripts/save-current-window.sh
 bindsym Control+Print --release exec $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
+bindsym Control+Shift+Print --release exec $HOME/dotfiles/scripts/save-active-screen.sh
 bindsym Control+Shift+F4 exec $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
 
 bindcode $mod+shift+$code_x exec setxkbmap "us"; exec betterlockscreen --lock;
