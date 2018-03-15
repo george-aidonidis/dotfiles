@@ -228,6 +228,8 @@ exec dropbox
 exec enpass
 exec redshift
 exec parcellite
+# Specific directive to enable tap to click on touchpad
+exec xinput set-prop 12 279 1
 exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 ###################
 # Custom Commands #
@@ -311,7 +313,7 @@ set $softYellow #fbf1c7
 bindsym Control+Shift+F1 exec $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
 bindsym Shift+Print --release exec $HOME/dotfiles/scripts/save-current-window.sh
 bindsym Control+Print --release exec $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
-bindsym Control+Shift+Print --release exec $HOME/dotfiles/scripts/save-active-screen.sh
+bindsym Print --release exec $HOME/dotfiles/scripts/save-active-screen.sh
 bindsym Control+Shift+F4 exec $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
 
 bindcode $mod+shift+$code_x exec setxkbmap "us"; exec betterlockscreen --lock;

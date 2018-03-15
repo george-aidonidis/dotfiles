@@ -13,3 +13,6 @@ tags
 .tern-config
 
 vim/plugged
+./ranger/.config/ranger/history
+./ranger/.config/ranger/tagged
+
