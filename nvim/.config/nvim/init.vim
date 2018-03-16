@@ -11,7 +11,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'taohex/lightline-buffer'
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 " Javascript
