@@ -5,6 +5,7 @@
 set $mod Mod4
 
 set $Slash_Question 61
+set $Slash_Pipe 51
 # qwertyuiop
 set $code_q 24
 set $code_w 25
@@ -220,13 +221,16 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86WLAN exec $HOME/dotfiles/scripts/wifi-toggle.sh
 # TODO: map 'XF86WLAN' key to enable/disable wifi
 
+###########
+# Startup #
+###########
 # Open applications at startup
 exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
 exec nm-applet
 exec spotify
 exec dropbox
 exec enpass
-exec redshift
+exec redshift-gtk
 exec parcellite
 # Specific directive to enable tap to click on touchpad
 exec xinput set-prop 12 279 1
@@ -238,6 +242,7 @@ exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 exec_always compton --config ~/.config/compton.conf -b -f
 # Set key bindings and screen layout
 exec_always source $HOME/dotfiles/.xinitrc
+bindcode $mod+Shift+$Slash_Pipe exec source $HOME/dotfiles/.xinitrc
 # Set background
 exec_always feh --bg-scale ~/.config/wall.png
 # Change to greek keyboard layout

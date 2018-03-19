@@ -14,7 +14,7 @@ if type "xrandr"; then
     echo $m
 		# MONITOR=$m polybar --reload example &
 	done
-  MONITOR="HDMI-1" polybar --reload example &
+  MONITOR="DP-1" polybar --reload example &
   sleep 1
   MONITOR="eDP-1" polybar --reload example &
 else

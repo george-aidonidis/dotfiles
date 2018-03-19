@@ -12,8 +12,8 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 " remap arrow keys
 nnoremap <Left> :bprevious<CR>
 nnoremap <Right> :bnext<CR>
-nnoremap <C-n> :bnext<CR>
-nnoremap <C-p> :bprevious<CR>
+nnoremap <C-PAGEDOWN> :bnext<CR>
+nnoremap <C-PAGEUP> :bprevious<CR>
 " Navigate to active panes more easily
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -26,7 +26,7 @@ nnoremap <leader>s <C-w>s
 " Disable highlight until next search
 nnoremap <silent><leader>c :let @/ = ""<CR>
 nnoremap <leader>g :Ag<CR>
-nnoremap <leader>f :Files<CR>
+nnoremap <C-P> :Files<CR>
 " Pass copied text to clipboard (works on normal and visual mode)
 "nnoremap Y "+Y
 "nnoremap y "+y
