@@ -19,9 +19,27 @@ alias "gdema=git branch | grep -v 'master' | xargs git branch -D"
 # git delete merged
 alias "gdme=git branch --merged | grep -v \* | xargs git branch -D"
 
+#######
+# NPM #
+#######
+alias nis="npm install --save "
+alias nid="npm install --save-dev "
+
+########
+# Arch #
+########
+alias update="sudo pacman --noconfirm -Syu && yaourt --aur -Syu --noconfirm"
+
 ########
 # Misc #
 ########
+# Make and enter inside a directory
+# mkdir -p test && cd test ➡️ mkcd test
+alias mkcd='foo(){ mkdir -p "$1"; cd "$1" }; foo '
+
+# Show my ip address
+alias myip="curl http://ipecho.net/plain; echo"
+
 alias "xc=xclip"
 # Copy selection to clipboard xcc < "example"
 alias "xcc=xclip -selection clipboard"
