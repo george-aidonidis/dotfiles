@@ -12,6 +12,7 @@
 #######
 alias "gcob=git checkout -b"
 alias "gfp=git fetch --prune"
+alias "gla=git pull --all"
 # Remove every local branch except master
 # git delete expect master branch
 alias "gdema=git branch | grep -v 'master' | xargs git branch -D"
@@ -22,6 +23,7 @@ alias "gdme=git branch --merged | grep -v \* | xargs git branch -D"
 #######
 # NPM #
 #######
+alias nr="npm run "
 alias nis="npm install --save "
 alias nid="npm install --save-dev "
 
@@ -30,6 +32,11 @@ alias nid="npm install --save-dev "
 ########
 alias update="sudo pacman --noconfirm -Syu && yaourt --aur -Syu --noconfirm"
 
+##########
+# Docker #
+#########
+alias docker-delete-containers="docker rm \$(docker ps -a -q)"
+alias docker-delete-images="docker rmi \$(docker images -a -q) -f"
 ########
 # Misc #
 ########
