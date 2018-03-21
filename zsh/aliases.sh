@@ -37,7 +37,7 @@ alias update="sudo pacman --noconfirm -Syu && yaourt --aur -Syu --noconfirm"
 #########
 alias docker-delete-containers="docker rm \$(docker ps -a -q)"
 alias docker-delete-images="docker rmi \$(docker images -a -q) -f"
-alias docker-stop-all="docker stop $(docker ps -a -q)"
+alias docker-stop-all="docker stop \$(docker ps -a -q)"
 
 ########
 # Misc #
