@@ -1,5 +1,20 @@
 # dotfiles
 
-The dotfiles that I use.
+![screenshot](https://i.imgur.com/q9PPaZZ.jpg)
 
-![cat](http://radio-weblogs.com/0111737/categories/wow/images/cat-on-keyboard-med-001.gif)
+Personal dotfiles that I use for my thinpad E570 (running two screens).
+
+## Programs whose configs can be found here
+
++ i3 (i3-gaps)
++ NeoVim
++ zsh
++ tmux
++ ranger
++ dunst (for notifications)
++ redshift
++ polybar
++ redshift (to adjust color temperature of the screens)
++ compton (For transparency and to stop screen tearing)
++ And many, many little scripts I use
+
