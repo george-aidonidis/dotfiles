@@ -51,6 +51,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec terminator -e tmux
+bindcode $mod+$code_i exec terminator -e htop
 # bindsym $mod+Return exec i3-sensible-terminal
 
 bindcode $mod+$code_a exec terminator -e ranger
@@ -102,7 +103,7 @@ bindcode $mod+$code_v split v
 bindcode $mod+$code_f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindcode $mod+$code_s layout stacking
-bindcode $mod+$code_w layout tabbed
+# bindcode $mod+$code_w layout tabbed
 bindcode $mod+$code_e layout toggle split
 
 # toggle tiling / floating
@@ -240,8 +241,8 @@ exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 ###################
 # Apply fade-in/fade-out with the help of compton
 exec_always compton --config ~/.config/compton.conf -b -f
-# Set key bindings and screen layout
-exec_always source $HOME/dotfiles/.xinitrc
+# Set key bindings
+exec --no-startup-id $HOME/dotfiles/.xinitrc
 bindcode $mod+Shift+$Slash_Pipe exec source $HOME/dotfiles/.xinitrc
 # Set background
 exec_always feh --bg-scale ~/.config/wall.png
@@ -251,6 +252,8 @@ bindsym $mod+space exec $HOME/dotfiles/scripts/layout-change.sh
 exec source $HOME/dotfiles/scripts/screens/two-screens-layout.sh
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec $HOME/dotfiles/scripts/bose35-profile-switch.sh
+
+bindcode $mod+$code_w exec terminator -e sudo wifi-menu
 
 ##############################################
 #                   Modes                    #

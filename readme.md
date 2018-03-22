@@ -18,3 +18,6 @@ Personal dotfiles that I use for my thinpad E570 (running two screens).
 + compton (For transparency and to stop screen tearing)
 + And many, many little scripts I use
 
+## How to setup
+
+Stow is used to help settings things up (instead of manually creating symlinks etc...). In that way you can have a `dotfiles` folder in your `$HOME` folder instead of hacking around on version controlling (like adding root folder and ignoring everything non relevant).
