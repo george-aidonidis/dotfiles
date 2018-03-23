@@ -8,10 +8,8 @@
 ## Key Bindings
 All of the bindings below are in ~/.config/i3/config can all be easily changed. Please note that because of the two layouts that I am using I have defined all keyboard codes to their own variables and use `bindcode` instad of `bindsym`.
 
-Window basics
+##### Window basics
 :rotating_light: Notice the case sensitivity of the shortcuts.
-
-Be sure you play around with these. Be flexible with the basic commands and the rice will grow on you quick.
 
 * `Mod+Enter`: Spawn terminal
 * `Mod+q` or `Q`: Close window
@@ -32,31 +30,19 @@ Be sure you play around with these. Be flexible with the basic commands and the 
 
 Modes are triggered with the following combinations. Then you can press the indicated key to execute the operation.
 
-* `Mod+Shift+F10`: Bluetooth headset
-```
-  (0)Disconnect -   (1)Connect
-```
+* `Mod+Shift+F10`: Bluetooth headset -> Press `0` to Disconnect or 1 to Connect
 
-* `Mod+Shift+F7`: Display chooser
-```
-    (0)Laptop -     (1)Main -     (2)All
-```
+* `Mod+Shift+F7`: Display chooser -> Press `0` to activate Laptop Screen or `1` for the Main or `2` for all screens
 
-* `Mod+Shift+F4`: Session manager
-```
- (E)xit - (L)ock -  (P)oweroff -  (R)eboot
-```
+* `Mod+Shift+F4`: Session manager -> (E)xit (L)ock (P)oweroff (R)eboot
 
-* `Mod+Insert`: Screencast mode
-```
- :  (0)Laptop -  (1)Main
-```
+* `Mod+Insert`: Screencast mode -> (0)Laptop - (1)Main
 
-* `Mod+R`: Resize mode
-Press `h/j/k/l` to resize the windows accordingily
+* `Mod+R`: Resize mode -> Press `h/j/k/l` to resize the windows accordingily
 
 
 ##### Workspaces
+
 There are ten workspaces. They work just like those in vanilla i3 with some additions.
 
 * `Mod+(Number)`: Go to that number workspace
@@ -77,4 +63,5 @@ There are ten workspaces. They work just like those in vanilla i3 with some addi
 * Mod+Delete -- kills ffmpeg, thus ending recordings
 
 ##### Other buttons
-I've mapped those extra buttons that some keyboards have (play and pause buttons, email, webbrowsing buttons, etc.) to what you would expect.
+
+...

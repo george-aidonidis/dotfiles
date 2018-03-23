@@ -253,7 +253,7 @@ exec source $HOME/dotfiles/scripts/screens/two-screens-layout.sh
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec $HOME/dotfiles/scripts/bose35-profile-switch.sh
 
-bindcode $mod+$code_w exec terminator -e sudo wifi-menu
+bindcode $mod+$code_w exec terminator -e "sudo wifi-menu"
 
 ##############################################
 #                   Modes                    #
