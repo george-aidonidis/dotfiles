@@ -1,5 +1,19 @@
 # i3 (i3-gaps)
 
+<!-- TOC -->
+
+- [i3 (i3-gaps)](#i3-i3-gaps)
+  - [Basic goals:](#basic-goals)
+  - [Key Bindings](#key-bindings)
+        - [Window basics](#window-basics)
+        - [Basic Programs](#basic-programs)
+        - [Modes](#modes)
+        - [Workspaces](#workspaces)
+        - [Recording](#recording)
+        - [Other buttons](#other-buttons)
+
+<!-- /TOC -->
+
 ## Basic goals:
 * Borderless: Programs should be simple, I found borders to be too distracting (you can always enable them by pressing `Mod+B`)
 * Keyboard/vim-alike: The approach is to use vim key bindings
