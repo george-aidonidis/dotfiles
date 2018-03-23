@@ -1,16 +1,15 @@
 # i3 (i3-gaps)
 
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
-- [i3 (i3-gaps)](#i3-i3-gaps)
-  - [Basic goals:](#basic-goals)
-  - [Key Bindings](#key-bindings)
-        - [Window basics](#window-basics)
-        - [Basic Programs](#basic-programs)
-        - [Modes](#modes)
-        - [Workspaces](#workspaces)
-        - [Recording](#recording)
-        - [Other buttons](#other-buttons)
+- [Basic goals:](#basic-goals)
+- [Key Bindings](#key-bindings)
+      - [Window basics](#window-basics)
+      - [Basic Programs](#basic-programs)
+      - [Modes](#modes)
+      - [Workspaces](#workspaces)
+      - [Recording](#recording)
+      - [Other buttons](#other-buttons)
 
 <!-- /TOC -->
 

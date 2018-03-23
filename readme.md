@@ -1,5 +1,5 @@
-dotfiles :computer:
-<!-- TOC -->
+# dotfiles :computer:
+<!-- TOC depthFrom:2 -->
 
 - [Programs whose configs can be found here](#programs-whose-configs-can-be-found-here)
 - [How to setup](#how-to-setup)

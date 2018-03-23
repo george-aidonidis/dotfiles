@@ -1,10 +1,9 @@
 # Helpful scripts
-<!-- TOC -->
+<!-- TOC depthFrom:2 -->
 
-- [Helpful scripts](#helpful-scripts)
-  - [Polybar](#polybar)
-  - [Screens](#screens)
-  - [Scripts on root folder](#scripts-on-root-folder)
+- [Polybar](#polybar)
+- [Screens](#screens)
+- [Scripts on root folder](#scripts-on-root-folder)
 
 <!-- /TOC -->
 Various script to ease automating tasks or gather functions to use globally. Please note that most of them will not suit your needs and that you will have to modify them.
