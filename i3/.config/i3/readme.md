@@ -4,12 +4,12 @@
 
 - [Basic goals:](#basic-goals)
 - [Key Bindings](#key-bindings)
-      - [Window basics](#window-basics)
-      - [Basic Programs](#basic-programs)
-      - [Modes](#modes)
-      - [Workspaces](#workspaces)
-      - [Recording](#recording)
-      - [Other buttons](#other-buttons)
+  - [Window basics](#window-basics)
+  - [Basic Programs](#basic-programs)
+  - [Modes](#modes)
+  - [Workspaces](#workspaces)
+  - [Recording](#recording)
+  - [Other buttons](#other-buttons)
 
 <!-- /TOC -->
 
@@ -21,7 +21,7 @@
 ## Key Bindings
 All of the bindings below are in ~/.config/i3/config can all be easily changed. Please note that because of the two layouts that I am using I have defined all keyboard codes to their own variables and use `bindcode` instad of `bindsym`.
 
-##### Window basics
+### Window basics
 :rotating_light: Notice the case sensitivity of the shortcuts.
 
 * `Mod+Enter`: Spawn terminal
@@ -33,13 +33,13 @@ All of the bindings below are in ~/.config/i3/config can all be easily changed. 
 * `Mod+H/J/K/L`: Move a window around
 * `Mod+Space`: Change keyboard layout (en/gr)
 
-##### Basic Programs
+### Basic Programs
 
 * `Mod+a`: ranger (file browser/manager)
 * `Mod+i`: htop (system info)
 * `mod+w`: wifi-menu (accessing wifi networks)
 
-##### Modes
+### Modes
 
 Modes are triggered with the following combinations. Then you can press the indicated key to execute the operation.
 
@@ -54,7 +54,7 @@ Modes are triggered with the following combinations. Then you can press the indi
 * `Mod+R`: Resize mode -> Press `h/j/k/l` to resize the windows accordingily
 
 
-##### Workspaces
+### Workspaces
 
 There are ten workspaces. They work just like those in vanilla i3 with some additions.
 
@@ -67,7 +67,7 @@ There are ten workspaces. They work just like those in vanilla i3 with some addi
 * `Mod+Ctrl+h`: Go to left workspaceright
 * `Mod+Ctrl+l`: Go to right workspace
 
-##### Recording
+### Recording
 
 * Print Screen: Take a screenshot of the active screen and save it under `Pictures/screenshots/`
 * Ctrl+Shift+F1: Capture a region and upload it to imgur
@@ -75,6 +75,6 @@ There are ten workspaces. They work just like those in vanilla i3 with some addi
 * Mod+Insert -- Screencast mode
 * Mod+Delete -- kills ffmpeg, thus ending recordings
 
-##### Other buttons
+### Other buttons
 
 ...
