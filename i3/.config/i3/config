@@ -64,7 +64,7 @@ bindcode $mod+Shift+$code_q kill
 
 # bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindcode $mod+$code_d exec rofi -show run -lines 6
+bindcode $mod+$code_d exec "rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons"
 
 # change focus
 bindcode $mod+$code_h focus left
@@ -154,6 +154,7 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Toggle float mode for specific apps
+for_window [class="Gnome-calculator"] floating enable
 for_window [class="Peek"] floating enable
 for_window [class="Peek"] resize set 600 300
 for_window [class="Enpass"] floating enable
@@ -242,7 +243,7 @@ exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 # Apply fade-in/fade-out with the help of compton
 exec_always compton --config ~/.config/compton.conf -b -f
 # Set key bindings
-exec --no-startup-id $HOME/dotfiles/.xinitrc
+exec_always --no-startup-id $HOME/dotfiles/.xinitrc
 bindcode $mod+Shift+$Slash_Pipe exec source $HOME/dotfiles/.xinitrc
 # Set background
 exec_always feh --bg-scale ~/.config/wall.png

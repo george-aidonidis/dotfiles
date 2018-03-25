@@ -59,7 +59,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = bspwm i3
 modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem volume cpu temperature memory eth wired-network wireless-network archupdates battery date xkeyboard powermenu
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight volume cpu temperature memory eth wired-network wireless-network archupdates battery date xkeyboard powermenu
 
 tray-position = right
 tray-padding = 2
@@ -259,10 +259,7 @@ label-volume-font = 6
 label-volume = %percentage:3%%
 label-volume-foreground = ${root.foreground}
 format-prefix-underline = ${colors.secondary}
-label-volume-underline = ${colors.secondary}
-label-ramp-volume-0-underline = ${colors.secondary}
-label-ramp-volume-1-underline = ${colors.secondary}
-label-ramp-volume-2-underline = ${colors.secondary}
+format-volume-underline = ${colors.secondary}
 label-muted-underline = ${colors.secondary}
 label-muted-font = 6
 label-muted = 
@@ -300,6 +297,15 @@ ramp-capacity-0-foreground = ${colors.orange}
 format-full-foreground = ${colors.green}
 
 animation-charging-framerate = 750
+
+[module/backlight]
+type = internal/backlight
+format =  <label>
+card = intel_backlight
+enable-scroll = true
+
+; XRandR output to get get values from
+; Default: the monitor defined for the running bar
 
 [module/temperature]
 type = internal/temperature
