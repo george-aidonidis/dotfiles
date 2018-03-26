@@ -64,3 +64,13 @@ alias "npm-show-global=npm list -g --depth=0"
 #ag -g "" | fzf
 # Global ignore for the silver searcher
 alias ag='ag --path-to-ignore ~/dotfiles/.ignore'
+
+transfer() {
+    # write to output to tmpfile because of progress bar
+    tmpfile=$(mktemp -t transferXXX)
+    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+    cat $tmpfile;
+    rm -f $tmpfile;
+}
+
+alias "transfer=transfer"
