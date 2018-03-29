@@ -1,0 +1,6 @@
+[core]
+	editor = nvim
+	excludesfile = /home/george/.gitignore_global
+[user]
+	name = George Aidonidis
+	email = george.aidonidis@gmail.com

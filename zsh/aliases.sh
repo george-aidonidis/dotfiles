@@ -24,6 +24,7 @@ alias "gdme=git branch --merged | grep -v \* | xargs git branch -D"
 # NPM #
 #######
 alias nr="npm run "
+alias ni="npm install "
 alias nis="npm install --save "
 alias nid="npm install --save-dev "
 
@@ -66,11 +67,8 @@ alias "npm-show-global=npm list -g --depth=0"
 alias ag='ag --path-to-ignore ~/dotfiles/.ignore'
 
 transfer() {
-    # write to output to tmpfile because of progress bar
-    tmpfile=$(mktemp -t transferXXX)
-    curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
-    cat $tmpfile;
-    rm -f $tmpfile;
-}
-
-alias "transfer=transfer"
+  tmpfile=$(mktemp -t transferXXX);
+  curl --progress-bar --upload-file $1 https://transfer.sh/$(basename $1) >> $tmpfile;
+  cat $tmpfile;
+  rm -f $tmpfile;
+};

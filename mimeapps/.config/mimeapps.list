@@ -1,0 +1,12 @@
+[Added Associations]
+text/plain=visual-studio-code.desktop;
+video/x-msvideo=vlc.desktop;mplayer.desktop;
+video/mp4=vlc.desktop;mplayer.desktop;
+image/png=org.gnome.gThumb.desktop;
+image/svg+xml=org.gnome.gedit.desktop;org.gnome.gThumb.desktop;
+application/pdf=org.gnome.gThumb.desktop;
+image/jpeg=org.gnome.gThumb.desktop;
+application/zip=gzdoom.desktop;
+
+[Default Applications]
+video/mp4=vlc.desktop

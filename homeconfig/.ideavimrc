@@ -1,0 +1,82 @@
+""""""""""""""""
+" Key bindings "
+""""""""""""""""
+" Map leader key to space
+let mapleader = " "
+let g:mapleader = " "
+" Easily navigate up/down on text in the same line
+nnoremap j gj
+nnoremap k gk
+" Show all buffers
+nnoremap <F5> :buffers<CR>:buffer<Space>
+" remap arrow keys
+nnoremap <Left> :bprevious<CR>
+nnoremap <Right> :bnext<CR>
+nnoremap <C-PAGEDOWN> :bnext<CR>
+nnoremap <C-PAGEUP> :bprevious<CR>
+" Navigate to active panes more easily
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+" Split tab vertically
+nnoremap <leader>v <C-w>v
+" Split tab horizontally
+nnoremap <leader>s <C-w>s
+" Disable highlight until next search
+nnoremap <silent><leader>c :let @/ = ""<CR>
+" Pass copied text to clipboard (works on normal and visual mode)
+"nnoremap Y "+Y
+"nnoremap y "+y
+"vnoremap y "+y
+"nnoremap D "+D
+"nnoremap d "+d
+"vnoremap d "+d
+" Make buffer modifiable
+set ma
+" Jump through searches easily
+nmap <silent> <DOWN> :cnext<CR>
+nmap <silent> <UP> :cprev<CR>
+map ; :
+noremap ;; ;
+" bind K to grep word under cursor
+" Close buffer without closing the window
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+" Coding helpers "
+inoremap [<CR> [<CR>]<C-o>O
+inoremap {<CR> {<CR>}<C-o>O
+" Javascript
+inoremap <leader>clr console.dir();<esc>F(a
+inoremap <leader>clg console.log();<esc>F(a
+inoremap <leader>cls console.log(JSON.stringify(, null, 2));<esc>F(a
+vnoremap <leader>clr dOconsole.dir(<esc>pA);<esc>$
+vnoremap <leader>clg dOconsole.log(<esc>pA);<esc>$
+vnoremap <leader>cls dOconsole.log(JSON.stringify(<esc>pA));<esc>$
+
+""""""""""""""""""
+" Text rendering "
+""""""""""""""""""
+" Avoid wrapping a line in the middle of a word.
+set linebreak
+" Enable line wrapping.
+set wrap
+" The number of screen lines to keep above and below the cursor.
+set scrolloff=3
+" The number of screen columns to keep to the left and right of the cursor.
+set sidescrolloff=5
+" Enable syntax highlighting.
+syntax enable
+set list listchars=tab:»·,trail:·  " Display extra whitespace characters
+
+""""""""""""""""""
+" Search options "
+""""""""""""""""""
+" Highlight query words on search
+set hlsearch
+" Incremental search that shows partial matches
+set incsearch
+" Automatically switch search to case-sensitive when search query contains
+" an uppercase letter.
+set ignorecase
+" highlight matching [{()}]
+set showmatch
