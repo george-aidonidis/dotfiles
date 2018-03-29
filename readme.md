@@ -31,6 +31,7 @@ Stow is used to help settings things up (instead of manually creating symlinks e
 
 ----
 Naive script that installs :poop: (please, read its contents before running since it's going to overwrite things)
+Check contents of script [here](./install.sh)
 
 ```sh
 $ chmod +x install.sh

@@ -30,15 +30,15 @@ echo "- tmux"
 echo "Press Ctrl+C to quit now, or Enter to continue"
 read -p ""
 
-# stow compton
-# stow dunst
-# stow i3
-# stow idea
-# stow mimeapps
-# stow nvim
-# stow polybar
-# stow ranger
-# stow redshift
-# stow rofi
-# stow terminator
-# stow tmux
+stow compton
+stow dunst
+stow i3
+stow idea
+stow mimeapps
+stow nvim
+stow polybar
+stow ranger
+stow redshift
+stow rofi
+stow terminator
+stow tmux
