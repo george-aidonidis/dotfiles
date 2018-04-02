@@ -8,6 +8,8 @@ cyn=$'\e[1;36m'
 white=$'\e[0m'
 yellow=$'\e[0;33m'
 
+mkdir -p /home/$USER/tmp/
+yaourt -s --noconfirm zsh-autosuggestions
 ## declare an array variable
 declare -a arr=("stow" "compton" "dunst" "i3" "nvim" "polybar" "ranger" "redshift" "rofi" "terminator" "tmux" "zsh")
 
