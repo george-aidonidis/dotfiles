@@ -52,7 +52,7 @@ export UPDATE_ZSH_DAYS=3
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git nyan vi-mode)
 
-source $HOME/dotfiles/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
