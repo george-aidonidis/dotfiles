@@ -42,3 +42,4 @@ $ ./install.sh
 
 * [Scripts](/scripts/readme.md)
 * [i3](/i3/.config/i3/readme.md)
+* [polybar](/polybar/.config/polybar/readme.md)
