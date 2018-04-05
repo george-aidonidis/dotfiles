@@ -10,6 +10,8 @@
   - [Workspaces](#workspaces)
   - [Recording](#recording)
   - [Other buttons](#other-buttons)
+- [Appearance](#appearance)
+- [Packages](#packages)
 
 <!-- /TOC -->
 
@@ -78,3 +80,22 @@ There are ten workspaces. They work just like those in vanilla i3 with some addi
 ### Other buttons
 
 ...
+
+## Appearance
+
+You can use `lxappearance` and configure some basic settings regarding windows title colors etc...
+
+Here is what lxappearance looks like:
+
+![lxappearance](https://i.imgur.com/jrPrlNf.png)
+
+You should also apply the settings inside the `~/.config/.gtk3.0/settings.ini` file since some apps are using that to configure their styling.
+Please note that I have included the `breeze` theme inside the [.Xresources](../../../homeconfig/.Xresources) file (`breeze` is also included inside the [install](../../../install.sh) script).
+
+## Packages
+
+Here are important packages that current i3 configuration uses:
+
+* [light-git](https://aur.archlinux.org/packages/light-git): Used for controlling screen brightness
+* [playerctl](https://www.archlinux.org/packages/community/x86_64/playerctl/): Used for controlling play/pause/next/forward/stop etc... media keys.
+* [betterlockscreen](https://aur.archlinux.org/packages/betterlockscreen-git/): A nice lock screen (will pick one random picture from `~/Pictures/Wallpapers folder, so make sure to have one there or change the path to your likings)

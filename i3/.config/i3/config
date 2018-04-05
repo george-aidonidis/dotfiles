@@ -50,13 +50,13 @@ font pango:Sans 9, FontAwesome 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator -e tmux
-bindcode $mod+$code_i exec terminator -e htop
+bindsym $mod+Return exec --no-startup-id terminator -e tmux
+bindcode $mod+$code_i exec --no-startup-id terminator -e htop
 # bindsym $mod+Return exec i3-sensible-terminal
 
-bindcode $mod+$code_a exec terminator -e ranger
+bindcode $mod+$code_a exec --no-startup-id terminator -e ranger
 
-bindcode $mod+$code_n exec nautilus
+bindcode $mod+$code_n exec --no-startup-id nautilus
 
 # kill focused window
 bindcode $mod+$code_q kill
@@ -64,7 +64,7 @@ bindcode $mod+Shift+$code_q kill
 
 # bindsym $mod+d exec dmenu_run
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindcode $mod+$code_d exec "rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons"
+bindcode $mod+$code_d exec --no-startup-id "rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons"
 
 # change focus
 bindcode $mod+$code_h focus left
@@ -204,9 +204,9 @@ mode "resize" {
 # Custom Key Bindings #
 #######################
 # Keyboard media controls
-bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
-bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
+bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
 
 # Sreen brightness controls
 # Requires light package from aur
@@ -214,47 +214,48 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 # increase screen b
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 # decrease screen brightness
 
 # Media player controls
-bindsym XF86Search exec playerctl previous
-bindsym XF86LaunchA exec playerctl play-pause
-bindsym XF86Explorer exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86WLAN exec $HOME/dotfiles/scripts/wifi-toggle.sh
-# TODO: map 'XF86WLAN' key to enable/disable wifi
+bindsym $mod+F10 exec --no-startup-id playerctl previous
+bindsym $mod+F11 exec --no-startup-id playerctl play-pause
+bindsym $mod+F12 exec --no-startup-id playerctl next
+
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86WLAN exec --no-startup-id $HOME/dotfiles/scripts/wifi-toggle.sh
 
 ###########
 # Startup #
 ###########
 # Open applications at startup
 exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
-exec nm-applet
-exec spotify
-exec dropbox
-exec enpass
-exec redshift-gtk
-exec parcellite
+exec --no-startup-id nm-applet
+exec --no-startup-id spotify
+exec --no-startup-id dropbox
+exec --no-startup-id enpass
+exec --no-startup-id redshift-gtk
+exec --no-startup-id parcellite
 # Specific directive to enable tap to click on touchpad
-exec xinput set-prop 11 277 1
+# exec xinput set-prop 11 277 1
 exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 ###################
 # Custom Commands #
 ###################
 # Apply fade-in/fade-out with the help of compton
-exec_always compton --config ~/.config/compton.conf -b -f
+exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 # Set key bindings
 exec_always --no-startup-id source $HOME/dotfiles/.xinitrc
-bindcode $mod+Shift+$Slash_Pipe exec source $HOME/dotfiles/.xinitrc
+bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xinitrc
 # Set background
-exec_always feh --bg-scale ~/.config/wall.png
+exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
 # Change to greek keyboard layout
-bindsym $mod+space exec $HOME/dotfiles/scripts/layout-change.sh
+bindsym $mod+space exec --no-startup-id $HOME/dotfiles/scripts/layout-change.sh
 # Screen layout generated from arandr
-exec source $HOME/dotfiles/scripts/screens/two-screens-layout.sh
+exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
 # Assign profile switch for bose35 headset to keyboard shortcut
-bindcode Control+Shift+$Slash_Question exec $HOME/dotfiles/scripts/bose35-profile-switch.sh
+bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
 
-bindcode $mod+$code_w exec terminator -e "sudo wifi-menu"
+bindcode $mod+$code_w exec --no-startup-id terminator -e "sudo wifi-menu"
 
 ##############################################
 #                   Modes                    #
@@ -265,8 +266,8 @@ bindcode $mod+$code_w exec terminator -e "sudo wifi-menu"
 ####################
 set $bluetooth_headset "  (0)Disconnect -   (1)Connect"
 mode  $bluetooth_headset {
-    bindsym 0 exec $HOME/dotfiles/scripts/disconnect-from-bose.sh; mode "default"
-    bindsym 1 exec $HOME/dotfiles/scripts/connect-to-bose.sh; mode "default"
+    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/disconnect-from-bose.sh; mode "default"
+    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/connect-to-bose.sh; mode "default"
     bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
@@ -274,11 +275,12 @@ bindsym $mod+Shift+F10 mode $bluetooth_headset
 ###################
 # Display chooser #
 ###################
-set $displays "    (0)Laptop -     (1)Main -     (2)All"
+set $displays "    (0)Laptop -     (1)Main -     (2)H -     (3)V"
 mode  $displays {
-    bindsym 0 exec $HOME/dotfiles/scripts/screens/laptop-screen.sh; mode "default"
-    bindsym 1 exec $HOME/dotfiles/scripts/screens/one-screen.sh; mode "default"
-    bindsym 2 exec $HOME/dotfiles/scripts/screens/two-screens-layout.sh; mode "default"
+    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screens/laptop-screen.sh; mode "default"
+    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screens/one-screen.sh; mode "default"
+    bindsym 2 exec --no-startup-id $HOME/dotfiles/scripts/screens/two-screens-layout.sh; mode "default"
+    bindsym 3 exec --no-startup-id $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh; mode "default"
     bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
@@ -289,10 +291,10 @@ bindsym $mod+Shift+F7 mode $displays
 ###################
 set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
-    bindcode $code_e exec $psst i3-msg exit; mode "default"
-    bindcode $code_l exec setxkbmap "us"; exec betterlockscreen --lock; mode "default"
-    bindcode $code_p exec $psst systemctl poweroff; mode "default"
-    bindcode $code_r exec $psst systemctl reboot; mode "default"
+    bindcode $code_e exec --no-startup-id $psst i3-msg exit; mode "default"
+    bindcode $code_l exec --no-startup-id setxkbmap "us"; exec --no-startup-id betterlockscreen --lock; mode "default"
+    bindcode $code_p exec --no-startup-id $psst systemctl poweroff; mode "default"
+    bindcode $code_r exec --no-startup-id $psst systemctl reboot; mode "default"
 
     bindcode $code_q mode "default"
     bindsym Escape mode "default"
@@ -319,26 +321,26 @@ set $softYellow #fbf1c7
 ######################
 # Screenshot helpers #
 ######################
-bindsym Control+Shift+F1 exec $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
-bindsym Shift+Print --release exec $HOME/dotfiles/scripts/save-current-window.sh
-bindsym Control+Print --release exec $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
-bindsym Print --release exec $HOME/dotfiles/scripts/save-active-screen.sh
-bindsym Control+Shift+F4 exec $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
+bindsym Control+Shift+F1 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
+bindsym Shift+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window.sh
+bindsym Control+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
+bindsym Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-active-screen.sh
+bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
 
-bindcode $mod+shift+$code_x exec setxkbmap "us"; exec betterlockscreen --lock;
+bindcode $mod+shift+$code_x exec --no-startup-id setxkbmap "us"; exec --no-startup-id betterlockscreen --lock;
 
 ##############
 # Screencast #
 ##############
 set $screencastmode " :  (0)Laptop -  (1)Main"
 mode  $screencastmode {
-    bindsym 0 exec $HOME/dotfiles/scripts/screencast.sh 0; mode "default"
-    bindsym 1 exec $HOME/dotfiles/scripts/screencast.sh 1; mode "default"
+    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 0; mode "default"
+    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 1; mode "default"
     bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Insert mode $screencastmode
-bindsym $mod+Delete exec $stoprec
+bindsym $mod+Delete exec --no-startup-id $stoprec
 
 # Bindings to make the webcam float and stick.
 for_window [class="MPlayer"] floating enable
@@ -348,29 +350,6 @@ no_focus [class="MPlayer"]
 
 bindsym $mod+Home exec --no-startup-id $HOME/dotfiles/scripts/camtoggle.sh
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-# TODO: Find a way to condition wlan and eth to show only one traffic
-# bar {
-#         position top
-#         status_command /usr/bin/bumblebee-status -m spotify weather cpu memory traffic bluetooth brightness redshift pasink pasource layout battery date time -p interval=1 memory.usedonly="True" nic.showname=False traffic.exclude="lo,virbr,docker,vboxnet,veth,br,wlp" time.format="%H:%M:%S" date.format="%a, %b %d %Y" weather.location="Agios Nikolaos" weather.apikey="80736ccfeba5c5733b8ef98426a301a8" home.path=/home -t gruvbox-powerline
-#         # status_command i3blocks -c ~/.config/i3/i3blocks.conf
-#         tray_output primary
-#         colors {
-#         background $bg
-#         # text color used for blocks that do not have a color specified.
-#         statusline $softYellow
-#         # workspaces section
-#         #                    border  backgr. text
-#         focused_workspace    $aqua $aqua $darkgray
-#         inactive_workspace   $darkgray $darkgray $softYellow
-#         active_workspace     $darkgray $darkgray $softYellow
-#         urgent_workspace     $red $red $bg
-#     }
-# }
-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-
-# blue gruvbox
 # class                 border|backgr|text|indicator|child_border
 client.focused          $blue $blue $darkgray $purple $darkgray
 client.focused_inactive $darkgray $darkgray $white $purple $darkgray
@@ -397,6 +376,8 @@ new_float normal 0
 
 bindcode $mod+Mod1+$code_h move workspace to output left
 bindcode $mod+Mod1+$code_l move workspace to output right
+bindcode $mod+Mod1+$code_j move workspace to output down
+bindcode $mod+Mod1+$code_k move workspace to output up
 bindcode $mod+Control+$code_l workspace next
 bindcode $mod+Control+$code_h workspace prev
 bindsym Control+Tab workspace next

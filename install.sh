@@ -62,5 +62,8 @@ echo "$grn $white Changed position of window buttons to left side (gnome)"
 echo "$yellow$white"
 echo "  Installing tmux plugin manager"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm<Paste>
-sudo pacman -S polybar tmux rofi compton neovim redshift dunst terminator gpicview jq peek feh maim xclip arandr w3m the_silver_searcher
-yaourt -S i3-gaps polybar code betterlockscreen-git insomnia ngrok pgweb-bin robo3t-bin
+sudo pacman -S polybar tmux rofi compton neovim redshift dunst terminator gpicview jq peek feh maim xclip arandr w3m the_silver_searcher lxappearance playerctl dialog xcursor-breeze
+yaourt -S i3-gaps polybar code betterlockscreen-git insomnia ngrok pgweb-bin robo3t-bin light-git
+
+sudo mkdir -p /data/db
+sudo chown -R $USER /data/db
