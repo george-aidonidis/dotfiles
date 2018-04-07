@@ -1,2 +1,2 @@
-setxkbmap us -option caps:swapescape
-setxkbmap us -option ctrl:swap_lalt_lctl
+setxkbmap us,gr -option caps:swapescape
+setxkbmap us,gr -option ctrl:swap_lalt_lctl

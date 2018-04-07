@@ -163,6 +163,7 @@ for_window [class="Enpass"] resize set 600 300
 
 # Assign applications to workspaces
 assign [class="Google-chrome"] $ws2
+assign [class="Firefox"] $ws2
 assign [class="Slack"] $ws4
 assign [class="Code"] $ws3
 assign [class="Enpass"] $ws7
@@ -236,6 +237,7 @@ exec --no-startup-id enpass
 exec --no-startup-id redshift-gtk
 exec --no-startup-id parcellite
 # Specific directive to enable tap to click on touchpad
+exec_always --no-startup-id $HOME/dotfiles/scripts/enable-touchpad-tapping.sh
 # exec xinput set-prop 11 277 1
 exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 ###################
@@ -249,7 +251,8 @@ bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xini
 # Set background
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
 # Change to greek keyboard layout
-bindsym $mod+space exec --no-startup-id $HOME/dotfiles/scripts/layout-change.sh
+# bindsym $mod+space exec --no-startup-id $HOME/dotfiles/scripts/layout-change.sh
+bindsym $mod+space exec --no-startup-id xkb-switch -n
 # Screen layout generated from arandr
 exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
 # Assign profile switch for bose35 headset to keyboard shortcut
@@ -292,7 +295,7 @@ bindsym $mod+Shift+F7 mode $displays
 set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
     bindcode $code_e exec --no-startup-id $psst i3-msg exit; mode "default"
-    bindcode $code_l exec --no-startup-id setxkbmap "us"; exec --no-startup-id betterlockscreen --lock; mode "default"
+    bindcode $code_l exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock; mode "default"
     bindcode $code_p exec --no-startup-id $psst systemctl poweroff; mode "default"
     bindcode $code_r exec --no-startup-id $psst systemctl reboot; mode "default"
 
@@ -327,7 +330,7 @@ bindsym Control+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save
 bindsym Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-active-screen.sh
 bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
 
-bindcode $mod+shift+$code_x exec --no-startup-id setxkbmap "us"; exec --no-startup-id betterlockscreen --lock;
+bindcode $mod+shift+$code_x exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock;
 
 ##############
 # Screencast #
@@ -382,3 +385,7 @@ bindcode $mod+Control+$code_l workspace next
 bindcode $mod+Control+$code_h workspace prev
 bindsym Control+Tab workspace next
 bindsym Control+Shift+Tab workspace prev
+
+# i3-gnome
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id gnome-power-manager
