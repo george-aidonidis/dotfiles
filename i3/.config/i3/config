@@ -251,7 +251,6 @@ bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xini
 # Set background
 exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
 # Change to greek keyboard layout
-# bindsym $mod+space exec --no-startup-id $HOME/dotfiles/scripts/layout-change.sh
 bindsym $mod+space exec --no-startup-id xkb-switch -n
 # Screen layout generated from arandr
 exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
