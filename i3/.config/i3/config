@@ -166,6 +166,7 @@ assign [class="Google-chrome"] $ws2
 assign [class="Firefox"] $ws2
 assign [class="Slack"] $ws4
 assign [class="Code"] $ws3
+assign [class="Atom"] $ws3
 assign [class="Enpass"] $ws7
 for_window [class="Spotify"] move to workspace $ws10
 
