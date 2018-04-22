@@ -387,5 +387,5 @@ bindsym Control+Tab workspace next
 bindsym Control+Shift+Tab workspace prev
 
 # i3-gnome
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-exec_always --no-startup-id gnome-power-manager
+# exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+# exec_always --no-startup-id gnome-power-manager
