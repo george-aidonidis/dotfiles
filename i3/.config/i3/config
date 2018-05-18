@@ -244,8 +244,6 @@ exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 ###################
 # Custom Commands #
 ###################
-# Apply fade-in/fade-out with the help of compton
-exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 # Set key bindings
 exec_always --no-startup-id source $HOME/dotfiles/.xinitrc
 bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xinitrc
@@ -255,6 +253,7 @@ exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
 bindsym $mod+space exec --no-startup-id xkb-switch -n
 # Screen layout generated from arandr
 exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
+# exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
 
@@ -295,7 +294,8 @@ bindsym $mod+Shift+F7 mode $displays
 set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
     bindcode $code_e exec --no-startup-id $psst i3-msg exit; mode "default"
-    bindcode $code_l exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock; mode "default"
+    # bindcode $code_l exec --no-startup-id "setxkbmap -layout us,gr"; mode "default"
+    bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id betterlockscreen --lock; mode "default"
     bindcode $code_p exec --no-startup-id $psst systemctl poweroff; mode "default"
     bindcode $code_r exec --no-startup-id $psst systemctl reboot; mode "default"
 
@@ -386,6 +386,8 @@ bindcode $mod+Control+$code_h workspace prev
 bindsym Control+Tab workspace next
 bindsym Control+Shift+Tab workspace prev
 
+# Apply fade-in/fade-out with the help of compton
+exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 # i3-gnome
 # exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 # exec_always --no-startup-id gnome-power-manager

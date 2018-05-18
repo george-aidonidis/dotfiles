@@ -13,11 +13,6 @@ Plug 'tpope/vim-commentary'
 Plug 'taohex/lightline-buffer'
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
-" Javascript
-Plug 'Shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install && npm install -g tern' }
-Plug 'carlitux/deoplete-ternjs'
-
 Plug 'christoomey/vim-system-copy'
 Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'

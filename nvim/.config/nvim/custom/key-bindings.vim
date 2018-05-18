@@ -19,10 +19,6 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-" Split tab vertically
-nnoremap <leader>v <C-w>v
-" Split tab horizontally
-nnoremap <leader>s <C-w>s
 " Disable highlight until next search
 nnoremap <silent><leader>c :let @/ = ""<CR>
 nnoremap <leader>g :Ag<CR>
