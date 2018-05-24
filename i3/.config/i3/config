@@ -253,7 +253,6 @@ exec_always --no-startup-id feh --bg-scale ~/.config/wall.png
 bindsym $mod+space exec --no-startup-id xkb-switch -n
 # Screen layout generated from arandr
 exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
-# exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
 
@@ -295,7 +294,8 @@ set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
     bindcode $code_e exec --no-startup-id $psst i3-msg exit; mode "default"
     # bindcode $code_l exec --no-startup-id "setxkbmap -layout us,gr"; mode "default"
-    bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id betterlockscreen --lock; mode "default"
+    # bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id betterlockscreen --lock; mode "default"
+    bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id dm-tool lock; mode "default"
     bindcode $code_p exec --no-startup-id $psst systemctl poweroff; mode "default"
     bindcode $code_r exec --no-startup-id $psst systemctl reboot; mode "default"
 
@@ -361,7 +361,7 @@ client.urgent           $red $red $white $red $red
 
 #end of window title bars & borders section
 
-#Needed for i3-gaps
+# Needed for i3-gaps
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
 gaps inner 8
