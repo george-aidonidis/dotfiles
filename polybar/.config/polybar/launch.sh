@@ -16,7 +16,7 @@ if type "xrandr"; then
 	done
   MONITOR="DP-1" polybar --reload example &
   sleep 1
-  MONITOR="eDP-1" polybar --reload example &
+  MONITOR="eDP1" polybar --reload example &
 else
 	polybar --reload example &
 fi

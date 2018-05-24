@@ -43,6 +43,7 @@ read -p ""
 # TODO: check if one of the folders bellow already exists
 stow compton
 stow dunst
+stow gtk-3.0
 stow i3
 stow idea
 stow mimeapps
@@ -61,9 +62,15 @@ echo "$grn $white Changed position of window buttons to left side (gnome)"
 
 echo "$yellow$white"
 echo "  Installing tmux plugin manager"
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm<Paste>
-sudo pacman -S polybar tmux rofi compton neovim redshift dunst terminator gpicview jq peek feh maim xclip arandr w3m the_silver_searcher lxappearance playerctl dialog xcursor-breeze mplayer ttf-droid
-yaourt --noconfirm -S i3-gaps polybar code betterlockscreen-git insomnia ngrok pgweb-bin robo3t-bin light-git xkb-switch
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+sudo pacman -S tmux rofi compton neovim redshift dunst terminator gpicview jq peek feh maim xclip arandr w3m the_silver_searcher lxappearance playerctl dialog xcursor-breeze mplayer ttf-droid awesome-terminal-fonts ruby atom parcellite messengerfordesktop docker docker-compose mongodb papirus-icon-theme
+
+sudo pacman -S pulseaudio-alsa pulseaudio-bluetooth bluez bluez-libs bluez-utils bluez-firmware blueberry
+
+yaourt --noconfirm -S polybar betterlockscreen-git insomnia ngrok pgweb-bin robo3t-bin light-git xkb-switch lightdm-webkit-theme-litarvan visual-studio-code-bin direnv ttf-weather-icons slack-desktop spotify
 
 sudo mkdir -p /data/db
 sudo chown -R $USER /data/db
+sudo usermod -aG docker ${USER}
