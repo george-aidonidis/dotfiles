@@ -1,12 +1,19 @@
 # Helpful scripts
-<!-- TOC depthFrom:2 -->
+
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Polybar](#polybar)
 - [Screens](#screens)
 - [Scripts on root folder](#scripts-on-root-folder)
 
 <!-- /TOC -->
-Various script to ease automating tasks or gather functions to use globally. Please note that most of them will not suit your needs and that you will have to modify them.
+
+Various script to ease automating tasks or gather functions to use globally.
+* Please note that there is a high chance that will not suit your needs and you are going to have to modify them.
+* Also the scripts would need to be executable in order to be...well, executable by running:
+```bash
+$ chmod +x /path/to/script.sh
+```
 
 ## Polybar
 
@@ -25,4 +32,34 @@ This folder contains scripts that will use xrandr commands to disable the specif
 
 The rest of the scripts are used for a few tasks such as:
 
-* Screen capturing (either screenshot or screen casting), changing the keyboard layout (gr & en), locking, toggling the camera etc...
+* Screen capturing (either screenshot or screen casting), changing the keyb<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Polybar](#polybar)
+- [Screens](#screens)
+- [Scripts on root folder](#scripts-on-root-folder)
+
+<!-- /TOC --><!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Polybar](#polybar)
+- [Screens](#screens)
+- [Scripts on root folder](#scripts-on-root-folder)
+
+<!-- /TOC --><!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Polybar](#polybar)
+- [Screens](#screens)
+- [Scripts on root folder](#scripts-on-root-folder)
+
+<!-- /TOC --><!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Polybar](#polybar)
+- [Screens](#screens)
+- [Scripts on root folder](#scripts-on-root-folder)
+
+<!-- /TOC --><!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Polybar](#polybar)
+- [Screens](#screens)
+- [Scripts on root folder](#scripts-on-root-folder)
+
+<!-- /TOC -->oard layout (gr & en), locking, toggling the camera etc...

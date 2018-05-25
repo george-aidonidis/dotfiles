@@ -31,6 +31,8 @@ Polybar is a customizable status bar that suits my needs and likings. You can re
 
 At the moment polybar is configured in a combination of default modules and some custom ones. Check how to add your custom script [here](https://github.com/jaagr/polybar/wiki/Module:-script)
 
+**Important note**: If you wish to use the scripts defined in this repo you would need to give them proper permissions (make them executable) otherwise this personalized polybar will not work properly.
+
 ### Workspaces
 
 ![workspaces](https://i.imgur.com/hXJGOjR.png)

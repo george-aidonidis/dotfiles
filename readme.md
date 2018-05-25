@@ -1,5 +1,6 @@
 # dotfiles :computer:
-<!-- TOC depthFrom:2 -->
+
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Programs whose configs can be found here](#programs-whose-configs-can-be-found-here)
 - [How to setup](#how-to-setup)
@@ -23,6 +24,7 @@ Personal dotfiles that I use for my thinpad E570 (running two screens).
 + polybar
 + redshift (to adjust color temperature of the screens)
 + compton (For transparency and to stop screen tearing)
++ rofi (To replace dmenu)
 + And many, many little scripts I use
 
 ## How to setup
