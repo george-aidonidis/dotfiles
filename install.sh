@@ -34,7 +34,6 @@ aurPackages=(
 )
 applications=(
 	"
-	tmux
 	atom
 	parcellite
 	messengerfordesktop
@@ -64,13 +63,15 @@ createFolders=(
 )
 basicPackages=(
 	"
-	tmux
-	rofi
 	compton
+	dunst
+	i3-gaps
+	i3status
 	neovim
 	redshift
-	dunst
+	rofi
 	terminator
+	tmux
 	gpicview
 	jq
 	feh
@@ -87,6 +88,7 @@ basicPackages=(
 	ttf-droid
 	awesome-terminal-fonts
 	papirus-icon-theme
+	stow
 	zsh"
 )
 function installZsh {
@@ -123,6 +125,10 @@ prompt "  Will install:$blue $basicPackages $white" "sudo pacman -S $basicPac
 confirm "Installing basic packages"
 
 thunder
+prompt "  Will install: $blue $aurPackages $white" "yaourt --noconfirm -S $aurPackages"
+confirm "Installing aur packages"
+
+thunder
 prompt "  Will install: $blue oh-my-zsh $white" "installZsh"
 confirm "Installing oh-my-zsh"
 
@@ -146,10 +152,6 @@ confirm "Installing applications"
 thunder
 prompt "  Will install: $blue bluetooth tools $white" "sudo pacman -S pulseaudio-alsa pulseaudio-bluetooth bluez bluez-libs bluez-utils bluez-firmware blueberry"
 confirm "Installing bluetooth tools"
-
-thunder
-prompt "  Will install: $blue $aurPackages $white" "yaourt --noconfirm -S $aurPackages"
-confirm "Installing aur packages"
 
 prompt "Will create `/data/db` for mongodb" "sudo mkdir -p /data/db"
 prompt "Will add permissions for current user for mongo" "sudo chown -R $USER /data/db"
