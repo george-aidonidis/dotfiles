@@ -92,9 +92,8 @@ basicPackages=(
 	zsh"
 )
 function installZsh {
-	echo "Installed zsh"
- # wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
- # yaourt -s --noconfirm zsh-autosuggestions
+ wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+ yaourt -s --noconfirm zsh-autosuggestions
 }
 function prompt {
 	while true; do
