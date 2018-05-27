@@ -19,10 +19,6 @@ aurPackages=(
 	"
 	polybar
 	betterlockscreen-git
-	insomnia
-	ngrok
-	pgweb-bin
-	robo3t-bin
 	light-git
 	xkb-switch
 	lightdm-webkit-theme-litarvan
@@ -86,14 +82,18 @@ basicPackages=(
 	xcursor-breeze
 	mplayer
 	ttf-droid
+	noto-fonts-emoji
+	adobe-source-code-pro-fonts
 	awesome-terminal-fonts
 	papirus-icon-theme
 	stow
 	zsh"
 )
 function installZsh {
- wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
- yaourt -s --noconfirm zsh-autosuggestions
+	echo "source $HOME/dotfiles/zsh/.zshrc
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" > /home/$USER/.zshrc
+	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
+	yaourt -s --noconfirm zsh-autosuggestions
 }
 function prompt {
 	while true; do
@@ -119,6 +119,9 @@ function checkMissingPackages {
 	done
 }
 
+prompt "Will create `Pictures` and `tmp` folder" "createFolders"
+confirm "Creating folders"
+
 thunder
 prompt "  Will install:$blue $basicPackages $white" "sudo pacman -S $basicPackages"
 confirm "Installing basic packages"
@@ -130,9 +133,6 @@ confirm "Installing aur packages"
 thunder
 prompt "  Will install: $blue oh-my-zsh $white" "installZsh"
 confirm "Installing oh-my-zsh"
-
-checkMissingPackages
-echo " $grn No missing packages were found $white"
 
 prompt "Will use stow to symlink: $blue $stowed $white" "stow $stowed"
 confirm "Symlink with stow"
@@ -156,6 +156,9 @@ prompt "Will create `/data/db` for mongodb" "sudo mkdir -p /data/db"
 prompt "Will add permissions for current user for mongo" "sudo chown -R $USER /data/db"
 prompt "Adding permissions for current user for docker" "sudo usermod -aG docker ${USER}"
 confirm "Procedures for mongodb and docker"
+
+checkMissingPackages
+echo " $grn No missing packages were found $white"
 
 echo "🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉"
 echo "Script completed. Please restart for the changes to take effect"
