@@ -27,9 +27,50 @@ weather = Weather Icons:style=Regular:size=8;3
 material = MaterialDesignIcons:size=10;1
 monospace = Monospace:size=10;3
 
-[bar/example]
+#################
+# Laptop screen #
+#################
+[bar/laptop]
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 20
+radius = 0.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = ${fonts.avant_garde}
+font-1 = ${fonts.droid_sans_mono}
+font-2 = ${fonts.font_awesome}
+font-3 = ${fonts.weather}
+font-4 = ${fonts.material}
+font-5 = ${fonts.monospace}
+
+modules-left = bspwm i3
+modules-center =
+modules-right = spotify backlight volume battery date xkeyboard
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+################
+# Main monitor #
+################
+[bar/main]
 monitor = ${env:MONITOR:}
-;monitor = ${env:MONITOR:eDP-1}
+;monitor = ${env:MONITOR:DP-1}
 width = 100%
 height = 20
 radius = 0.0
@@ -64,13 +105,46 @@ modules-right = spotify openweathermap-simple-icon openweathermap-simple-text fi
 tray-position = right
 tray-padding = 2
 
-;override-redirect = true
+cursor-click = pointer
+cursor-scroll = ns-resize
+####################
+# Fallback monitor #
+####################
+[bar/fallback]
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 20
+radius = 0.0
+fixed-center = false
 
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
+background = ${colors.background}
+foreground = ${colors.foreground}
 
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
+line-size = 3
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = ${fonts.avant_garde}
+font-1 = ${fonts.droid_sans_mono}
+font-2 = ${fonts.font_awesome}
+font-3 = ${fonts.weather}
+font-4 = ${fonts.material}
+font-5 = ${fonts.monospace}
+
+modules-left = bspwm i3
+modules-center =
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight volume cpu temperature memory wired-network wireless-network archupdates battery date xkeyboard powermenu
+
+tray-position = right
+tray-padding = 2
 
 cursor-click = pointer
 cursor-scroll = ns-resize

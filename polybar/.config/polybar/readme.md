@@ -1,25 +1,25 @@
-<!-- TOC -->
+<!-- TOC START min:1 max:3 link:true update:true -->
+  - [What's polybar](#whats-polybar)
+  - [How it's configured in this repo](#how-its-configured-in-this-repo)
+    - [Workspaces](#workspaces)
+    - [Spotify (custom)](#spotify-custom)
+    - [Weather (custom)](#weather-custom)
+    - [Filesystem](#filesystem)
+    - [Backlight](#backlight)
+    - [Volume](#volume)
+    - [Cpu](#cpu)
+    - [Cpu temperature](#cpu-temperature)
+    - [Ram](#ram)
+    - [Network traffic](#network-traffic)
+    - [Arch packages to update (custom)](#arch-packages-to-update-custom)
+    - [Battery](#battery)
+    - [Date and time](#date-and-time)
+    - [Keyboard layout](#keyboard-layout)
+    - [Power module (custom)](#power-module-custom)
+    - [Tray icons](#tray-icons)
 
-- [What's polybar](#whats-polybar)
-- [How it's configured in this repo](#how-its-configured-in-this-repo)
-  - [Workspaces](#workspaces)
-  - [Spotify (custom)](#spotify-custom)
-  - [Weather (custom)](#weather-custom)
-  - [Filesystem](#filesystem)
-  - [Backlight](#backlight)
-  - [Volume](#volume)
-  - [Cpu](#cpu)
-  - [Cpu temperature](#cpu-temperature)
-  - [Ram](#ram)
-  - [Network traffic](#network-traffic)
-  - [Arch packages to update (custom)](#arch-packages-to-update-custom)
-  - [Battery](#battery)
-  - [Date and time](#date-and-time)
-  - [Keyboard layout](#keyboard-layout)
-  - [Power module (custom)](#power-module-custom)
-  - [Tray icons](#tray-icons)
+<!-- TOC END -->
 
-<!-- /TOC -->
 
 ![image](https://i.imgur.com/oTQc6FT.png)
 
@@ -31,7 +31,9 @@ Polybar is a customizable status bar that suits my needs and likings. You can re
 
 At the moment polybar is configured in a combination of default modules and some custom ones. Check how to add your custom script [here](https://github.com/jaagr/polybar/wiki/Module:-script)
 
-**Important note**: If you wish to use the scripts defined in this repo you would need to give them proper permissions (make them executable) otherwise this personalized polybar will not work properly.
+* Multiple config sets are defined inside the [configuration](/config) file based on connected screens. I use monitors with names `eDP-1` (laptop) and `DP1` (external). Please define yours accordingly (with xrandr or arandr).
+
+* **Important note**: If you wish to use the scripts defined in this repo you would need to give them proper permissions (make them executable) otherwise this personalized polybar will not work properly.
 
 ### Workspaces
 
