@@ -56,4 +56,8 @@ set runtimepath+=~/.fzf
 " Esc allows to exit `insert` mode on terminal
 tnoremap <Esc> <C-\><C-n>
 
+" Map save to Ctrl-S
+noremap <silent> <C-S> :update<CR>
+vnoremap <silent> <C-S> <C-C>:update<CR>
+inoremap <silent> <C-S> <C-O>:update<CR><Paste>
 

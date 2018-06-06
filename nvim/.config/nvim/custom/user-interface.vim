@@ -5,13 +5,15 @@
 set mouse=a
 " Always display the status bar
 set laststatus=2
-set background=dark
 
-let g:gruvbox_italic=1
+" let g:gruvbox_italic=1
 " let g:gruvbox_termcolors=16
+" let g:gruvbox_contrast_dark='hard'
+" colorscheme gruvbox
+let g:one_allow_italics = 1
 set termguicolors
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+colorscheme one
+set background=dark
 " Highlight current line
 set cursorline
 " Show line numbers
@@ -22,5 +24,5 @@ set splitbelow
 set showcmd
 set encoding=utf8
 " Set Vim font to a Nerd Font
-" set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete\ 25
-set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 21
+set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete\ 25
+" set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 21

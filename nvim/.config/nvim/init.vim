@@ -12,30 +12,30 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'taohex/lightline-buffer'
 Plug 'morhetz/gruvbox'
+Plug 'rakr/vim-one'
 Plug 'itchyny/lightline.vim'
 Plug 'christoomey/vim-system-copy'
-Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-""""""""""""""""""""""
-" Performance options"
-""""""""""""""""""""""
+"""""""""""""""""""""""
+" Performance options "
+"""""""""""""""""""""""
 set lazyredraw
 
 so ~/dotfiles/nvim/.config/nvim/custom/key-bindings.vim
 so ~/dotfiles/nvim/.config/nvim/custom/search.vim
-so ~/dotfiles/nvim/.config/nvim/custom/indent.vim
 so ~/dotfiles/nvim/.config/nvim/custom/text-render.vim
+so ~/dotfiles/nvim/.config/nvim/custom/indent.vim
 so ~/dotfiles/nvim/.config/nvim/custom/folding.vim
-so ~/dotfiles/nvim/.config/nvim/custom/user-interface.vim
 so ~/dotfiles/nvim/.config/nvim/custom/misc.vim
 so ~/dotfiles/nvim/.config/nvim/custom/commands.vim
+so ~/dotfiles/nvim/.config/nvim/custom/user-interface.vim
+
