@@ -9,9 +9,12 @@
 
 <!-- /TOC -->
 
-![screenshot](https://i.imgur.com/q9PPaZZ.jpg)
+<p>
+  <img width="360" src="https://i.imgur.com/2cPQ4YM.png">
+  <img width="360" src="https://i.imgur.com/w7vd4VW.png">
+</p>
 
-Personal dotfiles that I use for my thinpad E570 (running two screens).
+Personal dotfiles that I use for my thinpad t470s (running two screens).
 
 ## Programs whose configs can be found here
 
