@@ -13,8 +13,9 @@ background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #555
 primary = #ffb52a
-secondary = #e60053
+softred = #e60053
 alert = #bd2c40
+spotify = #00D965
 green = #00D965
 orange = #FF4500
 blue = #3581fc
@@ -59,7 +60,7 @@ font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
 font-5 = ${fonts.monospace}
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center =
 modules-right = spotify backlight volume battery date xkeyboard
 
@@ -98,7 +99,7 @@ font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
 font-5 = ${fonts.monospace}
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center =
 modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight volume cpu temperature memory wired-network wireless-network archupdates battery date xkeyboard powermenu
 
@@ -139,7 +140,7 @@ font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
 font-5 = ${fonts.monospace}
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center =
 modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight volume cpu temperature memory wired-network wireless-network archupdates battery date xkeyboard powermenu
 
@@ -158,15 +159,15 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 
 format-prefix-foreground = ${colors.foreground-alt}
-format-prefix-underline = ${colors.secondary}
+format-prefix-underline = ${colors.softred}
 
 label-layout =  %layout%
-label-layout-underline = ${colors.secondary}
+label-layout-underline = ${colors.softred}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
-label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
+label-indicator-background = ${colors.softred}
+label-indicator-underline = ${colors.softred}
 
 [module/filesystem]
 type = internal/fs
@@ -255,6 +256,25 @@ interval = 2
 format ="  <label>"
 label =%percentage:2%%
 
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format-padding = 0
+format-margin = 0
+format-spacing = 0
+format-offset = 0
+format =  <label>
+format-warn =  <label-warn>
+
+format-font = 6
+format-warn-font = 6
+label = %temperature:6%
+label-warn = %temperature:6%
+label-warn-foreground = ${colors.softred}
+format-warn-foreground = ${colors.softred}
+
 [module/memory]
 type = internal/memory
 interval = 2
@@ -336,9 +356,9 @@ format-volume-font = 6
 label-volume-font = 6
 label-volume = %percentage:3%%
 label-volume-foreground = ${root.foreground}
-format-prefix-underline = ${colors.secondary}
-format-volume-underline = ${colors.secondary}
-label-muted-underline = ${colors.secondary}
+format-prefix-underline = ${colors.softred}
+format-volume-underline = ${colors.softred}
+label-muted-underline = ${colors.softred}
 label-muted-font = 6
 label-muted = 
 label-font = 3
@@ -384,25 +404,6 @@ enable-scroll = true
 
 ; XRandR output to get get values from
 ; Default: the monitor defined for the running bar
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format-padding = 0
-format-margin = 0
-format-spacing = 0
-format-offset = 0
-format =  <label>
-format-warn =  <label-warn>
-
-format-font = 6
-format-warn-font = 6
-label = %temperature:6%
-label-warn = %temperature:6%
-label-warn-foreground = ${colors.secondary}
-format-warn-foreground = ${colors.secondary}
 
 [settings]
 screenchange-reload = true
@@ -454,7 +455,7 @@ menu-5-1 = ""
 type = custom/script
 format-prefix = " "
 format-padding = 1
-format-foreground = ${colors.green}
+format-foreground = ${colors.spotify}
 interval = 3
 exec = $HOME/dotfiles/scripts/polybar/spotify.sh --title
 exec-if = pgrep -x spotify

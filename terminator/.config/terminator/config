@@ -1,8 +1,10 @@
 [global_config]
   borderless = True
-  extra_styling = False
+  broadcast_default = off
+  dbus = False
   focus = system
   homogeneous_tabbar = False
+  inactive_color_offset = 1.0
   scroll_tabbar = True
   tab_position = hidden
   title_font = Source Code Pro 10
@@ -16,7 +18,7 @@
   [[default]]
     [[[child1]]]
       parent = window0
-      profile = gruvbox-dark
+      profile = onedark
       type = Terminal
     [[[window0]]]
       parent = ""
@@ -34,5 +36,18 @@
     login_shell = True
     palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
     scrollbar_position = hidden
+    use_system_font = False
+  [[onedark]]
+    background_color = "#282c34"
+    background_darkness = 0.8
+    background_type = transparent
+    cursor_color = "#bbbbbb"
+    font = Source Code Pro 12
+    foreground_color = "#abb2bf"
+    icon_bell = False
+    login_shell = True
+    palette = "#000000:#eb6e67:#95ee8f:#f8c456:#6eaafb:#d886f3:#6cdcf7:#b2b2b2:#50536b:#eb6e67:#95ee8f:#f8c456:#6eaafb:#d886f3:#6cdcf7:#dfdfdf"
+    scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
+    visible_bell = True
