@@ -324,7 +324,7 @@ date = " %a, %b %d, %Y"
 time = %H:%M:%S
 time-alt = %H:%M:%S
 
-format-prefix-foreground = ${colors.foreground}
+format-foreground = ${colors.foreground}
 
 label =  %date%  %time%
 
