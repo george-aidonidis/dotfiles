@@ -17,6 +17,7 @@ function confirm {
 }
 aurPackages=(
 	"
+	spaceship-prompt
 	polybar
 	betterlockscreen-git
 	light-git
@@ -42,7 +43,6 @@ stowed=(
 	compton
 	dunst
 	i3
-	idea
 	mimeapps
 	nvim
 	polybar
@@ -52,11 +52,15 @@ stowed=(
 	terminator
 	tmux"
 )
-createFolders=(
+function createFolders {
 	"mkdir -p /home/$USER/tmp/;
 	 mkdir -p /home/$USER/Pictures/Wallpapers;
 	 mkdir -p /home/$USER/Pictures/screenshots"
-)
+}
+
+function lightdmSetup {
+	sudo systemctl enable lightdm.service
+}
 basicPackages=(
 	"
 	compton
@@ -87,13 +91,16 @@ basicPackages=(
 	awesome-terminal-fonts
 	papirus-icon-theme
 	stow
-	zsh"
+	zsh
+	xorg-server
+	xorg-xinit"
 )
 function installZsh {
 	echo "source $HOME/dotfiles/zsh/.zshrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" > /home/$USER/.zshrc
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 	yaourt -s --noconfirm zsh-autosuggestions
+	chsh -s `which zsh`
 }
 function prompt {
 	while true; do
@@ -119,7 +126,11 @@ function checkMissingPackages {
 	done
 }
 
-prompt "Will create `Pictures` and `tmp` folder" "createFolders"
+su
+rm -rf /etc/lightdm
+exit
+
+prompt "Will create Pictures and tmp folder" "createFolders"
 confirm "Creating folders"
 
 thunder
@@ -152,13 +163,21 @@ thunder
 prompt "  Will install: $blue bluetooth tools $white" "sudo pacman -S pulseaudio-alsa pulseaudio-bluetooth bluez bluez-libs bluez-utils bluez-firmware blueberry"
 confirm "Installing bluetooth tools"
 
-prompt "Will create `/data/db` for mongodb" "sudo mkdir -p /data/db"
+prompt "Will create /data/db for mongodb" "sudo mkdir -p /data/db"
 prompt "Will add permissions for current user for mongo" "sudo chown -R $USER /data/db"
 prompt "Adding permissions for current user for docker" "sudo usermod -aG docker ${USER}"
 confirm "Procedures for mongodb and docker"
 
 checkMissingPackages
 echo " $grn No missing packages were found $white"
+
+prompt "Will install tlp" "sudo pacman -S tlp tlp-rdw acpi_call ethtool smartmontools"
+confirm "tlp"
+sudo systemctl start tlp.service
+sudo systemctl enable tlp.service
+sudo systemctl enable tlp-sleep.service
+sudo systemctl start tlp-sleep.service
+sudo systemctl mask systemd-rfkill.service
 
 echo "🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉"
 echo "Script completed. Please restart for the changes to take effect"

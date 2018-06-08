@@ -8,13 +8,14 @@
 ;=====================================================
 
 [colors]
+foreground-workspace = #000
+focused-foreground-workspace = #fff
+focused-background-workspace = #444
 background = #222
-background-alt = #444
-foreground = #dfdfdf
-foreground-alt = #555
+foreground = #fff
 primary = #ffb52a
 softred = #e60053
-alert = #bd2c40
+alert = #e60053
 spotify = #00D965
 green = #00D965
 orange = #FF4500
@@ -70,8 +71,7 @@ cursor-scroll = ns-resize
 # Main monitor #
 ################
 [bar/main]
-monitor = ${env:MONITOR:}
-;monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:DP-1}
 width = 100%
 height = 20
 radius = 0.0
@@ -158,7 +158,7 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 format-prefix-underline = ${colors.softred}
 
 label-layout =  %layout%
@@ -177,26 +177,7 @@ mount-0 = /
 
 label-mounted =  %percentage_used%%
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
+label-unmounted-foreground = ${colors.foreground}
 
 [module/i3]
 type = internal/i3
@@ -208,17 +189,18 @@ wrapping-scroll = false
 pin-workspaces = true
 
 label-mode-padding = 1
-label-mode-foreground = #000
+label-mode-foreground = ${colors.foreground-workspace}
 label-mode-background = ${colors.primary}
-
 ; focused = Active workspace on focused monitor
 label-focused = %index% %icon%
-label-focused-background = ${module/bspwm.label-focused-background}
-label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-foreground = ${colors.focused-foreground-workspace}
+label-focused-background = ${colors.focused-background-workspace}
+label-focused-padding = 2
+
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index% %icon%
-label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
 label-visible = %index% %icon%
@@ -227,8 +209,8 @@ label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index% %icon%
-label-urgent-background = ${module/bspwm.label-urgent-background}
-label-urgent-padding = ${module/bspwm.label-urgent-padding}
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
@@ -279,7 +261,7 @@ format-warn-foreground = ${colors.softred}
 type = internal/memory
 interval = 2
 format = " <label>"
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 label = %percentage_used%%
 label-font = 6
 
@@ -296,7 +278,7 @@ format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+;label-disconnected-foreground = ${colors.foreground}
 
 ramp-signal-0 = 1
 ramp-signal-1 = 2
@@ -319,7 +301,6 @@ format-disconnected =
 
 [module/wired-network]
 type = internal/network
-;interface = enp4s0
 interface = enp0s31f6
 interval = 1
 label-connected-font = 6
@@ -328,7 +309,6 @@ label-connected =  %upspeed:8%  %downspeed:8%
 
 [module/wireless-network]
 type = internal/network
-;interface = wlp58s0
 interface = wlp58s0
 label-connected =  %upspeed:8%  %downspeed:8%
 interval = 1
@@ -344,7 +324,7 @@ date = " %a, %b %d, %Y"
 time = %H:%M:%S
 time-alt = %H:%M:%S
 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 
 label =  %date%  %time%
 
@@ -355,7 +335,7 @@ format-volume = <ramp-volume> <label-volume>
 format-volume-font = 6
 label-volume-font = 6
 label-volume = %percentage:3%%
-label-volume-foreground = ${root.foreground}
+label-volume-foreground = ${colors.foreground}
 format-prefix-underline = ${colors.softred}
 format-volume-underline = ${colors.softred}
 label-muted-underline = ${colors.softred}
