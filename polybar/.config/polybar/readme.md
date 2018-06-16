@@ -33,6 +33,8 @@ At the moment polybar is configured in a combination of default modules and some
 
 * Multiple config sets are defined inside the [configuration](/config) file based on connected screens. I use monitors with names `eDP-1` (laptop) and `DP1` (external). Please define yours accordingly (with xrandr or arandr).
 
+* There are 3 config sets named: `[bar/laptop]`, `[bar/main]`, `[bar/fallback]`. The [launch](launch.sh) script is smart enough to detect when a second screen is connected or not so that it applies the appropriate config sets. Please note the monitors' name (defined within [config](config)).
+
 * **Important note**: If you wish to use the scripts defined in this repo you would need to give them proper permissions (make them executable) otherwise this personalized polybar will not work properly.
 
 ### Workspaces
