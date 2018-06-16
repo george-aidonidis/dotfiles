@@ -18,17 +18,16 @@ Personal dotfiles that I use for my thinpad t470s (running two screens).
 
 ## Programs whose configs can be found here
 
-+ i3 (i3-gaps)
-+ NeoVim
-+ zsh
-+ tmux
-+ ranger
-+ dunst (for notifications)
-+ redshift
-+ polybar
-+ redshift (to adjust color temperature of the screens)
-+ compton (For transparency and to stop screen tearing)
-+ rofi (To replace dmenu)
++ [i3 (i3-gaps)](https://github.com/Airblader/i3)
++ [NeoVim](https://neovim.io/)
++ [oh-my-zsh](http://ohmyz.sh/)
++ [tmux](https://github.com/tmux/tmux)
++ [ranger](https://github.com/ranger/ranger)
++ [dunst](https://github.com/dunst-project/dunst)
++ [redshift](https://github.com/jonls/redshift)
++ [polybar](https://github.com/jaagr/polybar)
++ [compton](https://github.com/chjj/compton)
++ [rofi](https://github.com/DaveDavenport/rofi)
 + And many, many little scripts I use
 
 ## Important notice
@@ -39,7 +38,7 @@ Personal dotfiles that I use for my thinpad t470s (running two screens).
 
 ## How to setup
 
-Stow is used to help settings things up (instead of manually creating symlinks etc...). In that way you can have a `dotfiles` folder in your `$HOME` folder instead of hacking around on version controlling (like adding root folder and ignoring everything non relevant).
+[Stow](http://www.gnu.org/software/stow/) is used to help settings things up (instead of manually creating symlinks etc...). In that way you can have a `dotfiles` folder in your `$HOME` folder instead of hacking around on version controlling (like adding root folder and ignoring everything non relevant).
 
 ----
 Naive script that installs :poop: (please, read its contents before running since it's going to overwrite things)
