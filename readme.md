@@ -14,7 +14,7 @@
   <img width="360" src="https://i.imgur.com/w7vd4VW.png">
 </p>
 
-Personal dotfiles that I use for my thinpad t470s (running two screens).
+Personal dotfiles that I use for my Thinkpad t470s (running two screens).
 
 ## Programs whose configs can be found here
 
