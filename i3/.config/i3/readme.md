@@ -71,7 +71,9 @@ There are ten workspaces. They work just like those in vanilla i3 with some addi
 
 ### Recording
 
-* Print Screen: Take a screenshot of the active screen and save it under `Pictures/screenshots/`
+* Shift+PrtSc: Take a screenshot of the active widow and save it under `~/Pictures/screenshots/`
+* Ctrl+PrtSc: Take a screenshot of the active window and pass it on system's clipboard
+* Print Screen: Take a screenshot of the active screen, save it under `~/Pictures/screenshots/` and also pass it to system's clipboard
 * Ctrl+Shift+F1: Capture a region and upload it to imgur
 * Ctrl+Shift+F4: Capture a region and pass it to system's clipboard
 * Mod+Insert -- Screencast mode
@@ -79,7 +81,7 @@ There are ten workspaces. They work just like those in vanilla i3 with some addi
 
 ### Other buttons
 
-...
+_To be filled..._
 
 ## Appearance
 

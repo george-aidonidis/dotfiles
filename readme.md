@@ -13,6 +13,10 @@
   <img width="360" src="https://i.imgur.com/2cPQ4YM.png">
   <img width="360" src="https://i.imgur.com/w7vd4VW.png">
 </p>
+<p>
+  <img width="360" src="https://i.imgur.com/cATYKS1.png">
+  <img width="360" src="https://i.imgur.com/ns69rLv.png">
+</p>
 
 Personal dotfiles that I use for my Thinkpad t470s (running two screens).
 
