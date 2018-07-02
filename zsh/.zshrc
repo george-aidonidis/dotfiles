@@ -123,5 +123,5 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 # Disable flow control for that terminal completely
 stty -ixon
-export SPACESHIP_CHAR_SYMBOL='🍀🐑💨➜ '
+export SPACESHIP_CHAR_SYMBOL='🥦🐑💨🐣 '
 export SPACESHIP_PROMPT_PREFIXES_SHOW=false
