@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILENAME="/tmp/screenshot$(date +%F_%T).png"
+FILENAME="/tmp/screenshot$(date +%Y-%m-%d_%H-%M-%S).png"
 
 maim -i $(xdotool getactivewindow) $FILENAME
 

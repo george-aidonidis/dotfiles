@@ -4,7 +4,7 @@
 
 # Picks a file name for the output file based on availability:
 
-filename="$HOME/Videos/screencast-$(date +%F_%T).mkv"
+filename="$HOME/Videos/screencast-$(date +%Y-%m-%d_%H-%M-%S).mkv"
 
 # The actual ffmpeg command:
 
