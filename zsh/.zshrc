@@ -87,7 +87,7 @@ bindkey '^[[Z' reverse-menu-complete
 source $HOME/dotfiles/zsh/aliases.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # Setting ag as the default source for fzf
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git,node_modules,dist,build,vendor -g ""'
 # Now fzf (w/o pipe) will use ag instead of find
 #fzf
 # To apply the command to CTRL-T as well
@@ -125,3 +125,4 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 stty -ixon
 export SPACESHIP_CHAR_SYMBOL='🥦🐑💨🐣 '
 export SPACESHIP_PROMPT_PREFIXES_SHOW=false
+source /home/george/dotfiles/homeconfig/.bash_shortcuts
