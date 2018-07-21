@@ -39,3 +39,4 @@ so ~/dotfiles/nvim/.config/nvim/custom/misc.vim
 so ~/dotfiles/nvim/.config/nvim/custom/commands.vim
 so ~/dotfiles/nvim/.config/nvim/custom/user-interface.vim
 
+autocmd BufWritePost ~/dotfiles/scripts/shortcuts/folders,~/dotfiles/scripts/shortcuts/configs !bash ~/dotfiles/scripts/shortcuts/shortcuts.sh
