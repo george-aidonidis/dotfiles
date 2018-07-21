@@ -32,34 +32,4 @@ This folder contains scripts that will use xrandr commands to disable the specif
 
 The rest of the scripts are used for a few tasks such as:
 
-* Screen capturing (either screenshot or screen casting), changing the keyb<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Polybar](#polybar)
-- [Screens](#screens)
-- [Scripts on root folder](#scripts-on-root-folder)
-
-<!-- /TOC --><!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Polybar](#polybar)
-- [Screens](#screens)
-- [Scripts on root folder](#scripts-on-root-folder)
-
-<!-- /TOC --><!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Polybar](#polybar)
-- [Screens](#screens)
-- [Scripts on root folder](#scripts-on-root-folder)
-
-<!-- /TOC --><!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Polybar](#polybar)
-- [Screens](#screens)
-- [Scripts on root folder](#scripts-on-root-folder)
-
-<!-- /TOC --><!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Polybar](#polybar)
-- [Screens](#screens)
-- [Scripts on root folder](#scripts-on-root-folder)
-
-<!-- /TOC -->oard layout (gr & en), locking, toggling the camera etc...
+* Screen capturing (either screenshot or screen casting), changing the keyboard layout (gr & en), locking, toggling the camera etc...
