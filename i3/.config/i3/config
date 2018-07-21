@@ -235,7 +235,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id spotify
 exec --no-startup-id dropbox
 exec --no-startup-id enpass
-exec --no-startup-id redshift-gtk
+exec --no-startup-id redshift-gtk -l 35.1:25.7
 exec --no-startup-id parcellite
 # Specific directive to enable tap to click on touchpad
 exec_always --no-startup-id $HOME/dotfiles/scripts/enable-touchpad-tapping.sh
