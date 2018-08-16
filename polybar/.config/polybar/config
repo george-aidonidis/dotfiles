@@ -8,18 +8,18 @@
 ;=====================================================
 
 [colors]
-foreground-workspace = #000
-focused-foreground-workspace = #fff
-focused-background-workspace = #444
-background = #222
-foreground = #fff
-primary = #ffb52a
-softred = #e60053
-alert = #e60053
-spotify = #00D965
-green = #00D965
-orange = #FF4500
-blue = #3581fc
+foreground-workspace = ${xrdb:foreground-workspace:#000}
+focused-foreground-workspace = ${xrdb:color7:#fff}
+focused-background-workspace = ${xrdb:focused-background-workspace:#444}
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#fff}
+primary = ${xrdb:color3:#ffb52a}
+softred = ${xrdb:softred:#e60053}
+alert = ${xrdb:alert:#e60053}
+spotify = ${xrdb:spotify:#00D965}
+green = ${xrdb:green:#00D965}
+orange = ${xrdb:orange:#FF4500}
+blue = ${xrdb:blue:#3581fc}
 
 [fonts]
 avant_garde = AvantGarde LT Medium:size=10;3
@@ -42,7 +42,7 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 2
 line-color = #f00
 
 border-size = 0
@@ -80,7 +80,7 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 2
 line-color = #f00
 
 border-size = 0
@@ -121,7 +121,7 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 3
+line-size = 2
 line-color = #f00
 
 border-size = 0
@@ -319,14 +319,14 @@ label-connected-font = 6
 type = internal/date
 interval = 1
 
-date = " %a, %b %d, %Y"
+date = " %a %d %b"
 
 time = %H:%M:%S
 time-alt = %H:%M:%S
 
 format-foreground = ${colors.foreground}
 
-label =  %date%  %time%
+label =  %date%  %time%
 
 [module/volume]
 type = internal/volume
@@ -391,45 +391,6 @@ screenchange-reload = true
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
-[module/powermenu]
-type = custom/menu
-format-padding = 1
-label-open = ""
-label-close =
-label-separator = "  "
-
-menu-0-0 = ""
-menu-0-0-exec = menu-open-1
-menu-0-1 = ""
-menu-0-1-exec = menu-open-2
-menu-0-2 = ""
-menu-0-2-exec = menu-open-3
-menu-0-3 = ""
-menu-0-3-exec = menu-open-4
-menu-0-4 = ""
-menu-0-4-exec = menu-open-5
-menu-0-5 = ""
-
-menu-1-0 = ""
-menu-1-0-exec = systemctl hibernate -i
-menu-1-1 = ""
-
-menu-2-0 = ""
-menu-2-0-exec = systemctl reboot -i
-menu-2-1 = ""
-
-menu-3-0 = ""
-menu-3-0-exec = systemctl poweroff -i
-menu-3-1 = ""
-
-menu-4-0 = ""
-menu-4-0-exec = i3-msg exit
-menu-4-1 = ""
-
-menu-5-0 = ""
-menu-5-0-exec = setxkbmap "us"; betterlockscreen --lock
-menu-5-1 = ""
 
 [module/spotify]
 type = custom/script

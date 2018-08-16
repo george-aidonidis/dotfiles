@@ -54,6 +54,7 @@ export UPDATE_ZSH_DAYS=3
 plugins=(git nyan vi-mode)
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -126,3 +127,8 @@ stty -ixon
 export SPACESHIP_CHAR_SYMBOL='🥦🐑💨🐣 '
 export SPACESHIP_PROMPT_PREFIXES_SHOW=false
 source /home/george/dotfiles/homeconfig/.bash_shortcuts
+
+export XKB_DEFAULT_LAYOUT=us,gr
+export XKB_DEFAULT_VARIANT=,nodeadkeys
+export XKB_DEFAULT_OPTIONS=caps:swapescape,ctrl:swap_lalt_lctl
+

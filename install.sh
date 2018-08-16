@@ -22,11 +22,11 @@ aurPackages=(
 	betterlockscreen-git
 	light-git
 	xkb-switch
-	lightdm-webkit-theme-litarvan
 	visual-studio-code-bin
 	direnv
 	ttf-weather-icons
 	slack-desktop
+	zsh-you-should-use
 	spotify"
 )
 applications=(
@@ -58,9 +58,6 @@ function createFolders {
 	 mkdir -p /home/$USER/Pictures/screenshots"
 }
 
-function lightdmSetup {
-	sudo systemctl enable lightdm.service
-}
 basicPackages=(
 	"
 	compton
@@ -91,6 +88,7 @@ basicPackages=(
 	awesome-terminal-fonts
 	papirus-icon-theme
 	stow
+	python-pywal
 	zsh
 	xorg-server
 	xorg-xinit"
@@ -126,10 +124,6 @@ function checkMissingPackages {
 	done
 }
 
-su
-rm -rf /etc/lightdm
-exit
-
 prompt "Will create Pictures and tmp folder" "createFolders"
 confirm "Creating folders"
 
@@ -156,7 +150,7 @@ prompt "  Will install tmux plugin manager (tpm)" "git clone https://github.c
 confirm "Installing tmux plugin manager"
 
 thunder
-prompt "  Will install: $blue $applications $white" "sudo pacman -S atom parcellite messengerfordesktop docker docker-compose mongodb"
+prompt "  Will install: $blue $applications $white" "sudo pacman -S $applications"
 confirm "Installing applications"
 
 thunder
@@ -173,6 +167,7 @@ echo " $grn No missing packages were found $white"
 
 prompt "Will install tlp" "sudo pacman -S tlp tlp-rdw acpi_call ethtool smartmontools"
 confirm "tlp"
+sudo stow -t / tlp
 sudo systemctl start tlp.service
 sudo systemctl enable tlp.service
 sudo systemctl enable tlp-sleep.service

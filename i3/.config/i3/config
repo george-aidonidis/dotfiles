@@ -241,6 +241,7 @@ exec --no-startup-id parcellite
 exec_always --no-startup-id $HOME/dotfiles/scripts/enable-touchpad-tapping.sh
 # exec xinput set-prop 11 277 1
 exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
+exec_always --no-startup-id xrdb ~/.Xresources
 ###################
 # Custom Commands #
 ###################
@@ -365,12 +366,12 @@ client.urgent           $red $red $white $red $red
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
 gaps inner 8
-gaps outer 8
+gaps outer 2
 
-bindsym $mod+Shift+minus gaps inner all plus 5
-bindsym $mod+Shift+plus gaps inner all minus 5
-bindsym $mod+Mod1+Shift+minus gaps inner current plus 5
-bindsym $mod+Mod1+Shift+plus gaps inner current minus 5
+bindsym $mod+Shift+minus gaps inner all plus 4
+bindsym $mod+Shift+plus gaps inner all minus 4
+bindsym $mod+Mod1+Shift+minus gaps inner current plus 4
+bindsym $mod+Mod1+Shift+plus gaps inner current minus 4
 
 # Toggle border for all open windows
 bindcode $mod+$code_b [class="^.*"] border toggle
@@ -391,3 +392,6 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 # i3-gnome
 # exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 # exec_always --no-startup-id gnome-power-manager
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id gnome-flashback
+# exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 8
