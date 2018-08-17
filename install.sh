@@ -33,11 +33,12 @@ aurPackages=(
 applications=(
 	"
 	atom
-	parcellite
-	messengerfordesktop
 	docker
 	docker-compose
-	mongodb"
+	messengerfordesktop
+	mongodb
+	parcellite
+	pavucontrol"
 )
 stowed=(
 	"
