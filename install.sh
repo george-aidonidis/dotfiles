@@ -142,6 +142,10 @@ function checkMissingPackages {
 		# or do whatever with individual element of the array
 	done
 }
+ function stowThings {
+	 rm $HOME/.zshrc;
+	 stow $stowed;
+ }
 
 prompt "Will update current packages before installation" "sudo pacman -Syu"
 confirm "Update"
@@ -161,7 +165,7 @@ thunder
 prompt "  Will install: $blue oh-my-zsh $white" "installZsh"
 confirm "Installing oh-my-zsh"
 
-prompt "Will use stow to symlink: $blue $stowed $white" "stow $stowed"
+prompt "Will use stow to symlink: $blue $stowed $white" "stowThings"
 confirm "Symlink with stow"
 
 prompt "Will configure ranger shortcuts" "./scripts/shortcuts/shortcuts.sh"
@@ -191,6 +195,7 @@ echo " $grn No missing packages were found $white"
 
 prompt "Will install tlp" "sudo pacman -S tlp tlp-rdw acpi_call ethtool smartmontools"
 confirm "tlp"
+sudo rm /etc/default/tlp
 sudo stow -t / tlp
 sudo systemctl start tlp.service
 sudo systemctl enable tlp.service
