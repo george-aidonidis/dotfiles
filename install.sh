@@ -56,16 +56,16 @@ stowed=(
 	tmux"
 )
 function createFolders {
-	"mkdir -p /home/$USER/tmp/;
-	 mkdir -p /home/$USER/Documents;
-	 mkdir -p /home/$USER/Download;
-	 mkdir -p /home/$USER/Music;
-	 mkdir -p /home/$USER/Personal;
-	 mkdir -p /home/$USER/Public;
-	 mkdir -p /home/$USER/Videos;
-	 mkdir -p /home/$USER/Work;
-	 mkdir -p /home/$USER/Pictures/Wallpapers;
-	 mkdir -p /home/$USER/Pictures/screenshots"
+	mkdir -p $HOME/tmp/;
+	mkdir -p $HOME/Documents;
+	mkdir -p $HOME/Download;
+	mkdir -p $HOME/Music;
+	mkdir -p $HOME/Personal;
+	mkdir -p $HOME/Public;
+	mkdir -p $HOME/Videos;
+	mkdir -p $HOME/Work;
+	mkdir -p $HOME/Pictures/Wallpapers;
+	mkdir -p $HOME/Pictures/screenshots;
 }
 
 basicPackages=(
