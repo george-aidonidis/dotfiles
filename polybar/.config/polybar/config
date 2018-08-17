@@ -101,7 +101,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = i3
 modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight volume cpu temperature memory wired-network wireless-network archupdates battery date xkeyboard powermenu
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight volume cpu temperature memory wired-network wireless-network archupdates battery date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -142,7 +142,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = i3
 modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight volume cpu temperature memory wired-network wireless-network archupdates battery date xkeyboard powermenu
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight volume cpu temperature memory wired-network wireless-network archupdates battery date xkeyboard
 
 tray-position = right
 tray-padding = 2

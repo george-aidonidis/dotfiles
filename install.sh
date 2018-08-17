@@ -17,17 +17,19 @@ function confirm {
 }
 aurPackages=(
 	"
-	spaceship-prompt
-	polybar
+	adwaita-dark
 	betterlockscreen-git
-	light-git
-	xkb-switch
-	visual-studio-code-bin
 	direnv
-	ttf-weather-icons
+	light-git
+	nerd-fonts-source-code-pro
+	polybar
 	slack-desktop
-	zsh-you-should-use
-	spotify"
+	spaceship-prompt-git
+	spotify
+	ttf-weather-icons
+	visual-studio-code-bin
+	xkb-switch
+	zsh-you-should-use"
 )
 applications=(
 	"
@@ -45,62 +47,76 @@ stowed=(
 	i3
 	mimeapps
 	nvim
+	parcellite
 	polybar
 	ranger
 	redshift
 	rofi
 	terminator
-	parcellite
 	tmux"
 )
 function createFolders {
 	"mkdir -p /home/$USER/tmp/;
+	 mkdir -p /home/$USER/Documents;
+	 mkdir -p /home/$USER/Download;
+	 mkdir -p /home/$USER/Music;
+	 mkdir -p /home/$USER/Personal;
+	 mkdir -p /home/$USER/Public;
+	 mkdir -p /home/$USER/Videos;
+	 mkdir -p /home/$USER/Work;
 	 mkdir -p /home/$USER/Pictures/Wallpapers;
 	 mkdir -p /home/$USER/Pictures/screenshots"
 }
 
 basicPackages=(
 	"
+	adobe-source-code-pro-fonts
+	arandr
+	aurman
+	awesome-terminal-fonts
 	compton
+	dialog
 	dunst
+	feh
+	gnome-themes-extra
+	gpicview
 	i3-gaps
 	i3status
+	jq
+	lxappearance
+	maim
+	mplayer
+	nautilus
 	neovim
+	noto-fonts-emoji
+	pacman-contrib
+	papirus-icon-theme
+	playerctl
+	python-pywal
+	ranger
 	redshift
 	rofi
-	terminator
-	tmux
-	gpicview
-	jq
-	feh
-	maim
-	xclip
-	arandr
-	w3m
-	the_silver_searcher
-	lxappearance
-	playerctl
-	dialog
-	xcursor-breeze
-	mplayer
-	ttf-droid
-	noto-fonts-emoji
-	adobe-source-code-pro-fonts
-	awesome-terminal-fonts
-	papirus-icon-theme
 	stow
-	python-pywal
-	zsh
+	terminator
+	the_silver_searcher
+	tmux
+	ttf-droid
+	w3m
+	xclip
+	xcursor-breeze
 	xorg-server
-	xorg-xinit"
+	xorg-xinit
+	zsh"
 )
+
 function installZsh {
 	echo "source $HOME/dotfiles/zsh/.zshrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" > /home/$USER/.zshrc
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-	yaourt -s --noconfirm zsh-autosuggestions
+	aurman -S --noconfirm zsh-autosuggestions
 	chsh -s `which zsh`
 }
+
 function prompt {
 	while true; do
 	echo -e "$1"
@@ -112,6 +128,7 @@ function prompt {
 	esac
 done
 }
+
 function checkMissingPackages {
 	declare -a arr=("stow" "compton" "dunst" "i3" "nvim" "polybar" "redshift" "rofi" "parcellite" "terminator" "tmux" "zsh")
 	echo "Checking if there are any missing packages"
@@ -133,7 +150,7 @@ prompt "  Will install:$blue $basicPackages $white" "sudo pacman -S $basicPac
 confirm "Installing basic packages"
 
 thunder
-prompt "  Will install: $blue $aurPackages $white" "yaourt --noconfirm -S $aurPackages"
+prompt "  Will install: $blue $aurPackages $white" "aurman --noconfirm -S $aurPackages"
 confirm "Installing aur packages"
 
 thunder
@@ -142,6 +159,8 @@ confirm "Installing oh-my-zsh"
 
 prompt "Will use stow to symlink: $blue $stowed $white" "stow $stowed"
 confirm "Symlink with stow"
+
+prompt "Will configure ranger shortcuts" "./scripts/shortcuts/shortcuts.sh"
 
 prompt "Will change button positions on windows" "gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:'"
 confirm "Changed position of window buttons to left side (gnome)"

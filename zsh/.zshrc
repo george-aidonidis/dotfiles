@@ -126,9 +126,8 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 stty -ixon
 export SPACESHIP_CHAR_SYMBOL='🥦🐑💨🐣 '
 export SPACESHIP_PROMPT_PREFIXES_SHOW=false
-source /home/george/dotfiles/homeconfig/.bash_shortcuts
+source /home/$USER/dotfiles/homeconfig/.bash_shortcuts
 
 export XKB_DEFAULT_LAYOUT=us,gr
 export XKB_DEFAULT_VARIANT=,nodeadkeys
 export XKB_DEFAULT_OPTIONS=caps:swapescape,ctrl:swap_lalt_lctl
-
