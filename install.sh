@@ -17,7 +17,6 @@ function confirm {
 }
 aurPackages=(
 	"
-	adwaita-dark
 	betterlockscreen-git
 	direnv
 	light-git
@@ -44,6 +43,7 @@ stowed=(
 	"
 	compton
 	dunst
+	gtk-3.0
 	homeconfig
 	i3
 	mimeapps
