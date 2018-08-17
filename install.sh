@@ -44,6 +44,7 @@ stowed=(
 	"
 	compton
 	dunst
+	homeconfig
 	i3
 	mimeapps
 	nvim
@@ -146,7 +147,7 @@ prompt "Will create Pictures and tmp folder" "createFolders"
 confirm "Creating folders"
 
 thunder
-prompt "  Will install:$blue $basicPackages $white" "sudo pacman -S $basicPackages"
+prompt "  Will install:$blue $basicPackages $white" "sudo pacman -Syu && sudo pacman -S $basicPackages"
 confirm "Installing basic packages"
 
 thunder
