@@ -246,8 +246,8 @@ exec_always --no-startup-id xrdb ~/.Xresources
 # Custom Commands #
 ###################
 # Set key bindings
-exec_always --no-startup-id source $HOME/dotfiles/.xinitrc
-bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xinitrc
+exec_always --no-startup-id source $HOME/dotfiles/.xkeyboard
+bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xkeyboard
 # Set background
 exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
 # Change to greek keyboard layout
