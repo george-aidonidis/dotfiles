@@ -51,9 +51,10 @@ export UPDATE_ZSH_DAYS=3
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nyan vi-mode)
+plugins=(git vi-mode)
 
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -93,7 +94,7 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git,node_modules,dist,build,ve
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Place npm_token on another file
-source $HOME/.npm_token
+source $HOME/.tokens
 
 export MONITOR='eDP-1'
 #Functions
@@ -113,9 +114,7 @@ if [[ "${terminfo[kcud1]}" != "" ]]; then
 fi
 
 # NPM
-NPM_PACKAGES="${HOME}/.npm-packages"
-
-PATH="$NPM_PACKAGES/bin:$PATH"
+export NPM_PACKAGES="${HOME}/.npm-packages:$PATH"
 
 # Unset manpath so we can inherit from /etc/manpath via the `manpath` command
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
@@ -125,4 +124,8 @@ export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 stty -ixon
 export SPACESHIP_CHAR_SYMBOL='🥦🐑💨🐣 '
 export SPACESHIP_PROMPT_PREFIXES_SHOW=false
-source /home/george/dotfiles/homeconfig/.bash_shortcuts
+source /home/$USER/dotfiles/homeconfig/.bash_shortcuts
+
+export XKB_DEFAULT_LAYOUT=us,gr
+export XKB_DEFAULT_VARIANT=,nodeadkeys
+export XKB_DEFAULT_OPTIONS=caps:swapescape,ctrl:swap_lalt_lctl

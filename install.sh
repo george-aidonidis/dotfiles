@@ -17,34 +17,39 @@ function confirm {
 }
 aurPackages=(
 	"
-	spaceship-prompt
-	polybar
 	betterlockscreen-git
-	light-git
-	xkb-switch
-	lightdm-webkit-theme-litarvan
-	visual-studio-code-bin
 	direnv
-	ttf-weather-icons
+	light-git
+	nerd-fonts-source-code-pro
+	polybar
 	slack-desktop
-	spotify"
+	spaceship-prompt-git
+	spotify
+	ttf-weather-icons
+	visual-studio-code-bin
+	xkb-switch
+	zsh-you-should-use"
 )
 applications=(
 	"
 	atom
-	parcellite
-	messengerfordesktop
 	docker
 	docker-compose
-	mongodb"
+	messengerfordesktop
+	mongodb
+	parcellite
+	pavucontrol"
 )
 stowed=(
 	"
 	compton
 	dunst
+	gtk-3.0
+	homeconfig
 	i3
 	mimeapps
 	nvim
+	parcellite
 	polybar
 	ranger
 	redshift
@@ -53,55 +58,67 @@ stowed=(
 	tmux"
 )
 function createFolders {
-	"mkdir -p /home/$USER/tmp/;
-	 mkdir -p /home/$USER/Pictures/Wallpapers;
-	 mkdir -p /home/$USER/Pictures/screenshots"
+	mkdir -p $HOME/tmp/;
+	mkdir -p $HOME/Documents;
+	mkdir -p $HOME/Download;
+	mkdir -p $HOME/Music;
+	mkdir -p $HOME/Personal;
+	mkdir -p $HOME/Public;
+	mkdir -p $HOME/Videos;
+	mkdir -p $HOME/Work;
+	mkdir -p $HOME/Pictures/Wallpapers;
+	mkdir -p $HOME/Pictures/screenshots;
 }
 
-function lightdmSetup {
-	sudo systemctl enable lightdm.service
-}
 basicPackages=(
 	"
+	adobe-source-code-pro-fonts
+	arandr
+	aurman
+	awesome-terminal-fonts
 	compton
+	dialog
 	dunst
+	feh
+	gnome-themes-extra
+	gpicview
 	i3-gaps
 	i3status
+	jq
+	lxappearance
+	maim
+	mplayer
+	nautilus
 	neovim
+	noto-fonts-emoji
+	pacman-contrib
+	papirus-icon-theme
+	playerctl
+	python-pywal
+	ranger
 	redshift
 	rofi
-	terminator
-	tmux
-	gpicview
-	jq
-	feh
-	maim
-	xclip
-	arandr
-	w3m
-	the_silver_searcher
-	lxappearance
-	playerctl
-	dialog
-	xcursor-breeze
-	mplayer
-	ttf-droid
-	noto-fonts-emoji
-	adobe-source-code-pro-fonts
-	awesome-terminal-fonts
-	papirus-icon-theme
 	stow
-	zsh
+	terminator
+	the_silver_searcher
+	tmux
+	ttf-droid
+	w3m
+	xclip
+	xcursor-breeze
 	xorg-server
-	xorg-xinit"
+	xorg-xinit
+	zsh"
 )
+
 function installZsh {
 	echo "source $HOME/dotfiles/zsh/.zshrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" > /home/$USER/.zshrc
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-	yaourt -s --noconfirm zsh-autosuggestions
+	aurman -S --noconfirm zsh-autosuggestions
 	chsh -s `which zsh`
 }
+
 function prompt {
 	while true; do
 	echo -e "$1"
@@ -113,8 +130,9 @@ function prompt {
 	esac
 done
 }
+
 function checkMissingPackages {
-	declare -a arr=("stow" "compton" "dunst" "i3" "nvim" "polybar" "redshift" "rofi" "terminator" "tmux" "zsh")
+	declare -a arr=("stow" "compton" "dunst" "i3" "nvim" "polybar" "redshift" "rofi" "parcellite" "terminator" "tmux" "zsh")
 	echo "Checking if there are any missing packages"
 	for item in "${arr[@]}"
 	do
@@ -125,10 +143,13 @@ function checkMissingPackages {
 		# or do whatever with individual element of the array
 	done
 }
+ function stowThings {
+	 rm $HOME/.zshrc;
+	 stow $stowed;
+ }
 
-su
-rm -rf /etc/lightdm
-exit
+prompt "Will update current packages before installation" "sudo pacman -Syu"
+confirm "Update"
 
 prompt "Will create Pictures and tmp folder" "createFolders"
 confirm "Creating folders"
@@ -138,15 +159,17 @@ prompt "  Will install:$blue $basicPackages $white" "sudo pacman -S $basicPac
 confirm "Installing basic packages"
 
 thunder
-prompt "  Will install: $blue $aurPackages $white" "yaourt --noconfirm -S $aurPackages"
+prompt "  Will install: $blue $aurPackages $white" "aurman --noconfirm -S $aurPackages"
 confirm "Installing aur packages"
 
 thunder
 prompt "  Will install: $blue oh-my-zsh $white" "installZsh"
 confirm "Installing oh-my-zsh"
 
-prompt "Will use stow to symlink: $blue $stowed $white" "stow $stowed"
+prompt "Will use stow to symlink: $blue $stowed $white" "stowThings"
 confirm "Symlink with stow"
+
+prompt "Will configure ranger shortcuts" "./scripts/shortcuts/shortcuts.sh"
 
 prompt "Will change button positions on windows" "gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:'"
 confirm "Changed position of window buttons to left side (gnome)"
@@ -156,7 +179,7 @@ prompt "  Will install tmux plugin manager (tpm)" "git clone https://github.c
 confirm "Installing tmux plugin manager"
 
 thunder
-prompt "  Will install: $blue $applications $white" "sudo pacman -S atom parcellite messengerfordesktop docker docker-compose mongodb"
+prompt "  Will install: $blue $applications $white" "sudo pacman -S $applications"
 confirm "Installing applications"
 
 thunder
@@ -173,6 +196,8 @@ echo " $grn No missing packages were found $white"
 
 prompt "Will install tlp" "sudo pacman -S tlp tlp-rdw acpi_call ethtool smartmontools"
 confirm "tlp"
+sudo rm /etc/default/tlp
+sudo stow -t / tlp
 sudo systemctl start tlp.service
 sudo systemctl enable tlp.service
 sudo systemctl enable tlp-sleep.service
