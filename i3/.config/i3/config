@@ -41,7 +41,7 @@ set $code_m 58
 ####################
 
 set $stoprec --no-startup-id killall -q ffmpeg
-set $screencast  --no-startup-id bash ~/.config/Scripts/screencast_pulse.sh
+set $screencast  --no-startup-id bash ~/.config/scripts/screencast_pulse.sh
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Sans 9, FontAwesome 8
@@ -52,7 +52,6 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec --no-startup-id terminator -e tmux
 bindcode $mod+$code_i exec --no-startup-id terminator -e htop
-# bindsym $mod+Return exec i3-sensible-terminal
 
 bindcode $mod+$code_a exec --no-startup-id terminator -e ranger
 
@@ -239,7 +238,6 @@ exec --no-startup-id redshift-gtk -l 35.1:25.7
 exec --no-startup-id parcellite
 # Specific directive to enable tap to click on touchpad
 exec_always --no-startup-id $HOME/dotfiles/scripts/enable-touchpad-tapping.sh
-# exec xinput set-prop 11 277 1
 exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 exec_always --no-startup-id xrdb ~/.Xresources
 ###################
@@ -257,7 +255,7 @@ exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-s
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
 
-bindcode $mod+$code_w exec --no-startup-id terminator -e "sudo wifi-menu"
+bindcode $mod+$code_w exec --no-startup-id google-chrome-stable
 
 ##############################################
 #                   Modes                    #
@@ -355,16 +353,38 @@ no_focus [class="MPlayer"]
 bindsym $mod+Home exec --no-startup-id $HOME/dotfiles/scripts/camtoggle.sh
 
 # class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
+client.focused          $darkgray $blue $darkgray $purple $white
 client.focused_inactive $darkgray $darkgray $white $purple $darkgray
 client.unfocused        $darkgray $darkgray $white $purple $darkgray
 client.urgent           $red $red $white $red $red
 
+######################
+# i3 Bar with Blocks #
+######################
+
+# bar {
+# 		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+# 		tray_output             primary
+# 		separator_symbol        "|"
+# 		workspace_buttons       yes
+# 		position                top
+# 		colors {
+# 				background  #212121
+# 				statusline  #DDDDDD
+# 				separator   #777777
+# 				# class             border  backgr. text
+# 				focused_workspace   $darkgray $blue $darkgray $purple $white
+# 				active_workspace    $darkgray $darkgray $white $purple $darkgray
+# 				inactive_workspace  $darkgray $darkgray $white $purple $darkgray
+# 				urgent_workspace    $red $red $white $red $red
+# 		}
+# }
 #end of window title bars & borders section
 
 # Needed for i3-gaps
 hide_edge_borders both
 for_window [class="^.*"] border pixel 0
+
 gaps inner 8
 gaps outer 2
 
@@ -389,6 +409,10 @@ bindsym Control+Shift+Tab workspace prev
 
 # Apply fade-in/fade-out with the help of compton
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
+
+# Activate 1px border on active window
+# exec_always --no-startup-id bash ~/.config/scripts/inactive-handler.sh
+
 # i3-gnome
 # exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
 # exec_always --no-startup-id gnome-power-manager
