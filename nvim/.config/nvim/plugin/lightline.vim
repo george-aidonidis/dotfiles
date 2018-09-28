@@ -2,25 +2,28 @@ let g:lightline = {
 			\ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'gitbranch', 'modified' ] ]
+      \             [ 'cocstatus', 'readonly', 'filename', 'gitbranch', 'modified' ] ]
       \ },
 			\ 'tabline': {
-			\   'left': [ [ 'bufferinfo' ],
+			\   'left': [ [ 'buffers' ],
 			\             [ 'separator' ],
 			\             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
 			\   'right': [ [ 'close' ], ],
 			\ },
       \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers',
       \   'buffercurrent': 'lightline#buffer#buffercurrent',
       \   'bufferbefore': 'lightline#buffer#bufferbefore',
       \   'bufferafter': 'lightline#buffer#bufferafter',
       \ },
       \ 'component_type': {
+      \   'buffers': 'tabsel',
       \   'buffercurrent': 'tabsel',
       \   'bufferbefore': 'raw',
       \   'bufferafter': 'raw',
       \ },
       \ 'component_function': {
+      \   'cocstatus': 'coc#status',
       \   'gitbranch': 'GitBranchWithIcon',
       \   'branchicon': '',
       \   'modified': 'CustomModified',
@@ -46,30 +49,35 @@ endfunction
 
 " lightline-buffer ui settings
 " replace these symbols with ascii characters if your environment does not support unicode
-let g:lightline_buffer_logo = ' '
-let g:lightline_buffer_readonly_icon = ''
+let g:lightline#bufferline#show_number = 1
+let g:lightline#bufferline#unicode_symbols = 1
+let g:lightline#bufferline#enable_devicons = 1
+let g:lightline#bufferline#unnamed = '[No Name]'
 
-"let g:lightline_buffer_modified_icon = '✏️'
-let g:lightline_buffer_modified_icon = '✎'
-let g:lightline_buffer_git_icon = ' '
-let g:lightline_buffer_ellipsis_icon = '..'
-let g:lightline_buffer_expand_left_icon = '◀ '
-let g:lightline_buffer_expand_right_icon = ' ▶'
-let g:lightline_buffer_active_buffer_left_icon = ''
-let g:lightline_buffer_active_buffer_right_icon = ''
-let g:lightline_buffer_separator_icon = '  '
+"let g:lightline#bufferline#logo = ' '
+"let g:lightline#bufferline#readonly_icon = ''
 
-" lightline-buffer function settings
-let g:lightline_buffer_show_bufnr = 1
-let g:lightline_buffer_rotate = 0
-let g:lightline_buffer_fname_mod = ':t'
-let g:lightline_buffer_excludes = ['vimfiler']
+""let g:lightline#bufferline#modified = '✏️'
+"let g:lightline#bufferline#modified = '✎'
+"let g:lightline#bufferline#git_icon = ' '
+"let g:lightline#bufferline#ellipsis_icon = '..'
+"let g:lightline#bufferline#expand_left_icon = '◀ '
+"let g:lightline#bufferline#expand_right_icon = ' ▶'
+"let g:lightline#bufferline#active_buffer_left_icon = ''
+"let g:lightline#bufferline#active_buffer_right_icon = ''
+"let g:lightline#bufferline#separator_icon = '  '
 
-let g:lightline_buffer_maxflen = 30
-let g:lightline_buffer_maxfextlen = 3
-let g:lightline_buffer_minflen = 16
-let g:lightline_buffer_minfextlen = 3
-let g:lightline_buffer_reservelen = 20
+"" lightline-buffer function settings
+"let g:lightline#bufferline#show_bufnr = 1
+"let g:lightline#bufferline#rotate = 0
+"let g:lightline#bufferline#fname_mod = ':t'
+"let g:lightline#bufferline#excludes = ['vimfiler']
+
+"let g:lightline#bufferline#maxflen = 30
+"let g:lightline#bufferline#maxfextlen = 3
+"let g:lightline#bufferline#minflen = 16
+"let g:lightline#bufferline#minfextlen = 3
+"let g:lightline#bufferline#reservelen = 20
 
 set hidden  " allow buffer switching without saving
 set showtabline=2  " always show tabline

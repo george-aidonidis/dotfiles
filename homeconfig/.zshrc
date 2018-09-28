@@ -12,5 +12,4 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # Set Spaceship ZSH as a prompt
 autoload -U promptinit; promptinit
 prompt spaceship
-alias "nowtcs=now --token ${TCS_TOKEN}"
 

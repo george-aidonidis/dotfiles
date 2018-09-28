@@ -11,11 +11,11 @@ let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exac
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 " Open path of active file and navigate to right buffer
-map <leader><leader> :NERDTreeFind<cr><C-w>l
+" map <leader><leader> :NERDTreeFind<cr><C-w>l
 " Open path of active file
 map <leader>n :NERDTreeFind<cr>
 " Toggle nerd tree
-map <leader>b :NERDTreeToggle<cr>
+map <C-K><C-B> :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 
 let NERDTreeIgnore = ['\.tern-config$', '\.tern-port$', '\.netrwhist$']
