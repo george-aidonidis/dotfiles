@@ -1,3 +1,4 @@
+source $HOME/.tokens
 # If you come from bash you might have to change your $PATH.
 export GEM_HOME=$HOME/.gem
 export PATH=$HOME/.npm-packages/bin:$HOME/bin:/usr/local/bin:$(ruby -e 'print Gem.user_dir')/bin:$PATH
@@ -94,7 +95,6 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git,node_modules,dist,build,ve
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # Place npm_token on another file
-source $HOME/.tokens
 
 export MONITOR='eDP-1'
 #Functions

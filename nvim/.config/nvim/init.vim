@@ -10,7 +10,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
-Plug 'taohex/lightline-buffer'
+Plug 'jiangmiao/auto-pairs'
+" Autocomplete
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+Plug 'mgee/lightline-bufferline'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'itchyny/lightline.vim'
@@ -38,5 +42,7 @@ so ~/dotfiles/nvim/.config/nvim/custom/folding.vim
 so ~/dotfiles/nvim/.config/nvim/custom/misc.vim
 so ~/dotfiles/nvim/.config/nvim/custom/commands.vim
 so ~/dotfiles/nvim/.config/nvim/custom/user-interface.vim
+
+let g:neosnippet#enable_completed_snippet = 1
 
 autocmd BufWritePost ~/dotfiles/scripts/shortcuts/folders,~/dotfiles/scripts/shortcuts/configs !bash ~/dotfiles/scripts/shortcuts/shortcuts.sh

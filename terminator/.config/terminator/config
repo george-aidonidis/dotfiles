@@ -7,7 +7,7 @@
   inactive_color_offset = 1.0
   scroll_tabbar = True
   tab_position = hidden
-  title_font = Source Code Pro 10
+  title_font = Source Code Pro Light 10
   title_hide_sizetext = True
   title_transmit_bg_color = "#d30102"
   title_use_system_font = False
@@ -30,7 +30,7 @@
     background_darkness = 0.8
     background_type = transparent
     cursor_color = "#7c6f64"
-    font = Source Code Pro 10
+    font = Source Code Pro 12
     foreground_color = "#ebdbb2"
     icon_bell = False
     login_shell = True
@@ -42,7 +42,7 @@
     background_darkness = 0.8
     background_type = transparent
     cursor_color = "#bbbbbb"
-    font = Source Code Pro 12
+    font = Source Code Pro 13
     foreground_color = "#abb2bf"
     icon_bell = False
     login_shell = True

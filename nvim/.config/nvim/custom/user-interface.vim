@@ -24,5 +24,6 @@ set splitbelow
 set showcmd
 set encoding=utf8
 " Set Vim font to a Nerd Font
-set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete\ 25
+" set guifont=Source\ Code\ Pro\ Light:h21
+set guifont=Sauce\ Code\ Pro\ Nerd\ Font\ Complete\ 13
 " set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types\ 21

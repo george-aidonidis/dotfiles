@@ -10,6 +10,17 @@
 #######
 # Git #
 #######
+alias "sp=sudo pacman"
+alias "sps=sudo pacman -S"
+alias "p=pacman"
+# Dry run
+alias "pcheck=sudo paccache -d"
+# Actually run the command
+alias "pclean=sudo paccache -r"
+
+#######
+# Git #
+#######
 alias "gcob=git checkout -b"
 alias "gfp=git fetch --prune"
 alias "gla=git pull --all"
@@ -20,6 +31,13 @@ alias "gdema=git branch | grep -v 'master' | xargs git branch -D"
 # git delete merged
 alias "gdme=git branch --merged | grep -v \* | xargs git branch -D"
 
+#######
+# Yarn #
+#######
+alias yr="yarn run"
+alias ya="yarn add"
+alias yad="yarn add --dev "
+#
 #######
 # NPM #
 #######
@@ -72,3 +90,6 @@ transfer() {
   cat $tmpfile;
   rm -f $tmpfile;
 };
+
+alias "nowwork=now --token ${NOW_WORK_TOKEN}"
+alias "nowpersonal=now --token ${NOW_PERSONAL_TOKEN}"

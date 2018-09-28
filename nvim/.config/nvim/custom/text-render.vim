@@ -12,5 +12,3 @@ set sidescrolloff=5
 " Enable syntax highlighting.
 syntax enable
 set list listchars=tab:»·,trail:·  " Display extra whitespace characters
-
-
