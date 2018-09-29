@@ -1,0 +1,9 @@
+{
+	"coc.preferences.customSources": ["word","include"],
+	"tsserver.formatOnType": false,
+	"coc.preferences.formatOnSaveFiletypes": ["false"],
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+	"coc.source.emoji.filetypes": ["markdown", "gitcommit"]
+}
