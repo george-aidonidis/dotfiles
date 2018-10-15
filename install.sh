@@ -74,7 +74,7 @@ basicPackages=(
 	"
 	adobe-source-code-pro-fonts
 	arandr
-	aurman
+	yay
 	awesome-terminal-fonts
 	compton
 	dialog
@@ -115,7 +115,7 @@ function installZsh {
 	echo "source $HOME/dotfiles/zsh/.zshrc
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" > /home/$USER/.zshrc
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
-	aurman -S --noconfirm zsh-autosuggestions
+	yay -S --noconfirm zsh-autosuggestions
 	chsh -s `which zsh`
 }
 
@@ -159,7 +159,7 @@ prompt "  Will install:$blue $basicPackages $white" "sudo pacman -S $basicPac
 confirm "Installing basic packages"
 
 thunder
-prompt "  Will install: $blue $aurPackages $white" "aurman --noconfirm -S $aurPackages"
+prompt "  Will install: $blue $aurPackages $white" "yay --noconfirm -S $aurPackages"
 confirm "Installing aur packages"
 
 thunder
