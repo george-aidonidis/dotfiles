@@ -11,6 +11,7 @@
 # Git #
 #######
 alias "sp=sudo pacman"
+alias "spr=sudo pacman -Rsn"
 alias "sps=sudo pacman -S"
 alias "p=pacman"
 # Dry run
@@ -34,9 +35,11 @@ alias "gdme=git branch --merged | grep -v \* | xargs git branch -D"
 #######
 # Yarn #
 #######
+alias yi="yarn install"
 alias yr="yarn run"
 alias ya="yarn add"
 alias yad="yarn add --dev "
+alias yag="yarn global add"
 #
 #######
 # NPM #
@@ -49,7 +52,7 @@ alias nid="npm install --save-dev "
 ########
 # Arch #
 ########
-alias update="sudo pacman --noconfirm -Syu && yaourt --aur -Syu --noconfirm"
+alias update="sudo pacman --noconfirm -Syu && yay -Syu --aur --noconfirm"
 
 ##########
 # Docker #
@@ -93,3 +96,4 @@ transfer() {
 
 alias "nowwork=now --token ${NOW_WORK_TOKEN}"
 alias "nowpersonal=now --token ${NOW_PERSONAL_TOKEN}"
+alias "nowmarge=now --token ${NOW_MARGE_TOKEN}"

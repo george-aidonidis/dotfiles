@@ -241,7 +241,7 @@ bindsym XF86WLAN exec --no-startup-id $HOME/dotfiles/scripts/wifi-toggle.sh
 exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
 exec --no-startup-id nm-applet
 exec --no-startup-id spotify
-exec --no-startup-id WhatsApp
+exec --no-startup-id blueman-manager
 exec --no-startup-id dropbox
 exec --no-startup-id enpass
 exec --no-startup-id redshift-gtk -l 35.1:25.7
