@@ -154,29 +154,23 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Toggle float mode for specific apps
 for_window [class="Gnome-calculator"] floating enable
-for_window [class="Peek"] floating enable
-for_window [class="Peek"] resize set 600 300
-for_window [title="WhatsApp"] floating enable
-for_window [title="WhatsApp"] resize set 900 550
-for_window [title="Messages for web"] floating enable
-for_window [title="Messages for web"] resize set 900 470
-for_window [title="Messenger for Desktop"] floating enable
-for_window [title="Messenger for Desktop"] resize set 900 550
-for_window [class="Enpass"] floating enable
-for_window [class="Enpass"] resize set 600 300
+for_window [class="Peek"] floating enable resize set 600 300
+for_window [class="slack"] floating enable resize set 970 880
+for_window [class="wavebox"] floating enable resize set 900 650
+for_window [title="Messenger for Desktop"] floating enable resize set 900 550, move absolute position 20 500
+for_window [class="Enpass"] floating enable resize set 600 300
 
 
 # Assign applications to workspaces
-assign [class="Google-chrome"] $ws2
-assign [class="Firefox"] $ws2
-assign [class="Slack"] $ws4
-assign [class="Code"] $ws3
 assign [class="Atom"] $ws3
+assign [class="Code"] $ws3
 assign [class="Enpass"] $ws7
+assign [class="Firefox"] $ws2
+assign [class="Google-chrome"] $ws2
+assign [class="Slack"] $ws4
+assign [class="wavebox"] $ws5
+assign [title="Messenger for Desktop"] $ws5
 for_window [class="Spotify"] move to workspace $ws10
-for_window [title="WhatsApp"] move to workspace $ws5
-for_window [title="Messages for web"] move to workspace $ws5
-for_window [title="Messenger for Desktop"] move to workspace $ws5
 
 # Reload the configuration file
 bindcode $mod+Shift+$code_c reload
@@ -244,6 +238,7 @@ exec --no-startup-id spotify
 exec --no-startup-id blueman-manager
 exec --no-startup-id dropbox
 exec --no-startup-id enpass
+exec --no-startup-id wavebox
 exec --no-startup-id redshift-gtk -l 35.1:25.7
 exec --no-startup-id parcellite
 # Specific directive to enable tap to click on touchpad
@@ -257,6 +252,7 @@ exec_always --no-startup-id xrdb ~/.Xresources
 exec_always --no-startup-id source $HOME/dotfiles/.xkeyboard
 bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xkeyboard
 # Set background
+bindsym $mod+Shift+Print exec --no-startup-id $HOME/dotfiles/scripts/unsplash-generator.sh
 exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
 # Change to greek keyboard layout
 bindsym $mod+space exec --no-startup-id xkb-switch -n

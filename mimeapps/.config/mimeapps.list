@@ -1,14 +1,17 @@
 [Added Associations]
-text/plain=visual-studio-code.desktop;
-video/x-msvideo=mpv.desktop;mplayer.desktop;
-video/mp4=mpv.desktop;mplayer.desktop;
+text/plain=nvim.desktop;visual-studio-code.desktop;
+video/x-msvideo=vlc.desktop;mplayer.desktop;
+video/mp4=vlc.desktop;mplayer.desktop;
 image/png=org.gnome.gThumb.desktop;
 image/svg+xml=org.gnome.gedit.desktop;org.gnome.gThumb.desktop;
-application/pdf=org.gnome.gThumb.desktop;
+application/pdf=org.gnome.Evince.desktop;org.gnome.gThumb.desktop;
 image/jpeg=org.gnome.gThumb.desktop;
+application/json=nvim.desktop;
+text/csv=wps-office-et.desktop;
+video/x-matroska=mpv.desktop;mplayer.desktop;
 
 [Default Applications]
-video/mp4=mpv.desktop
+video/mp4=vlc.desktop
 text/html=google-chrome-stable.desktop;
 applictation/xhtml+xml=google-chrome-stable.desktop;
 applictation/rss+xml=google-chrome-stable.desktop;
@@ -16,3 +19,7 @@ applictation/rdf+xml=google-chrome-stable.desktop;
 x-schetme-handler/http=google-chrome-stable.desktop;
 x-schetme-handler/https=google-chrome-stable.desktop;
 text/atbout=google-chrome-stable.desktop;
+image/jpeg=org.gnome.gThumb.desktop
+image/png=org.gnome.gThumb.desktop
+video/x-matroska=mpv.desktop
+
