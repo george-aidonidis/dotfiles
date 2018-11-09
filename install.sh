@@ -19,14 +19,18 @@ aurPackages=(
 	"
 	betterlockscreen-git
 	direnv
+	enpass-bin
+	google-chrome
 	light-git
 	nerd-fonts-source-code-pro
 	polybar
 	slack-desktop
 	spaceship-prompt-git
 	spotify
+	ttf-lato
 	ttf-weather-icons
 	visual-studio-code-bin
+	wavebox-bin
 	xkb-switch
 	zsh-you-should-use"
 )
@@ -161,6 +165,10 @@ confirm "Installing basic packages"
 thunder
 prompt "  Will install: $blue $aurPackages $white" "yay --noconfirm -S $aurPackages"
 confirm "Installing aur packages"
+
+thunder
+prompt "  Will install discord plugin manager (tpm)" "yay -S --needed --noconfirm --mflags --nocheck libc++abi libc++ discord"
+confirm "Installing discord"
 
 thunder
 prompt "  Will install: $blue oh-my-zsh $white" "installZsh"
