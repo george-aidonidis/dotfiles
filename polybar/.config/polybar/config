@@ -318,15 +318,12 @@ label-connected-font = 6
 [module/date]
 type = internal/date
 interval = 1
-
 date = " %a %d %b"
-
 time = %H:%M:%S
-time-alt = %H:%M:%S
-
 format-foreground = ${colors.foreground}
 
-label =  %date%  %time%
+label = %{A1:gsimplecal:}  %date%  %time% %{A}
+click-left = gsimplecal
 
 [module/pulseaudio]
 type = internal/pulseaudio

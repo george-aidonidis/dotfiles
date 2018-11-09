@@ -203,6 +203,8 @@ sudo systemctl enable tlp.service
 sudo systemctl enable tlp-sleep.service
 sudo systemctl start tlp-sleep.service
 sudo systemctl mask systemd-rfkill.service
+echo "Adding a wallpaper"
+./scripts/unsplash-generator.sh
 
 echo "🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉"
 echo "Script completed. Please restart for the changes to take effect"

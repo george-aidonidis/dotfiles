@@ -52,17 +52,11 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec --no-startup-id terminator -e tmux
 bindcode $mod+$code_i exec --no-startup-id terminator -e htop
-
 bindcode $mod+$code_a exec --no-startup-id terminator -e ranger
-
 bindcode $mod+$code_n exec --no-startup-id nautilus
+bindcode $mod+$code_w exec --no-startup-id google-chrome-stable
 
-# kill focused window
 bindcode $mod+$code_q kill
-bindcode $mod+Shift+$code_q kill
-
-# bindsym $mod+d exec dmenu_run
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindcode $mod+$code_d exec --no-startup-id "rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons"
 
 # change focus
@@ -104,7 +98,6 @@ bindcode $mod+$code_f fullscreen toggle
 bindcode $mod+$code_s layout stacking
 # bindcode $mod+$code_w layout tabbed
 bindcode $mod+$code_e layout toggle split
-
 # toggle tiling / floating
 bindcode $mod+$code_t floating toggle
 # change focus between tiling / floating windows
@@ -204,9 +197,21 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-#######################
-# Custom Key Bindings #
-#######################
+#########################################
+#=========== Custom Commands ===========#
+#########################################
+# Set keyboard through xorg
+bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xkeyboard
+# Set background
+bindsym $mod+Shift+Print exec --no-startup-id $HOME/dotfiles/scripts/unsplash-generator.sh
+# Change to greek keyboard layout
+bindsym $mod+space exec --no-startup-id xkb-switch -n
+# Screen layout generated from arandr
+exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
+# Assign profile switch for bose35 headset to keyboard shortcut
+bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
+bindcode $mod+shift+$code_x exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock;
+
 # Keyboard media controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
@@ -228,10 +233,9 @@ bindsym XF86AudioPause exec --no-startup-id playerctl pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86WLAN exec --no-startup-id $HOME/dotfiles/scripts/wifi-toggle.sh
 
-###########
-# Startup #
-###########
-# Open applications at startup
+########################
+# Applications Startup #
+########################
 exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
 exec --no-startup-id nm-applet
 exec --no-startup-id spotify
@@ -241,30 +245,46 @@ exec --no-startup-id enpass
 exec --no-startup-id wavebox
 exec --no-startup-id redshift-gtk -l 35.1:25.7
 exec --no-startup-id parcellite
+
+#################################
+# Always start (on reload etc...) #
+#################################
 # Specific directive to enable tap to click on touchpad
 exec_always --no-startup-id $HOME/dotfiles/scripts/enable-touchpad-tapping.sh
 exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 exec_always --no-startup-id xrdb ~/.Xresources
-###################
-# Custom Commands #
-###################
-# Set key bindings
 exec_always --no-startup-id source $HOME/dotfiles/.xkeyboard
-bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xkeyboard
-# Set background
-bindsym $mod+Shift+Print exec --no-startup-id $HOME/dotfiles/scripts/unsplash-generator.sh
 exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
-# Change to greek keyboard layout
-bindsym $mod+space exec --no-startup-id xkb-switch -n
-# Screen layout generated from arandr
-exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
-# Assign profile switch for bose35 headset to keyboard shortcut
-bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
-
-bindcode $mod+$code_w exec --no-startup-id google-chrome-stable
+exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 
 ##############################################
-#                   Modes                    #
+#=========== Image/Video Commands ===========#
+##############################################
+######################
+# Screenshot helpers #
+######################
+bindsym Control+Shift+F1 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
+bindsym Shift+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window.sh
+bindsym Control+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
+bindsym Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-active-screen.sh
+bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
+
+##############
+# Screencast #
+##############
+set $screencastmode " :  (0)Laptop -  (1)Main"
+mode  $screencastmode {
+    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 0; mode "default"
+    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 1; mode "default"
+    bindcode $code_q mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Insert mode $screencastmode
+bindsym $mod+Delete exec --no-startup-id $stoprec
+
+
+##############################################
+#================== Modes ===================#
 ##############################################
 
 ####################
@@ -325,30 +345,6 @@ set $gray #a89984
 set $darkgray #1d2021
 set $white #ffffff
 set $softYellow #fbf1c7
-
-######################
-# Screenshot helpers #
-######################
-bindsym Control+Shift+F1 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
-bindsym Shift+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window.sh
-bindsym Control+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
-bindsym Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-active-screen.sh
-bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
-
-bindcode $mod+shift+$code_x exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock;
-
-##############
-# Screencast #
-##############
-set $screencastmode " :  (0)Laptop -  (1)Main"
-mode  $screencastmode {
-    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 0; mode "default"
-    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 1; mode "default"
-    bindcode $code_q mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Insert mode $screencastmode
-bindsym $mod+Delete exec --no-startup-id $stoprec
 
 # Bindings to make the webcam float and stick.
 for_window [class="MPlayer"] floating enable
@@ -413,8 +409,6 @@ bindcode $mod+Control+$code_h workspace prev
 bindsym Control+Tab workspace next
 bindsym Control+Shift+Tab workspace prev
 
-# Apply fade-in/fade-out with the help of compton
-exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 
 # Activate 1px border on active window
 # exec_always --no-startup-id bash ~/.config/scripts/inactive-handler.sh
