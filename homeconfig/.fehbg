@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '/home/george/.config/wall.png' 
+feh --bg-fill '/home/george/.config/wall.png' 

@@ -102,10 +102,11 @@ done
 # Put the URLs on the clipboard if we can
 if type pbcopy &>/dev/null; then
 	echo -n "$url" | pbcopy
-elif type xsel &>/dev/null; then
-	echo -n "$url" | xsel -i
 elif type xclip &>/dev/null; then
 	echo -n "$url" | xclip -selection clipboard
+elif type xsel &>/dev/null; then
+  notify-send " uploaded: $url" -t 5000
+	echo -n "$url" | xsel -bi
 else
 	echo "Haven't copied to the clipboard: no xsel or xclip or pbcopy" >&2
 fi

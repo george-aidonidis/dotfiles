@@ -112,6 +112,7 @@ basicPackages=(
 	xcursor-breeze
 	xorg-server
 	xorg-xinit
+	xsel
 	zsh"
 )
 
