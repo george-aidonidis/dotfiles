@@ -2,6 +2,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+set $run_rofi "$HOME/dotfiles/scripts/ensure-us-layout.sh 'rofi -width 30 -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
+set $run_rofi_emoji "$HOME/dotfiles/scripts/ensure-us-layout.sh $HOME/dotfiles/scripts/rofi/rofi-emoji-launch.sh"
+
 set $mod Mod4
 
 set $Slash_Question 61
@@ -49,16 +52,15 @@ font pango:Sans 9, Lato 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
 bindsym $mod+Return exec --no-startup-id terminator -e tmux
 bindcode $mod+$code_i exec --no-startup-id terminator -e htop
 bindcode $mod+$code_a exec --no-startup-id terminator -e ranger
 bindcode $mod+$code_n exec --no-startup-id nautilus
 bindcode $mod+$code_w exec --no-startup-id google-chrome-stable
-
 bindcode $mod+$code_q kill
-bindcode $mod+$code_d exec --no-startup-id "rofi -width 30 -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons"
-bindcode $mod+Shift+$code_d exec --no-startup-id $HOME/dotfiles/scripts/rofi/rofi-emoji-launch.sh
+
+bindcode $mod+Shift+$code_d exec --no-startup-id $run_rofi_emoji
+bindcode $mod+$code_d exec --no-startup-id $run_rofi
 
 # change focus
 bindcode $mod+$code_h focus left
@@ -207,6 +209,7 @@ bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xkey
 bindsym $mod+Shift+Print exec --no-startup-id $HOME/dotfiles/scripts/unsplash-generator.sh
 # Change to greek keyboard layout
 bindsym $mod+space exec --no-startup-id xkb-switch -n
+
 # Screen layout generated from arandr
 exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
 # Assign profile switch for bose35 headset to keyboard shortcut
