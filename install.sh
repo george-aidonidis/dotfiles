@@ -78,7 +78,6 @@ basicPackages=(
 	"
 	adobe-source-code-pro-fonts
 	arandr
-	yay
 	awesome-terminal-fonts
 	compton
 	dialog
@@ -86,6 +85,7 @@ basicPackages=(
 	feh
 	gnome-themes-extra
 	gpicview
+	gsimplecal
 	i3-gaps
 	i3status
 	jq
@@ -113,6 +113,7 @@ basicPackages=(
 	xorg-server
 	xorg-xinit
 	xsel
+	yay
 	zsh"
 )
 
