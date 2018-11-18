@@ -23,7 +23,6 @@ else
 	mv $WORKDIR*'.jpg' $WORKDIR'old/'
 fi
 
-wget -O ${WORKDIR}${RANT}'.jpg' -q https://source.unsplash.com/1920x1080?wallpapers
+wget -O ${WORKDIR}${RANT}'.jpg' -q https://source.unsplash.com/1920x1080?wallpaper,nature
 
 cp ''${WORKDIR}${RANT}'.jpg' ~/.config/wall.png && feh --bg-scale ~/.config/wall.png
-
