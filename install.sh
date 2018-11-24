@@ -24,6 +24,7 @@ aurPackages=(
 	light-git
 	nerd-fonts-source-code-pro
 	polybar
+	paper-icon-theme-git
 	slack-desktop
 	spaceship-prompt-git
 	spotify
@@ -32,6 +33,7 @@ aurPackages=(
 	visual-studio-code-bin
 	wavebox-bin
 	xkb-switch
+	xkblayout-state-git
 	zsh-you-should-use"
 )
 applications=(
@@ -81,6 +83,7 @@ basicPackages=(
 	awesome-terminal-fonts
 	compton
 	dialog
+	diff-so-fancy
 	dunst
 	feh
 	gnome-themes-extra
@@ -93,6 +96,7 @@ basicPackages=(
 	maim
 	mplayer
 	nautilus
+	neofetch
 	neovim
 	noto-fonts-emoji
 	pacman-contrib
@@ -114,6 +118,7 @@ basicPackages=(
 	xorg-xinit
 	xsel
 	yay
+	z
 	zsh"
 )
 
