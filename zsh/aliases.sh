@@ -40,6 +40,7 @@ alias yr="yarn run"
 alias ya="yarn add"
 alias yad="yarn add --dev "
 alias yag="yarn global add"
+alias yarn_global_upgrade="yarn global upgrade"
 #
 #######
 # NPM #
