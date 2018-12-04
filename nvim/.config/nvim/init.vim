@@ -11,6 +11,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
+Plug 'matze/vim-move'
 " Autocomplete
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
