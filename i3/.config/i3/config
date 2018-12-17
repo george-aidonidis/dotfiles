@@ -45,6 +45,19 @@ set $code_m 58
 
 set $stoprec --no-startup-id killall -q ffmpeg
 set $screencast  --no-startup-id bash ~/.config/scripts/screencast_pulse.sh
+
+###################
+# Spawn dropdowns #
+###################
+bindcode $mod+$code_u [title="ddtmux"] scratchpad show; [title="ddtmux"] move position center
+
+for_window [title="ddtmux"] floating enable
+for_window [title="ddtmux"] resize set 625 450
+for_window [title="ddtmux"] move scratchpad
+for_window [title="ddtmux"] border pixel 5
+for_window [title="ddtmux"] sticky enable
+exec --no-startup-id terminator --title ddtmux -e tmux
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Sans 9, Lato 9
@@ -52,7 +65,7 @@ font pango:Sans 9, Lato 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Return exec --no-startup-id terminator -e tmux
+bindsym $mod+Return exec --no-startup-id terminator
 bindcode $mod+$code_i exec --no-startup-id terminator -e htop
 bindcode $mod+$code_a exec --no-startup-id terminator -e ranger
 bindcode $mod+$code_n exec --no-startup-id nautilus
@@ -67,6 +80,14 @@ bindcode $mod+$code_h focus left
 bindcode $mod+$code_j focus down
 bindcode $mod+$code_k focus up
 bindcode $mod+$code_l focus right
+
+###################################
+# Resize without the resize mode #
+###################################
+bindcode $mod+Shift+$code_y exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh left
+bindcode $mod+Shift+$code_u exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh down
+bindcode $mod+Shift+$code_i exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh up
+bindcode $mod+Shift+$code_o exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -97,6 +118,8 @@ bindcode $mod+$code_v split v
 #
 # enter fullscreen mode for the focused container
 bindcode $mod+$code_f fullscreen toggle
+# position window to center of the screen
+bindcode $mod+$code_g move position center
 # change container layout (stacked, tabbed, toggle split)
 bindcode $mod+$code_s layout stacking
 # bindcode $mod+$code_w layout tabbed
@@ -113,6 +136,7 @@ bindcode $mod+$code_c focus child
 
 ##############
 # Workspaces #
+##############
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -150,14 +174,25 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Toggle float mode for specific apps
 for_window [class="Gnome-calculator"] floating enable
+for_window [class="Gnome-calculator"] move position center
+
 for_window [class="Peek"] floating enable resize set 600 300
+for_window [class="Peek"] move position center
+
 for_window [class="slack"] floating enable resize set 970 880
-for_window [class="wavebox"] floating enable resize set 900 650
+for_window [class="slack"] move position center
+
+for_window [class="wavebox"] floating enable resize set 1470 880 move position center
+for_window [class="wavebox"] move position center
+
 for_window [title="Messenger for Desktop"] floating enable resize set 900 550, move absolute position 20 500
+
 for_window [class="Enpass"] floating enable resize set 600 300
+for_window [class="Enpass"] move position center
 
-
-# Assign applications to workspaces
+#####################################
+# Assign applications to workspaces #
+#####################################
 assign [class="Atom"] $ws3
 assign [class="Code"] $ws3
 assign [class="Enpass"] $ws7
@@ -165,7 +200,7 @@ assign [class="Firefox"] $ws2
 assign [class="Google-chrome"] $ws2
 assign [class="brave-browser"] $ws2
 assign [class="Slack"] $ws4
-assign [class="wavebox"] $ws5
+assign [class="wavebox"] $ws4
 assign [title="Messenger for Desktop"] $ws5
 for_window [class="Spotify"] move to workspace $ws10
 

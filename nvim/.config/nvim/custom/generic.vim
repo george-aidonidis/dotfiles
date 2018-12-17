@@ -15,3 +15,9 @@ set wildmenu
 set wildignore+=**/node_modules/**
 set backspace=2   " Backspace deletes like most programs in insert mode
 
+" Splits open at the bottom and right, unlike vim-defaults
+set splitbelow splitright
+
+" Disable automatic commenting on newline
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
