@@ -395,10 +395,10 @@ no_focus [class="MPlayer"]
 bindsym $mod+Home exec --no-startup-id $HOME/dotfiles/scripts/camtoggle.sh
 
 # class                 border|backgr|text|indicator|child_border
-client.focused          $darkgray $blue $darkgray $purple $white
-client.focused_inactive $darkgray $darkgray $white $purple $darkgray
-client.unfocused        $darkgray $darkgray $white $purple $darkgray
-client.urgent           $red $red $white $red $red
+client.focused          $darkgray $blue $darkgray $purple $blue
+client.focused_inactive $darkgray $darkgray $blue $purple $darkgray
+client.unfocused        $darkgray $darkgray $blue $purple $darkgray
+client.urgent           $red $red $blue $red $red
 
 ######################
 # i3 Bar with Blocks #
@@ -425,7 +425,7 @@ client.urgent           $red $red $white $red $red
 
 # Needed for i3-gaps
 hide_edge_borders both
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 
 gaps inner 8
 gaps outer 2
