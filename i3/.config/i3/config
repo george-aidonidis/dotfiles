@@ -52,7 +52,7 @@ set $screencast  --no-startup-id bash ~/.config/scripts/screencast_pulse.sh
 bindcode $mod+$code_u [title="ddtmux"] scratchpad show; [title="ddtmux"] move position center
 
 for_window [title="ddtmux"] floating enable
-for_window [title="ddtmux"] resize set 625 450
+for_window [title="ddtmux"] resize set 825 650
 for_window [title="ddtmux"] move scratchpad
 for_window [title="ddtmux"] border pixel 5
 for_window [title="ddtmux"] sticky enable
