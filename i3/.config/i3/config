@@ -373,18 +373,19 @@ bindsym $mod+Shift+F4 mode $session
 # Theme #
 #########
 # set primary gruvbox colorscheme colors
-set $transparent_bg #88282828
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
 set $aqua #689d68
-set $gray #a89984
+set $bg #282828
+set $black #000000
+set $blue #458588
 set $darkgray #1d2021
-set $white #ffffff
+set $gray #a89984
+set $green #98971a
+set $purple #b16286
+set $red #cc241d
 set $softYellow #fbf1c7
+set $transparent_bg #88282828
+set $white #ffffff
+set $yellow #d79921
 
 # Bindings to make the webcam float and stick.
 for_window [class="MPlayer"] floating enable

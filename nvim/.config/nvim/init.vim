@@ -16,6 +16,7 @@ Plug 'matze/vim-move'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 Plug 'mgee/lightline-bufferline'
+Plug 'christoomey/vim-sort-motion'
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'itchyny/lightline.vim'

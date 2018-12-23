@@ -102,6 +102,7 @@ basicPackages=(
 	pacman-contrib
 	papirus-icon-theme
 	playerctl
+	python-dbus
 	python-pywal
 	ranger
 	redshift
