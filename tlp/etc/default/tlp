@@ -270,14 +270,15 @@ DEVICES_TO_DISABLE_ON_BAT_NOT_IN_USE="bluetooth wifi wwan"
 # required). Charging starts when the remaining capacity falls below the
 # START_CHARGE_THRESH value and stops when exceeding the STOP_CHARGE_THRESH value.
 # Main / Internal battery (values in %)
-#START_CHARGE_THRESH_BAT0=75
-#STOP_CHARGE_THRESH_BAT0=80
+START_CHARGE_THRESH_BAT0=75
+STOP_CHARGE_THRESH_BAT0=80
+
 # Ultrabay / Slice / Replaceable battery (values in %)
-#START_CHARGE_THRESH_BAT1=75
-#STOP_CHARGE_THRESH_BAT1=80
+START_CHARGE_THRESH_BAT1=75
+STOP_CHARGE_THRESH_BAT1=80
 
 # Restore charge thresholds when AC is unplugged: 0=disable, 1=enable.
-#RESTORE_THRESHOLDS_ON_BAT=1
+RESTORE_THRESHOLDS_ON_BAT=1
 
 # ------------------------------------------------------------------------------
 # tlp-rdw - Parameters for the radio device wizard
