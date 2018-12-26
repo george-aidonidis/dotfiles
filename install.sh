@@ -34,7 +34,7 @@ aurPackages=(
 	wavebox-bin
 	xkb-switch
 	xkblayout-state-git
-	zsh-you-should-use"
+	"
 )
 applications=(
 	"
@@ -79,6 +79,7 @@ basicPackages=(
 	"
 	adobe-source-code-pro-fonts
 	arandr
+	arc-gtk-theme
 	awesome-terminal-fonts
 	compton
 	dialog
@@ -127,6 +128,7 @@ function installZsh {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh" > /home/$USER/.zshrc
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 	yay -S --noconfirm zsh-autosuggestions
+	yay -S --noconfirm zsh-you-should-use
 	chsh -s `which zsh`
 }
 
@@ -212,6 +214,9 @@ echo " $grn No missing packages were found $white"
 prompt "Will install tlp" "sudo pacman -S tlp tlp-rdw acpi_call ethtool smartmontools"
 confirm "tlp"
 sudo rm /etc/default/tlp
+sudo rm /etc/locale.conf
+sudo rm /etc/locale.gen
+sudo stow -t / etcconfig
 sudo stow -t / tlp
 sudo systemctl start tlp.service
 sudo systemctl enable tlp.service
