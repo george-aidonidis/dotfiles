@@ -41,7 +41,6 @@ applications=(
 	atom
 	docker
 	docker-compose
-	messengerfordesktop
 	mongodb
 	parcellite
 	pavucontrol"
@@ -175,7 +174,7 @@ prompt "  Will install: $blue $aurPackages $white" "yay --noconfirm -S $aurPa
 confirm "Installing aur packages"
 
 thunder
-prompt "  Will install discord plugin manager (tpm)" "yay -S --needed --noconfirm --mflags --nocheck libc++abi libc++ discord"
+prompt "  Will install discord" "yay -S --needed --noconfirm --mflags --nocheck libc++abi libc++ discord"
 confirm "Installing discord"
 
 thunder
