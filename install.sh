@@ -89,6 +89,7 @@ basicPackages=(
 	gnome-themes-extra
 	gpicview
 	gsimplecal
+	htop
 	i3-gaps
 	i3status
 	jq
