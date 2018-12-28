@@ -65,8 +65,9 @@ alias docker-stop-all="docker stop \$(docker ps -a -q)"
 ########
 # Misc #
 ########
+alias "n=nvim"
 # Make and enter inside a directory
-# mkdir -p test && cd test ➡️ mkcd test
+# mkdir -p test && cd test --->➡️ mkcd test
 alias mkcd='foo(){ mkdir -p "$1"; cd "$1" }; foo '
 
 # Show my ip address
@@ -77,6 +78,9 @@ alias "xc=xclip"
 alias "xcc=xclip -selection clipboard"
 # Paste
 alias "xv=xclip -o"
+
+# Sudo edit
+alias "sn=sudo -E nvim"
 
 alias "delete-swap=find ./ -type f -name \"\.*sw[klmnop]\" -delete"
 alias "tmux-dev= tmux split-window -h -p 70 \; split-window -p 18"
