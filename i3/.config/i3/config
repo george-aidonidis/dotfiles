@@ -56,7 +56,7 @@ for_window [title="ddtmux"] resize set 825 650
 for_window [title="ddtmux"] move scratchpad
 for_window [title="ddtmux"] border pixel 5
 for_window [title="ddtmux"] sticky enable
-exec --no-startup-id terminator --title ddtmux -e tmux
+# exec --no-startup-id terminator --title ddtmux -e tmux
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -195,7 +195,7 @@ for_window [class="Enpass"] move position center
 #####################################
 assign [class="Atom"] $ws3
 assign [class="Code"] $ws3
-assign [class="Enpass"] $ws7
+# assign [class="Enpass"] $ws7
 assign [class="Firefox"] $ws2
 assign [class="Google-chrome"] $ws2
 assign [class="brave-browser"] $ws2
@@ -281,10 +281,12 @@ exec --no-startup-id nm-applet
 exec --no-startup-id spotify
 exec --no-startup-id blueman-manager
 exec --no-startup-id dropbox
-exec --no-startup-id enpass
 exec --no-startup-id wavebox
 exec --no-startup-id redshift-gtk -l 35.1:25.7
 exec --no-startup-id parcellite
+exec --no-startup-id workspace $ws7
+exec --no-startup-id enpass
+
 
 #################################
 # Always start (on reload etc...) #

@@ -16,3 +16,6 @@ prompt spaceship
 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+# export XKB_DEFAULT_LAYOUT=us,gr
+# export XKB_DEFAULT_VARIANT=,nodeadkeys
+# export XKB_DEFAULT_OPTIONS=caps:swapescape,ctrl:swap_lalt_lctl

@@ -17,12 +17,9 @@ export NPM_PACKAGES="${HOME}/.npm-packages:$PATH"
 # Unset manpath so we can inherit from /etc/manpath via the `manpath` command
 unset MANPATH # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
 
-plugins=(git vi-mode yarn)
-
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
-source $ZSH/oh-my-zsh.sh
+plugins=(git vi-mode)
 
 # direnv hook into the shell
 eval "$(direnv hook zsh)"
@@ -51,5 +48,24 @@ fi
 stty -ixon
 export SPACESHIP_CHAR_SYMBOL='🥦🐑💨🐣 '
 export SPACESHIP_PROMPT_PREFIXES_SHOW=false
+
+SPACESHIP_PROMT_ORDER=(
+	time
+	user
+	dir
+	host
+	git
+	package
+	node
+	docker
+	vi_mode
+	jobs
+	exit_code
+	char
+)
 source /home/$USER/dotfiles/homeconfig/.bash_shortcuts
 
+source $HOME/.oh-my-zsh/oh-my-zsh.sh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh

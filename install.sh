@@ -130,6 +130,7 @@ function installZsh {
 	wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 	yay -S --noconfirm zsh-autosuggestions
 	yay -S --noconfirm zsh-you-should-use
+	yay -S --noconfirm zsh-syntax-highlighting
 	chsh -s `which zsh`
 }
 
