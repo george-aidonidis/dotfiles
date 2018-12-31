@@ -2,7 +2,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $run_rofi "$HOME/dotfiles/scripts/ensure-us-layout.sh 'rofi -width 30 -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
+set $run_rofi "$HOME/dotfiles/scripts/ensure-us-layout.sh 'rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
 set $run_rofi_emoji "$HOME/dotfiles/scripts/ensure-us-layout.sh $HOME/dotfiles/scripts/rofi/rofi-emoji-launch.sh"
 
 set $mod Mod4
