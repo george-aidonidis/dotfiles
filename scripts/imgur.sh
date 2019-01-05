@@ -11,6 +11,8 @@
 # to avoid limits
 default_client_id=c9a6efb3d7932fd
 client_id="${IMGUR_CLIENT_ID:=$default_client_id}"
+echo "Here is the path"
+FILENAME=$1
 
 # Function to output usage instructions
 function usage {
@@ -90,7 +92,8 @@ while [ $# -gt 0 ]; do
 	delete_hash="${delete_hash%%</deletehash>*}"
 	echo $url | sed 's/^http:/https:/'
 	echo "Delete page: https://imgur.com/delete/$delete_hash" >&2
-  notify-send "Screenshot uploaded: $url" -t 5000
+	echo "Notify-send"
+  notify-send -i "$FILENAME" "Screenshot uploaded: $url"
 	# Append the URL to a string so we can put them all on the clipboard later
 
 	clip+="$url"
@@ -105,7 +108,7 @@ if type pbcopy &>/dev/null; then
 elif type xclip &>/dev/null; then
 	echo -n "$url" | xclip -selection clipboard
 elif type xsel &>/dev/null; then
-  notify-send " uploaded: $url" -t 5000
+  notify-send -i "$FILENAME" " uploaded: $url" -t 5000
 	echo -n "$url" | xsel -bi
 else
 	echo "Haven't copied to the clipboard: no xsel or xclip or pbcopy" >&2

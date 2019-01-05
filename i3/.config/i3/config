@@ -311,9 +311,8 @@ exec --no-startup-id enpass
 ######################
 bindsym Control+Shift+F1 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
 bindsym Shift+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window.sh
-bindsym Control+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
 bindsym Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-active-screen.sh
-bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
+bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region.sh
 
 ##############
 # Screencast #
