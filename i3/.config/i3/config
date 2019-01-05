@@ -45,6 +45,7 @@ set $code_m 58
 
 set $stoprec --no-startup-id killall -q ffmpeg
 set $screencast  --no-startup-id bash ~/.config/scripts/screencast_pulse.sh
+set $term --no-startup-id terminator
 
 ###################
 # Spawn dropdowns #
@@ -56,7 +57,7 @@ for_window [title="ddtmux"] resize set 825 650
 for_window [title="ddtmux"] move scratchpad
 for_window [title="ddtmux"] border pixel 5
 for_window [title="ddtmux"] sticky enable
-# exec --no-startup-id terminator --title ddtmux -e tmux
+# exec --no-startup-id $term --title ddtmux -e tmux
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+period move scratchpad
@@ -70,9 +71,9 @@ font pango:Sans 9, Lato 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Return exec --no-startup-id terminator
-bindcode $mod+$code_i exec --no-startup-id terminator -e htop
-bindcode $mod+$code_a exec --no-startup-id terminator -e ranger
+bindsym $mod+Return exec --no-startup-id $term
+bindcode $mod+$code_i exec --no-startup-id $term -e htop
+bindcode $mod+$code_a exec --no-startup-id $term -e ranger
 bindcode $mod+$code_n exec --no-startup-id nautilus
 bindcode $mod+$code_w exec --no-startup-id google-chrome-stable
 
@@ -293,6 +294,8 @@ bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86WLAN exec --no-startup-id $HOME/dotfiles/scripts/wifi-toggle.sh
+bindsym $mod+Shift+Delete	exec --no-startup-id playerctl pause; exec --no-startup-id amixer set Capture nocap; exec --no-startup-id pkill mpv; workspace 9; exec --no-startup-id $term -e htop; exec --no-startup-id $term -e ranger
+
 
 #################################
 # Always start (on reload etc...) #
