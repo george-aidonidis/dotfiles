@@ -63,7 +63,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = i3
 modules-center =
-modules-right = spotify backlight pulseaudio battery battery2 date xkeyboard
+modules-right = spotify backlight pulseaudio-rofi-input pulseaudio battery battery2 date xkeyboard
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -101,7 +101,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = i3
 modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight pulseaudio cpu temperature memory wired-network wireless-network archupdates battery battery2 date xkeyboard
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery battery2 date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -142,7 +142,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = i3
 modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight pulseaudio cpu temperature memory wired-network wireless-network archupdates battery battery2 date xkeyboard
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery battery2 date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -328,15 +328,13 @@ click-left = gsimplecal
 type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume>
-format-volume-font = 6
-label-volume-font = 6
-label-volume = %percentage:3%%
+label-volume = %percentage:3:6%%
 label-volume-foreground = ${colors.foreground}
 format-prefix-underline = ${colors.softred}
 format-volume-underline = ${colors.softred}
 label-muted-underline = ${colors.softred}
 label-muted-font = 6
-label-muted = 
+label-muted = "  "
 label-font = 3
 ramp-volume-0 = 
 ramp-volume-1 = 
@@ -348,7 +346,8 @@ battery = BAT0
 adapter = AC
 full-at = 97
 
-format-charging = <animation-charging> <label-charging>
+; To show animation replace <ramp-capacity> with <animation-charging>
+format-charging = <ramp-capacity> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
 label-charging = %percentage:3\%%
@@ -378,7 +377,8 @@ battery = BAT1
 adapter = AC
 full-at = 97
 
-format-charging = <animation-charging> <label-charging>
+; To show animation replace <ramp-capacity> with <animation-charging>
+format-charging = <ramp-capacity> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 format-full = <ramp-capacity> <label-full>
 label-charging = %percentage:3\%%
@@ -454,3 +454,16 @@ interval = 1800
 format-foreground = ${colors.blue}
 format =  <label>
 exec = $HOME/dotfiles/scripts/polybar/archupdates.sh
+
+[module/pulseaudio-rofi-input]
+format-prefix-underline = ${colors.softred}
+format-underline = ${colors.softred}
+label-font = 6
+label = %output:3:8%
+type = custom/script
+exec = $HOME/dotfiles/scripts/polybar/pulse-input.sh --input_volume_listener
+tail = true
+click-right = $HOME/dotfiles/scripts/polybar/pulse-input.sh --input
+click-left = $HOME/dotfiles/scripts/polybar/pulse-input.sh --mute_source
+scroll-up = $HOME/dotfiles/scripts/polybar/pulse-input.sh --volume_source_up
+scroll-down = $HOME/dotfiles/scripts/polybar/pulse-input.sh --volume_source_down
