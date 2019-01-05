@@ -2,6 +2,9 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+set $run_rofi "$HOME/dotfiles/scripts/ensure-us-layout.sh 'rofi -width 30 -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
+set $run_rofi_emoji "$HOME/dotfiles/scripts/ensure-us-layout.sh $HOME/dotfiles/scripts/rofi/rofi-emoji-launch.sh"
+
 set $mod Mod4
 
 set $Slash_Question 61
@@ -41,36 +44,50 @@ set $code_m 58
 ####################
 
 set $stoprec --no-startup-id killall -q ffmpeg
-set $screencast  --no-startup-id bash ~/.config/Scripts/screencast_pulse.sh
+set $screencast  --no-startup-id bash ~/.config/scripts/screencast_pulse.sh
+
+###################
+# Spawn dropdowns #
+###################
+bindcode $mod+$code_u [title="ddtmux"] scratchpad show; [title="ddtmux"] move position center
+
+for_window [title="ddtmux"] floating enable
+for_window [title="ddtmux"] resize set 825 650
+for_window [title="ddtmux"] move scratchpad
+for_window [title="ddtmux"] border pixel 5
+for_window [title="ddtmux"] sticky enable
+# exec --no-startup-id terminator --title ddtmux -e tmux
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Sans 9, FontAwesome 8
+font pango:Sans 9, Lato 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec --no-startup-id terminator -e tmux
+bindsym $mod+Return exec --no-startup-id terminator
 bindcode $mod+$code_i exec --no-startup-id terminator -e htop
-# bindsym $mod+Return exec i3-sensible-terminal
-
 bindcode $mod+$code_a exec --no-startup-id terminator -e ranger
-
 bindcode $mod+$code_n exec --no-startup-id nautilus
-
-# kill focused window
+bindcode $mod+$code_w exec --no-startup-id google-chrome-stable
 bindcode $mod+$code_q kill
-bindcode $mod+Shift+$code_q kill
 
-# bindsym $mod+d exec dmenu_run
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
-bindcode $mod+$code_d exec --no-startup-id rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons
+bindcode $mod+Shift+$code_d exec --no-startup-id $run_rofi_emoji
+bindcode $mod+$code_d exec --no-startup-id $run_rofi
 
 # change focus
 bindcode $mod+$code_h focus left
 bindcode $mod+$code_j focus down
 bindcode $mod+$code_k focus up
 bindcode $mod+$code_l focus right
+
+###################################
+# Resize without the resize mode #
+###################################
+bindcode $mod+Shift+$code_y exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh left
+bindcode $mod+Shift+$code_u exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh down
+bindcode $mod+Shift+$code_i exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh up
+bindcode $mod+Shift+$code_o exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -101,11 +118,12 @@ bindcode $mod+$code_v split v
 #
 # enter fullscreen mode for the focused container
 bindcode $mod+$code_f fullscreen toggle
+# position window to center of the screen
+bindcode $mod+$code_g move position center
 # change container layout (stacked, tabbed, toggle split)
 bindcode $mod+$code_s layout stacking
 # bindcode $mod+$code_w layout tabbed
 bindcode $mod+$code_e layout toggle split
-
 # toggle tiling / floating
 bindcode $mod+$code_t floating toggle
 # change focus between tiling / floating windows
@@ -118,6 +136,7 @@ bindcode $mod+$code_c focus child
 
 ##############
 # Workspaces #
+##############
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -155,26 +174,40 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # Toggle float mode for specific apps
 for_window [class="Gnome-calculator"] floating enable
-for_window [class="Peek"] floating enable
-for_window [class="Peek"] resize set 600 300
-for_window [class="Enpass"] floating enable
-for_window [class="Enpass"] resize set 600 300
+for_window [class="Gnome-calculator"] move position center
 
+for_window [class="Peek"] floating enable resize set 600 300
+for_window [class="Peek"] move position center
 
-# Assign applications to workspaces
-assign [class="Google-chrome"] $ws2
-assign [class="Firefox"] $ws2
-assign [class="Slack"] $ws4
-assign [class="Code"] $ws3
+for_window [class="slack"] floating enable resize set 970 880
+for_window [class="slack"] move position center
+
+for_window [class="wavebox"] floating enable resize set 1470 880 move position center
+for_window [class="wavebox"] move position center
+
+for_window [title="Messenger for Desktop"] floating enable resize set 900 550, move absolute position 20 500
+
+for_window [class="Enpass"] floating enable resize set 600 300
+for_window [class="Enpass"] move position center
+
+#####################################
+# Assign applications to workspaces #
+#####################################
 assign [class="Atom"] $ws3
+assign [class="Code"] $ws3
 assign [class="Enpass"] $ws7
+assign [class="Firefox"] $ws2
+assign [class="Google-chrome"] $ws2
+assign [class="brave-browser"] $ws2
+assign [class="Slack"] $ws4
+assign [class="wavebox"] $ws4
+assign [title="Messenger for Desktop"] $ws5
 for_window [class="Spotify"] move to workspace $ws10
 
 # Reload the configuration file
 bindcode $mod+Shift+$code_c reload
 # Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindcode $mod+Shift+$code_r reload
-
+bindcode $mod+Shift+$code_r restart
 # Exit i3 (logs you out of your X session)
 # bindcode $mod+Shift+$code_e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -203,9 +236,22 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-#######################
-# Custom Key Bindings #
-#######################
+#########################################
+#=========== Custom Commands ===========#
+#########################################
+# Set keyboard through xorg
+bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xkeyboard
+# Set background
+bindsym $mod+Shift+Print exec --no-startup-id $HOME/dotfiles/scripts/unsplash-generator.sh
+# Change to greek keyboard layout
+bindsym $mod+space exec --no-startup-id xkb-switch -n
+
+# Screen layout generated from arandr
+exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
+# Assign profile switch for bose35 headset to keyboard shortcut
+bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
+bindcode $mod+shift+$code_x exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock;
+
 # Keyboard media controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
@@ -227,35 +273,59 @@ bindsym XF86AudioPause exec --no-startup-id playerctl pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 bindsym XF86WLAN exec --no-startup-id $HOME/dotfiles/scripts/wifi-toggle.sh
 
-###########
-# Startup #
-###########
-# Open applications at startup
-# exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
+########################
+# Applications Startup #
+########################
+exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
 exec --no-startup-id nm-applet
 exec --no-startup-id spotify
+exec --no-startup-id blueman-manager
 exec --no-startup-id dropbox
 exec --no-startup-id enpass
+exec --no-startup-id wavebox
 exec --no-startup-id redshift-gtk -l 35.1:25.7
 exec --no-startup-id parcellite
+
+#################################
+# Always start (on reload etc...) #
+#################################
 # Specific directive to enable tap to click on touchpad
 # exec_always --no-startup-id $HOME/dotfiles/scripts/enable-touchpad-tapping.sh
-# exec xinput set-prop 11 277 1
-exec_always --no-startup-id xrdb ~/.Xresources
-###################
-# Custom Commands #
-###################
-# Set key bindings
-# Set background
-# Change to greek keyboard layout
-# Screen layout generated from arandr
-# Assign profile switch for bose35 headset to keyboard shortcut
-bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
-
-bindcode $mod+$code_w exec --no-startup-id terminator -e "sudo wifi-menu"
+exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
+# exec_always --no-startup-id xrdb ~/.Xresources
+# exec_always --no-startup-id source $HOME/dotfiles/.xkeyboard
+# exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
+# exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
+exec_always output '*' background $HOME/.config/wall.png fill
 
 ##############################################
-#                   Modes                    #
+#=========== Image/Video Commands ===========#
+##############################################
+######################
+# Screenshot helpers #
+######################
+bindsym Control+Shift+F1 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
+bindsym Shift+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window.sh
+bindsym Control+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
+bindsym Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-active-screen.sh
+bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
+
+##############
+# Screencast #
+##############
+set $screencastmode " :  (0)Laptop -  (1)Main"
+mode  $screencastmode {
+    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 0; mode "default"
+    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 1; mode "default"
+    bindcode $code_q mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Insert mode $screencastmode
+bindsym $mod+Delete exec --no-startup-id $stoprec
+
+
+##############################################
+#================== Modes ===================#
 ##############################################
 
 ####################
@@ -304,42 +374,19 @@ bindsym $mod+Shift+F4 mode $session
 # Theme #
 #########
 # set primary gruvbox colorscheme colors
-set $transparent_bg #88282828
-set $bg #282828
-set $red #cc241d
-set $green #98971a
-set $yellow #d79921
-set $blue #458588
-set $purple #b16286
 set $aqua #689d68
-set $gray #a89984
+set $bg #282828
+set $black #000000
+set $blue #458588
 set $darkgray #1d2021
-set $white #ffffff
+set $gray #a89984
+set $green #98971a
+set $purple #b16286
+set $red #cc241d
 set $softYellow #fbf1c7
-
-######################
-# Screenshot helpers #
-######################
-bindsym Control+Shift+F1 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
-bindsym Shift+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window.sh
-bindsym Control+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
-bindsym Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-active-screen.sh
-bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
-
-bindcode $mod+shift+$code_x exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock;
-
-##############
-# Screencast #
-##############
-set $screencastmode " :  (0)Laptop -  (1)Main"
-mode  $screencastmode {
-    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 0; mode "default"
-    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 1; mode "default"
-    bindcode $code_q mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Insert mode $screencastmode
-bindsym $mod+Delete exec --no-startup-id $stoprec
+set $transparent_bg #88282828
+set $white #ffffff
+set $yellow #d79921
 
 # Bindings to make the webcam float and stick.
 for_window [class="MPlayer"] floating enable
@@ -350,16 +397,38 @@ no_focus [class="MPlayer"]
 bindsym $mod+Home exec --no-startup-id $HOME/dotfiles/scripts/camtoggle.sh
 
 # class                 border|backgr|text|indicator|child_border
-client.focused          $blue $blue $darkgray $purple $darkgray
-client.focused_inactive $darkgray $darkgray $white $purple $darkgray
-client.unfocused        $darkgray $darkgray $white $purple $darkgray
-client.urgent           $red $red $white $red $red
+client.focused          $darkgray $blue $darkgray $purple $blue
+client.focused_inactive $darkgray $darkgray $blue $purple $darkgray
+client.unfocused        $darkgray $darkgray $blue $purple $darkgray
+client.urgent           $red $red $blue $red $red
 
-default_border none
+######################
+# i3 Bar with Blocks #
+######################
+
+# bar {
+# 		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+# 		tray_output             primary
+# 		separator_symbol        "|"
+# 		workspace_buttons       yes
+# 		position                top
+# 		colors {
+# 				background  #212121
+# 				statusline  #DDDDDD
+# 				separator   #777777
+# 				# class             border  backgr. text
+# 				focused_workspace   $darkgray $blue $darkgray $purple $white
+# 				active_workspace    $darkgray $darkgray $white $purple $darkgray
+# 				inactive_workspace  $darkgray $darkgray $white $purple $darkgray
+# 				urgent_workspace    $red $red $white $red $red
+# 		}
+# }
 #end of window title bars & borders section
 
 # Needed for i3-gaps
 hide_edge_borders both
+for_window [class="^.*"] border pixel 2
+
 gaps inner 8
 gaps outer 2
 
@@ -369,6 +438,7 @@ bindsym $mod+Mod1+Shift+minus gaps inner current plus 4
 bindsym $mod+Mod1+Shift+plus gaps inner current minus 4
 
 # Toggle border for all open windows
+bindcode $mod+$code_b [class="^.*"] border toggle
 new_window normal 0
 new_float normal 0
 
@@ -381,22 +451,13 @@ bindcode $mod+Control+$code_h workspace prev
 bindsym Control+Tab workspace next
 bindsym Control+Shift+Tab workspace prev
 
-output eDP1 resolution 1920x1080 position 0,0
-output DP1 resolution 1920x1080 position 0,1080
-output "*" background ~/.config/wall.png fill
 
-input "2:7:SynPS/2_Synaptics_TouchPad" {
-	dwt enabled
-	tap enabled
-}
+# Activate 1px border on active window
+# exec_always --no-startup-id bash ~/.config/scripts/inactive-handler.sh
 
-bar {
-    position top
-		tray_output eDP-1
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #323232 #323232 #5c5c5c
-    }
-}
-
+# i3-gnome
+# exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+# exec_always --no-startup-id gnome-power-manager
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id gnome-flashback
+# exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 8
