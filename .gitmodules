@@ -1,3 +1,0 @@
-[submodule "/Users/george/dotfiles/zsh/plugins/zsh-autosuggestions"]
-	path = /Users/george/dotfiles/zsh/plugins/zsh-autosuggestions
-	url = git@github.com:zsh-users/zsh-autosuggestions.git
