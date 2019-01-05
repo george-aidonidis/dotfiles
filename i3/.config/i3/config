@@ -61,7 +61,7 @@ for_window [title="ddtmux"] sticky enable
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+period move scratchpad
 # Show the first scratchpad window
-bindsym $mod+period scratchpad show
+bindsym $mod+period scratchpad show move position center
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -75,6 +75,11 @@ bindcode $mod+$code_i exec --no-startup-id terminator -e htop
 bindcode $mod+$code_a exec --no-startup-id terminator -e ranger
 bindcode $mod+$code_n exec --no-startup-id nautilus
 bindcode $mod+$code_w exec --no-startup-id google-chrome-stable
+
+bindcode $mod+shift+$code_t exec --no-startup-id typora
+bindcode $mod+shift+$code_a exec --no-startup-id atom
+bindcode $mod+shift+$code_s exec --no-startup-id code
+
 bindcode $mod+$code_q kill
 
 bindcode $mod+Shift+$code_d exec --no-startup-id $run_rofi_emoji
@@ -126,7 +131,7 @@ bindcode $mod+$code_f fullscreen toggle
 # position window to center of the screen
 bindcode $mod+$code_g move position center
 # change container layout (stacked, tabbed, toggle split)
-bindcode $mod+$code_s layout stacking
+# bindcode $mod+$code_s layout stacking
 # bindcode $mod+$code_w layout tabbed
 bindcode $mod+$code_e layout toggle split
 # toggle tiling / floating
@@ -181,6 +186,9 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="Gnome-calculator"] move position center
 
+for_window [class="Typora"] floating enable resize set 670 750
+for_window [class="Typora"] move position center
+
 for_window [class="Peek"] floating enable resize set 600 300
 for_window [class="Peek"] move position center
 
@@ -195,6 +203,13 @@ for_window [title="Messenger for Desktop"] floating enable resize set 900 550, m
 for_window [class="Enpass"] floating enable resize set 600 300
 for_window [class="Enpass"] move position center
 
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
 #####################################
 # Assign applications to workspaces #
 #####################################
@@ -261,6 +276,7 @@ bindcode $mod+shift+$code_x exec --no-startup-id "setxkbmap -layout us,gr"; exec
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
+bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
 
 # Sreen brightness controls
 # Requires light package from aur

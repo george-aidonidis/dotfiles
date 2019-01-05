@@ -25,7 +25,6 @@ aurPackages=(
 	nerd-fonts-source-code-pro
 	polybar
 	paper-icon-theme-git
-	slack-desktop
 	spaceship-prompt-git
 	spotify
 	ttf-lato

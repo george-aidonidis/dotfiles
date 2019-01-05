@@ -35,6 +35,8 @@ alias "gdme=git branch --merged | grep -v \* | xargs git branch -D"
 #######
 # Yarn #
 #######
+alias y="yarn"
+alias ygl0="yarn global list --depth=0"
 alias yi="yarn install"
 alias yr="yarn run"
 alias ya="yarn add"
