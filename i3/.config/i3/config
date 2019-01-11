@@ -196,7 +196,7 @@ for_window [class="Peek"] move position center
 for_window [class="slack"] floating enable resize set 970 880
 for_window [class="slack"] move position center
 
-for_window [class="wavebox"] floating enable resize set 1470 880 move position center
+for_window [class="wavebox"] floating enable resize set 1470 980 move position center
 for_window [class="wavebox"] move position center
 
 for_window [title="Messenger for Desktop"] floating enable resize set 900 550, move absolute position 20 500

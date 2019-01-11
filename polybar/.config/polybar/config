@@ -28,6 +28,7 @@ font_awesome = FontAwesome:style=Regular:size=10;3
 weather = Weather Icons:style=Regular:size=8;3
 material = MaterialDesignIcons:size=10;1
 monospace = Monospace:size=10;3
+noto = Noto Color Emoji:style=Regular:scale=12:size=10;2
 
 #################
 # Laptop screen #
@@ -55,7 +56,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = ${fonts.avant_garde}
-font-1 = ${fonts.droid_sans_mono}
+font-1 = ${fonts.noto}
 font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
@@ -93,7 +94,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = ${fonts.avant_garde}
-font-1 = ${fonts.droid_sans_mono}
+font-1 = ${fonts.noto}
 font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
@@ -134,7 +135,7 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = ${fonts.avant_garde}
-font-1 = ${fonts.droid_sans_mono}
+font-1 = ${fonts.noto}
 font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
@@ -452,7 +453,8 @@ format-offset = -8
 type = custom/script
 interval = 1800
 format-foreground = ${colors.blue}
-format =  <label>
+format-font = 7
+format = 📦 <label>
 exec = $HOME/dotfiles/scripts/polybar/archupdates.sh
 
 [module/pulseaudio-rofi-input]
