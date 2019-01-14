@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # there are two different ways this script can work.
 # for the first way, uncomment the two lines after the if and place two '.' in front of the /$1
 #       this creates a new directory in the directory where the compressed file is and dumps the content in it

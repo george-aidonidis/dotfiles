@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 BOSE_MAC=`bt-device -l | grep Bose | awk '{print $4}' | tr -d '()'`
 echo "Disconnecting from $BOSE_MAC"

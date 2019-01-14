@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # This is the ffmpeg command that the screencast shortcut in i3 will run.
 

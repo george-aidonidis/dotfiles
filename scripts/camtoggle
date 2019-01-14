@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 screen_width=$(xdpyinfo | grep dimensions | awk '{print $2;}' | cut -d 'x' -f1)
 screen_height=$(xdpyinfo | grep dimensions | awk '{print $2;}' | cut -d 'x' -f2)

@@ -2,8 +2,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $run_rofi "$HOME/dotfiles/scripts/ensure-us-layout.sh 'rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
-set $run_rofi_emoji "$HOME/dotfiles/scripts/ensure-us-layout.sh $HOME/dotfiles/scripts/rofi/rofi-emoji-launch.sh"
+set $run_rofi "ensure-us-layout 'rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
+set $run_rofi_emoji "ensure-us-layout rofi-emoji-launch"
 
 set $mod Mod4
 
@@ -44,7 +44,7 @@ set $code_m 58
 ####################
 
 set $stoprec --no-startup-id killall -q ffmpeg
-set $screencast  --no-startup-id bash ~/.config/scripts/screencast_pulse.sh
+set $screencast  --no-startup-id bash screencast_pulse
 set $term --no-startup-id terminator
 
 ###################
@@ -95,10 +95,10 @@ bindcode $mod+$code_l focus right
 ###################################
 # Resize without the resize mode #
 ###################################
-bindcode $mod+Shift+$code_y exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh left
-bindcode $mod+Shift+$code_u exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh down
-bindcode $mod+Shift+$code_i exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh up
-bindcode $mod+Shift+$code_o exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh right
+bindcode $mod+Shift+$code_y exec --no-startup-id i3resize left
+bindcode $mod+Shift+$code_u exec --no-startup-id i3resize down
+bindcode $mod+Shift+$code_i exec --no-startup-id i3resize up
+bindcode $mod+Shift+$code_o exec --no-startup-id i3resize right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -263,14 +263,14 @@ mode "resize" {
 # Set keyboard through xorg
 bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xkeyboard
 # Set background
-bindsym $mod+Shift+Print exec --no-startup-id $HOME/dotfiles/scripts/unsplash-generator.sh
+bindsym $mod+Shift+Print exec --no-startup-id unsplash-generator
 # Change to greek keyboard layout
 bindsym $mod+space exec --no-startup-id xkb-switch -n
 
 # Screen layout generated from arandr
-exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
+exec --no-startup-id source vertical-layout-two-screens
 # Assign profile switch for bose35 headset to keyboard shortcut
-bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
+bindcode Control+Shift+$Slash_Question exec --no-startup-id bose35-profile-switch
 bindcode $mod+shift+$code_x exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock;
 
 # Keyboard media controls
@@ -293,7 +293,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86WLAN exec --no-startup-id $HOME/dotfiles/scripts/wifi-toggle.sh
+bindsym XF86WLAN exec --no-startup-id wifi-toggle
 bindsym $mod+Shift+Delete	exec --no-startup-id playerctl pause; exec --no-startup-id amixer set Capture nocap; exec --no-startup-id pkill mpv; workspace 9; exec --no-startup-id $term -e htop; exec --no-startup-id $term -e ranger
 
 
@@ -301,7 +301,7 @@ bindsym $mod+Shift+Delete	exec --no-startup-id playerctl pause; exec --no-startu
 # Always start (on reload etc...) #
 #################################
 # Specific directive to enable tap to click on touchpad
-exec_always --no-startup-id $HOME/dotfiles/scripts/enable-touchpad-tapping.sh
+exec_always --no-startup-id enable-touchpad-tapping
 exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 exec_always --no-startup-id xrdb ~/.Xresources
 exec_always --no-startup-id source $HOME/dotfiles/.xkeyboard
@@ -328,18 +328,18 @@ exec --no-startup-id enpass
 ######################
 # Screenshot helpers #
 ######################
-bindsym Control+Shift+F1 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
-bindsym Shift+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window.sh
-bindsym Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-active-screen.sh
-bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region.sh
+bindsym Control+Shift+F1 exec --no-startup-id screenshot_upload_to_imgur
+bindsym Shift+Print --release exec --no-startup-id save-current-window
+bindsym Print --release exec --no-startup-id save-active-screen
+bindsym Control+Shift+F4 exec --no-startup-id screenshot_region
 
 ##############
 # Screencast #
 ##############
 set $screencastmode " :  (0)Laptop -  (1)Main"
 mode  $screencastmode {
-    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 0; mode "default"
-    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 1; mode "default"
+    bindsym 0 exec --no-startup-id screencast 0; mode "default"
+    bindsym 1 exec --no-startup-id screencast 1; mode "default"
     bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
@@ -356,8 +356,8 @@ bindsym $mod+Delete exec --no-startup-id $stoprec
 ####################
 set $bluetooth_headset "  (0)Disconnect -   (1)Connect"
 mode  $bluetooth_headset {
-    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/disconnect-from-bose.sh; mode "default"
-    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/connect-to-bose.sh; mode "default"
+    bindsym 0 exec --no-startup-id disconnect-from-bose; mode "default"
+    bindsym 1 exec --no-startup-id connect-to-bose; mode "default"
     bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
@@ -367,10 +367,10 @@ bindsym $mod+Shift+F10 mode $bluetooth_headset
 ###################
 set $displays "    (0)Laptop -     (1)Main -     (2)H -     (3)V"
 mode  $displays {
-    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screens/laptop-screen.sh; mode "default"
-    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screens/one-screen.sh; mode "default"
-    bindsym 2 exec --no-startup-id $HOME/dotfiles/scripts/screens/two-screens-layout.sh; mode "default"
-    bindsym 3 exec --no-startup-id $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh; mode "default"
+    bindsym 0 exec --no-startup-id laptop-screen; mode "default"
+    bindsym 1 exec --no-startup-id one-screen; mode "default"
+    bindsym 2 exec --no-startup-id two-screens-layout; mode "default"
+    bindsym 3 exec --no-startup-id vertical-layout-two-screens; mode "default"
     bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
@@ -417,7 +417,7 @@ for_window [class="MPlayer"] sticky enable
 for_window [class="MPlayer"] border pixel 0
 no_focus [class="MPlayer"]
 
-bindsym $mod+Home exec --no-startup-id $HOME/dotfiles/scripts/camtoggle.sh
+bindsym $mod+Home exec --no-startup-id camtoggle
 
 # class                 border|backgr|text|indicator|child_border
 client.focused          $darkgray $blue $darkgray $purple $blue
@@ -476,7 +476,7 @@ bindsym Control+Shift+Tab workspace prev
 
 
 # Activate 1px border on active window
-# exec_always --no-startup-id bash ~/.config/scripts/inactive-handler.sh
+# exec_always --no-startup-id bash ~/.config/scripts/inactive-handler
 
 # i3-gnome
 # exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings

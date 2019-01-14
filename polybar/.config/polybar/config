@@ -28,7 +28,7 @@ font_awesome = FontAwesome:style=Regular:size=10;3
 weather = Weather Icons:style=Regular:size=8;3
 material = MaterialDesignIcons:size=10;1
 monospace = Monospace:size=10;3
-noto = Noto Color Emoji:style=Regular:scale=12:size=10;2
+noto = Noto Color Emoji:style=Regular:scale=13:size=10;2
 
 #################
 # Laptop screen #
@@ -425,7 +425,7 @@ format-prefix = " "
 format-padding = 1
 format-foreground = ${colors.spotify}
 interval = 3
-exec = python $HOME/dotfiles/scripts/polybar/spotify.py
+exec = python $HOME/dotfiles/scripts/polybar/spotify
 exec-if = pgrep -x spotify
 tail = true
 label-maxlen = 35
@@ -434,7 +434,7 @@ click-left = playerctl play-pause
 
 [module/openweathermap-simple-icon]
 type = custom/script
-exec = $HOME/dotfiles/scripts/polybar/openweathermap-simple-icon.sh
+exec = $HOME/dotfiles/scripts/polybar/openweathermap-simple-icon
 interval = 600
 label-font = 4
 format-padding = 0
@@ -444,7 +444,7 @@ format-offset = 0
 
 [module/openweathermap-simple-text]
 type = custom/script
-exec = $HOME/dotfiles/scripts/polybar/openweathermap-simple-text.sh
+exec = $HOME/dotfiles/scripts/polybar/openweathermap-simple-text
 interval = 600
 label-font = 1
 format-offset = -8
@@ -455,7 +455,7 @@ interval = 1800
 format-foreground = ${colors.blue}
 format-font = 7
 format = 📦 <label>
-exec = $HOME/dotfiles/scripts/polybar/archupdates.sh
+exec = $HOME/dotfiles/scripts/polybar/archupdates
 
 [module/pulseaudio-rofi-input]
 format-prefix-underline = ${colors.softred}
@@ -463,9 +463,9 @@ format-underline = ${colors.softred}
 label-font = 6
 label = %output:3:8%
 type = custom/script
-exec = $HOME/dotfiles/scripts/polybar/pulse-input.sh --input_volume_listener
+exec = $HOME/dotfiles/scripts/polybar/pulse-input --input_volume_listener
 tail = true
-click-right = $HOME/dotfiles/scripts/polybar/pulse-input.sh --input
-click-left = $HOME/dotfiles/scripts/polybar/pulse-input.sh --mute_source
-scroll-up = $HOME/dotfiles/scripts/polybar/pulse-input.sh --volume_source_up
-scroll-down = $HOME/dotfiles/scripts/polybar/pulse-input.sh --volume_source_down
+click-right = $HOME/dotfiles/scripts/polybar/pulse-input --input
+click-left = $HOME/dotfiles/scripts/polybar/pulse-input --mute_source
+scroll-up = $HOME/dotfiles/scripts/polybar/pulse-input --volume_source_up
+scroll-down = $HOME/dotfiles/scripts/polybar/pulse-input --volume_source_down
