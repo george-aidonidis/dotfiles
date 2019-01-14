@@ -47,4 +47,4 @@ so ~/dotfiles/nvim/.config/nvim/custom/user-interface.vim
 
 let g:neosnippet#enable_completed_snippet = 1
 
-autocmd BufWritePost ~/dotfiles/scripts/shortcuts/folders,~/dotfiles/scripts/shortcuts/configs !bash ~/dotfiles/scripts/shortcuts/shortcuts.sh
+autocmd BufWritePost ~/.bm* !shortcuts

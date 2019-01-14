@@ -1,0 +1,17 @@
+# You can add comments to these files with #
+h	~/
+d	~/Dropbox/
+D	~/Downloads/
+m	~/Music/
+w	~/Work/
+p	~/Personal/
+pp	~/Personal/projects/
+pt	~/Personal/templates/
+PP	~/Pictures/
+PW	~/Pictures/Wallpapers/
+PS	~/Pictures/Screenshots/
+vv	~/Videos/
+cf	~/dotfiles/
+sc	~/dotfiles/scripts/
+mn	/mnt/
+
