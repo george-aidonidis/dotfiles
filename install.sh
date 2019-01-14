@@ -81,6 +81,7 @@ basicPackages=(
 	arc-gtk-theme
 	awesome-terminal-fonts
 	compton
+	cronie
 	dialog
 	diff-so-fancy
 	dunst

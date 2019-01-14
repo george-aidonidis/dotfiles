@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 # Resets bluetooth device by:
 # - Setting output to default card
 # - Switching sound profile on bluetooth (off --> ad2p_sink)
