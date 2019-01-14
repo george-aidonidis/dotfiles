@@ -1,0 +1,15 @@
+# nvim: filetype=sh
+bf	~/dotfiles/homeconfig/.bmfiles
+bd	~/dotfiles/homeconfig/.bmdirs
+cfz	~/dotfiles/zsh/.zshrc
+cfv	~/dotfiles/nvim/.config/nvim/init.vim
+cfi	~/dotfiles/i3/.config/i3/config
+cfr	~/dotfiles/ranger/.config/ranger/rc.conf
+cfq	~/.config/qutebrowser/config.py
+cfm	~/.config/mutt/muttrc
+cft	~/.config/termite/config
+eb	~/Documents/LaTeX/uni.bib
+cv	~/Documents/LaTeX/cv.tex
+cfp	~/dotfiles/polybar/.config/polybar/config
+cfd	~/.Xdefaults
+
