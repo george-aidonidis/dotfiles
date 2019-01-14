@@ -1,6 +1,6 @@
 source $HOME/.tokens
 export GEM_HOME=$HOME/.gem
-export PATH=$PATH$HOME/.npm-packages/bin:$HOME/bin:/usr/local/bin:$(ruby -e 'print Gem.user_dir')/bin
+export PATH=$PATH$HOME/.npm-packages/bin:$HOME/bin:/usr/local/bin
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="geoffgarside"
