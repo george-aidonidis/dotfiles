@@ -108,6 +108,7 @@ basicPackages=(
 	ranger
 	redshift
 	rofi
+	sxiv
 	stow
 	terminator
 	the_silver_searcher
