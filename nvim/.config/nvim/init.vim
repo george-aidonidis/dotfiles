@@ -13,7 +13,7 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'matze/vim-move'
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': 'yarn install'}
 
 Plug 'mgee/lightline-bufferline'
 Plug 'christoomey/vim-sort-motion'

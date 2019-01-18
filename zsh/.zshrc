@@ -57,6 +57,7 @@ SPACESHIP_PROMPT_ORDER=(
 	package
 	node
 	docker
+	line_sep
 	vi_mode
 	jobs
 	exit_code

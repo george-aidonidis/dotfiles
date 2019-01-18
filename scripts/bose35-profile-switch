@@ -19,3 +19,5 @@ echo "switched card $BLUEZCARD to ad2p_sink"
 
 pacmd set-default-sink $BLUEZSINK
 echo "switched default sink to $BLUEZSINK"
+
+notify-send "Headphones" "🎧  Audio re-initialized"
