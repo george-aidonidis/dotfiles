@@ -261,7 +261,7 @@ mode "resize" {
 #=========== Custom Commands ===========#
 #########################################
 # Set keyboard through xorg
-bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xkeyboard
+bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id set-xkeyboard
 # Set background
 bindsym $mod+Shift+Print exec --no-startup-id unsplash-generator
 # Change to greek keyboard layout
@@ -271,7 +271,7 @@ bindsym $mod+space exec --no-startup-id xkb-switch -n
 exec --no-startup-id source vertical-layout-two-screens
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec --no-startup-id bose35-profile-switch
-bindcode $mod+shift+$code_x exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock;
+bindcode $mod+shift+$code_x exec --no-startup-id better-lock
 
 # Keyboard media controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
@@ -304,14 +304,14 @@ bindsym $mod+Shift+Delete	exec --no-startup-id playerctl pause; exec --no-startu
 exec_always --no-startup-id enable-touchpad-tapping
 exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 exec_always --no-startup-id xrdb ~/.Xresources
-exec_always --no-startup-id source $HOME/dotfiles/.xkeyboard
+exec_always --no-startup-id set-xkeyboard
 exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 
 ########################
 # Applications Startup #
 ########################
-exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
+exec --no-startup-id betterlockscreen -u ~/.config/wall.png -r 1920x1080
 exec --no-startup-id nm-applet
 exec --no-startup-id spotify
 exec --no-startup-id blueman-manager
@@ -383,8 +383,8 @@ set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
     bindcode $code_e exec --no-startup-id $psst i3-msg exit; mode "default"
     # bindcode $code_l exec --no-startup-id "setxkbmap -layout us,gr"; mode "default"
-    # bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id betterlockscreen --lock; mode "default"
-    bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id dm-tool lock; mode "default"
+    bindcode $code_l exec --no-startup-id better-lock; mode "default"
+    # bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id dm-tool lock; mode "default"
     bindcode $code_p exec --no-startup-id $psst systemctl poweroff; mode "default"
     bindcode $code_r exec --no-startup-id $psst systemctl reboot; mode "default"
 

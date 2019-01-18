@@ -1,6 +1,6 @@
 source $HOME/.tokens
-export GEM_HOME=$HOME/.gem
 export PATH=$PATH$HOME/.npm-packages/bin:$HOME/bin:/usr/local/bin
+source $HOME/dotfiles/homeconfig/.bash_shortcuts
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="geoffgarside"
@@ -13,10 +13,10 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git,node_modules,dist,build,ve
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export MONITOR='eDP-1'
-export NPM_PACKAGES="$HOME/.npm-packages:$PATH"
+# export NPM_PACKAGES="$HOME/.npm-packages:$PATH"
 # Unset manpath so we can inherit from /etc/manpath via the `manpath` command
-unset MANPATH # delete if you already modified MANPATH elsewhere in your config
-export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+# unset MANPATH # delete if you already modified MANPATH elsewhere in your config
+# export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 plugins=(git vi-mode)
 
@@ -48,7 +48,7 @@ stty -ixon
 export SPACESHIP_CHAR_SYMBOL='🥦🐑💨🐣 '
 export SPACESHIP_PROMPT_PREFIXES_SHOW=false
 
-SPACESHIP_PROMT_ORDER=(
+SPACESHIP_PROMPT_ORDER=(
 	time
 	user
 	dir
@@ -57,6 +57,7 @@ SPACESHIP_PROMT_ORDER=(
 	package
 	node
 	docker
+	line_sep
 	vi_mode
 	jobs
 	exit_code
