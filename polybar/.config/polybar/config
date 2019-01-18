@@ -102,7 +102,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = i3
 modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery battery2 date xkeyboard
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery battery2 date xkeyboard
 
 tray-position = right
 tray-padding = 2

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+CURRENT=$(xkblayout-state print %s)
+DATE=$(date +"%A, %d %B")
+
+if [ $CURRENT != "us" ]
+then
+	xkb-switch -n
+fi
+
+betterlockscreen --lock blur -t "$DATE"
+
