@@ -17,7 +17,7 @@ prompt spaceship
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin"
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
-export QT_SCALE_FACTOR=1
+export QT_SCALE_FACTOR=0
 export UPDATE_ZSH_DAYS=3
 export KEYTIMEOUT=1
 # export XKB_DEFAULT_LAYOUT=us,gr

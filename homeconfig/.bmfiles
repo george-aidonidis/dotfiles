@@ -1,6 +1,6 @@
 # nvim: filetype=sh
-bf	~/dotfiles/homeconfig/.bmfiles
-bd	~/dotfiles/homeconfig/.bmdirs
+ebf	~/dotfiles/homeconfig/.bmfiles
+ebd	~/dotfiles/homeconfig/.bmdirs
 cfc	~/dotfiles/config-dotfiles/.config/compton.conf
 cfz	~/dotfiles/zsh/.zshrc
 cfv	~/dotfiles/nvim/.config/nvim/init.vim

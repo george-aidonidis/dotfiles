@@ -1,0 +1,18 @@
+#!/bin/sh
+while read file
+do
+        case "$1" in
+        "C-d")
+                mv "$file" ~/.trash ;;
+        "r")
+                convert -rotate 90 "$file" "$file" ;;
+        "l")
+                convert -rotate -90 "$file" "$file" ;;
+        "C-c")
+                xclip -selection clipboard -t image/png -i "$file";;
+        "C-w")
+                nitrogen --save --set-zoom-fill "$file" ;;
+        "C-w")
+                convert --save --set-zoom-fill "$file" ;;
+        esac
+done

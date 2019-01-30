@@ -2,7 +2,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $run_rofi "ensure-us-layout 'rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
+set $run_rofi "QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_SCALE_FACTOR=0 ensure-us-layout 'rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
 set $run_rofi_emoji "ensure-us-layout rofi-emoji-launch"
 
 set $mod Mod4
@@ -223,6 +223,7 @@ assign [class="brave-browser"] $ws2
 assign [class="Slack"] $ws4
 assign [class="wavebox"] $ws4
 assign [title="Messenger for Desktop"] $ws5
+for_window [title="^Enpass$"] move container to workspace $ws7
 for_window [class="Spotify"] move to workspace $ws10
 
 # Reload the configuration file
@@ -266,18 +267,20 @@ bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id set-xkeyboard
 bindsym $mod+Shift+Print exec --no-startup-id unsplash-generator
 # Change to greek keyboard layout
 bindsym $mod+space exec --no-startup-id xkb-switch -n
+bindsym $mod+Escape exec --no-startup-id xkb-switch -n
 
 # Screen layout generated from arandr
-exec --no-startup-id source vertical-layout-two-screens
+exec --no-startup-id source horizontal-laptop-right
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec --no-startup-id bose35-profile-switch
-bindcode $mod+shift+$code_x exec --no-startup-id better-lock
+bindcode $mod+shift+$code_x exec --no-startup-id blur-lock
 
 # Keyboard media controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
 bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
+bindsym $mod+F4 exec --no-startup-id amixer set Capture toggle
 
 # Sreen brightness controls
 # Requires light package from aur
@@ -311,10 +314,9 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 ########################
 # Applications Startup #
 ########################
-exec --no-startup-id betterlockscreen -u ~/.config/wall.png -r 1920x1080
+exec --no-startup-id dunst
 exec --no-startup-id nm-applet
 exec --no-startup-id spotify
-exec --no-startup-id blueman-manager
 exec --no-startup-id dropbox
 exec --no-startup-id wavebox
 exec --no-startup-id redshift-gtk -l 35.1:25.7
@@ -383,7 +385,7 @@ set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
     bindcode $code_e exec --no-startup-id $psst i3-msg exit; mode "default"
     # bindcode $code_l exec --no-startup-id "setxkbmap -layout us,gr"; mode "default"
-    bindcode $code_l exec --no-startup-id better-lock; mode "default"
+    bindcode $code_l exec --no-startup-id blur-lock; mode "default"
     # bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id dm-tool lock; mode "default"
     bindcode $code_p exec --no-startup-id $psst systemctl poweroff; mode "default"
     bindcode $code_r exec --no-startup-id $psst systemctl reboot; mode "default"
@@ -449,7 +451,7 @@ client.urgent           $red $red $blue $red $red
 #end of window title bars & borders section
 
 # Needed for i3-gaps
-hide_edge_borders both
+hide_edge_borders smart
 for_window [class="^.*"] border pixel 2
 
 gaps inner 8
@@ -479,8 +481,8 @@ bindsym Control+Shift+Tab workspace prev
 # exec_always --no-startup-id bash ~/.config/scripts/inactive-handler
 
 # i3-gnome
-# exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-# exec_always --no-startup-id gnome-power-manager
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# exec --no-startup-id gnome-flashback
-# exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 8
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+exec_always --no-startup-id gnome-power-manager
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id gnome-flashback
+exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 8

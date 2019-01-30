@@ -1,0 +1,15 @@
+#!/bin/sh
+
+CURRENT=$(xkblayout-state print %s)
+DATE=$(date +"%A, %d %B")
+
+function lock {
+	i3lock --blur=1 --clock --indicator --insidecolor=232c31ff --ringcolor=9ea7a6ff --line-uses-inside --keyhlcolor=2a5491ff --bshlcolor=a03b1eff --insidevercolor=232c31ff --insidewrongcolor=a03b1eff --ringvercolor=9ea7a6ff --ringwrongcolor=3f4944ff --separatorcolor=2a5491ff --verifcolor=ffffffff --wrongcolor=232c31ff --timecolor=ffffffff --datecolor=ffffffff
+}
+
+if [ $CURRENT != "us" ]
+then
+	xkb-switch -n
+fi
+
+lock
