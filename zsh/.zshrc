@@ -1,5 +1,5 @@
 source $HOME/.tokens
-export PATH=$PATH$HOME/.npm-packages/bin:$HOME/bin:/usr/local/bin
+export PATH=$PATH$HOME/bin:/usr/local/bin
 source $HOME/dotfiles/homeconfig/.bash_shortcuts
 
 export ZSH=$HOME/.oh-my-zsh
