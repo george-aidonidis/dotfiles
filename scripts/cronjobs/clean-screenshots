@@ -1,4 +1,0 @@
-#!/bin/sh
-
-rm -f $HOME/Pictures/screenshots/*
-notify-send "Cronjob completed" "Screenshots folder cleared 🧹" --icon=trashindicator

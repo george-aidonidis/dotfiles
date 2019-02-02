@@ -1,0 +1,14 @@
+#!/bin/zsh
+
+rm -f $HOME/Pictures/screenshots/*
+rm -r $HOME/.cache/spotify/Data/*
+rm -r $HOME/.local/applications/Trash/files/*
+
+notify-send "Cleaning completed" "Trash, Spotify, screenshots cleared 🧹" --icon=trashindicator
+
+sudo pacman -Sc
+yarn cache clean
+setopt kshglob
+cd $HOME/.cache/yay/ && rm -r -- !(*.cache|*.json) && cd -
+
+notify-send "Cache cleaning completed" "Pacman, yarn, yay cache cleared 🧹" --icon=trashindicator
