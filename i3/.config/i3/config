@@ -307,7 +307,7 @@ bindsym $mod+Shift+Delete	exec --no-startup-id playerctl pause; exec --no-startu
 exec_always --no-startup-id enable-touchpad-tapping
 exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
 exec_always --no-startup-id xrdb ~/.Xresources
-exec_always --no-startup-id set-xkeyboard
+# exec_always --no-startup-id set-xkeyboard
 exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
 exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 

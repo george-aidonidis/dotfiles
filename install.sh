@@ -40,6 +40,7 @@ applications=(
 	atom
 	docker
 	docker-compose
+	inkscape
 	mongodb
 	parcellite
 	pavucontrol"
