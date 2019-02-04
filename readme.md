@@ -49,8 +49,7 @@ Naive script that installs :poop: (please, read its contents before running sinc
 Check contents of script [here](./install.sh)
 
 ```sh
-$ chmod +x install.sh
-$ ./install.sh
+$ bash ./install.sh
 ```
 
 ## Other readmes
