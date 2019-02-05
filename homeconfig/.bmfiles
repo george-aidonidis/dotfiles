@@ -3,7 +3,7 @@ ebf	~/dotfiles/homeconfig/.bmfiles
 ebd	~/dotfiles/homeconfig/.bmdirs
 cfc	~/dotfiles/config-dotfiles/.config/compton.conf
 cfz	~/dotfiles/zsh/.zshrc
-cfv	~/dotfiles/nvim/.config/nvim/init.vim
+cfn	~/dotfiles/nvim/.config/nvim/init.vim
 cfi	~/dotfiles/i3/.config/i3/config
 cfr	~/dotfiles/ranger/.config/ranger/rc.conf
 cfq	~/.config/qutebrowser/config.py

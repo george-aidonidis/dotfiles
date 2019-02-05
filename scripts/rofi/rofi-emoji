@@ -2,8 +2,8 @@
 
 VER='11.0'
 URL="https://www.unicode.org/Public/emoji/${VER}/emoji-test.txt"
-DIR="$HOME/.cache"
-FILE="$DIR/emojis.txt"
+DIR="$HOME/dotfiles"
+FILE="$DIR/.emojis.txt"
 
 if [ ! -r $FILE ]
 then
