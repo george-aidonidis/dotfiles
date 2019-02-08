@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+files=(~/Pictures/Wallpapers/skyrim/*)
+
+WALLPAPER=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
+# WALLPAPER2=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
+
+cp $WALLPAPER ~/.config/wall.png && feh --bg-scale ~/.config/wall.png
+# notify-send -i "$WALLPAPER" "Wallpaper changed"
+
+# Use for multiple screens
+# feh -B white --bg-fill $WALLPAPER --bg-fill $WALLPAPER2

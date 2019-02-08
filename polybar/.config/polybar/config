@@ -319,7 +319,7 @@ label-connected-font = 6
 type = internal/date
 interval = 1
 date = " %a %d %b"
-time = %H:%M:%S
+time = %H:%M
 format-foreground = ${colors.foreground}
 
 label = %{A1:gsimplecal:}  %date%  %time% %{A}

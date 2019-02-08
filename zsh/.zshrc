@@ -4,22 +4,7 @@ source $HOME/dotfiles/homeconfig/.bash_shortcuts
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="geoffgarside"
-export UPDATE_ZSH_DAYS=3
-# Set vim as a global editor
-export EDITOR='nvim'
-# Setting ag as the default source for fzf
-# fzf (w/o pipe) will use ag instead of find
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git,node_modules,dist,build,vendor -g ""'
-# To apply the command to CTRL-T as well
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export MONITOR='eDP-1'
-# export NPM_PACKAGES="$HOME/.npm-packages:$PATH"
-# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
-# unset MANPATH # delete if you already modified MANPATH elsewhere in your config
-# export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
-
 plugins=(git vi-mode)
-
 # direnv hook into the shell
 eval "$(direnv hook zsh)"
 

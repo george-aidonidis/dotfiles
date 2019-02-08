@@ -229,5 +229,11 @@ sudo systemctl mask systemd-rfkill.service
 echo "Adding a wallpaper"
 ./scripts/unsplash-generator.sh
 
+sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
+sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
+sudo ln -s /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d
+
+sudo echo 'export FREETYPE_PROPERTIES="truetype:interpreter-version=40"'
+
 echo "🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉🎉"
 echo "Script completed. Please restart for the changes to take effect"
