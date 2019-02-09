@@ -86,6 +86,7 @@ basicPackages=(
 	diff-so-fancy
 	dunst
 	feh
+	fwupd
 	gnome-themes-extra
 	gpicview
 	gsimplecal

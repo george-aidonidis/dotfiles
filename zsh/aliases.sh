@@ -57,6 +57,13 @@ alias nid="npm install --save-dev "
 ########
 alias update="sudo pacman --noconfirm -Syu && yay -Syu --aur --noconfirm"
 
+########
+# Bios #
+########
+alias bios-refresh="sudo fwupdmgr refresh"
+alias bios-get-updates="sudo fwupdmgr get-updates"
+alias bios-update="sudo fwupdmgr update"
+
 ##########
 # Docker #
 #########
