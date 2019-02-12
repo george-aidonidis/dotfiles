@@ -64,7 +64,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = i3
 modules-center =
-modules-right = spotify backlight pulseaudio-rofi-input pulseaudio battery battery2 date xkeyboard
+modules-right = spotify backlight pulseaudio-rofi-input pulseaudio battery-combined date xkeyboard
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -102,7 +102,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = i3
 modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery battery2 date xkeyboard
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery-combined date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -143,7 +143,7 @@ font-5 = ${fonts.monospace}
 
 modules-left = i3
 modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery battery2 date xkeyboard
+modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery-combined date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -342,6 +342,7 @@ ramp-volume-1 = 
 ramp-volume-2 = 
 
 [module/battery]
+time-format = %H:%M
 type = internal/battery
 battery = BAT0
 adapter = AC
@@ -459,6 +460,10 @@ format-font = 7
 format = 📦 <label>
 exec = $HOME/dotfiles/scripts/polybar/archupdates
 
+[module/battery-combined]
+type = custom/script
+exec = $HOME/dotfiles/scripts/polybar/battery-combined
+interval = 10
 [module/pulseaudio-rofi-input]
 format-prefix-underline = ${colors.softred}
 format-underline = ${colors.softred}
