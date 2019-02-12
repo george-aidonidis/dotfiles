@@ -2,7 +2,7 @@
 
 FILENAME="$HOME/Pictures/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
 
-maim -s $FILENAME
+maim -s | convert - \( +clone -background black -shadow 80x3+5+5 \) +swap -background none -layers merge +repage $FILENAME
 
 notify-send -i $FILENAME "Image copied to clipboard and under ~/Pictures/screenshots/"
 xclip -selection clipboard -t image/png -i $FILENAME
