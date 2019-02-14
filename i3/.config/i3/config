@@ -280,6 +280,10 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
 bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
+
+bindsym $mod+shift+F3 exec --no-startup-id $HOME/dotfiles/scripts/polybar/pulse-input --volume_source_up
+bindsym $mod+shift+F2 exec --no-startup-id $HOME/dotfiles/scripts/polybar/pulse-input --volume_source_down
+
 bindsym $mod+F4 exec --no-startup-id amixer set Capture toggle
 
 # Sreen brightness controls
