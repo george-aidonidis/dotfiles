@@ -115,6 +115,7 @@ basicPackages=(
 	the_silver_searcher
 	tmux
 	ttf-droid
+	ttf-ubuntu-font-family
 	w3m
 	xclip
 	xcursor-breeze
