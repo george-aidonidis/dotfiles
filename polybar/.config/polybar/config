@@ -22,12 +22,12 @@ orange = ${xrdb:orange:#FF4500}
 blue = ${xrdb:blue:#3581fc}
 
 [fonts]
-avant_garde = AvantGarde LT Medium:size=10;3
-droid_sans_mono = DroidSansMonoForPowerline Nerd Font:style=Regular:size:10;3
+dejavu = DejaVuSans:size=10;3
+droid_sans_mono = DroidSansMonoForPowerline Nerd Font:style=Regular:size:11;3
 font_awesome = FontAwesome:style=Regular:size=10;3
 weather = Weather Icons:style=Regular:size=8;3
 material = MaterialDesignIcons:size=10;1
-monospace = Monospace:size=10;3
+monospace = DejaVuSansMono:size=10;3
 noto = Noto Color Emoji:style=Regular:scale=13:size=10;2
 
 #################
@@ -55,7 +55,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = ${fonts.avant_garde}
+font-0 = ${fonts.dejavu}
 font-1 = ${fonts.noto}
 font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
@@ -93,7 +93,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = ${fonts.avant_garde}
+font-0 = ${fonts.dejavu}
 font-1 = ${fonts.noto}
 font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
@@ -134,7 +134,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = ${fonts.avant_garde}
+font-0 = ${fonts.dejavu}
 font-1 = ${fonts.noto}
 font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
@@ -464,6 +464,7 @@ exec = $HOME/dotfiles/scripts/polybar/archupdates
 type = custom/script
 exec = $HOME/dotfiles/scripts/polybar/battery-combined
 interval = 10
+
 [module/pulseaudio-rofi-input]
 format-prefix-underline = ${colors.softred}
 format-underline = ${colors.softred}
