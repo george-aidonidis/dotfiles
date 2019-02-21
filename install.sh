@@ -103,6 +103,7 @@ basicPackages=(
 	noto-fonts-emoji
 	pacman-contrib
 	papirus-icon-theme
+	pigz
 	playerctl
 	python-dbus
 	python-pywal
@@ -165,6 +166,12 @@ function checkMissingPackages {
 	 rm $HOME/.zshrc;
 	 stow $stowed;
  }
+
+# Use all cores for compilation.
+sed -i "s/-j2/-j$(nproc)/;s/^#MAKEFLAGS/MAKEFLAGS/" /etc/makepkg.conf
+
+# Make pacman and yay colorful and adds eye candy on the progress bar because why not.
+sed -i "s/^#Color/Color/g;/#VerbosePkgLists/a ILoveCandy" /etc/pacman.conf
 
 prompt "Will update current packages before installation" "sudo pacman -Syu"
 confirm "Update"

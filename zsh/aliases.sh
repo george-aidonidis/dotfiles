@@ -42,6 +42,7 @@ alias yr="yarn run"
 alias ya="yarn add"
 alias yad="yarn add --dev "
 alias yag="yarn global add"
+alias yar="yarn global remove"
 alias yarn_global_upgrade="yarn global upgrade"
 #
 #######
@@ -71,6 +72,14 @@ alias docker-delete-containers="docker rm \$(docker ps -a -q)"
 alias docker-delete-images="docker rmi \$(docker images -a -q) -f"
 alias docker-stop-all="docker stop \$(docker ps -a -q)"
 
+##########
+# System #
+##########
+alias charge-full-bat0="sudo tlp fullcharge BAT0"
+alias charge-full-bat1="sudo tlp fullcharge BAT1"
+
+alias discharge-bat0="sudo tlp discharge BAT0"
+alias discharge-bat1="sudo tlp discharge BAT1"
 ########
 # Misc #
 ########
@@ -91,7 +100,6 @@ alias "xv=xclip -o"
 # Sudo edit
 alias "sn=sudo -E nvim"
 
-alias "delete-swap=find ./ -type f -name \"\.*sw[klmnop]\" -delete"
 alias "tmux-dev= tmux split-window -h -p 70 \; split-window -p 18"
 alias "e=ranger"
 alias "npm-show-global=npm list -g --depth=0"
