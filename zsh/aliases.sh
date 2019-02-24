@@ -43,7 +43,7 @@ alias ya="yarn add"
 alias yad="yarn add --dev "
 alias yag="yarn global add"
 alias yar="yarn global remove"
-alias yarn_global_upgrade="yarn global upgrade"
+alias yarn_global_upgrade="yarn global upgrade --latest"
 #
 #######
 # NPM #
