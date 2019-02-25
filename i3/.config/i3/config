@@ -276,8 +276,10 @@ bindcode Control+Shift+$Slash_Question exec --no-startup-id bose35-profile-switc
 bindcode $mod+shift+$code_x exec --no-startup-id blur-lock
 
 # Keyboard media controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
+bindsym $mod+F2 exec --no-startup-id amixer set Capture 2%-
+bindsym $mod+F3 exec --no-startup-id amixer set Capture 2%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 2%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 2%+
 bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
 bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle
 bindsym $mod+F4 exec --no-startup-id amixer set Capture toggle
@@ -481,8 +483,8 @@ bindsym Control+Shift+Tab workspace prev
 # exec_always --no-startup-id bash ~/.config/scripts/inactive-handler
 
 # i3-gnome
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-exec_always --no-startup-id gnome-power-manager
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id gnome-flashback
+# exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+# exec_always --no-startup-id gnome-power-manager
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec --no-startup-id gnome-flashback
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 8
