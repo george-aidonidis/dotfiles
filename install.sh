@@ -236,7 +236,7 @@ sudo systemctl enable tlp-sleep.service
 sudo systemctl start tlp-sleep.service
 sudo systemctl mask systemd-rfkill.service
 echo "Adding a wallpaper"
-./scripts/unsplash-generator.sh
+./scripts/unsplash-generator
 
 sudo ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d
 sudo ln -s /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d
