@@ -50,13 +50,6 @@ set $term --no-startup-id terminator
 ###################
 # Spawn dropdowns #
 ###################
-bindcode $mod+$code_u [title="ddtmux"] scratchpad show; [title="ddtmux"] move position center
-
-for_window [title="ddtmux"] floating enable
-for_window [title="ddtmux"] resize set 825 650
-for_window [title="ddtmux"] move scratchpad
-for_window [title="ddtmux"] border pixel 5
-for_window [title="ddtmux"] sticky enable
 # exec --no-startup-id $term --title ddtmux -e tmux
 
 # Make the currently focused window a scratchpad
@@ -352,7 +345,7 @@ mode  $screencastmode {
     bindsym Escape mode "default"
 }
 bindsym $mod+Insert mode $screencastmode
-bindsym $mod+Delete exec --no-startup-id $stoprec
+bindsym $mod+Delete exec --no-startup-id $stoprec; exec --no-startup-id notify-send " Stopped recording"
 
 
 ##############################################
@@ -491,4 +484,4 @@ bindsym Control+Shift+Tab workspace prev
 # exec_always --no-startup-id gnome-power-manager
 # exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # exec --no-startup-id gnome-flashback
-exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 8
+# exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 8
