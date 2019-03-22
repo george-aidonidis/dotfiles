@@ -25,6 +25,7 @@ function usage {
 	echo
 	echo "If xsel, xclip, or pbcopy is available, the URLs are put on the X selection for" >&2
 	echo "easy pasting." >&2
+	echo "Wayland is also handled with wl-copy" >&2
 }
 
 # Function to upload a path
