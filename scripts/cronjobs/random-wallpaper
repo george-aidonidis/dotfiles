@@ -1,7 +1,7 @@
 #!/usr/bin/bash
-files=(~/Pictures/Wallpapers/skyrim/*)
+path=(~/Pictures/Wallpapers)
 
-WALLPAPER=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
+WALLPAPER=$(find $path | shuf -n1)
 # WALLPAPER2=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
 
 cp $WALLPAPER ~/.config/wall.png && feh --bg-scale ~/.config/wall.png

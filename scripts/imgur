@@ -105,6 +105,8 @@ done
 # Put the URLs on the clipboard if we can
 if type pbcopy &>/dev/null; then
 	echo -n "$url" | pbcopy
+elif [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+	wl-copy "$url"
 elif type xclip &>/dev/null; then
 	echo -n "$url" | xclip -selection clipboard
 elif type xsel &>/dev/null; then
