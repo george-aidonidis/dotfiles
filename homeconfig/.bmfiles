@@ -1,6 +1,7 @@
 # nvim: filetype=sh
-ebf	~/dotfiles/homeconfig/.bmfiles
-ebd	~/dotfiles/homeconfig/.bmdirs
+cff	~/dotfiles/homeconfig/.bmfiles
+cfd	~/dotfiles/homeconfig/.bmdirs
+cfs	~/dotfiles/sway/.config/sway/config
 cfc	~/dotfiles/config-dotfiles/.config/compton.conf
 cfz	~/dotfiles/zsh/.zshrc
 cfn	~/dotfiles/nvim/.config/nvim/init.vim
@@ -9,5 +10,4 @@ cfr	~/dotfiles/ranger/.config/ranger/rc.conf
 cfq	~/.config/qutebrowser/config.py
 cft	~/dotfiles/terminator/.config/terminator/config
 cfp	~/dotfiles/polybar/.config/polybar/config
-cfd	~/.Xdefaults
 

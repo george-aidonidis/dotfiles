@@ -464,6 +464,7 @@ exec = $HOME/dotfiles/scripts/polybar/archupdates
 type = custom/script
 exec = $HOME/dotfiles/scripts/polybar/battery-combined
 interval = 10
+click-left = $HOME/.npm-packages/bin/s-cli -b
 
 [module/pulseaudio-rofi-input]
 format-prefix-underline = ${colors.softred}

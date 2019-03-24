@@ -83,6 +83,7 @@ alias discharge-bat1="sudo tlp discharge BAT1"
 ########
 # Misc #
 ########
+alias "ls=lsd"
 alias "n=nvim"
 # Make and enter inside a directory
 # mkdir -p test && cd test --->➡️ mkcd test

@@ -90,10 +90,13 @@ basicPackages=(
 	gnome-themes-extra
 	gpicview
 	gsimplecal
+	grim
+	wl-clipboard
 	htop
 	i3-gaps
 	i3status
 	jq
+	lsd
 	lxappearance
 	maim
 	mplayer
@@ -110,6 +113,7 @@ basicPackages=(
 	ranger
 	redshift
 	rofi
+	slurp
 	sxiv
 	stow
 	terminator
@@ -162,7 +166,7 @@ function checkMissingPackages {
 		# or do whatever with individual element of the array
 	done
 }
- function stowThings {
+function stowThings {
 	 rm $HOME/.zshrc;
 	 stow $stowed;
  }
@@ -206,6 +210,8 @@ confirm "Changed position of window buttons to left side (gnome)"
 thunder
 prompt "  Will install tmux plugin manager (tpm)" "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
 confirm "Installing tmux plugin manager"
+
+prompt "Will install s-cli (used in polybar) from npm" "npm install --global @george-aidonidis/s-cli"
 
 thunder
 prompt "  Will install: $blue $applications $white" "sudo pacman -S $applications"
