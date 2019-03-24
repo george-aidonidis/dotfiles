@@ -258,6 +258,8 @@ mode "resize" {
 bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id set-xkeyboard
 # Set background
 bindsym $mod+Shift+Print exec --no-startup-id unsplash-generator
+# Set a random wallpaper from ~/Pictures/Wallpapers
+bindsym $mod+Print exec --no-startup-id random-wallpaper
 # Change to greek keyboard layout
 bindsym $mod+space exec --no-startup-id xkb-switch -n
 bindsym $mod+Escape exec --no-startup-id xkb-switch -n
@@ -314,7 +316,7 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 # Applications Startup #
 ########################
 exec --no-startup-id dunst
-exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet --indicator
 exec --no-startup-id spotify
 exec --no-startup-id dropbox
 exec --no-startup-id wavebox
