@@ -51,10 +51,10 @@ if [ "$ac" -eq 1 ]; then
         icon=""
     elif [ "$battery_percent" -gt 50 ]; then
         icon=""
-    elif [ "$battery_percent" -gt 10 ]; then
+    elif [ "$battery_percent" -gt 15 ]; then
         icon="$orange"
     else
-        icon=""
+        icon="$red"
     fi
     echo "$icon $battery_percent %"
 	fi
