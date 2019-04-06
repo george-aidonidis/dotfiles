@@ -1,0 +1,82 @@
+#!/bin/sh
+
+FILENAME="$HOME/Pictures/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
+INPUT=$1
+
+function area {
+	rect=$(slop)
+	if [ $? -gt 0 ]
+	then
+		echo 'exit';
+		exit 1;
+	fi
+
+	size=$(echo $rect | cut -d '+' -f1)
+	xAxis=$(echo $rect | cut -d '+' -f2)
+	yAxis=$(echo $rect | cut -d '+' -f3)
+	echo "$xAxis,$yAxis $size"
+}
+
+function wlActiveScreen {
+	SCREEN=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+
+	grim -o $SCREEN $FILENAME
+	wl-copy < $FILENAME
+}
+
+function wlActiveWindow {
+	echo "Not yet implemented for wayland 😭"
+}
+
+function wlRegion {
+	grim -g "$(area)" $FILENAME
+	wl-copy < $FILENAME
+}
+
+function x11ActiveScreen {
+	SCREEN=$(get-active-monitor)
+
+	maim -g $SCREEN $FILENAME
+	xclip -selection clipboard -t image/png -i $FILENAME
+}
+
+function x11ActiveWindow {
+	maim -i $(xdotool getactivewindow) $FILENAME
+	xclip -selection clipboard -t image/png -i $FILENAME
+}
+
+function x11Region {
+	maim -s $FILENAME
+	xclip -selection clipboard -t image/png -i $FILENAME
+}
+
+function action {
+	if [ "$XDG_SESSION_TYPE" = "wayland" ]
+	then
+		$1
+	else
+		$2
+	fi
+}
+
+case "$INPUT" in
+	imgur)
+			action wlRegion x11Region
+			imgur $FILENAME
+		;;
+	screen)
+			action wlActiveScreen x11ActiveScreen
+			notify-send -i "$FILENAME" "Saved active screen to clipboard and under ~/Pictures/screenshots/"
+		;;
+	window)
+			action wlActiveWindow x11ActiveWindow
+			notify-send -i "$FILENAME" "Saved focused window to clipboard and under ~/Pictures/screenshots/"
+		;;
+	region)
+			action wlRegion x11Region
+			notify-send -i $FILENAME "Image copied to clipboard and under ~/Pictures/screenshots/"
+		;;
+	*)
+		echo "💩 Invalid option"
+		;;
+esac

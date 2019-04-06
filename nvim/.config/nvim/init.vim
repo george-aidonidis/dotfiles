@@ -13,8 +13,10 @@ Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'matze/vim-move'
 " Autocomplete
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+Plug 'w0rp/ale'
 Plug 'mgee/lightline-bufferline'
 Plug 'christoomey/vim-sort-motion'
 Plug 'morhetz/gruvbox'

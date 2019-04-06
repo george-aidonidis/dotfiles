@@ -331,10 +331,10 @@ exec --no-startup-id enpass
 ######################
 # Screenshot helpers #
 ######################
-bindsym Control+Shift+F1 exec --no-startup-id screenshot_upload_to_imgur
-bindsym Shift+Print --release exec --no-startup-id save-current-window
-bindsym Print --release exec --no-startup-id save-active-screen
-bindsym Control+Shift+F4 exec --no-startup-id screenshot_region
+bindsym Control+Shift+F1 exec --no-startup-id take-screenshot imgur
+bindsym Shift+Print --release exec --no-startup-id take-screenshot window
+bindsym Print --release exec --no-startup-id take-screenshot screen
+bindsym Control+Shift+F4 exec --no-startup-id take-screenshot region
 
 ##############
 # Screencast #
