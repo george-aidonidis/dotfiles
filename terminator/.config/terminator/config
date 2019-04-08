@@ -29,7 +29,7 @@
     background_darkness = 0.9
     background_type = transparent
     cursor_color = "#7c6f64"
-    font = Source Code Pro 12
+    font = Source Code Pro 18
     foreground_color = "#ebdbb2"
     icon_bell = False
     login_shell = True
@@ -42,7 +42,7 @@
     background_darkness = 0.9
     background_type = transparent
     cursor_color = "#bbbbbb"
-    font = Source Code Pro 13
+    font = Source Code Pro 15
     foreground_color = "#abb2bf"
     icon_bell = False
     login_shell = True
