@@ -11,7 +11,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 desktop=$(echo $DESKTOP_SESSION)
 
 if [ -n "$HAS_SECOND_SCREEN" ] || [ ! "$HAS_SECOND_SCREEN" = "" ]; then
-  MONITOR="DP-1" polybar --reload main &
+  MONITOR="DP1" polybar --reload main &
   sleep 0.1
   MONITOR="eDP1" polybar --reload laptop &
 else

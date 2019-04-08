@@ -72,7 +72,7 @@ cursor-scroll = ns-resize
 # Main monitor #
 ################
 [bar/main]
-monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:DP1}
 width = 100%
 height = 20
 radius = 0.0
