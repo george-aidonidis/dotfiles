@@ -297,7 +297,7 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioPause exec --no-startup-id playerctl pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86WLAN exec --no-startup-id wifi-toggle
+# bindsym XF86WLAN exec --no-startup-id wifi-toggle
 bindsym $mod+Shift+Delete	exec --no-startup-id playerctl pause; exec --no-startup-id amixer set Capture nocap; exec --no-startup-id pkill mpv; workspace 9; exec --no-startup-id $term -e htop; exec --no-startup-id $term -e ranger
 
 
@@ -382,7 +382,7 @@ bindsym $mod+Shift+F7 mode $displays
 ###################
 # Session manager #
 ###################
-set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
+set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot -  (S)uspend"
 mode  $session {
     bindcode $code_e exec --no-startup-id $psst i3-msg exit; mode "default"
     # bindcode $code_l exec --no-startup-id "setxkbmap -layout us,gr"; mode "default"
@@ -390,6 +390,7 @@ mode  $session {
     # bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id dm-tool lock; mode "default"
     bindcode $code_p exec --no-startup-id $psst systemctl poweroff; mode "default"
     bindcode $code_r exec --no-startup-id $psst systemctl reboot; mode "default"
+    bindcode $code_s exec --no-startup-id $psst systemctl suspend; mode "default"
 
     bindcode $code_q mode "default"
     bindsym Escape mode "default"

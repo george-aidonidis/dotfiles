@@ -11,8 +11,14 @@
   title_transmit_bg_color = "#d30102"
   title_use_system_font = False
 [keybindings]
+  go_down = <Primary><Shift>j
+  go_left = <Primary><Shift>h
+  go_right = <Primary><Shift>l
+  go_up = <Primary><Shift>k
   next_tab = <Primary><Shift>braceright
   prev_tab = <Primary><Shift>braceleft
+  split_horiz = <Primary>BackSpace
+  split_vert = <Primary>backslash
 [layouts]
   [[default]]
     [[[child1]]]
@@ -25,18 +31,19 @@
 [plugins]
 [profiles]
   [[default]]
-    background_color = "#282828"
+    background_color = "#282c34"
     background_darkness = 0.9
     background_type = transparent
-    cursor_color = "#7c6f64"
-    font = Source Code Pro 18
-    foreground_color = "#ebdbb2"
+    cursor_color = "#bbbbbb"
+    font = Source Code Pro 15
+    foreground_color = "#abb2bf"
     icon_bell = False
     login_shell = True
-    palette = "#181818:#cc241d:#98971a:#d79921:#458588:#b16286:#689d6a:#ebdbb2:#928374:#fb4934:#b8bb26:#fabd2f:#83a598:#d3869b:#8ec07c:#ebdbb2"
+    palette = "#000000:#eb6e67:#95ee8f:#f8c456:#6eaafb:#d886f3:#6cdcf7:#b2b2b2:#50536b:#eb6e67:#95ee8f:#f8c456:#6eaafb:#d886f3:#6cdcf7:#dfdfdf"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False
+    visible_bell = True
   [[onedark]]
     background_color = "#282c34"
     background_darkness = 0.9
