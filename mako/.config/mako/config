@@ -1,0 +1,21 @@
+font=lato 12
+padding=14,10
+margin=14
+border-size=1
+border-color=#ffffff
+background-color=#2f343f
+default-timeout=7000
+
+# Only for desktop, ignored when no such output exists
+#output=DP-1
+
+[urgency=low]
+text-color=#98c379
+
+[urgency=normal]
+text-color=#f5f8f6
+
+[urgency=high]
+text-color=#e06c75
+default-timeout=20000
+
