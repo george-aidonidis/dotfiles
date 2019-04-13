@@ -22,7 +22,7 @@ nnoremap <C-l> <C-w>l
 " Disable highlight until next search
 nnoremap <silent><leader>c :let @/ = ""<CR>
 nnoremap <leader>g :Ag<CR>
-nnoremap <C-P> :Files<CR>
+" nnoremap <C-P> :Files<CR>
 " Pass copied text to clipboard (works on normal and visual mode)
 "nnoremap Y "+Y
 "nnoremap y "+y

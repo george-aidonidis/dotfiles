@@ -4,5 +4,6 @@
 	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
 	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
 	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
-  "tsserver.enable": true
+  "tsserver.enable": true,
+	"diagnostic.enableSign": false
 }

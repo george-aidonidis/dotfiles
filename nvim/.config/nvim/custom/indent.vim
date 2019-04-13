@@ -10,4 +10,4 @@ set softtabstop=2
 " Indent using 2 spaces.
 set tabstop=2
 
-set noexpandtab
+set expandtab
