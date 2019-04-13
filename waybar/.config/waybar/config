@@ -1,0 +1,209 @@
+[{
+  "layer": "top", // Waybar at top layer
+	// "output": "DP1",
+	"output": "eDP-1",
+  // "position": "bottom", // Waybar at the bottom of your screen
+  "height": 17, // Waybar height
+  // "width": 1280, // Waybar width
+  // Choose the order of the modules
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  // "modules-center": ["custom/spotify"],
+  "modules-right": [
+		"custom/spotify",
+		"custom/packages",
+    "backlight",
+    "pulseaudio",
+    "cpu",
+		"temperature",
+    "memory",
+    "battery",
+		"clock",
+    "tray"
+  ],
+  // Modules configuration
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": " ",
+      "9": "",
+      "10": "",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    // "icon-size": 21,
+    "interval": 3,
+    "spacing": 10
+  },
+	"temperature": {
+		"thermal-zone": 2,
+		"critical-threshold": 80,
+		"format-critical": " {temperatureC}°C",
+		"format": " {temperatureC}°C"
+	},
+  "clock": {
+    "tooltip-format": "{:%Y-%m-%d | %H:%M}",
+    "format-alt": "{:%Y-%m-%d}",
+    "format": "{:  %a %d %b %H:%M}"
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "<span> </span> <span font_desc='monospace'>{usage:2}%</span>"
+  },
+  "memory": {
+    "format": " {}%"
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", ""]
+  },
+  "battery": {
+    "states": {
+      "ok": 85,
+      "warning": 35,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "network": {
+    // "interface": "wlp2s0", // (Optional) To force the use of this interface
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+    "format-disconnected": "Disconnected ⚠"
+  },
+  "pulseaudio": {
+    "scroll-step": 2,
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/spotify": {
+    "format": " {}",
+		"interval": 3,
+    "max-length": 40,
+		"exec-if": "pgrep -x spotify",
+    "exec": "$HOME/dotfiles/scripts/polybar/spotify",
+    "on-click": "playerctl play-pause"
+  },
+  "custom/packages": {
+    "format": "📦 {}",
+		"interval": 1800,
+    "max-length": 40,
+    "exec": "$HOME/dotfiles/scripts/polybar/archupdates" // Script in resources folder
+  }
+},
+{
+  "layer": "top", // Waybar at top layer
+	//"output": "eDP-1",
+  "height": 17, // Waybar height
+  // Choose the order of the modules
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-right": [
+    "backlight",
+    "pulseaudio",
+    "battery",
+    "clock"
+  ],
+  // Modules configuration
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": " ",
+      "9": "",
+      "10": "",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "clock": {
+    "tooltip-format": "{:%Y-%m-%d | %H:%M}",
+    "format-alt": "{:%Y-%m-%d}",
+    "format": "{:  %a %d %b %H:%M}"
+  },
+  "backlight": {
+    // "device": "acpi_video1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", ""]
+  },
+  "battery": {
+    "states": {
+      "ok": 85,
+      "warning": 35,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "pulseaudio": {
+    "scroll-step": 2,
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "on-click": "pavucontrol"
+  }
+}]

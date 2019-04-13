@@ -85,6 +85,7 @@ basicPackages=(
 	jq
 	lxappearance
 	maim
+  mako
 	mplayer
 	nautilus
 	neovim

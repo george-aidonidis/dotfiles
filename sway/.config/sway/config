@@ -1,15 +1,28 @@
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
-set $run_rofi "$HOME/dotfiles/scripts/ensure-us-layout.sh 'rofi -width 30 -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
-set $run_rofi_emoji "$HOME/dotfiles/scripts/ensure-us-layout.sh $HOME/dotfiles/scripts/rofi/rofi-emoji-launch.sh"
-
+### Variables
 set $mod Mod4
+
+gaps inner 8
+gaps outer 2
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Needed for i3-gaps
+set $term terminator
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to sway
+# set $menu dmenu_path | dmenu | xargs swaymsg exec
+set $menu "QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_SCALE_FACTOR=0 ensure-us-layout 'rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
+
+set $run_rofi_emoji "ensure-us-layout rofi-emoji-launch"
+
+#set $mod Mod4
 
 set $Slash_Question 61
 set $Slash_Pipe 51
-# qwertyuiop
+## qwertyuiop
 set $code_q 24
 set $code_w 25
 set $code_e 26
@@ -20,7 +33,7 @@ set $code_u 30
 set $code_i 31
 set $code_o 32
 set $code_p 33
-# asdfghjkl
+## asdfghjkl
 set $code_a 38
 set $code_s 39
 set $code_d 40
@@ -30,7 +43,7 @@ set $code_h 43
 set $code_j 44
 set $code_k 45
 set $code_l 46
-# zxcvbnm
+## zxcvbnm
 set $code_z 52
 set $code_x 53
 set $code_c 54
@@ -39,101 +52,74 @@ set $code_b 56
 set $code_n 57
 set $code_m 58
 
-####################
-# Script assigners #
-####################
+#####################
+## Script assigners #
+#####################
 
-set $stoprec --no-startup-id killall -q ffmpeg
-set $screencast  --no-startup-id bash ~/.config/scripts/screencast_pulse.sh
+#set $stoprec killall -q ffmpeg
+#set $screencast  bash screencast_pulse
+# start a terminal
+bindsym $mod+Return exec $term
 
-###################
-# Spawn dropdowns #
-###################
-bindcode $mod+$code_u [title="ddtmux"] scratchpad show; [title="ddtmux"] move position center
+# kill focused window
+bindcode $mod+$code_q kill
+bindcode $mod+Shift+$code_q kill
 
-for_window [title="ddtmux"] floating enable
-for_window [title="ddtmux"] resize set 825 650
-for_window [title="ddtmux"] move scratchpad
-for_window [title="ddtmux"] border pixel 5
-for_window [title="ddtmux"] sticky enable
-# exec --no-startup-id terminator --title ddtmux -e tmux
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font pango:Sans 9, Lato 9
+bindcode $mod+Shift+$code_d exec $run_rofi_emoji
+bindcode $mod+$code_d exec $menu
+bindsym $mod+Shift+period move scratchpad
+bindsym $mod+period scratchpad show move position center
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-bindsym $mod+Return exec --no-startup-id terminator
-bindcode $mod+$code_i exec --no-startup-id terminator -e htop
-bindcode $mod+$code_a exec --no-startup-id terminator -e ranger
-bindcode $mod+$code_n exec --no-startup-id nautilus
-bindcode $mod+$code_w exec --no-startup-id google-chrome-stable
-bindcode $mod+$code_q kill
+bindcode $mod+$code_i exec $term -e htop
+bindcode $mod+$code_a exec $term -e ranger
+bindcode $mod+$code_n exec nautilus
+bindcode $mod+$code_w exec google-chrome-stable
 
-bindcode $mod+Shift+$code_d exec --no-startup-id $run_rofi_emoji
-bindcode $mod+$code_d exec --no-startup-id $run_rofi
+bindcode $mod+shift+$code_t exec typora
+bindcode $mod+shift+$code_a exec atom
+bindcode $mod+shift+$code_s exec code
 
-# change focus
+
+# exit sway (logs you out of your Wayland session)
+bindcode $mod+Shift+$code_e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#################
+# Moving around #
+#################
+# Move your focus around
 bindcode $mod+$code_h focus left
 bindcode $mod+$code_j focus down
 bindcode $mod+$code_k focus up
 bindcode $mod+$code_l focus right
-
-###################################
-# Resize without the resize mode #
-###################################
-bindcode $mod+Shift+$code_y exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh left
-bindcode $mod+Shift+$code_u exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh down
-bindcode $mod+Shift+$code_i exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh up
-bindcode $mod+Shift+$code_o exec --no-startup-id $HOME/dotfiles/scripts/i3commands/i3resize.sh right
-
-# alternatively, you can use the cursor keys:
+# or use $mod+[up|down|left|right]
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
+# _move_ the focused window with the same, but add Shift
 bindcode $mod+Shift+$code_h move left
 bindcode $mod+Shift+$code_j move down
 bindcode $mod+Shift+$code_k move up
 bindcode $mod+Shift+$code_l move right
-
-# alternatively, you can use the cursor keys:
+# ditto, with arrow keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+###################################
+# Resize without the resize mode #
+###################################
+bindcode $mod+Shift+$code_y exec i3resize left
+bindcode $mod+Shift+$code_u exec i3resize down
+bindcode $mod+Shift+$code_i exec i3resize up
+bindcode $mod+Shift+$code_o exec i3resize right
 
-#########
-# Modes #
-#########
-# split in horizontal orientation
-bindcode $mod+Shift+$code_v split h
-# split in vertical orientation
-bindcode $mod+$code_v split v
-#
-# enter fullscreen mode for the focused container
-bindcode $mod+$code_f fullscreen toggle
-# position window to center of the screen
-bindcode $mod+$code_g move position center
-# change container layout (stacked, tabbed, toggle split)
-bindcode $mod+$code_s layout stacking
-# bindcode $mod+$code_w layout tabbed
-bindcode $mod+$code_e layout toggle split
-# toggle tiling / floating
-bindcode $mod+$code_t floating toggle
-# change focus between tiling / floating windows
-bindsym $mod+Tab focus mode_toggle
-
-# focus the parent container
-bindcode $mod+$code_p focus parent
-# focus the child container
-bindcode $mod+$code_c focus child
-
+# Note: workspaces can have any name you want, not just numbers.
+# We just use 1-10 as the default.
 ##############
 # Workspaces #
 ##############
@@ -171,10 +157,69 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+# Layout stuff:
+#
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindcode $mod+$code_b splith
+bindcode $mod+v splitv
+
+# Make the current focus fullscreen
+bindcode $mod+$code_f fullscreen
+
+bindcode $mod+$code_r mode "resize"
+# split in horizontal orientation
+bindcode $mod+Shift+$code_v split h
+# split in vertical orientation
+bindcode $mod+$code_v split v
+
+# position window to center of the screen
+bindcode $mod+$code_g move position center
+# change container layout (stacked, tabbed, toggle split)
+# bindcode $mod+$code_s layout stacking
+# bindcode $mod+$code_w layout tabbed
+bindcode $mod+$code_e layout toggle split
+# toggle tiling / floating
+bindcode $mod+$code_t floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+Tab focus mode_toggle
+
+# focus the parent container
+bindcode $mod+$code_p focus parent
+# focus the child container
+bindcode $mod+$code_c focus child
+
+##########
+## Modes #
+##########
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # Toggle float mode for specific apps
 for_window [class="Gnome-calculator"] floating enable
 for_window [class="Gnome-calculator"] move position center
+
+for_window [class="Typora"] floating enable resize set 670 750
+for_window [class="Typora"] move position center
 
 for_window [class="Peek"] floating enable resize set 600 300
 for_window [class="Peek"] move position center
@@ -182,7 +227,7 @@ for_window [class="Peek"] move position center
 for_window [class="slack"] floating enable resize set 970 880
 for_window [class="slack"] move position center
 
-for_window [class="wavebox"] floating enable resize set 1470 880 move position center
+for_window [class="wavebox"] floating enable resize set 1470 980 move position center
 for_window [class="wavebox"] move position center
 
 for_window [title="Messenger for Desktop"] floating enable resize set 900 550, move absolute position 20 500
@@ -190,138 +235,122 @@ for_window [title="Messenger for Desktop"] floating enable resize set 900 550, m
 for_window [class="Enpass"] floating enable resize set 600 300
 for_window [class="Enpass"] move position center
 
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
 #####################################
 # Assign applications to workspaces #
 #####################################
 assign [class="Atom"] $ws3
 assign [class="Code"] $ws3
-assign [class="Enpass"] $ws7
+# assign [class="Enpass"] $ws7
 assign [class="Firefox"] $ws2
+assign [class="Brave-browser"] $ws2
 assign [class="Google-chrome"] $ws2
-assign [class="brave-browser"] $ws2
 assign [class="Slack"] $ws4
 assign [class="wavebox"] $ws4
 assign [title="Messenger for Desktop"] $ws5
+for_window [title="^Enpass$"] move container to workspace $ws7
 for_window [class="Spotify"] move to workspace $ws10
 
-# Reload the configuration file
-bindcode $mod+Shift+$code_c reload
-# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindcode $mod+Shift+$code_r restart
-# Exit i3 (logs you out of your X session)
-# bindcode $mod+Shift+$code_e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+## Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+#bindcode $mod+Shift+$code_r restart
 
-bindcode $mod+$code_r mode "resize"
+##########################################
+##=========== Custom Commands ===========#
+##########################################
+## Set keyboard through xorg
+#bindcode $mod+Shift+$Slash_Pipe exec set-xkeyboard
+## Set background
+#bindsym $mod+Shift+Print exec unsplash-generator
+## Change to greek keyboard layout
+#bindsym $mod+space exec xkb-switch -n
+#bindsym $mod+Escape exec xkb-switch -n
 
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindcode $code_h resize shrink width 10 px or 10 ppt
-        bindcode $code_j resize grow height 10 px or 10 ppt
-        bindcode $code_k resize shrink height 10 px or 10 ppt
-        bindcode $code_l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
-#########################################
-#=========== Custom Commands ===========#
-#########################################
-# Set keyboard through xorg
-bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id source $HOME/dotfiles/.xkeyboard
-# Set background
-bindsym $mod+Shift+Print exec --no-startup-id $HOME/dotfiles/scripts/unsplash-generator.sh
-# Change to greek keyboard layout
-bindsym $mod+space exec --no-startup-id xkb-switch -n
-
-# Screen layout generated from arandr
-exec --no-startup-id source $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh
-# Assign profile switch for bose35 headset to keyboard shortcut
-bindcode Control+Shift+$Slash_Question exec --no-startup-id $HOME/dotfiles/scripts/bose35-profile-switch.sh
-bindcode $mod+shift+$code_x exec --no-startup-id "setxkbmap -layout us,gr"; exec --no-startup-id betterlockscreen --lock;
+## Screen layout generated from arandr
+#exec source horizontal-laptop-right
+## Assign profile switch for bose35 headset to keyboard shortcut
+bindcode Control+Shift+$Slash_Question exec bose35-profile-switch
+#bindcode $mod+shift+$code_x exec blur-lock
 
 # Keyboard media controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q -D pulse sset Master 5%-
-bindsym XF86AudioMute exec --no-startup-id amixer -q -D pulse sset Master toggle
+bindsym $mod+F2 exec amixer set Capture 2%-
+bindsym $mod+F3 exec amixer set Capture 2%+
+bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 2%-
+bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 2%+
+bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle
+bindsym XF86AudioMicMute exec amixer set Capture toggle
+
+#bindsym $mod+shift+F3 exec $HOME/dotfiles/scripts/polybar/pulse-input --volume_source_up
+#bindsym $mod+shift+F2 exec $HOME/dotfiles/scripts/polybar/pulse-input --volume_source_down
+
+#bindsym $mod+F4 exec amixer set Capture toggle
 
 # Sreen brightness controls
 # Requires light package from aur
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 
 # Media player controls
-bindsym $mod+F10 exec --no-startup-id playerctl previous
-bindsym $mod+F11 exec --no-startup-id playerctl play-pause
-bindsym $mod+F12 exec --no-startup-id playerctl next
+bindsym $mod+F10 exec playerctl previous
+bindsym $mod+F11 exec playerctl play-pause
+bindsym $mod+F12 exec playerctl next
 
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioPause exec --no-startup-id playerctl pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86WLAN exec --no-startup-id $HOME/dotfiles/scripts/wifi-toggle.sh
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86WLAN exec wifi-toggle
 
-########################
-# Applications Startup #
-########################
-exec --no-startup-id betterlockscreen -u ~/Pictures/Wallpapers -r 1920x1080
-exec --no-startup-id nm-applet
-exec --no-startup-id spotify
-exec --no-startup-id blueman-manager
-exec --no-startup-id dropbox
-exec --no-startup-id enpass
-exec --no-startup-id wavebox
-exec --no-startup-id redshift-gtk -l 35.1:25.7
-exec --no-startup-id parcellite
+bindsym $mod+Shift+Delete	exec playerctl pause; exec amixer set Capture nocap; exec pkill mpv; workspace 9; exec $term -e htop; exec $term -e ranger
+
 
 #################################
 # Always start (on reload etc...) #
 #################################
-# Specific directive to enable tap to click on touchpad
-# exec_always --no-startup-id $HOME/dotfiles/scripts/enable-touchpad-tapping.sh
-exec_always --no-startup-id $HOME/dotfiles/polybar/.config/polybar/launch.sh
-# exec_always --no-startup-id xrdb ~/.Xresources
-# exec_always --no-startup-id source $HOME/dotfiles/.xkeyboard
-# exec_always --no-startup-id feh --bg-fill ~/.config/wall.png
-# exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
-exec_always output '*' background $HOME/.config/wall.png fill
+# exec_always $HOME/dotfiles/polybar/.config/polybar/launch.sh
 
-##############################################
-#=========== Image/Video Commands ===========#
-##############################################
-######################
-# Screenshot helpers #
-######################
-bindsym Control+Shift+F1 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_upload_to_imgur.sh
-bindsym Shift+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window.sh
-bindsym Control+Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-current-window-to-clipboard.sh
-bindsym Print --release exec --no-startup-id $HOME/dotfiles/scripts/save-active-screen.sh
-bindsym Control+Shift+F4 exec --no-startup-id $HOME/dotfiles/scripts/screenshot_region_to_clipboard.sh
+########################
+# Applications Startup #
+########################
+exec nm-applet --indicator
+exec mako
+exec dropbox
+exec wavebox
+# Redshift doesn't work on wayland yet
+# exec redshift-gtk -l 35.1:25.7
+exec parcellite
+exec enpass
+exec spotify
 
-##############
-# Screencast #
-##############
-set $screencastmode " :  (0)Laptop -  (1)Main"
-mode  $screencastmode {
-    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 0; mode "default"
-    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screencast.sh 1; mode "default"
-    bindcode $code_q mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Insert mode $screencastmode
-bindsym $mod+Delete exec --no-startup-id $stoprec
+
+###############################################
+##=========== Image/Video Commands ===========#
+###############################################
+#######################
+## Screenshot helpers #
+#######################
+bindsym Control+Shift+F1 exec take-screenshot imgur
+bindsym --release Shift+Print exec take-screenshot window
+bindsym --release Print exec take-screenshot screen
+bindsym --release Control+Shift+F4 exec take-screenshot region
+
+###############
+## Screencast #
+###############
+#set $screencastmode " :  (0)Laptop -  (1)Main"
+#mode  $screencastmode {
+#    bindsym 0 exec screencast 0; mode "default"
+#    bindsym 1 exec screencast 1; mode "default"
+#    bindcode $code_q mode "default"
+#    bindsym Escape mode "default"
+#}
+#bindsym $mod+Insert mode $screencastmode
+#bindsym $mod+Delete exec $stoprec
 
 
 ##############################################
@@ -333,46 +362,46 @@ bindsym $mod+Delete exec --no-startup-id $stoprec
 ####################
 set $bluetooth_headset "  (0)Disconnect -   (1)Connect"
 mode  $bluetooth_headset {
-    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/disconnect-from-bose.sh; mode "default"
-    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/connect-to-bose.sh; mode "default"
+    bindsym 0 exec disconnect-from-bose; mode "default"
+    bindsym 1 exec connect-to-bose; mode "default"
     bindcode $code_q mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+Shift+F10 mode $bluetooth_headset
-###################
-# Display chooser #
-###################
-set $displays "    (0)Laptop -     (1)Main -     (2)H -     (3)V"
-mode  $displays {
-    bindsym 0 exec --no-startup-id $HOME/dotfiles/scripts/screens/laptop-screen.sh; mode "default"
-    bindsym 1 exec --no-startup-id $HOME/dotfiles/scripts/screens/one-screen.sh; mode "default"
-    bindsym 2 exec --no-startup-id $HOME/dotfiles/scripts/screens/two-screens-layout.sh; mode "default"
-    bindsym 3 exec --no-startup-id $HOME/dotfiles/scripts/screens/vertical-layout-two-screens.sh; mode "default"
-    bindcode $code_q mode "default"
-    bindsym Escape mode "default"
-}
+####################
+## Display chooser #
+####################
+#set $displays "    (0)Laptop -     (1)Main -     (2)H -     (3)V"
+#mode  $displays {
+#    bindsym 0 exec laptop-screen; mode "default"
+#    bindsym 1 exec one-screen; mode "default"
+#    bindsym 2 exec horizontal-laptop-right; mode "default"
+#    bindsym 3 exec vertical-layout-two-screens; mode "default"
+#    bindcode $code_q mode "default"
+#    bindsym Escape mode "default"
+#}
 
-bindsym $mod+Shift+F7 mode $displays
+#bindsym $mod+Shift+F7 mode $displays
 ###################
 # Session manager #
 ###################
 set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
 mode  $session {
-    bindcode $code_e exec --no-startup-id $psst i3-msg exit; mode "default"
-    # bindcode $code_l exec --no-startup-id "setxkbmap -layout us,gr"; mode "default"
-    # bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id betterlockscreen --lock; mode "default"
-    bindcode $code_l exec --no-startup-id "setxkbmap -layout us"; exec --no-startup-id dm-tool lock; mode "default"
-    bindcode $code_p exec --no-startup-id $psst systemctl poweroff; mode "default"
-    bindcode $code_r exec --no-startup-id $psst systemctl reboot; mode "default"
+   bindcode $code_e exec $psst i3-msg exit; mode "default"
+   # bindcode $code_l exec "setxkbmap -layout us,gr"; mode "default"
+   bindcode $code_l exec blur-lock; mode "default"
+   # bindcode $code_l exec "setxkbmap -layout us"; exec dm-tool lock; mode "default"
+   bindcode $code_p exec $psst systemctl poweroff; mode "default"
+   bindcode $code_r exec $psst systemctl reboot; mode "default"
 
-    bindcode $code_q mode "default"
-    bindsym Escape mode "default"
+   bindcode $code_q mode "default"
+   bindsym Escape mode "default"
 }
 
 bindsym $mod+Shift+F4 mode $session
 #########
 # Theme #
-#########
+########
 # set primary gruvbox colorscheme colors
 set $aqua #689d68
 set $bg #282828
@@ -394,7 +423,7 @@ for_window [class="MPlayer"] sticky enable
 for_window [class="MPlayer"] border pixel 0
 no_focus [class="MPlayer"]
 
-bindsym $mod+Home exec --no-startup-id $HOME/dotfiles/scripts/camtoggle.sh
+#bindsym $mod+Home exec camtoggle
 
 # class                 border|backgr|text|indicator|child_border
 client.focused          $darkgray $blue $darkgray $purple $blue
@@ -402,35 +431,112 @@ client.focused_inactive $darkgray $darkgray $blue $purple $darkgray
 client.unfocused        $darkgray $darkgray $blue $purple $darkgray
 client.urgent           $red $red $blue $red $red
 
-######################
-# i3 Bar with Blocks #
-######################
+#######################
+## i3 Bar with Blocks #
+#######################
 
+## bar {
+## 		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+## 		tray_output             primary
+## 		separator_symbol        "|"
+## 		workspace_buttons       yes
+## 		position                top
+## 		colors {
+## 				background  #212121
+## 				statusline  #DDDDDD
+## 				separator   #777777
+## 				# class             border  backgr. text
+## 				focused_workspace   $darkgray $blue $darkgray $purple $white
+## 				active_workspace    $darkgray $darkgray $white $purple $darkgray
+## 				inactive_workspace  $darkgray $darkgray $white $purple $darkgray
+## 				urgent_workspace    $red $red $white $red $red
+## 		}
+## }
+##end of window title bars & borders section
+
+## Activate 1px border on active window
+## exec_always bash ~/.config/scripts/inactive-handler
+
+## i3-gnome
+## exec /usr/lib/gnome-settings-daemon/gsd-xsettings
+## exec_always gnome-power-manager
+## exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+## exec gnome-flashback
+## exec_always gsettings set org.gnome.desktop.interface cursor-size 8
+#
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg ~/.config/wall.png fill
+#
+# Example configuration:
+#
+#   output HDMI-A-1 resolution 1920x1080 position 1920,0
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' \
+#               resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
+
+# input 1:1:AT_Translated_Set_2_keyboard
+# input 6127:24647:Lenovo_ThinkPad_Compact_USB_Keyboard_with_TrackPoint
+input * {
+    xkb_layout us,gr
+    xkb_options grp:win_space_toggle,caps:swapescape,ctrl:swap_lalt_lctl,lv3:alt_switch,eurosign:e
+}
+
+input 2:7:SynPS/2_Synaptics_TouchPad {
+	tap enabled
+}
+
+# reload the configuration file
+bindcode $mod+Shift+$code_c exec 'swaymsg reload; swaymsg default_border pixel 2; swaymsg smart_borders on; swaymsg default_floating_border pixel 2;'
+
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
 # bar {
-# 		status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
-# 		tray_output             primary
-# 		separator_symbol        "|"
-# 		workspace_buttons       yes
-# 		position                top
-# 		colors {
-# 				background  #212121
-# 				statusline  #DDDDDD
-# 				separator   #777777
-# 				# class             border  backgr. text
-# 				focused_workspace   $darkgray $blue $darkgray $purple $white
-# 				active_workspace    $darkgray $darkgray $white $purple $darkgray
-# 				inactive_workspace  $darkgray $darkgray $white $purple $darkgray
-# 				urgent_workspace    $red $red $white $red $red
-# 		}
+#     position top
+
+#     # When the status_command prints a new line to stdout, swaybar updates.
+#     # The default just shows the current date and time.
+#     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+
+#     colors {
+#         statusline #ffffff
+#         background #323232
+#         inactive_workspace #32323200 #32323200 #5c5c5c
+#     }
 # }
-#end of window title bars & borders section
-
-# Needed for i3-gaps
-hide_edge_borders both
-for_window [class="^.*"] border pixel 2
-
-gaps inner 8
-gaps outer 2
+bar {
+    swaybar_command waybar
+}
 
 bindsym $mod+Shift+minus gaps inner all plus 4
 bindsym $mod+Shift+plus gaps inner all minus 4
@@ -438,7 +544,11 @@ bindsym $mod+Mod1+Shift+minus gaps inner current plus 4
 bindsym $mod+Mod1+Shift+plus gaps inner current minus 4
 
 # Toggle border for all open windows
-bindcode $mod+$code_b [class="^.*"] border toggle
+# bindcode $mod+$code_b [class="^.*"] border toggle
+smart_borders on
+exec swaymsg default_border pixel 2
+exec swaymsg default_floating_border pixel 2
+
 new_window normal 0
 new_float normal 0
 
@@ -451,13 +561,5 @@ bindcode $mod+Control+$code_h workspace prev
 bindsym Control+Tab workspace next
 bindsym Control+Shift+Tab workspace prev
 
-
-# Activate 1px border on active window
-# exec_always --no-startup-id bash ~/.config/scripts/inactive-handler.sh
-
-# i3-gnome
-# exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
-# exec_always --no-startup-id gnome-power-manager
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-# exec --no-startup-id gnome-flashback
-# exec_always --no-startup-id gsettings set org.gnome.desktop.interface cursor-size 8
+xwayland enable
+include /etc/sway/config.d/*
