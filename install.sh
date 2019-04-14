@@ -79,6 +79,9 @@ basicPackages=(
 	adobe-source-code-pro-fonts
 	arandr
 	arc-gtk-theme
+	alsa-lib
+	alsa-utils
+	alsa-plugins
 	awesome-terminal-fonts
 	compton
 	cronie

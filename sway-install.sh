@@ -72,12 +72,13 @@ function createFolders {
 basicPackages=(
 	"
 	adobe-source-code-pro-fonts
-	arandr
-	aurman
+	arc-gtk-theme
+	alsa-lib
+	alsa-utils
+	alsa-plugins
+	alsa-plugins
 	awesome-terminal-fonts
-	compton
 	dialog
-	dunst
 	gnome-themes-extra
 	gpicview
 	i3-gaps
