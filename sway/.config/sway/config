@@ -385,7 +385,7 @@ bindsym $mod+Shift+F10 mode $bluetooth_headset
 ###################
 # Session manager #
 ###################
-set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot"
+set $session " (E)xit - (L)ock -  (P)oweroff -  (R)eboot -  (S)upsend"
 mode  $session {
    bindcode $code_e exec $psst i3-msg exit; mode "default"
    # bindcode $code_l exec "setxkbmap -layout us,gr"; mode "default"
@@ -393,6 +393,7 @@ mode  $session {
    # bindcode $code_l exec "setxkbmap -layout us"; exec dm-tool lock; mode "default"
    bindcode $code_p exec $psst systemctl poweroff; mode "default"
    bindcode $code_r exec $psst systemctl reboot; mode "default"
+   bindcode $code_s exec $psst systemctl suspend; mode "default"
 
    bindcode $code_q mode "default"
    bindsym Escape mode "default"
