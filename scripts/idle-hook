@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+minute () {
+  echo $(($1*60))
+}
+
+export previousPercentage=$(light -G)
+
+# Run xidlehook
+xidlehook \
+  --not-when-fullscreen \
+  --not-when-audio \
+  --timer normal "$(minute 2)" \
+    'light -S 0.1' \
+    'light -S $previousPercentage' \
+    --timer primary "$(minute 4)" \
+    'light -S $previousPercentage; blur-lock' \
+    '' \
+    --timer normal "$(minute 30)" \
+    'systemctl suspend' \
+    ''
+
+  # --timer normal "$(minute 2)" \

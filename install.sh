@@ -33,6 +33,7 @@ aurPackages=(
 	wavebox-bin
 	xkb-switch
 	xkblayout-state-git
+  xidlehook
 	"
 )
 applications=(

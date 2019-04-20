@@ -315,6 +315,7 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 ########################
 # Applications Startup #
 ########################
+exec --no-startup-id idle-hook
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet --indicator
 exec --no-startup-id spotify
