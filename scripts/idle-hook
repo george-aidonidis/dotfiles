@@ -4,7 +4,8 @@ minute () {
   echo $(($1*60))
 }
 
-export previousPercentage=$(light -G)
+previousPercentage=$(light -G)
+export previousPercentage
 
 # Run xidlehook
 xidlehook \
@@ -12,9 +13,9 @@ xidlehook \
   --not-when-audio \
   --timer normal "$(minute 2)" \
     'light -S 0.1' \
-    'light -S $previousPercentage' \
+    "light -S $previousPercentage" \
     --timer primary "$(minute 4)" \
-    'light -S $previousPercentage; blur-lock' \
+    "light -S $previousPercentage; blur-lock" \
     '' \
     --timer normal "$(minute 30)" \
     'systemctl suspend' \

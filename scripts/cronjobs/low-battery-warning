@@ -1,7 +1,6 @@
 #!/usr/bin/bash
 
 getTotalBatteryPercentage() {
-	path_ac="/sys/class/power_supply/AC"
 	path_battery_0="/sys/class/power_supply/BAT0"
 	path_battery_1="/sys/class/power_supply/BAT1"
 
@@ -35,7 +34,7 @@ getTotalBatteryPercentage() {
 }
 
 getBatteryCharginStatus() {
-	if $(acpi -b | grep --quiet Discharging)
+	if acpi -b | grep --quiet Discharging
 	then
 		echo "Discharging";
 	else # acpi can give Unknown or Charging if charging, https://unix.stackexchange.com/questions/203741/lenovo-t440s-battery-status-unknown-but-charging
