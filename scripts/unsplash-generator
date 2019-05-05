@@ -6,11 +6,12 @@ DO_WE_ERASE_FILES=true
 
 WORKDIR=$HOME'/.local/share/unsplashLinux/'
 RANT=$(date +%s)
-mkdir -p $WORKDIR
-mkdir -p $WORKDIR'old'
+mkdir -p "$WORKDIR"
+mkdir -p "$WORKDIR"'old'
 
+error_code=$?
 wget -q --spider http://google.com
-if [ $? -eq 0 ]; then
+if [ $error_code -eq 0 ]; then
 	echo internet up
 else
 	exit 1
@@ -18,13 +19,13 @@ fi
 
 if $DO_WE_ERASE_FILES
 then
-	rm $WORKDIR*'.jpg'
+	rm "$WORKDIR"*'.jpg'
 else
-	mv $WORKDIR*'.jpg' $WORKDIR'old/'
+	mv "$WORKDIR"*'.jpg' "$WORKDIR"'old/'
 fi
 
-wget -O ${WORKDIR}${RANT}'.jpg' -q https://source.unsplash.com/1920x1080?wallpaper
+wget -O "${WORKDIR}${RANT}.jpg" -q https://source.unsplash.com/1920x1080?wallpaper
 
-cp ''${WORKDIR}${RANT}'.jpg' ~/.config/wall.png && feh --bg-scale ~/.config/wall.png
+cp ''"${WORKDIR}${RANT}.jpg" ~/.config/wall.png && feh --bg-scale ~/.config/wall.png
 
 notify-send -i "$HOME/.config/wall.png" "Wallpaper changed"

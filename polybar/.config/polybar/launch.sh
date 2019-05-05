@@ -1,6 +1,6 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-HAS_SECOND_SCREEN=`xrandr | grep -w "DP1 connected"`
+HAS_SECOND_SCREEN=$(xrandr | grep -w "DP1 connected")
 # Terminate already running bar instances
 killall -q polybar
 
@@ -8,7 +8,6 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1 and bar2
-desktop=$(echo $DESKTOP_SESSION)
 
 if [ -n "$HAS_SECOND_SCREEN" ] || [ ! "$HAS_SECOND_SCREEN" = "" ]; then
   MONITOR="DP1" polybar --reload main &

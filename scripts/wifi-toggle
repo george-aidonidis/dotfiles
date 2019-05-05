@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # if [ $(rfkill list wwan | grep "Soft blocked: yes" | wc -l) -eq 1 ] ; then
 # 	rfkill unblock wifi

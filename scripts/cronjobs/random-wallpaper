@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 path=(~/Pictures/Wallpapers)
 
-function image {
+image() {
 	find $path | shuf -n1
 }
 
@@ -14,7 +14,7 @@ done
 
 # WALLPAPER2=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
 
-cp $WALLPAPER ~/.config/wall.png && feh --bg-fill ~/.config/wall.png
+cp "$WALLPAPER" ~/.config/wall.png && feh --bg-fill ~/.config/wall.png
 # notify-send -i "$WALLPAPER" "Wallpaper changed"
 
 # Use for multiple screens

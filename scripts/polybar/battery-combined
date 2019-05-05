@@ -39,7 +39,6 @@ battery_percent=$(("$battery_percent / $battery_max"))
 red="%{F#e60053}"
 green="%{F#00D965}"
 orange="%{F#ffa100}"
-NC='\033[0m' # No Color
 
 if [ "$ac" -eq 1 ]; then
     icon=""

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Imgur script by Bart Nagel <bart@tremby.net>
 # Improvements by Tino Sino <robottinosino@gmail.com>
@@ -15,8 +15,8 @@ echo "Here is the path"
 FILENAME=$1
 
 # Function to output usage instructions
-function usage {
-	echo "Usage: $(basename $0) [<filename|URL> [...]]" >&2
+usage() {
+	echo "Usage: $(basename "$0") [<filename|URL> [...]]" >&2
 	echo
 	echo "Upload images to imgur and output their new URLs to stdout. Each one's" >&2
 	echo "delete page is output to stderr between the view URLs." >&2
@@ -30,7 +30,7 @@ function usage {
 
 # Function to upload a path
 # First argument should be a content spec understood by curl's -F option
-function upload {
+upload() {
 	curl -s -H "Authorization: Client-ID $client_id" -H "Expect: " -F "image=$1" https://api.imgur.com/3/image.xml
 	# The "Expect: " header is to get around a problem when using this through
 	# the Squid proxy. Not sure if it's a Squid bug or what.
@@ -53,6 +53,7 @@ type curl &>/dev/null || {
 
 clip=""
 errors=false
+error_code=$?
 
 # Loop through arguments
 while [ $# -gt 0 ]; do
@@ -66,7 +67,7 @@ while [ $# -gt 0 ]; do
 	else
 		# File -> imgur
 		# Check file exists
-		if [ "$file" != "-" -a ! -f "$file" ]; then
+		if [ "$file" != "-" ] && [ ! -f "$file" ]; then
 			echo "File '$file' doesn't exist; skipping" >&2
 			errors=true
 			continue
@@ -74,7 +75,7 @@ while [ $# -gt 0 ]; do
 		response=$(upload "@$file") 2>/dev/null
 	fi
 
-	if [ $? -ne 0 ]; then
+	if [ $error_code -ne 0 ]; then
 		echo "Upload failed" >&2
 		errors=true
 		continue
@@ -91,7 +92,8 @@ while [ $# -gt 0 ]; do
 	url="${url%%</link>*}"
 	delete_hash="${response##*<deletehash>}"
 	delete_hash="${delete_hash%%</deletehash>*}"
-	echo $url | sed 's/^http:/https:/'
+
+	echo "$url//^http:/https:/"
 	echo "Delete page: https://imgur.com/delete/$delete_hash" >&2
 	echo "Notify-send"
   notify-send -i "$FILENAME" "Screenshot uploaded: $url"
