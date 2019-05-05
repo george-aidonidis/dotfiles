@@ -1,11 +1,14 @@
 # dotfiles :computer:
 
+[![Build Status](https://travis-ci.org/george-aidonidis/dotfiles.svg?branch=master)](https://travis-ci.org/george-aidonidis/dotfiles)
+
 <!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Programs whose configs can be found here](#programs-whose-configs-can-be-found-here)
-- [Important notice](#important-notice)
-- [How to setup](#how-to-setup)
-- [Other readmes](#other-readmes)
+- [dotfiles :computer:](#dotfiles-computer)
+	- [Programs whose configs can be found here](#programs-whose-configs-can-be-found-here)
+	- [Important notice](#important-notice)
+	- [How to setup](#how-to-setup)
+	- [Other readmes](#other-readmes)
 
 <!-- /TOC -->
 
