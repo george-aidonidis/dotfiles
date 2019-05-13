@@ -1,5 +1,6 @@
 #!/bin/bash
 # From https://github.com/x70b1/polybar-scripts/blob/master/polybar-scripts/openweathermap-simple/openweathermap-simple.sh
+source ~/.tokens
 
 KEY="$WEATHER_TOKEN"
 CITY="263824"

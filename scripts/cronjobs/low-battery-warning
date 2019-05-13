@@ -43,9 +43,9 @@ getBatteryCharginStatus() {
 }
 
 status=$(getBatteryCharginStatus)
-echo $status
+echo "$status"
 battery_level=$(getTotalBatteryPercentage)
-echo $battery_level
+echo "$battery_level"
 
 if [[ $status = 'Discharging' && $battery_level -le 10 ]]
 then
