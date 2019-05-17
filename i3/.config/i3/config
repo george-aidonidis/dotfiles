@@ -264,7 +264,7 @@ bindsym $mod+space exec --no-startup-id xkb-switch -n
 bindsym $mod+Escape exec --no-startup-id xkb-switch -n
 
 # Screen layout generated from arandr
-exec --no-startup-id source horizontal-laptop-right
+exec --no-startup-id source vertical-layout-two-screens
 # Assign profile switch for bose35 headset to keyboard shortcut
 bindcode Control+Shift+$Slash_Question exec --no-startup-id bose35-profile-switch
 bindcode $mod+shift+$code_x exec --no-startup-id blur-lock
