@@ -15,53 +15,11 @@ function confirm {
 	echo " $grn $1 completed $white"
 	echo
 }
-aurPackages=(
-	"
-	betterlockscreen-git
-	direnv
-	enpass-bin
-	google-chrome
-	light-git
-	nerd-fonts-source-code-pro
-	polybar
-	paper-icon-theme-git
-	spaceship-prompt-git
-	spotify
-	ttf-lato
-	ttf-weather-icons
-	visual-studio-code-bin
-	wavebox-bin
-	xkb-switch
-	xkblayout-state-git
-  xidlehook
-	"
-)
-applications=(
-	"
-	atom
-	docker
-	docker-compose
-	inkscape
-	mongodb
-	parcellite
-	pavucontrol"
-)
-stowed=(
-	"
-	config-dotfiles
-	gsimplecal
-	dunst
-	gtk-3.0
-	homeconfig
-	i3
-	nvim
-	parcellite
-	polybar
-	ranger
-	rofi
-	terminator
-	tmux"
-)
+
+aurPackages=("atom-editor-bin betterlockscreen-git direnv enpass-bin google-chrome light-git nerd-fonts-source-code-pro paper-icon-theme-git spaceship-prompt-git spotify ttf-lato ttf-weather-icons xkb-switch xkblayout-state-git xidlehook")
+applications=("flameshot docker docker-compose parcellite pavucontrol")
+stowed=("config-dotfiles gsimplecal dunst gtk-3.0 homeconfig i3 nvim parcellite polybar ranger rofi terminator")
+
 function createFolders {
 	mkdir -p $HOME/tmp/;
 	mkdir -p $HOME/Documents;
@@ -75,66 +33,7 @@ function createFolders {
 	mkdir -p $HOME/Pictures/screenshots;
 }
 
-basicPackages=(
-	"
-	adobe-source-code-pro-fonts
-	arandr
-	arc-gtk-theme
-	alsa-lib
-	alsa-utils
-	alsa-plugins
-	awesome-terminal-fonts
-	compton
-	cronie
-	dialog
-	diff-so-fancy
-	dunst
-	feh
-	fwupd
-	gnome-themes-extra
-	gpicview
-	gsimplecal
-	grim
-	wl-clipboard
-	htop
-	i3-gaps
-	i3status
-	jq
-	lsd
-	lxappearance
-	maim
-	mplayer
-	nautilus
-	neofetch
-	neovim
-	noto-fonts-emoji
-	pacman-contrib
-	papirus-icon-theme
-	pigz
-	playerctl
-	python-dbus
-	python-pywal
-	ranger
-	redshift
-	rofi
-	slurp
-	sxiv
-	stow
-	terminator
-	the_silver_searcher
-	tmux
-	ttf-droid
-	ttf-ubuntu-font-family
-	w3m
-	xclip
-	xcursor-breeze
-	xorg-server
-	xorg-xinit
-	xsel
-	yay
-	z
-	zsh"
-)
+basicPackages=("adobe-source-code-pro-fonts arandr arc-gtk-theme alsa-lib alsa-utils alsa-plugins awesome-terminal-fonts compton cronie dialog diff-so-fancy dunst feh fwupd gnome-themes-extra gpicview gsimplecal grim wl-clipboard htop i3-gaps i3status jq lsd lxappearance npm maim mplayer nautilus neofetch neovim noto-fonts-emoji pacman-contrib papirus-icon-theme pigz polybar playerctl python-dbus python-pywal ranger redshift rofi slurp sxiv stow terminator the_silver_searcher ttf-droid ttf-ubuntu-font-family w3m xclip xcursor-breeze xorg-server xorg-xinit xsel yay z zsh")
 
 function installZsh {
 	echo "source $HOME/dotfiles/zsh/.zshrc
@@ -159,7 +58,7 @@ done
 }
 
 function checkMissingPackages {
-	declare -a arr=("stow" "compton" "dunst" "i3" "nvim" "polybar" "redshift" "rofi" "parcellite" "terminator" "gsimplecal" "tmux" "zsh")
+	declare -a arr=("stow" "compton" "dunst" "i3" "nvim" "polybar" "redshift" "rofi" "parcellite" "terminator" "gsimplecal" "zsh")
 	echo "Checking if there are any missing packages"
 	for item in "${arr[@]}"
 	do
@@ -206,14 +105,10 @@ confirm "Installing oh-my-zsh"
 prompt "Will use stow to symlink: $blue $stowed $white" "stowThings"
 confirm "Symlink with stow"
 
-prompt "Will configure ranger shortcuts" "./scripts/shortcuts/shortcuts.sh"
+prompt "Will configure ranger shortcuts" "bash ~/dotfiles/scripts/shortcuts/shortcuts"
 
 prompt "Will change button positions on windows" "gsettings set org.gnome.desktop.wm.preferences button-layout 'close,maximize,minimize:'"
 confirm "Changed position of window buttons to left side (gnome)"
-
-thunder
-prompt "  Will install tmux plugin manager (tpm)" "git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm"
-confirm "Installing tmux plugin manager"
 
 prompt "Will install s-cli (used in polybar) from npm" "npm install --global @george-aidonidis/s-cli"
 
@@ -225,10 +120,8 @@ thunder
 prompt "  Will install: $blue bluetooth tools $white" "sudo pacman -S pulseaudio-alsa pulseaudio-bluetooth bluez bluez-libs bluez-utils bluez-firmware blueberry"
 confirm "Installing bluetooth tools"
 
-prompt "Will create /data/db for mongodb" "sudo mkdir -p /data/db"
-prompt "Will add permissions for current user for mongo" "sudo chown -R $USER /data/db"
 prompt "Adding permissions for current user for docker" "sudo usermod -aG docker ${USER}"
-confirm "Procedures for mongodb and docker"
+confirm "Procedures docker"
 
 checkMissingPackages
 echo " $grn No missing packages were found $white"
@@ -244,6 +137,7 @@ sudo systemctl start tlp.service
 sudo systemctl enable tlp.service
 sudo systemctl enable tlp-sleep.service
 sudo systemctl start tlp-sleep.service
+sudo systemctl enable fstrim.timer
 sudo systemctl mask systemd-rfkill.service
 echo "Adding a wallpaper"
 ./scripts/unsplash-generator

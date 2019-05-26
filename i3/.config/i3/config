@@ -332,6 +332,7 @@ exec --no-startup-id enpass
 # Screenshot helpers #
 ######################
 bindsym Control+Shift+F1 exec --no-startup-id take-screenshot imgur
+bindsym Control+Print --release exec --no-startup-id flameshot gui
 bindsym Shift+Print --release exec --no-startup-id take-screenshot window
 bindsym Print --release exec --no-startup-id take-screenshot screen
 bindsym Control+Shift+F4 exec --no-startup-id take-screenshot region
