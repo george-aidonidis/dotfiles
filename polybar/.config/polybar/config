@@ -19,15 +19,17 @@ alert = ${xrdb:alert:#e60053}
 spotify = ${xrdb:spotify:#00D965}
 green = ${xrdb:green:#00D965}
 orange = ${xrdb:orange:#FF4500}
-blue = ${xrdb:blue:#3581fc}
+blue = ${xrdb:blue:#3384d0}
+yellow = ${xrdb:yellow:#c1941a}
+pink = ${xrdb:pink:#cd1f3f}
 
 [fonts]
 dejavu = DejaVuSans:size=10;3
 droid_sans_mono = DroidSansMonoForPowerline Nerd Font:style=Regular:size:11;3
 font_awesome = FontAwesome:style=Regular:size=10;3
 weather = Weather Icons:style=Regular:size=8;3
-material = MaterialDesignIcons:size=10;1
-monospace = DejaVuSansMono:size=10;3
+material = MaterialDesignIcons:size=10.1;1
+monospace = DejaVuSansMono:size=10.1;3
 noto = Noto Color Emoji:style=Regular:scale=13:size=10;2
 
 #################
@@ -38,7 +40,7 @@ monitor = ${env:MONITOR:eDP1}
 width = 100%
 height = 20
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -63,8 +65,8 @@ font-4 = ${fonts.material}
 font-5 = ${fonts.monospace}
 
 modules-left = i3
-modules-center =
-modules-right = spotify backlight pulseaudio-rofi-input pulseaudio battery-combined date xkeyboard
+modules-center = spotify
+modules-right = backlight pulseaudio-rofi-input pulseaudio battery-combined date xkeyboard
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -76,7 +78,7 @@ monitor = ${env:MONITOR:DP1}
 width = 100%
 height = 20
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -101,8 +103,8 @@ font-4 = ${fonts.material}
 font-5 = ${fonts.monospace}
 
 modules-left = i3
-modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery-combined date xkeyboard
+modules-center = spotify openweathermap-simple-icon openweathermap-simple-text
+modules-right = filesystem pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery-combined date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -117,7 +119,7 @@ monitor = ${env:MONITOR:eDP1}
 width = 100%
 height = 20
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -142,8 +144,8 @@ font-4 = ${fonts.material}
 font-5 = ${fonts.monospace}
 
 modules-left = i3
-modules-center =
-modules-right = spotify openweathermap-simple-icon openweathermap-simple-text filesystem backlight pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery-combined date xkeyboard
+modules-center = spotify openweathermap-simple-icon openweathermap-simple-text
+modules-right = filesystem backlight pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery-combined date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -159,11 +161,12 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground}
 format-prefix-underline = ${colors.softred}
 
 label-layout-font = 6
-label-layout =  %layout%
+label-layout = %layout%
 label-layout-underline = ${colors.softred}
 
 label-indicator-background = ${colors.softred}
@@ -175,6 +178,7 @@ interval = 25
 
 mount-0 = /
 
+label-layout-font = 6
 label-mounted =  %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground}
@@ -232,10 +236,13 @@ label = %percentage%%
 format = <label>
 
 [module/cpu]
+format-prefix = " "
+format-prefix-padding-top = 5
+format-prefix-foreground = #cd1f3f
 label-font = 6
 type = internal/cpu
 interval = 2
-format ="  <label>"
+format ="<label>"
 label =%percentage:2%%
 
 [module/temperature]
@@ -260,8 +267,9 @@ format-warn-foreground = ${colors.softred}
 [module/memory]
 type = internal/memory
 interval = 2
-format = " <label>"
-format-prefix-foreground = ${colors.foreground}
+format-prefix=" "
+format-prefix-foreground = ${colors.blue}
+format = "<label>"
 label = %percentage_used%%
 label-font = 6
 
@@ -320,9 +328,10 @@ type = internal/date
 interval = 1
 date = " %a %d %b"
 time = %H:%M
+format-prefix = " "
+format-prefix-foreground = ${colors.yellow}
 format-foreground = ${colors.foreground}
-
-label = %{A1:gsimplecal:}  %date%  %time% %{A}
+label = %{A1:gsimplecal:}%date%  %time% %{A}
 click-left = gsimplecal
 
 [module/pulseaudio]
@@ -457,7 +466,8 @@ type = custom/script
 interval = 1800
 format-foreground = ${colors.blue}
 format-font = 7
-format = 📦 <label>
+format-prefix = "📦 "
+format = <label>
 exec = $HOME/dotfiles/scripts/polybar/archupdates
 
 [module/battery-combined]

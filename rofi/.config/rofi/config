@@ -13,7 +13,7 @@ rofi.line-margin: 10
 rofi.lines: 10
 rofi.separator-style: none
 rofi.columns: 2
-rofi.font: Coda Bold 11
+rofi.font: Ubuntu Bold 14
 rofi.bw: 4
 rofi.eh: 1
 rofi.separator-style: solid
