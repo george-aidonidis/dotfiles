@@ -45,7 +45,7 @@ set $code_m 58
 
 set $stoprec --no-startup-id killall -q ffmpeg
 set $screencast  --no-startup-id bash screencast_pulse
-set $term --no-startup-id terminator
+set $term --no-startup-id termite
 
 ###################
 # Spawn dropdowns #

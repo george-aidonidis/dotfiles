@@ -9,6 +9,11 @@ export PATH=$PATH
 autoload -U promptinit; promptinit
 prompt spaceship
 
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
+
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin"
 
 # Setting ag as the default source for fzf
@@ -27,3 +32,4 @@ export KEYTIMEOUT=1
 # export XKB_DEFAULT_LAYOUT=us,gr
 # export XKB_DEFAULT_VARIANT=,nodeadkeys
 # export XKB_DEFAULT_OPTIONS=caps:swapescape,ctrl:swap_lalt_lctl
+neofetch
