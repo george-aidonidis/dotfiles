@@ -3,7 +3,7 @@
 CURRENT_WINDOW=$(xdotool getwindowfocus)
 
 xdotool windowfocus "$CURRENT_WINDOW"
-opt=$(rofi-emoji | rofi -width 25 -lines 16 -dmenu -i -p ' 😀')
+opt=$(rofi-emoji | rofi -width 35 -lines 16 -dmenu -i -p ' 😀')
 return_code=$?
 
 if [ $return_code -ne 1 ]
