@@ -1,66 +1,25 @@
-#!/bin/python
+#!/bin/sh
 
-import sys
-import dbus
-import argparse
+# credits
+# https://github.com/NicholasFeldman/dotfiles/blob/master/polybar/.config/polybar/spotify.sh
 
+main() {
+  if ! pgrep -x spotify >/dev/null; then
+    echo ""; exit
+  fi
 
-parser = argparse.ArgumentParser()
-parser.add_argument(
-    '-t',
-    '--trunclen',
-    type=int,
-    metavar='trunclen'
-)
-parser.add_argument(
-    '-f',
-    '--format',
-    type=str,
-    metavar='custom format',
-    dest='custom_format'
-)
-args = parser.parse_args()
+  cmd="org.freedesktop.DBus.Properties.Get"
+  domain="org.mpris.MediaPlayer2"
+  path="/org/mpris/MediaPlayer2"
 
-# Default parameters
-output = '{artist}: {song}'
-trunclen = 25
+  meta=$(dbus-send --print-reply --dest=${domain}.spotify \
+    /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:${domain}.Player string:Metadata)
 
-# parameters can be overwritten by args
-if args.trunclen is not None:
-    trunclen = args.trunclen
-if args.custom_format is not None:
-    output = args.custom_format
+  artist=$(echo "$meta" | sed -nr '/xesam:artist"/,+2s/^ +string "(.*)"$/\1/p' | tail -1  | sed "s/\&/+/g")
+  album=$(echo "$meta" | sed -nr '/xesam:album"/,+2s/^ +variant +string "(.*)"$/\1/p' | tail -1)
+  title=$(echo "$meta" | sed -nr '/xesam:title"/,+2s/^ +variant +string "(.*)"$/\1/p' | tail -1 | sed "s/\&/+/g")
 
-try:
-    session_bus = dbus.SessionBus()
-    spotify_bus = session_bus.get_object(
-        'org.mpris.MediaPlayer2.spotify',
-        '/org/mpris/MediaPlayer2'
-    )
+  echo "${*:-%artist% - %title%}" | sed "s/%artist%/$artist/g;s/%title%/$title/g;s/%album%/$album/g"i | sed 's/&/\\&/g'
+}
 
-    spotify_properties = dbus.Interface(
-        spotify_bus,
-        'org.freedesktop.DBus.Properties'
-    )
-
-    metadata = spotify_properties.Get('org.mpris.MediaPlayer2.Player', 'Metadata')
-
-    artist = metadata['xesam:artist'][0]
-    song = metadata['xesam:title']
-
-    if len(song) > trunclen:
-        song = song[0:trunclen]
-        song += '...'
-        if ('(' in song) and (')' not in song):
-            song += ')'
-
-    # Python3 uses UTF-8 by default.
-    if sys.version_info.major == 3:
-        print(output.format(artist=artist, song=song))
-    else:
-        print(output.format(artist=artist, song=song).encode('UTF-8'))
-except Exception as e:
-    if isinstance(e, dbus.exceptions.DBusException):
-        print('')
-    else:
-        print(e)
+main "$@"
