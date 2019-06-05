@@ -68,7 +68,7 @@ bindsym $mod+Return exec --no-startup-id $term
 bindcode $mod+$code_i exec --no-startup-id $term -e htop
 bindcode $mod+$code_a exec --no-startup-id $term -e ranger
 bindcode $mod+$code_n exec --no-startup-id nautilus
-bindcode $mod+$code_w exec --no-startup-id google-chrome-stable
+bindcode $mod+$code_w exec --no-startup-id $BROWSER
 
 bindcode $mod+shift+$code_t exec --no-startup-id typora
 bindcode $mod+shift+$code_a exec --no-startup-id atom
@@ -494,7 +494,7 @@ bindsym Control+Shift+Tab workspace prev
 #floating enabled from some programs - find with xprop
 
 for_window [class="Bleachbit"] floating disable
-for_window [class="Blueberry.py"] floating enable
+for_window [class="Blueberry.py"] floating enable resize set 300 650
 for_window [class="Brasero"] floating disable
 for_window [class="Galculator"] floating enable
 for_window [class="Gnome-disks"] floating disable
