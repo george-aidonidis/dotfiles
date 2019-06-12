@@ -69,6 +69,7 @@ bindcode $mod+$code_i exec --no-startup-id $term -e htop
 bindcode $mod+$code_a exec --no-startup-id $term -e ranger
 bindcode $mod+$code_n exec --no-startup-id nautilus
 bindcode $mod+$code_w exec --no-startup-id $BROWSER
+bindcode $mod+Shift+$code_w exec --no-startup-id $SECONDARYBROWSER
 
 bindcode $mod+shift+$code_t exec --no-startup-id typora
 bindcode $mod+shift+$code_a exec --no-startup-id atom

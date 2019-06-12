@@ -12,13 +12,13 @@ video/x-matroska=mpv.desktop;mplayer.desktop;
 
 [Default Applications]
 video/mp4=vlc.desktop
-text/html=google-chrome-stable.desktop;
-applictation/xhtml+xml=google-chrome-stable.desktop;
-applictation/rss+xml=google-chrome-stable.desktop;
-applictation/rdf+xml=google-chrome-stable.desktop;
-x-schetme-handler/http=google-chrome-stable.desktop;
-x-schetme-handler/https=google-chrome-stable.desktop;
-text/atbout=google-chrome-stable.desktop;
+text/html=firefox-developer-edition.desktop;
+applictation/xhtml+xml=firefox-developer-edition.desktop;
+applictation/rss+xml=firefox-developer-edition.desktop;
+applictation/rdf+xml=firefox-developer-edition.desktop;
+x-schetme-handler/http=firefox-developer-edition.desktop;
+x-schetme-handler/https=firefox-developer-edition.desktop;
+text/atbout=firefox-developer-edition.desktop;
 image/jpeg=org.gnome.gThumb.desktop
 image/png=org.gnome.gThumb.desktop
 video/x-matroska=mpv.desktop
