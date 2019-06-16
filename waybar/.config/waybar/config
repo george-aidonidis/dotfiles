@@ -14,7 +14,6 @@
     "battery",
 		"clock",
 		"custom/lang",
-		"network",
     "tray"
   ],
   "sway/workspaces": {
