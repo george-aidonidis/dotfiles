@@ -28,7 +28,7 @@ window#waybar {
 	background: #64727D;
 }
 
-#clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #custom-spotify, #tray, #mode, #idle_inhibitor {
+#temperature, #clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #custom-spotify, #tray, #mode, #idle_inhibitor {
 	padding: 0 5px;
 	margin: 0 3px;
 }
@@ -84,15 +84,34 @@ window#waybar {
 
 #pulseaudio {
 	color: #fff;
+	border-bottom: 2px solid #e60053;
 }
 
 #pulseaudio.muted {
 	background: #90b1b1;
 	color: #2a5c45;
+	border-bottom: 2px solid #e60053;
 }
 
 #custom-spotify {
 	color: #00D965;
+}
+
+#custom-lang {
+	padding: 0 3px;
+	margin: 0px 1px;
+	border-bottom: 2px solid #e60053;
+}
+
+#custom-weather-icon {
+	font-family: WeatherIcons;
+	padding: 0 3px;
+	margin: 0 1px;
+}
+
+#custom-weather-text {
+	padding: 0 3px;
+	margin: 0 1px;
 }
 
 #custom-packages {

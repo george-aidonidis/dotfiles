@@ -1,11 +1,7 @@
-# i3 config file (v4)
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+set $mod Mod4
 
 set $run_rofi "QT_AUTO_SCREEN_SCALE_FACTOR=0 QT_SCALE_FACTOR=0 ensure-us-layout 'rofi -combi-modi drun,window -modi combi -show combi -lines 6 -show-icons'"
 set $run_rofi_emoji "ensure-us-layout rofi-emoji-launch"
-
-set $mod Mod4
 
 set $Slash_Question 61
 set $Slash_Pipe 51
@@ -47,6 +43,10 @@ set $stoprec --no-startup-id killall -q ffmpeg
 set $screencast  --no-startup-id bash screencast_pulse
 set $term --no-startup-id termite
 
+set $left $code_h
+set $down $code_j
+set $up $code_k
+set $right $code_l
 ###################
 # Spawn dropdowns #
 ###################
@@ -81,10 +81,10 @@ bindcode $mod+Shift+$code_d exec --no-startup-id $run_rofi_emoji
 bindcode $mod+$code_d exec --no-startup-id $run_rofi
 
 # change focus
-bindcode $mod+$code_h focus left
-bindcode $mod+$code_j focus down
-bindcode $mod+$code_k focus up
-bindcode $mod+$code_l focus right
+bindcode $mod+$left focus left
+bindcode $mod+$down focus down
+bindcode $mod+$up focus up
+bindcode $mod+$right focus right
 
 ###################################
 # Resize without the resize mode #
@@ -101,10 +101,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindcode $mod+Shift+$code_h move left
-bindcode $mod+Shift+$code_j move down
-bindcode $mod+Shift+$code_k move up
-bindcode $mod+Shift+$code_l move right
+bindcode $mod+Shift+$left move left
+bindcode $mod+Shift+$down move down
+bindcode $mod+Shift+$up move up
+bindcode $mod+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -239,10 +239,10 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindcode $code_h resize shrink width 10 px or 10 ppt
-        bindcode $code_j resize grow height 10 px or 10 ppt
-        bindcode $code_k resize shrink height 10 px or 10 ppt
-        bindcode $code_l resize grow width 10 px or 10 ppt
+        bindcode $left resize shrink width 10 px or 10 ppt
+        bindcode $down resize grow height 10 px or 10 ppt
+        bindcode $up resize shrink height 10 px or 10 ppt
+        bindcode $right resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -319,7 +319,6 @@ exec_always --no-startup-id compton --config ~/.config/compton.conf -b -f
 ########################
 # Applications Startup #
 ########################
-exec --no-startup-id nm-applet
 exec --no-startup-id idle-hook
 exec --no-startup-id dunst
 exec --no-startup-id nm-applet --indicator
@@ -476,12 +475,12 @@ bindcode $mod+$code_b [class="^.*"] border toggle
 new_window normal 0
 new_float normal 0
 
-bindcode $mod+Mod1+$code_h move workspace to output left
-bindcode $mod+Mod1+$code_l move workspace to output right
-bindcode $mod+Mod1+$code_j move workspace to output down
-bindcode $mod+Mod1+$code_k move workspace to output up
-bindcode $mod+Control+$code_l workspace next
-bindcode $mod+Control+$code_h workspace prev
+bindcode $mod+Mod1+$left move workspace to output left
+bindcode $mod+Mod1+$right move workspace to output right
+bindcode $mod+Mod1+$down move workspace to output down
+bindcode $mod+Mod1+$up move workspace to output up
+bindcode $mod+Control+$right workspace next
+bindcode $mod+Control+$left workspace prev
 bindsym Control+Tab workspace next
 bindsym Control+Shift+Tab workspace prev
 
@@ -504,7 +503,7 @@ for_window [class="^Gpick$"] floating enable
 for_window [class="Hexchat"] floating disable
 for_window [class="Imagewriter"] floating enable
 for_window [class="Font-manager"] floating enable
-#for_window [class="qt5ct|Lxappearance] floating enable
+ar_window [class="qt5ct|Lxappearance"] floating enable
 for_window [class="Nitrogen"] floating disable
 for_window [class="Pavucontrol"] floating disable
 for_window [class="^Skype$"] floating enable
@@ -518,7 +517,7 @@ for_window [class="Xfce4-appfinder"] floating enable
 for_window [class="Xfce4-settings-manager"] floating disable
 for_window [class="Xfce4-taskmanager"] floating enable
 
-#for_window [instance="gimp"] floating disable
+for_window [instance="gimp"] floating disable
 for_window [instance="script-fu"] border normal
 for_window [instance="variety"] floating disable
 
@@ -527,7 +526,7 @@ for_window [title="Deleting"] floating enable
 for_window [title="Moving"] floating enable
 for_window [title="^Terminator Preferences$"] floating enable
 
-#for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
+for_window [window_role="^gimp-toolbox-color-dialog$"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="^Preferences$"] floating enable
 for_window [window_role="setup"] floating enable
