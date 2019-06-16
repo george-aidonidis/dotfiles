@@ -14,7 +14,15 @@ done
 
 # WALLPAPER2=$(printf "%s\n" "${files[RANDOM % ${#files[@]}]}")
 
-cp "$WALLPAPER" ~/.config/wall.png && feh --bg-fill ~/.config/wall.png
+cp "$WALLPAPER" ~/.config/wall.png
+cp "$WALLPAPER" /usr/share/backgrounds/wall.png
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]
+then
+	sway output "*" background ~/.config/wall.png fill
+else
+	feh --bg-fill ~/.config/wall.png
+fi
 # notify-send -i "$WALLPAPER" "Wallpaper changed"
 
 # Use for multiple screens

@@ -1,15 +1,10 @@
 [{
-  "layer": "top", // Waybar at top layer
-	// "output": "DP1",
+  "layer": "top",
 	"output": "eDP-1",
-  // "position": "bottom", // Waybar at the bottom of your screen
-  "height": 17, // Waybar height
-  // "width": 1280, // Waybar width
-  // Choose the order of the modules
+  "height": 17,
   "modules-left": ["sway/workspaces", "sway/mode"],
-  // "modules-center": ["custom/spotify"],
+  "modules-center": ["custom/spotify", "custom/weather-icon", "custom/weather-text"],
   "modules-right": [
-		"custom/spotify",
 		"custom/packages",
     "backlight",
     "pulseaudio",
@@ -18,9 +13,10 @@
     "memory",
     "battery",
 		"clock",
+		"custom/lang",
+		"network",
     "tray"
   ],
-  // Modules configuration
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -52,7 +48,6 @@
     }
   },
   "tray": {
-    // "icon-size": 21,
     "interval": 3,
     "spacing": 10
   },
@@ -65,17 +60,16 @@
   "clock": {
     "tooltip-format": "{:%Y-%m-%d | %H:%M}",
     "format-alt": "{:%Y-%m-%d}",
-    "format": "{:  %a %d %b %H:%M}"
+    "format": "<span color='#c1941a'> </span>{: %a %d %b %H:%M}"
   },
   "cpu": {
     "interval": 1,
-    "format": "<span> </span> <span font_desc='monospace'>{usage:2}%</span>"
+    "format": "<span color='#cd1f3f'> </span> <span font_desc='monospace'>{usage:2}%</span>"
   },
   "memory": {
-    "format": " {}%"
+    "format": "<span color='#3384d0'></span> {}%"
   },
   "backlight": {
-    // "device": "acpi_video1",
     "format": "{icon} {percent}%",
     "format-icons": ["", ""]
   },
@@ -86,23 +80,27 @@
       "critical": 15
     },
     "format": "{icon} {capacity}%",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": ["", "", "", "", ""]
   },
   "battery#bat2": {
     "bat": "BAT2"
   },
   "network": {
-    // "interface": "wlp2s0", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-    "format-disconnected": "Disconnected ⚠"
+		"interface": "wlp58s0",
+		"format": "{ifname}",
+		"format-wifi": "",
+		"format-ethernet": "{ifname} ",
+		"format-disconnected": "",
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50
   },
   "pulseaudio": {
     "scroll-step": 2,
     "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%",
+    "format-bluetooth": " {volume}%",
     "format-muted": "",
     "format-icons": {
       "headphones": "",
@@ -127,14 +125,26 @@
     "format": "📦 {}",
 		"interval": 1800,
     "max-length": 40,
-    "exec": "$HOME/dotfiles/scripts/polybar/archupdates" // Script in resources folder
+    "exec": "$HOME/dotfiles/scripts/polybar/archupdates"
+  },
+	"custom/lang": {
+    "interval": 1,
+    "exec": "$HOME/dotfiles/scripts/wayland/sway-keyboard",
+    "format": " <span font_desc='monospace'>{}</span>"
+  },
+	"custom/weather-text": {
+    "interval": 600,
+    "exec": "$HOME/dotfiles/scripts/polybar/openweathermap-simple-text"
+  },
+	"custom/weather-icon": {
+    "interval": 600,
+    "exec": "$HOME/dotfiles/scripts/polybar/openweathermap-simple-icon"
   }
 },
 {
-  "layer": "top", // Waybar at top layer
-	//"output": "eDP-1",
-  "height": 17, // Waybar height
-  // Choose the order of the modules
+  "layer": "bottom",
+	"output": "DP1",
+  "height": 17,
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-right": [
     "backlight",
@@ -142,7 +152,6 @@
     "battery",
     "clock"
   ],
-  // Modules configuration
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true,
@@ -172,7 +181,6 @@
     "format": "{:  %a %d %b %H:%M}"
   },
   "backlight": {
-    // "device": "acpi_video1",
     "format": "{icon} {percent}%",
     "format-icons": ["", ""]
   },
@@ -183,8 +191,6 @@
       "critical": 15
     },
     "format": "{icon} {capacity}%",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": ["", "", "", "", ""]
   },
   "battery#bat2": {
