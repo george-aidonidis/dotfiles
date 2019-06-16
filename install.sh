@@ -16,7 +16,7 @@ function confirm {
 	echo
 }
 
-aurPackages=("network-manager-applet-indicator direnv enpass-bin google-chrome light-git nerd-fonts-source-code-pro spaceship-prompt-git ttf-lato ttf-weather-icons xkb-switch xkblayout-state-git xidlehook")
+aurPackages=("redshift-wlr-gamma-control-git network-manager-applet-indicator direnv enpass-bin google-chrome light-git nerd-fonts-source-code-pro spaceship-prompt-git ttf-lato ttf-weather-icons xkb-switch xkblayout-state-git xidlehook")
 applications=("flameshot docker docker-compose parcellite")
 stowed=("config-dotfiles gsimplecal dunst gtk-3.0 homeconfig i3 nvim parcellite polybar ranger rofi terminator")
 
