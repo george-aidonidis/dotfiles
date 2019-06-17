@@ -63,13 +63,13 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "<span color='#cd1f3f'> </span> <span font_desc='monospace'>{usage:2}%</span>"
+    "format": "<span color='#cd1f3f'> </span> <span font_desc='DejaVuSansMono'>{usage:2}%</span>"
   },
   "memory": {
     "format": "<span color='#3384d0'></span> {}%"
   },
   "backlight": {
-    "format": "{icon} {percent}%",
+    "format": "{icon} <span font_desc='DejaVuSansMono'>{percent:3}%</span>",
     "format-icons": ["", ""]
   },
   "battery": {
@@ -98,7 +98,7 @@
   },
   "pulseaudio": {
     "scroll-step": 2,
-    "format": "{icon} {volume}%",
+    "format": "{icon} <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
     "format-bluetooth": " {volume}%",
     "format-muted": "",
     "format-icons": {
@@ -180,7 +180,7 @@
     "format": "{:  %a %d %b %H:%M}"
   },
   "backlight": {
-    "format": "{icon} {percent}%",
+    "format": "{icon} <span font_desc='DejaVuSansMono'>{percent:3}%</span>",
     "format-icons": ["", ""]
   },
   "battery": {

@@ -33,6 +33,10 @@ window#waybar {
 	margin: 0 3px;
 }
 
+#temperature, #cpu, #memory, #network {
+	font-family: DejaVuSansMono;
+}
+
 #clock {
 }
 
@@ -65,17 +69,7 @@ window#waybar {
 }
 
 #cpu {
-	font-family: DejaVuSansMono;
 	color: #fff;
-}
-
-#memory {
-}
-
-#backlight {
-}
-
-#network {
 }
 
 #network.disconnected {
@@ -120,9 +114,6 @@ window#waybar {
 
 #tray {
 	padding-right: 5px;
-}
-
-#idle_inhibitor {
 }
 
 #idle_inhibitor.activated {
