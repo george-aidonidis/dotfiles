@@ -43,10 +43,15 @@ set $stoprec --no-startup-id killall -q ffmpeg
 set $screencast  --no-startup-id bash screencast_pulse
 set $term --no-startup-id termite
 
-set $left $code_h
-set $down $code_j
-set $up $code_k
-set $right $code_l
+# h
+set $left 43
+# j
+set $down 44
+# k
+set $up 45
+# l
+set $right 46
+
 ###################
 # Spawn dropdowns #
 ###################
