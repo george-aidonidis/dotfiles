@@ -1,8 +1,8 @@
 font=lato 12
 padding=14,10
 margin=14
-border-size=1
-border-color=#ffffff
+border-size=2
+border-color=#bfbfbf
 background-color=#2f343f
 default-timeout=7000
 

@@ -1,6 +1,6 @@
 [{
   "layer": "top",
-	"output": "eDP-1",
+	"output": "DP-1",
   "height": 17,
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["custom/spotify", "custom/weather-icon", "custom/weather-text"],
@@ -18,26 +18,26 @@
   ],
   "sway/workspaces": {
     "disable-scroll": true,
-    "all-outputs": true,
-    "format": "{name} {icon}",
+    "all-outputs": false,
+    "format": "{icon}",
     "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
+      "1": "<span color='#6dcefc'></span>",
+      "2": "<span color='#ff6611'></span>",
+      "3": "<span color='#A6DB93'></span>",
+      "4": "<span color='#E51670'></span>",
+      "5": "<span color='#0088cc'></span>",
       "6": "",
-      "7": "",
+      "7": "",
       "8": " ",
       "9": "",
-      "10": "",
+      "10": "<span color='#00D965'></span>",
       "urgent": "",
       "focused": "",
       "default": ""
     }
   },
   "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
+    "format": "{}"
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -51,7 +51,7 @@
     "spacing": 10
   },
 	"temperature": {
-		"thermal-zone": 2,
+		"thermal-zone": 1,
 		"critical-threshold": 80,
 		"format-critical": " {temperatureC}°C",
 		"format": " {temperatureC}°C"
@@ -79,6 +79,8 @@
       "critical": 15
     },
     "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
     "format-icons": ["", "", "", "", ""]
   },
   "battery#bat2": {
@@ -98,9 +100,153 @@
   },
   "pulseaudio": {
     "scroll-step": 2,
-    "format": "{icon} <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
-    "format-bluetooth": " {volume}%",
-    "format-muted": "",
+    "format": "<span font_desc='DejaVuSansMono'>{format_source:3} </span> {icon} <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
+    "format-bluetooth": "<span font_desc='DejaVuSansMono'>{format_source:3} </span> <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
+		"format-source": " <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
+		"format-source-muted": "  ",
+    "format-muted": "{format_source} ",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "on-click": "pavucontrol"
+  },
+  "custom/spotify": {
+    "format": " {}",
+		"interval": 3,
+    "max-length": 40,
+		"exec-if": "pgrep -x spotify",
+    "exec": "$HOME/dotfiles/scripts/polybar/spotify",
+    "on-click": "playerctl play-pause"
+  },
+  "custom/packages": {
+    "format": "📦 {}",
+		"interval": 1800,
+    "max-length": 40,
+    "exec": "sleep 5; $HOME/dotfiles/scripts/polybar/archupdates"
+  },
+	"custom/lang": {
+    "interval": 1,
+    "exec": "$HOME/dotfiles/scripts/wayland/sway-keyboard",
+    "format": " <span font_desc='monospace'>{}</span>"
+  },
+	"custom/weather-text": {
+    "interval": 600,
+    "exec": "$HOME/dotfiles/scripts/polybar/openweathermap-simple-text"
+  },
+	"custom/weather-icon": {
+    "interval": 600,
+    "exec": "$HOME/dotfiles/scripts/polybar/openweathermap-simple-icon"
+  }
+}, {
+  "layer": "top",
+	"output": "eDP-1",
+  "height": 17,
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["custom/spotify", "custom/weather-icon", "custom/weather-text"],
+  "modules-right": [
+		"custom/packages",
+    "backlight",
+    "pulseaudio",
+    "battery",
+		"clock",
+		"custom/lang",
+    "tray"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "<span color='#6dcefc'></span>",
+      "2": "<span color='#ff6611'></span>",
+      "3": "<span color='#A6DB93'></span>",
+      "4": "<span color='#E51670'></span>",
+      "5": "<span color='#0088cc'></span>",
+      "6": "",
+      "7": "",
+      "8": " ",
+      "9": "",
+      "10": "<span color='#00D965'></span>",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+  "sway/mode": {
+    "format": "{}"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "interval": 3,
+    "spacing": 10
+  },
+	"temperature": {
+		"thermal-zone": 1,
+		"critical-threshold": 80,
+		"format-critical": " {temperatureC}°C",
+		"format": " {temperatureC}°C"
+	},
+  "clock": {
+    "tooltip-format": "{:%Y-%m-%d | %H:%M}",
+    "format-alt": "{:%Y-%m-%d}",
+    "format": "<span color='#c1941a'> </span>{: %a %d %b %H:%M}"
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "<span color='#cd1f3f'> </span> <span font_desc='DejaVuSansMono'>{usage:2}%</span>"
+  },
+  "memory": {
+    "format": "<span color='#3384d0'></span> {}%"
+  },
+  "backlight": {
+    "format": "{icon} <span font_desc='DejaVuSansMono'>{percent:3}%</span>",
+    "format-icons": ["", ""]
+  },
+  "battery": {
+    "states": {
+      "ok": 85,
+      "warning": 35,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "battery#bat2": {
+    "bat": "BAT2"
+  },
+  "network": {
+		"interface": "wlp58s0",
+		"format": "{ifname}",
+		"format-wifi": "",
+		"format-ethernet": "{ifname} ",
+		"format-disconnected": "",
+		"tooltip-format": "{ifname}",
+		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+		"tooltip-format-ethernet": "{ifname} ",
+		"tooltip-format-disconnected": "Disconnected",
+		"max-length": 50
+  },
+  "pulseaudio": {
+    "scroll-step": 2,
+    "format": "<span font_desc='DejaVuSansMono'>{format_source:3} </span> {icon} <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
+    "format-bluetooth": "<span font_desc='DejaVuSansMono'>{format_source:3} </span> <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
+		"format-source": " <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
+		"format-source-muted": "  ",
+    "format-muted": "{format_source} ",
     "format-icons": {
       "headphones": "",
       "handsfree": "",
@@ -138,77 +284,5 @@
 	"custom/weather-icon": {
     "interval": 600,
     "exec": "$HOME/dotfiles/scripts/polybar/openweathermap-simple-icon"
-  }
-},
-{
-  "layer": "bottom",
-	"output": "DP1",
-  "height": 17,
-  "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-right": [
-    "backlight",
-    "pulseaudio",
-    "battery",
-    "clock"
-  ],
-  "sway/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "6": "",
-      "7": "",
-      "8": " ",
-      "9": "",
-      "10": "",
-      "urgent": "",
-      "focused": "",
-      "default": ""
-    }
-  },
-  "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
-  },
-  "clock": {
-    "tooltip-format": "{:%Y-%m-%d | %H:%M}",
-    "format-alt": "{:%Y-%m-%d}",
-    "format": "{:  %a %d %b %H:%M}"
-  },
-  "backlight": {
-    "format": "{icon} <span font_desc='DejaVuSansMono'>{percent:3}%</span>",
-    "format-icons": ["", ""]
-  },
-  "battery": {
-    "states": {
-      "ok": 85,
-      "warning": 35,
-      "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-icons": ["", "", "", "", ""]
-  },
-  "battery#bat2": {
-    "bat": "BAT2"
-  },
-  "pulseaudio": {
-    "scroll-step": 2,
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "{icon} {volume}%",
-    "format-muted": "",
-    "format-icons": {
-      "headphones": "",
-      "handsfree": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", ""]
-    },
-    "on-click": "pavucontrol"
   }
 }]

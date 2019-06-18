@@ -1,0 +1,5 @@
+#!/bin/sh
+
+swaymsg output eDP-1 disable
+swaymsg output DP-1 enable scale 1
+swaymsg output DP-1 pos  0 0 res 2560x1440
