@@ -17,11 +17,11 @@ done
 cp "$WALLPAPER" ~/.config/wall.png
 cp "$WALLPAPER" /usr/share/backgrounds/wall.png
 
-if [ "$XDG_SESSION_TYPE" = "wayland" ]
+if [ "$XDG_SESSION_TYPE" = "x11" ]
 then
-	sway output "*" background ~/.config/wall.png fill
-else
 	feh --bg-fill ~/.config/wall.png
+else
+	sway output "*" background ~/.config/wall.png fill
 fi
 # notify-send -i "$WALLPAPER" "Wallpaper changed"
 

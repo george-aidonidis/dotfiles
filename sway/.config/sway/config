@@ -263,7 +263,7 @@ bindsym $mod+Print exec --no-startup-id random-wallpaper
 bindcode Control+Shift+$Slash_Question exec bose35-profile-switch
 
 bindcode $mod+Shift+$Slash_Pipe exec --no-startup-id killall rofi
-bindcode $mod+shift+$code_x exec wayland-lock
+bindcode $mod+shift+$code_x exec custom-lock
 
 # Keyboard media controls
 bindsym $mod+F2 exec amixer set Capture 2%-
