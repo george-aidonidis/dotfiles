@@ -41,7 +41,7 @@ green="%{F#00D965}"
 orange="%{F#ffa100}"
 
 if [ "$ac" -eq 1 ]; then
-    icon=""
+    icon="$green"
 		echo "$icon $battery_percent %"
 	else
     if [ "$battery_percent" -gt 85 ]; then

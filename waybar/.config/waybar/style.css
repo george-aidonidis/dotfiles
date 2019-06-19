@@ -36,6 +36,10 @@ window#waybar {
 	font-family: DejaVuSansMono;
 }
 
+#temperature.critical {
+	color: #e60053;
+}
+
 #clock {
 }
 
