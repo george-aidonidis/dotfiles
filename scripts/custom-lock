@@ -1,0 +1,23 @@
+#!/bin/sh
+
+xlock() {
+	i3lock --blur=1 --clock --indicator --insidecolor=232c31ff --ringcolor=9ea7a6ff --line-uses-inside --keyhlcolor=2a5491ff --bshlcolor=a03b1eff --insidevercolor=232c31ff --insidewrongcolor=a03b1eff --ringvercolor=9ea7a6ff --ringwrongcolor=3f4944ff --separatorcolor=2a5491ff --verifcolor=ffffffff --wrongcolor=232c31ff --timecolor=ffffffff --datecolor=ffffffff
+}
+
+wlock() {
+	swaylock --image ~/.config/wall.png --show-keyboard-layout --inside-color 232c31ff --line-uses-inside --inside-ver-color 232c31ff --inside-wrong-color a03b1eff --ring-color 9ea7a6ff --ring-ver-color 9ea7a6ff --ring-wrong-color 3f4944ff --key-hl-color 2a5491ff --bs-hl-color a03b1eff --separator-color 2a5491ff --text-ver-color ffffffff --text-wrong-color=232c31ff -f
+}
+
+if [ "$XDG_SESSION_TYPE" = "wayland" ]
+then
+	wlock
+else
+	CURRENT=$(xkblayout-state print %s)
+
+	if [ "$CURRENT" != "us" ]
+	then
+		xkb-switch -n
+	fi
+
+	xlock
+fi
