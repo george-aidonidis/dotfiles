@@ -1,6 +1,5 @@
 #!/bin/sh
 FILENAME="$HOME/Pictures/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
-BLUR_IMAGE="~/.config/blur.png"
 
 SCREEN=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
