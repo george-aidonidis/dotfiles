@@ -5,5 +5,6 @@ setxkbmap us,gr -option caps:swapescape
 setxkbmap us,gr -option ctrl:swap_lalt_lctl
 setxkbmap us,gr -option eurosign:e
 setxkbmap us,gr -option lv3:alt_switch
+setxkbmap us,gr -option grp:win_space_toggle
 
 notify-send "Keyboard" "⌨️  Custom preset loaded"

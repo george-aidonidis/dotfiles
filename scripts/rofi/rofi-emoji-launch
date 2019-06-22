@@ -11,6 +11,6 @@ then
   smiley=$(echo $opt | cut -d' ' -f1)
   echo "$smiley"
   echo -n "$smiley" | xsel --clipboard
-	xdotool key --clearmodifiers Shift+Insert; wait
+	xdotool type --delay 100 "$smiley"
   exit 0
 fi
