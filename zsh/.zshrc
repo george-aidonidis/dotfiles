@@ -11,7 +11,6 @@ eval "$(direnv hook zsh)"
 # https://stackoverflow.com/questions/815686/unable-to-make-a-backward-tab-as-shift-tab-in-zsh
 bindkey '^[[Z' reverse-menu-complete
 
-source $HOME/dotfiles/zsh/aliases.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Fix for arrow-key searching
@@ -50,6 +49,7 @@ SPACESHIP_PROMPT_ORDER=(
 )
 
 source $HOME/.oh-my-zsh/oh-my-zsh.sh
+source $HOME/dotfiles/zsh/aliases.sh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh

@@ -20,3 +20,5 @@ ranger/.config/ranger/__pycache__
 ranger/.config/ranger/plugins
 ranger/.config/ranger/shortcuts.conf
 nvim/.config/nvim/plugged
+
+scripts/cronjobs/.my-crontab
