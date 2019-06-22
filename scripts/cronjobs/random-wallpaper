@@ -21,7 +21,7 @@ if [ "$XDG_SESSION_TYPE" = "x11" ]
 then
 	feh --bg-fill ~/.config/wall.png
 else
-	sway output "*" background ~/.config/wall.png fill
+	swaymsg output "*" background ~/.config/wall.png fill
 fi
 # notify-send -i "$WALLPAPER" "Wallpaper changed"
 

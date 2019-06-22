@@ -49,8 +49,8 @@ gaps outer 2
 ## Script assigners #
 #####################
 
-#set $stoprec killall -q ffmpeg
-#set $screencast  bash screencast_pulse
+set $stoprec killall -s SIGINT wf-recorder
+set $screencast wf-recorder
 bindsym $mod+Return exec $term
 
 bindcode $mod+$code_q kill
@@ -59,7 +59,7 @@ bindcode $mod+Shift+$code_q kill
 bindcode $mod+Shift+$code_d exec $run_rofi_emoji
 bindcode $mod+$code_d exec $menu
 bindsym $mod+Shift+period move scratchpad
-bindsym $mod+period scratchpad show move position center
+bindsym $mod+period scratchpad show
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -276,9 +276,17 @@ bindsym XF86AudioMicMute exec amixer set Capture toggle
 bindsym $mod+F4 exec amixer set Capture toggle
 
 output eDP-1 scale 1
-output eDP-1 pos 320 1440 res 1920x1080
-output DP-1 scale 1
-output DP-1 pos 0 0 res 2560x1440
+output eDP-1 pos 2240 1440 res 1920x1080
+output DP-3 scale 1
+output DP-3 pos 1920 0 res 2560x1440
+output DP-4 scale 1
+# output DP-4 transform 270
+output DP-4 pos 0 0 res 1920x1080
+
+# output eDP-1 scale 1
+# output eDP-1 pos 320 1440 res 1920x1080
+# output DP-1 scale 1
+# output DP-1 pos 0 0 res 2560x1440
 
 # Sreen brightness controls
 # Requires light package from aur
@@ -317,7 +325,6 @@ exec parcellite
 exec enpass
 exec spotify
 
-
 ###############################################
 ##=========== Image/Video Commands ===========#
 ###############################################
@@ -333,16 +340,15 @@ bindsym --release Control+Shift+F4 exec take-screenshot region
 ###############
 ## Screencast #
 ###############
-#set $screencastmode " :  (0)Laptop -  (1)Main"
-#mode  $screencastmode {
-#    bindsym 0 exec screencast 0; mode "default"
-#    bindsym 1 exec screencast 1; mode "default"
-#    bindcode $code_q mode "default"
-#    bindsym Escape mode "default"
-#}
-#bindsym $mod+Insert mode $screencastmode
-#bindsym $mod+Delete exec $stoprec
-
+set $screencastmode " :  (0)Laptop -  (1)Main"
+mode  $screencastmode {
+   bindsym 0 exec wf-recorder -o eDP-1; mode "default"
+   bindsym 1 exec wf-recorder -o DP-3; mode "default"
+   bindcode $code_q mode "default"
+   bindsym Escape mode "default"
+}
+bindsym $mod+Insert mode $screencastmode
+bindsym $mod+Delete exec $stoprec; exec notify-send " Stopped recording"
 
 ##############################################
 #================== Modes ===================#
@@ -461,11 +467,13 @@ output * bg ~/.config/wall.png fill
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'custom-lock' \
-         timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         before-sleep 'custom-lock'
-#
+    timeout 300 'custom-lock' \
+    timeout 330 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    timeout 30 'if pgrep swaylock; then swaymsg "output * dpms off"; fi' \
+    resume 'if pgrep swaylock; then swaymsg "output * dpms on"; fi' \
+    before-sleep 'custom-lock'
+
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
@@ -571,6 +579,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [window_role="^Preferences$"] floating enable
 for_window [window_role="setup"] floating enable
 
+exec generate-crontab
 exec xrdb -load ~/.Xresources
 exec_always wayland-gsettings \
     gtk-theme:gtk-theme-name \
