@@ -26,11 +26,12 @@ pink = ${xrdb:pink:#cd1f3f}
 [fonts]
 dejavu = DejaVuSans:size=10;3
 droid_sans_mono = DroidSansMonoForPowerline Nerd Font:style=Regular:size:11;3
-font_awesome = FontAwesome:style=Regular:size=10;3
+font_awesome = Fontawesome:style=Regular:size=10;3
 weather = Weather Icons:style=Regular:size=8;3
 material = MaterialDesignIcons:size=10.1;1
 monospace = DejaVuSansMono:size=10.1;3
 noto = Noto Color Emoji:style=Regular:scale=13:size=10;2
+brands = Font Awesome 5 Brands:style=Regular:size=10;3
 
 #################
 # Laptop screen #
@@ -63,6 +64,7 @@ font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
 font-5 = ${fonts.monospace}
+font-6 = ${fonts.brands}
 
 modules-left = i3
 modules-center = spotify
@@ -74,7 +76,7 @@ cursor-scroll = ns-resize
 # Main monitor #
 ################
 [bar/main]
-monitor = ${env:MONITOR:DP1}
+monitor = ${env:MONITOR:DP1-8}
 width = 100%
 height = 20
 radius = 0.0
@@ -101,10 +103,53 @@ font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
 font-5 = ${fonts.monospace}
+font-6 = ${fonts.brands}
 
 modules-left = i3
 modules-center = spotify openweathermap-simple-icon openweathermap-simple-text
 modules-right = filesystem pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery-combined date xkeyboard
+
+tray-position = right
+tray-padding = 2
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+################
+# Port monitor #
+################
+[bar/port]
+monitor = ${env:MONITOR:DP1-1}
+width = 100%
+height = 20
+radius = 0.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2
+line-color = #f00
+
+border-size = 0
+border-color = #00000000
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = ${fonts.dejavu}
+font-1 = ${fonts.noto}
+font-2 = ${fonts.font_awesome}
+font-3 = ${fonts.weather}
+font-4 = ${fonts.material}
+font-5 = ${fonts.monospace}
+font-6 = ${fonts.brands}
+
+modules-left = i3
+modules-center = spotify openweathermap-simple-icon openweathermap-simple-text
+modules-right = date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -142,10 +187,11 @@ font-2 = ${fonts.font_awesome}
 font-3 = ${fonts.weather}
 font-4 = ${fonts.material}
 font-5 = ${fonts.monospace}
+font-6 = ${fonts.brands}
 
 modules-left = i3
 modules-center = spotify openweathermap-simple-icon openweathermap-simple-text
-modules-right = filesystem backlight pulseaudio-rofi-input pulseaudio cpu temperature memory wired-network wireless-network archupdates battery-combined date xkeyboard
+modules-right = filesystem backlight pulseaudio-rofi-input pulseaudio cpu temperature memory archupdates battery-combined date xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -185,6 +231,7 @@ label-unmounted-foreground = ${colors.foreground}
 
 [module/i3]
 type = internal/i3
+format-font = 8
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
@@ -196,36 +243,36 @@ label-mode-padding = 1
 label-mode-foreground = ${colors.foreground-workspace}
 label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
-label-focused = %index% %icon%
+label-focused = %icon%
 label-focused-foreground = ${colors.focused-foreground-workspace}
 label-focused-background = ${colors.focused-background-workspace}
 label-focused-padding = 2
 
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index% %icon%
+label-unfocused = %icon%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index% %icon%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index% %icon%
+label-urgent = %icon%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
+ws-icon-0 = 1;%{F#6dcefc}%{F-}
+ws-icon-1 = 2;%{F#ff6611}%{F-}
+ws-icon-2 = 3;%{F#A6DB93}%{F-}
+ws-icon-3 = 4;%{F#E51670}%{F-}
+ws-icon-4 = 5;%{F#0088cc}%{F-}
 ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8; 
 ws-icon-8 = 9;
-ws-icon-9 = 10;
+ws-icon-9 = 10;%{F#00D965}%{F-}
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -259,8 +306,8 @@ format-warn =  <label-warn>
 
 format-font = 6
 format-warn-font = 6
-label = %temperature:6%
-label-warn = %temperature:6%
+label = %temperature-c:6%
+label-warn = %temperature-c:6%
 label-warn-foreground = ${colors.softred}
 format-warn-foreground = ${colors.softred}
 

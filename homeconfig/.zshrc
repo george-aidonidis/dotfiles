@@ -24,7 +24,7 @@ export UPDATE_ZSH_DAYS=3
 # Set nvim as a global editor
 export EDITOR='nvim'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export MONITOR='eDP-1'
+export MONITOR='eDP1'
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=0
 export UPDATE_ZSH_DAYS=3
