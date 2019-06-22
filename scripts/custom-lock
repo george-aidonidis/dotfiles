@@ -16,7 +16,7 @@ xlock() {
 }
 
 wlock() {
-	swaylock --image ~/.config/blur.png --show-keyboard-layout --inside-color 232c3100 --line-uses-inside --inside-ver-color 232c31ff --inside-wrong-color a03b1eff --ring-color 9ea7a6ff --ring-ver-color 9ea7a6ff --ring-wrong-color 3f4944ff --key-hl-color 2a5491ff --bs-hl-color a03b1eff --separator-color 2a5491ff --text-ver-color ffffffff --text-wrong-color=232c31ff -f
+	swaylock --image ~/.config/wall.png --show-keyboard-layout --inside-color 232c3100 --line-uses-inside --inside-ver-color 232c31ff --inside-wrong-color a03b1eff --ring-color 9ea7a6ff --ring-ver-color 9ea7a6ff --ring-wrong-color 3f4944ff --key-hl-color 2a5491ff --bs-hl-color a03b1eff --separator-color 2a5491ff --text-ver-color ffffffff --text-wrong-color=232c31ff -f
 }
 
 if [ "$XDG_SESSION_TYPE" = "x11" ]
@@ -30,6 +30,6 @@ then
 
 	xlock
 else
-	blurImage
+	# blurImage
 	wlock
 fi
