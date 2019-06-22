@@ -23,6 +23,10 @@ window#waybar {
 	background: #444;
 }
 
+#workspaces button.urgent {
+  background-color: #e60053;
+}
+
 #mode {
 	background: #444;
 }
