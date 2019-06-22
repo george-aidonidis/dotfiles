@@ -1,0 +1,52 @@
+#!/bin/sh
+set -e
+
+file=$HOME/dotfiles/scripts/cronjobs/.my-crontab
+: > "$file"
+
+echo SHELL=$SHELL >> "$file"
+echo XDG_SESSION_PATH=$XDG_SESSION_PATH >> "$file"
+echo SECONDARYBROWSER=$SECONDARYBROWSER >> "$file"
+echo I3SOCK=$I3SOCK >> "$file"
+echo FREETYPE_PROPERTIES=$FREETYPE_PROPERTIES >> "$file"
+echo SSH_AUTH_SOCK=$SSH_AUTH_SOCK >> "$file"
+echo DESKTOP_SESSION=$DESKTOP_SESSION >> "$file"
+echo XCURSOR_SIZE=$XCURSOR_SIZE >> "$file"
+echo EDITOR=$EDITOR >> "$file"
+echo GTK_MODULES=$GTK_MODULES >> "$file"
+echo XDG_SEAT=$XDG_SEAT >> "$file"
+echo PWD=$PWD >> "$file"
+echo LOGNAME=$LOGNAME >> "$file"
+echo XDG_SESSION_DESKTOP=$XDG_SESSION_DESKTOP >> "$file"
+echo XDG_SESSION_TYPE=$XDG_SESSION_TYPE >> "$file"
+echo XDG_GREETER_DATA_DIR=$XDG_GREETER_DATA_DIR >> "$file"
+echo GDM_LANG=$GDM_LANG >> "$file"
+echo HOME=$HOME >> "$file"
+echo LANG=$LANG >> "$file"
+echo SWAYSOCK=$SWAYSOCK >> "$file"
+echo WAYLAND_DISPLAY=$WAYLAND_DISPLAY >> "$file"
+echo XDG_SEAT_PATH=$XDG_SEAT_PATH >> "$file"
+echo XDG_SESSION_CLASS=$XDG_SESSION_CLASS >> "$file"
+echo USER=$USER >> "$file"
+echo DISPLAY=$DISPLAY >> "$file"
+echo SHLVL=$SHLVL >> "$file"
+echo XDG_VTNR=$XDG_VTNR >> "$file"
+echo XDG_SESSION_ID=$XDG_SESSION_ID >> "$file"
+echo MOZ_PLUGIN_PATH=$MOZ_PLUGIN_PATH >> "$file"
+echo XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR >> "$file"
+echo LC_COLLATE=$LC_COLLATE >> "$file"
+echo BROWSER=$BROWSER >> "$file"
+echo GDMSESSION=$GDMSESSION >> "$file"
+echo DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS >> "$file"
+echo MAIL=$MAIL >> "$file"
+echo SPACESHIP_VERSION=$SPACESHIP_VERSION >> "$file"
+echo SPACESHIP_ROOT=$SPACESHIP_ROOT >> "$file"
+echo MONITOR=$MONITOR >> "$file"
+
+#* * * * * notify-send "Heeeeeeeeeeeeeeeeey $XDG_SESSION_TYPE"
+echo "0 * * * * bash $HOME/dotfiles/scripts/cronjobs/random-wallpaper" >> "$file"
+
+echo "*/5 * * * * bash $HOME/dotfiles/scripts/cronjobs/low-battery-warning" >> "$file"
+# 0 22 * * 5 bash $HOME/dotfiles/scripts/cronjobs/clean-screenshots.sh
+
+crontab "$file"
