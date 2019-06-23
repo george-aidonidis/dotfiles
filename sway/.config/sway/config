@@ -1,5 +1,3 @@
-include config.d/*.conf
-
 #####################################
 # Assign applications to workspaces #
 #####################################
@@ -22,4 +20,5 @@ bar {
 
 xwayland enable
 
+include config.d/*.conf
 include /etc/sway/config.d/*
