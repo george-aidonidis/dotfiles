@@ -4,6 +4,6 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 
 export EDITOR=/usr/bin/nvim
-export BROWSER=/usr/bin/firefox-developer-edition
+export MAINBROWSER=/usr/bin/firefox
 export SECONDARYBROWSER=/usr/bin/google-chrome-stable
 export PATH="$PATH:$(du "$HOME/dotfiles/scripts/" | cut -f2 | tr '\n' ':')"

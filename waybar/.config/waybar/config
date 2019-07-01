@@ -1,6 +1,6 @@
 [{
   "layer": "top",
-	"output":["eDP-1", "DP-3", "DP-4"],
+	"output":["eDP-1", "DP-3", "DP-4", "DP-5", "DP-6"],
   "height": 17,
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["custom/spotify", "custom/weather-icon", "custom/weather-text"],
