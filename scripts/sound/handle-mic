@@ -15,7 +15,7 @@ getIcon() {
 
 alert() {
 	volume=$(pamixer --default-source --get-volume)
-	bar=$(seq -s "─" $(($volume / 6)) | sed 's/[0-9]//g')
+	bar=$(seq -s "─" "$(($volume / 6))" | sed 's/[0-9]//g')
 
 	icon=$(getIcon "$volume")
 
@@ -25,7 +25,7 @@ alert() {
 toggle() {
 	amixer -q -D pulse sset Master toggle
 
-	if $(pamixer --get-mute); then
+	if pamixer --get-mute; then
 			icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-muted.svg"
 		else
 			icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-high.svg"
@@ -36,11 +36,11 @@ toggle() {
 
 case "$1" in
 	--decrease)
-	amixer set Capture $2%-
+	amixer set Capture "$2"%-
 	alert
 	;;
 	--increase)
-	amixer set Capture $2%+
+	amixer set Capture "$2"%+
 	alert
 	;;
 	--toggle)
