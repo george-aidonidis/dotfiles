@@ -1,0 +1,53 @@
+#!/bin/sh
+getIcon() {
+	volume="$1"
+	if [ "$volume" -gt 75 ]; then
+		icon="/usr/share/icons/Papirus/48x48/status/notification-audio-volume-high.svg"
+	elif [ "$volume" -gt 25 ]; then
+		icon="/usr/share/icons/Papirus/48x48/status/notification-audio-volume-medium.svg"
+	else
+		icon="/usr/share/icons/Papirus/48x48/status/notification-audio-volume-low.svg"
+	fi
+
+	echo "$icon"
+}
+
+alert() {
+	play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+
+	volume=$(pamixer --get-volume)
+	bar=$(seq -s "─" $(($volume / 6)) | sed 's/[0-9]//g')
+
+	icon=$(getIcon "$volume")
+
+	notify-send.sh --icon="$icon" --replace-file=/tmp/volumenotification "$bar"
+}
+
+toggle() {
+	amixer -q -D pulse sset Master toggle
+
+	if $(pamixer --get-mute); then
+		icon="/usr/share/icons/Papirus/48x48/status/notification-audio-volume-muted.svg"
+	else
+		icon="/usr/share/icons/Papirus/48x48/status/notification-audio-volume-high.svg"
+	fi
+
+	notify-send.sh --icon="$icon" " " --replace-file=/tmp/volumenotification
+}
+
+case "$1" in
+	--decrease)
+	amixer -q -D pulse sset Master $2%-
+	alert
+	;;
+	--increase)
+	amixer -q -D pulse sset Master $2%+
+	alert
+	;;
+	--toggle)
+	toggle
+	;;
+	*)
+	echo "Wrong argument"
+	;;
+esac
