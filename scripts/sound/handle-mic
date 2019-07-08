@@ -1,0 +1,52 @@
+#!/bin/sh
+
+getIcon() {
+	volume="$1"
+    if [ "$volume" -gt 80 ]; then
+        icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-high.svg"
+    elif [ "$volume" -gt 50 ]; then
+        icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-medium.svg"
+    else
+        icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-low.svg"
+    fi
+
+	echo "$icon"
+}
+
+alert() {
+	volume=$(pamixer --default-source --get-volume)
+	bar=$(seq -s "─" "$(($volume / 6))" | sed 's/[0-9]//g')
+
+	icon=$(getIcon "$volume")
+
+	notify-send.sh --icon="$icon" --replace-file=/tmp/volumenotification "$bar"
+}
+
+toggle() {
+	amixer -q -D pulse sset Master toggle
+
+	if pamixer --get-mute; then
+			icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-muted.svg"
+		else
+			icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-high.svg"
+		fi
+
+	notify-send.sh --icon="$icon" " " --replace-file=/tmp/volumenotification
+}
+
+case "$1" in
+	--decrease)
+	amixer set Capture "$2"%-
+	alert
+	;;
+	--increase)
+	amixer set Capture "$2"%+
+	alert
+	;;
+	--toggle)
+	toggle
+	;;
+	*)
+	echo "Wrong argument"
+	;;
+esac
