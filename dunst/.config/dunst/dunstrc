@@ -24,7 +24,7 @@
 
     shrink = no
 
-    transparency = 0
+    transparency = 5
 
     notification_height = 0
 
@@ -156,7 +156,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/google-chrome-stable -new-tab
+    browser = /usr/bin/firefox
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
@@ -324,4 +324,3 @@
 #    urgency = normal
 #
 # vim: ft=cfg
-
