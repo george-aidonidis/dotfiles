@@ -7,7 +7,8 @@
 }
 
 window#waybar {
-	background: #222;
+	background: rgba(34,34,34, 0.90);
+	/* background: #222; */
 	color: white;
 }
 
@@ -24,11 +25,12 @@ window#waybar {
 }
 
 #workspaces button.urgent {
-  background-color: #0072e9;
+  background-color: #32AD8B;
 }
 
 #mode {
-	background: #444;
+	background: #ffb52a;
+	color: #000;
 }
 
 #temperature, #clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #custom-spotify, #tray, #mode, #idle_inhibitor {
@@ -106,6 +108,7 @@ window#waybar {
 
 #custom-weather-icon {
 	font-family: WeatherIcons;
+	font-size: 15px;
 	padding: 0 3px;
 	margin: 0 1px;
 }
