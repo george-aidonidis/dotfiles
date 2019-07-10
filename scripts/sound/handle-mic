@@ -23,9 +23,9 @@ alert() {
 }
 
 toggle() {
-	amixer -q -D pulse sset Master toggle
+	amixer set Capture toggle
 
-	if pamixer --get-mute; then
+	if pamixer --default-source --get-mute; then
 			icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-muted.svg"
 		else
 			icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-high.svg"

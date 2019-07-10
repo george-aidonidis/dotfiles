@@ -60,6 +60,14 @@ case "$INPUT" in
 			action wlRegion x11Region
 			imgur "$FILENAME"
 		;;
+	imgur-window)
+			action wlActiveWindow x11ActiveWindow
+			imgur "$FILENAME"
+		;;
+	imgur-screen)
+			action wlActiveScreen x11ActiveScreen
+			imgur "$FILENAME"
+		;;
 	screen)
 			action wlActiveScreen x11ActiveScreen
 			notify-send -i "$FILENAME" "Saved active screen to clipboard and under ~/Pictures/screenshots/"
