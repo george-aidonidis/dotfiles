@@ -1,10 +1,11 @@
 font=lato 12
 padding=14,10
 margin=14
-border-size=2
+border-size=0
 border-color=#bfbfbf
-background-color=#2f343f
+background-color=#2f343fdd
 default-timeout=7000
+icon-path=/usr/share/icons/Papirus-Dark/32x32/categories/:/usr/share/icons/Papirus-Dark/32x32/devices:/usr/share/icons/Papirus-Dark/32x32/mimetypes:/usr/share/icons/Papirus-Dark/32x32/places
 
 # Only for desktop, ignored when no such output exists
 #output=DP-1
@@ -18,4 +19,3 @@ text-color=#f5f8f6
 [urgency=high]
 text-color=#e06c75
 default-timeout=20000
-
