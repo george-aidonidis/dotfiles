@@ -46,9 +46,9 @@ if [ "$ac" -eq 1 ]; then
 	else
     if [ "$battery_percent" -gt 85 ]; then
         icon="$green"
-    elif [ "$battery_percent" -gt 70 ]; then
-        icon="$green"
     elif [ "$battery_percent" -gt 50 ]; then
+        icon=""
+    elif [ "$battery_percent" -gt 30 ]; then
         icon=""
     elif [ "$battery_percent" -gt 15 ]; then
         icon="$orange"
