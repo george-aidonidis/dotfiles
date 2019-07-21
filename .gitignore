@@ -22,3 +22,4 @@ ranger/.config/ranger/shortcuts.conf
 nvim/.config/nvim/plugged
 
 scripts/cronjobs/.my-crontab
+polybar/.config/polybar/config

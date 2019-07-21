@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cat $HOME/dotfiles/polybar/.config/polybar/config.d/*.conf > $HOME/dotfiles/polybar/.config/polybar/config
+
 SCREENS=$(xrandr | grep " connected " | awk '{ print$1 }')
 
 ACTIVESCREENS=$(echo "$SCREENS" | wc -w)
@@ -13,14 +15,14 @@ getConnectedDisplay() {
 	done
 }
 
+getConnectedDisplay
 startPolybarStatic() {
   if [ "$ACTIVESCREENS" = "1" ]; then
-    echo "1"
     MAINMONITOR="$SCREENS" polybar --reload main &
   elif [ "$ACTIVESCREENS" = "2" ]; then
     MONITOR="eDP1" polybar --reload laptop &
     sleep 0.1
-    MAINMONITOR=getConnectedDisplay polybar --reload main &
+    MAINMONITOR=$(getConnectedDisplay) polybar --reload main &
   elif [ "$ACTIVESCREENS" = "3" ]; then
     MONITOR="eDP1" polybar --reload laptop &
     sleep 0.1
@@ -38,4 +40,3 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 startPolybarStatic
-
