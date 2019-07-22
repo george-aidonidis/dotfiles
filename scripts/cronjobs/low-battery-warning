@@ -49,7 +49,7 @@ echo "$battery_level"
 
 if [[ $status = 'Discharging' && $battery_level -le 10 ]]
 then
-	notify-send -i gnome-warning "Battery low" "Save your work or plug your AC adapter!" -u critical -t 0
+	notify-send -i /usr/share/icons/Papirus-Dark/32x32/categories/gnome-warning.svg "Battery low" "Save your work or plug your AC adapter!" -u critical -t 0
 fi
 
 exit 0;

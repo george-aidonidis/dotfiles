@@ -15,7 +15,7 @@ xidlehook \
     'light -S 0.1' \
     "light -S $previousPercentage" \
     --timer primary "$(minute 4)" \
-    "light -S $previousPercentage; blur-lock" \
+    "light -S $previousPercentage; custom-lock" \
     '' \
     --timer normal "$(minute 30)" \
     'systemctl suspend' \
