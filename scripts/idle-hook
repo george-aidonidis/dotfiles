@@ -1,21 +1,26 @@
 #!/usr/bin/env bash
 
-minute () {
+minute() {
   echo $(($1*60))
 }
 
-previousPercentage=$(light -G)
-export previousPercentage
+dim() {
+	echo $(light -G) > /tmp/screenBrightnessValue && light -S 5
+}
+restore() {
+	echo "restore"
+	[ -f /tmp/screenBrightnessValue ] && light -S $(cat /tmp/screenBrightnessValue) && rm /tmp/screenBrightnessValue
+}
 
 # Run xidlehook
 xidlehook \
   --not-when-fullscreen \
   --not-when-audio \
-  --timer normal "$(minute 2)" \
-    'light -S 0.1' \
-    "light -S $previousPercentage" \
-    --timer primary "$(minute 4)" \
-    "light -S $previousPercentage; custom-lock" \
+  --timer normal $(minute 2) \
+		'echo $(light -G) > /tmp/screenBrightnessValue && light -S 5' \
+    '[ -f /tmp/screenBrightnessValue ] && light -S $(cat /tmp/screenBrightnessValue) && rm /tmp/screenBrightnessValue' \
+    --timer primary $(minute 4) \
+    '[ -f /tmp/screenBrightnessValue ] && light -S $(cat /tmp/screenBrightnessValue) && rm /tmp/screenBrightnessValue; custom-lock' \
     '' \
     --timer normal "$(minute 30)" \
     'systemctl suspend' \
