@@ -28,7 +28,7 @@ startPolybarStatic() {
     sleep 0.1
     MAINMONITOR="DP1-8" polybar --reload main &
     sleep 0.1
-    SIDEMONITOR="DP1-1" polybar --reload main &
+    SIDEMONITOR="DP1-1" polybar --reload port &
   else
     MAINMONITOR="eDP1" polybar --reload main &
   fi
