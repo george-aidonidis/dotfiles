@@ -7,9 +7,9 @@
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#######
-# Git #
-#######
+########
+# Arch #
+########
 alias "sp=sudo pacman"
 alias "spr=sudo pacman -Rsn"
 alias "sps=sudo pacman -S"
@@ -22,6 +22,7 @@ alias "pclean=sudo paccache -r"
 #######
 # Git #
 #######
+alias "gcom=git checkout master"
 alias "gcob=git checkout -b"
 alias "gfp=git fetch --prune"
 alias "gla=git pull --all"
@@ -41,8 +42,8 @@ alias yi="yarn install"
 alias yr="yarn run"
 alias ya="yarn add"
 alias yad="yarn add --dev "
-alias yag="yarn global add"
-alias yar="yarn global remove"
+alias yaga="yarn global add"
+alias yagr="yarn global remove"
 alias yarn_global_upgrade="yarn global upgrade --latest"
 #
 #######

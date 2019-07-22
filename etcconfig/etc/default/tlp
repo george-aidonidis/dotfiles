@@ -202,7 +202,7 @@ RUNTIME_PM_ON_BAT=auto
 #RUNTIME_PM_DRIVER_BLACKLIST="amdgpu nouveau nvidia radeon"
 
 # Set to 0 to disable, 1 to enable USB autosuspend feature.
-USB_AUTOSUSPEND=1
+USB_AUTOSUSPEND=0
 
 # Exclude listed devices from USB autosuspend (separate with spaces).
 # Use lsusb to get the ids.
@@ -257,7 +257,7 @@ DEVICES_TO_ENABLE_ON_STARTUP="wifi bluetooth"
 #DEVICES_TO_ENABLE_ON_SHUTDOWN="wwan"
 
 # Radio devices to enable on AC: bluetooth, wifi, wwan.
-DEVICES_TO_ENABLE_ON_AC="bluetooth wifi wwan"
+DEVICES_TO_ENABLE_ON_AC="bluetooth wifi"
 
 # Radio devices to disable on battery: bluetooth, wifi, wwan.
 #DEVICES_TO_DISABLE_ON_BAT="bluetooth wifi wwan"
@@ -293,8 +293,8 @@ DEVICES_TO_DISABLE_ON_LAN_CONNECT="wifi wwan"
 #DEVICES_TO_DISABLE_ON_WIFI_CONNECT="wwan"
 #DEVICES_TO_DISABLE_ON_WWAN_CONNECT="wifi"
 
-# Radio devices to enable on disconnect.
-DEVICES_TO_ENABLE_ON_LAN_DISCONNECT="wifi wwan"
+# Radio devices to enable ondisconnect.
+DEVICES_TO_ENABLE_ON_="wifi wwan"
 #DEVICES_TO_ENABLE_ON_WIFI_DISCONNECT=""
 #DEVICES_TO_ENABLE_ON_WWAN_DISCONNECT=""
 
@@ -305,3 +305,5 @@ DEVICES_TO_DISABLE_ON_DOCK="wifi"
 # Radio devices to enable/disable when undocked.
 DEVICES_TO_ENABLE_ON_UNDOCK="wifi"
 #DEVICES_TO_DISABLE_ON_UNDOCK=""
+
+
