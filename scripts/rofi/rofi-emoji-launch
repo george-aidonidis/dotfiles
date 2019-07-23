@@ -1,16 +1,13 @@
-#!/bin/bash
+#!/bin/sh
 
-CURRENT_WINDOW=$(xdotool getwindowfocus)
-
-xdotool windowfocus "$CURRENT_WINDOW"
 opt=$(rofi-emoji | rofi -width 35 -lines 16 -dmenu -i -p ' 😀')
 return_code=$?
 
 if [ $return_code -ne 1 ]
 then
   smiley=$(echo $opt | cut -d' ' -f1)
-  echo "$smiley"
-  echo -n "$smiley" | xsel --clipboard
-	xdotool type --delay 100 "$smiley"
+  # echo -n "$smiley" | xsel --clipboard --input
+  echo -n "$smiley" | xclip -selection clipboard -in
+  xdotool key Shift+Insert
   exit 0
 fi
