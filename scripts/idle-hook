@@ -9,10 +9,10 @@ minute() {
 xidlehook \
   --not-when-fullscreen \
   --not-when-audio \
-  --timer normal 2 \
+  --timer normal "$(minute 5)" \
 		'echo $(light -G) > /tmp/screenBrightnessValue && light -S 5' \
     '[ -f /tmp/screenBrightnessValue ] && light -S $(cat /tmp/screenBrightnessValue) && rm /tmp/screenBrightnessValue' \
-    --timer primary 3 \
+    --timer primary "$(minute 15)" \
     ' ! pgrep i3lock && [ -f /tmp/screenBrightnessValue ] && light -S $(cat /tmp/screenBrightnessValue) && rm /tmp/screenBrightnessValue && custom-lock' \
     '' \
     --timer normal "$(minute 30)" \
