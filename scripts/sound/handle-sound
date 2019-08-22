@@ -13,9 +13,13 @@ getIcon() {
 }
 
 alert() {
-	play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
-
 	volume=$(pamixer --get-volume)
+  mediaStatus=$(! pacmd list-sink-inputs | grep -c "state: RUNNING")
+
+  if [ $volume -le 99 ] && [ $mediaStatus != 1 ]; then
+    play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+  fi
+
 	bar=$(seq -s "─" "$(($volume / 6))" | sed 's/[0-9]//g')
 
 	icon=$(getIcon "$volume")
