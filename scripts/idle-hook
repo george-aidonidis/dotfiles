@@ -10,11 +10,11 @@ xidlehook \
   --not-when-fullscreen \
   --not-when-audio \
   --timer normal "$(minute 5)" \
-		'echo $(light -G) > /tmp/screenBrightnessValue && light -S 5' \
+		'echo $(light -G) > /tmp/screenBrightnessValue && light -S 5 && echo "first-hook"' \
     '[ -f /tmp/screenBrightnessValue ] && light -S $(cat /tmp/screenBrightnessValue) && rm /tmp/screenBrightnessValue' \
     --timer primary "$(minute 15)" \
     ' ! pgrep i3lock && [ -f /tmp/screenBrightnessValue ] && light -S $(cat /tmp/screenBrightnessValue) && rm /tmp/screenBrightnessValue && custom-lock' \
-    '' \
+    '[ -f /tmp/screenBrightnessValue ] && light -S $(cat /tmp/screenBrightnessValue) && rm /tmp/screenBrightnessValue' \
     --timer normal "$(minute 30)" \
     'systemctl suspend' \
-    ''
+    '[ -f /tmp/screenBrightnessValue ] && light -S $(cat /tmp/screenBrightnessValue) && rm /tmp/screenBrightnessValue'
