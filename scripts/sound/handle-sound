@@ -16,7 +16,7 @@ alert() {
 	volume=$(pamixer --get-volume)
   mediaStatus=$(! pacmd list-sink-inputs | grep -c "state: RUNNING")
 
-  if [ $volume -le 99 ] && [ $mediaStatus != 1 ]; then
+  if [ $volume -le 99 ] && [ $mediaStatus == 0 ]; then
     play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
   fi
 
