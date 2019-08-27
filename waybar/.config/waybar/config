@@ -13,7 +13,6 @@
     "memory",
     "battery",
 		"clock",
-		"custom/lang",
     "tray"
   ],
   "sway/workspaces": {
@@ -129,11 +128,6 @@
 		"interval": 1800,
     "max-length": 40,
     "exec": "sleep 5; $HOME/dotfiles/scripts/polybar/archupdates"
-  },
-	"custom/lang": {
-    "interval": 1,
-    "exec": "$HOME/dotfiles/scripts/wayland/sway-keyboard",
-    "format": " <span font_desc='monospace'>{}</span>"
   },
 	"custom/weather-text": {
     "interval": 600,
