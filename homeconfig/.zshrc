@@ -30,8 +30,5 @@ export UPDATE_ZSH_DAYS=3
 export KEYTIMEOUT=1
 neofetch
 
-export VOLTA_HOME="$HOME/.volta"
-[ -s "$VOLTA_HOME/load.sh" ] && . "$VOLTA_HOME/load.sh"
+export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin"
 
-export PATH="$VOLTA_HOME/bin:$PATH"
-export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin:$VOLTA_HOME/bin"
