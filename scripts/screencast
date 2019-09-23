@@ -16,7 +16,7 @@ fi
 
 ffmpeg -y \
 -f x11grab \
--s 1920x1080 \
+-s 2560x1440 \
 -i $screen \
 -f alsa -i default \
  -c:v libx264 -r 30 -c:a flac "$filename"

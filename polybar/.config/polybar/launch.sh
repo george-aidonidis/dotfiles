@@ -20,9 +20,10 @@ startPolybarStatic() {
   if [ "$ACTIVESCREENS" = "1" ]; then
     MAINMONITOR="$SCREENS" polybar --reload main &
   elif [ "$ACTIVESCREENS" = "2" ]; then
-    MONITOR="eDP1" polybar --reload laptop &
+    MAINMONITOR="DP-1.8" polybar --reload main &
     sleep 0.1
-    MAINMONITOR=$(getConnectedDisplay) polybar --reload main &
+    SIDEMONITOR="DP-1.1" polybar --reload port &
+    # MAINMONITOR=$(getConnectedDisplay) polybar --reload main &
   elif [ "$ACTIVESCREENS" = "3" ]; then
     MONITOR="eDP1" polybar --reload laptop &
     sleep 0.1

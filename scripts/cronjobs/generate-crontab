@@ -3,11 +3,12 @@ set -e
 
 file=$HOME/dotfiles/scripts/cronjobs/.my-crontab
 : > "$file"
+i3sock=$(i3 --get-socketpath)
 
 echo SHELL=$SHELL >> "$file"
 echo XDG_SESSION_PATH=$XDG_SESSION_PATH >> "$file"
 echo SECONDARYBROWSER=$SECONDARYBROWSER >> "$file"
-echo I3SOCK=$I3SOCK >> "$file"
+echo I3SOCK="$i3sock" >> "$file"
 echo FREETYPE_PROPERTIES=$FREETYPE_PROPERTIES >> "$file"
 echo SSH_AUTH_SOCK=$SSH_AUTH_SOCK >> "$file"
 echo DESKTOP_SESSION=$DESKTOP_SESSION >> "$file"
@@ -46,7 +47,7 @@ echo MONITOR=$MONITOR >> "$file"
 #* * * * * notify-send "Heeeeeeeeeeeeeeeeey $XDG_SESSION_TYPE"
 echo "0 * * * * bash $HOME/dotfiles/scripts/cronjobs/random-wallpaper" >> "$file"
 
-echo "*/5 * * * * bash $HOME/dotfiles/scripts/cronjobs/low-battery-warning" >> "$file"
+#echo "*/5 * * * * bash $HOME/dotfiles/scripts/cronjobs/low-battery-warning" >> "$file"
 # 0 22 * * 5 bash $HOME/dotfiles/scripts/cronjobs/clean-screenshots.sh
 
 crontab "$file"
