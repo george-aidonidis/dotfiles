@@ -13,15 +13,15 @@
 <!-- /TOC -->
 
 <p>
-  <img width="360" src="https://i.imgur.com/PkaIjIL.jpg">
-  <img width="360" src="https://i.imgur.com/0dnlvvx.jpg">
+  <img width="360" src="https://i.imgur.com/VTnWo90.jpg">
+  <img width="360" src="https://i.imgur.com/znVqAjp.jpg">
 </p>
 <p>
-  <img width="360" src="https://i.imgur.com/hE3M0XM.jpg">
-  <img width="360" src="https://i.imgur.com/0CkFgQV.jpg">
+  <img width="360" src="https://i.imgur.com/TaJkpL9.jpg">
+  <img width="360" src="https://i.imgur.com/EktZI6L.jpg">
 </p>
 
-Personal dotfiles that I use for my Thinkpad t470s.
+Personal dotfiles that I use for my Thinkpad t470s (running [swaywm](https://swaywm.org/) or [i3wm](https://i3wm.org/)).
 
 ## Programs whose configs can be found here
 
