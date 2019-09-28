@@ -14,7 +14,7 @@ echo "switched default sink to $DEFAULTSINK"
 pactl set-card-profile "$BLUEZCARD" off
 echo "switched card $BLUEZCARD to off"
 
-pactl set-card-profile "$BLUEZCARD" a2dp_sink_aac
+pactl set-card-profile "$BLUEZCARD" a2dp_sink
 echo "switched card $BLUEZCARD to ad2p_sink"
 
 pacmd set-default-sink "$BLUEZSINK"
