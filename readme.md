@@ -13,15 +13,15 @@
 <!-- /TOC -->
 
 <p>
-  <img width="360" src="https://i.imgur.com/2cPQ4YM.png">
-  <img width="360" src="https://i.imgur.com/w7vd4VW.png">
+  <img width="360" src="https://i.imgur.com/PkaIjIL.jpg">
+  <img width="360" src="https://i.imgur.com/0dnlvvx.jpg">
 </p>
 <p>
-  <img width="360" src="https://i.imgur.com/cATYKS1.png">
-  <img width="360" src="https://i.imgur.com/ns69rLv.png">
+  <img width="360" src="https://i.imgur.com/hE3M0XM.jpg">
+  <img width="360" src="https://i.imgur.com/0CkFgQV.jpg">
 </p>
 
-Personal dotfiles that I use for my Thinkpad t470s (running two screens).
+Personal dotfiles that I use for my Thinkpad t470s.
 
 ## Programs whose configs can be found here
 
