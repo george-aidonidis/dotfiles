@@ -13,6 +13,7 @@
     "memory",
     "battery",
 		"clock",
+		"custom/keyboard",
     "tray"
   ],
   "sway/workspaces": {
@@ -136,5 +137,9 @@
 	"custom/weather-icon": {
     "interval": 600,
     "exec": "$HOME/dotfiles/scripts/polybar/openweathermap-simple-icon"
+  },
+	"custom/keyboard": {
+		"format": " {}",
+    "exec": "wl-monitor-input-layout"
   }
 }]

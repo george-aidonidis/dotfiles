@@ -38,7 +38,7 @@ window#waybar {
 	margin: 0 3px;
 }
 
-#temperature, #cpu, #memory, #network {
+#temperature, #cpu, #memory, #network, #custom-keyboard {
 	font-family: DejaVuSansMono;
 }
 
@@ -100,12 +100,6 @@ window#waybar {
 	color: #00D965;
 }
 
-#custom-lang {
-	padding: 0 3px;
-	margin: 0px 1px;
-	border-bottom: 2px solid #e60053;
-}
-
 #custom-weather-icon {
 	font-family: WeatherIcons;
 	font-size: 15px;
@@ -120,6 +114,10 @@ window#waybar {
 
 #custom-packages {
 	color: #3581fc;
+}
+
+#custom-keyboard {
+	border-bottom: 2px solid #e60053;
 }
 
 #tray {
