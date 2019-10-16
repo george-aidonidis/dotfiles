@@ -20,7 +20,7 @@ ranger/.config/ranger/__pycache__
 ranger/.config/ranger/plugins
 ranger/.config/ranger/shortcuts.conf
 nvim/.config/nvim/plugged
-nvim/.config/nvim/autoload/plug.vim
+nvim/.config/nvim/autoload/plug.*
 
 scripts/cronjobs/.my-crontab
 polybar/.config/polybar/config
