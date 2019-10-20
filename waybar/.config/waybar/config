@@ -120,7 +120,7 @@
     "format": " {}",
 		"interval": 3,
     "max-length": 40,
-		"exec-if": "pgrep -x spotify",
+		"exec-if": "pgrep -x spotifyd",
     "exec": "$HOME/dotfiles/scripts/polybar/spotify",
     "on-click": "playerctl play-pause"
   },
