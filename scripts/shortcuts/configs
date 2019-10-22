@@ -1,7 +1,7 @@
 cff	~/dotfiles/scripts/shortcuts/folders
 cfc	~/dotfiles/scripts/shortcuts/configs
 cfz	~/dotfiles/zsh/.zshrc
-cfv	~/dotfiles/nvim/.config/nvim/init.vim
-cfr	~/dotfiles/ranger/.config/ranger/rc.conf
-cfi	~/dotfiles/i3/.config/i3/config
-cfp	~/dotfiles/polybar/.config/polybar/config
+cfv	~/dotfiles/applications/.config/nvim/init.vim
+cfr	~/dotfiles/applications/.config/ranger/rc.conf
+cfi	~/dotfiles/wm/.config/i3/config
+cfp	~/dotfiles/wm/.config/polybar/config

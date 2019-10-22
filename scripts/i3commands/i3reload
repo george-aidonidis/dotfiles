@@ -1,5 +1,5 @@
 #!/bin/sh
 
-cat $HOME/dotfiles/i3/.config/i3/config.d/*.conf > $HOME/dotfiles/i3/.config/i3/config
+cat $HOME/dotfiles/wm/.config/i3/config.d/*.conf > $HOME/dotfiles/wm/.config/i3/config
 
 i3-msg reload

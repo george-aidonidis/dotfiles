@@ -1,13 +1,11 @@
 # nvim: filetype=sh
 cff	~/dotfiles/homeconfig/.bmfiles
 cfd	~/dotfiles/homeconfig/.bmdirs
-cfs	~/dotfiles/sway/.config/sway/config
+cfs	~/dotfiles/wm/.config/sway/config
 cfc	~/dotfiles/config-dotfiles/.config/compton.conf
 cfz	~/dotfiles/zsh/.zshrc
-cfn	~/dotfiles/nvim/.config/nvim/init.vim
-cfi	~/dotfiles/i3/.config/i3/config
-cfr	~/dotfiles/ranger/.config/ranger/rc.conf
-cfq	~/.config/qutebrowser/config.py
-cft	~/dotfiles/terminator/.config/terminator/config
-cfp	~/dotfiles/polybar/.config/polybar/config
-
+cfn	~/dotfiles/applications/.config/nvim/init.vim
+cfi	~/dotfiles/wm/.config/i3/config
+cfr	~/dotfiles/applications/.config/ranger/rc.conf
+cft	~/dotfiles/terminals/.config/kitty/kitty.conf
+cfp	~/dotfiles/wm/.config/polybar/config

@@ -58,6 +58,6 @@ $ bash ./install.sh
 ## Other readmes
 
 * [Scripts](/scripts/readme.md)
-* [i3](/i3/.config/i3/readme.md)
-* [polybar](/polybar/.config/polybar/readme.md)
-* [ranger](/ranger/.config/ranger/readme.md)
+* [i3](/wm/.config/i3/readme.md)
+* [polybar](/wm/.config/polybar/readme.md)
+* [ranger](/applications/.config/ranger/readme.md)
