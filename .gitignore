@@ -13,15 +13,16 @@ tags
 .tern-config
 
 vim/plugged
-ranger/.config/ranger/history
-ranger/.config/ranger/bookmarks
-ranger/.config/ranger/tagged
-ranger/.config/ranger/__pycache__
-ranger/.config/ranger/plugins
-ranger/.config/ranger/shortcuts.conf
-nvim/.config/nvim/plugged
-nvim/.config/nvim/autoload/plug.*
+applications/.config/ranger/history
+applications/.config/ranger/bookmarks
+applications/.config/ranger/tagged
+applications/.config/ranger/__pycache__ ranger/.config/ranger/plugins
+applications/.config/ranger/shortcuts.conf
+applications/.config/nvim/plugged
+applications/.config/nvim/autoload/plug.*
 
 scripts/cronjobs/.my-crontab
-polybar/.config/polybar/config
-i3/.config/i3/config
+wm/.config/polybar/config
+wm/.config/i3/config
+wm/.config/sway/config
+__pycache__

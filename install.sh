@@ -18,7 +18,7 @@ function confirm {
 
 aurPackages=("autotiling redshift-wlr-gamma-control-git network-manager-applet-indicator direnv enpass-bin google-chrome light-git nerd-fonts-source-code-pro spaceship-prompt-git ttf-lato ttf-weather-icons xkb-switch xkblayout-state-git xidlehook")
 applications=("flameshot docker docker-compose parcellite")
-stowed=("config-dotfiles gsimplecal dunst gtk-3.0 homeconfig i3 nvim parcellite polybar ranger rofi terminator")
+stowed=("applications config-dotfiles homeconfig terminals wm")
 
 function createFolders {
 	mkdir -p $HOME/tmp/;
@@ -58,7 +58,7 @@ done
 }
 
 function checkMissingPackages {
-	declare -a arr=("stow" "compton" "dunst" "i3" "nvim" "polybar" "redshift" "rofi" "parcellite" "terminator" "gsimplecal" "zsh")
+	declare -a arr=("compton" "dunst" "gsimplecal" "i3" "kitty" "mako" "nvim" "parcellite" "polybar" "redshift" "rofi" "stow" "terminator" "waybar" "zsh")
 	echo "Checking if there are any missing packages"
 	for item in "${arr[@]}"
 	do
