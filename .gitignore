@@ -25,3 +25,4 @@ scripts/cronjobs/.my-crontab
 wm/.config/polybar/config
 wm/.config/i3/config
 wm/.config/sway/config
+__pycache__
