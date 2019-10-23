@@ -58,7 +58,7 @@ done
 }
 
 function checkMissingPackages {
-	declare -a arr=("compton" "dunst" "gsimplecal" "i3" "nvim" "parcellite" "kitty" "polybar" "redshift" "rofi" "stow" "terminator" "zsh")
+	declare -a arr=("compton" "dunst" "gsimplecal" "i3" "kitty" "mako" "nvim" "parcellite" "polybar" "redshift" "rofi" "stow" "terminator" "waybar" "zsh")
 	echo "Checking if there are any missing packages"
 	for item in "${arr[@]}"
 	do
