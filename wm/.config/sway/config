@@ -1,0 +1,11 @@
+#####################################
+# Assign applications to workspaces #
+#####################################
+bar {
+    swaybar_command waybar
+}
+
+xwayland enable
+
+include config.d/*.conf
+include /etc/sway/config.d/*
