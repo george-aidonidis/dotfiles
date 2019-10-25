@@ -1,0 +1,74 @@
+#!/bin/bash
+# Modified version of https://github.com/Ashark/hliss/blob/master/vlc-hangouts
+
+# Script to share a portion of the screen in VLC to be used by Chrome/Firefox to share the screen
+# By default, when run, it asks to click in some window. The area of that window is what is going to be shared.
+# If executed with "sharescreen area", it asks for a portion of the screen to be shared.
+
+unset x y w h
+
+# Old code to choose a monitor
+#xrandr --listactivemonitors
+#read -p "Which monitor you want to share: " MON_NUMBER
+##MON_NUMBER=0 # for debugging
+#MON_PARSE=`xrandr --listactivemonitors | grep "$MON_NUMBER:" | cut -f4 -d' '`
+#h=`echo $MON_PARSE | cut -f2 -d'/' | cut -f2 -d'x'`
+#w=`echo $MON_PARSE | cut -f1 -d'/'`
+#x=`echo $MON_PARSE | cut -f2 -d'+'`
+#y=`echo $MON_PARSE | cut -f3 -d'+'`
+
+
+if [[ $1 == "area" ]] ; then
+  rect=$(xrectsel)
+  w=$(echo $rect | cut -d 'x' -f 1)
+  h=$(echo $rect | cut -d 'x' -f 2 | cut -d '+' -f 1)
+  x=$(echo $rect | cut -d 'x' -f 2 | cut -d '+' -f 2)
+  y=$(echo $rect | cut -d 'x' -f 2 | cut -d '+' -f 3)
+else
+  # Choose a window to share its screen area
+  eval $(xwininfo  |
+    sed -n -e "s/^ \+Absolute upper-left X: \+\([0-9]\+\).*/x=\1/p" \
+           -e "s/^ \+Absolute upper-left Y: \+\([0-9]\+\).*/y=\1/p" \
+           -e "s/^ \+Width: \+\([0-9]\+\).*/w=\1/p" \
+           -e "s/^ \+Height: \+\([0-9]\+\).*/h=\1/p" )
+fi
+
+#echo -n "$x $y $w $h"
+
+cvlc ${IFS# } \
+    --ignore-config ${IFS# I use pause-click plugin, but in this script I want it to be disabled} \
+    --no-qt-privacy-ask ${IFS# Suppress first-run dialog pop-up } \
+    ${IFS# --fullscreen  to maximize window, so no borders will be seen } \
+    ${IFS# --marq-marquee="VLC window"  Overlay text in VLC window for ability to recognize fullscreen vlc window} \
+    --meta-title "ShareMe" ${IFS# To simplify selecting vlc window in hangouts } \
+    ${IFS# --no-video-title For not confusing you while target window opens } \
+    --qt-minimal-view ${IFS# hide video control and window menu }\
+    --screen-fps=20 \
+    --screen-top=$y \
+    --screen-left=$x \
+    --screen-width=$w \
+    --screen-height=$h \
+    screen:// &> /dev/null &
+VLC_PID=$!
+
+cat << EOF | bash & # run extramaus while vlc is running
+extramaus & # launch extramaus and background it
+while ps -p $VLC_PID > /dev/null; do
+#     date; echo "PROCESS IS RUNNING"
+    sleep 1
+done
+# echo "PROCESS TERMINATED"
+killall extramaus &> /dev/null # kill extramaus after vlc was terminated
+EOF
+
+# Fo i3wm, move the new window to the border of the screen
+# We cannot move to another desktop because Chrome only allows to select windows in the active desktops
+sleep 1  # wait vlc to appear
+unset x y w h
+eval $(xwininfo -id $(xdotool search --name vlc) |
+  sed -n -e "s/^ \+Absolute upper-left X: \+\([0-9]\+\).*/x=\1/p" \
+         -e "s/^ \+Absolute upper-left Y: \+\([0-9]\+\).*/y=\1/p" \
+         -e "s/^ \+Width: \+\([0-9]\+\).*/w=\1/p" \
+         -e "s/^ \+Height: \+\([0-9]\+\).*/h=\1/p" )
+i3-msg "[window_role=\"vlc-video\"] move left $(($x+$w))px"
+
