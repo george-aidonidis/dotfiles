@@ -118,10 +118,9 @@
   },
   "custom/spotify": {
     "format": " {}",
-		"interval": 3,
     "max-length": 40,
-		"exec-if": "pgrep -x spotifyd",
-    "exec": "$HOME/dotfiles/scripts/polybar/spotify",
+		"exec-if": "pgrep -x spotify",
+    "exec": "$HOME/dotfiles/scripts/polybar/player-mpris-tail -f '{artist} - {title}'",
     "on-click": "playerctl play-pause"
   },
   "custom/packages": {

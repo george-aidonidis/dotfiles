@@ -1,12 +1,15 @@
 #!/bin/sh
-CURRENT=$(swaymsg -t get_inputs | jq '.[4].xkb_active_layout_name')
+
+CURRENT=$(swaymsg -t get_inputs | jq '.[] | select(.xkb_active_layout_name == "Greek" and .identifier == "1:1:AT_Translated_Set_2_keyboard")')
+
 ENGLISH=$"English (US)"
 
-if [ "$CURRENT" == "\"Greek\"" ]; then
+if [ "$CURRENT" ]; then
 	echo "Equals greek"
 	swaymsg "input * xkb_switch_layout 0"
 	$1
 	swaymsg "input * xkb_switch_layout 1"
+  echo "Change to greek"
 	exit 0
 else
 	echo "English"
