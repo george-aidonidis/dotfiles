@@ -1,0 +1,7 @@
+width=400
+height=400
+mode=run
+colors=colors
+allow_images=true
+filter_rate=100
+mode=drun

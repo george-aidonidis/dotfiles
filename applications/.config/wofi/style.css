@@ -1,0 +1,9 @@
+window {
+  border: 2px solid #1d2021;
+  background-color: rgba(37, 41, 54, 0.9);
+  font-family: 'Ubuntu Bold';
+}
+
+#input {
+  margin: 6px;
+}
