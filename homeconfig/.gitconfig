@@ -19,3 +19,9 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
