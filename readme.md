@@ -33,7 +33,7 @@ Personal dotfiles that I use for my Thinkpad t470s (running [swaywm](https://swa
 + [dunst](https://github.com/dunst-project/dunst)
 + [redshift](https://github.com/jonls/redshift)
 + [polybar](https://github.com/jaagr/polybar)
-+ [compton](https://github.com/chjj/compton)
++ [picom](https://github.com/yshui/picom)
 + [rofi](https://github.com/DaveDavenport/rofi)
 + And many, many little scripts I use
 
