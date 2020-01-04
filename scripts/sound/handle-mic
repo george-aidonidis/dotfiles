@@ -15,11 +15,12 @@ getIcon() {
 
 alert() {
 	volume=$(pamixer --default-source --get-volume)
-	bar=$(seq -s "─" "$(($volume / 6))" | sed 's/[0-9]//g')
+	# bar=$(seq -s "─" "$(($volume / 6))" | sed 's/[0-9]//g')
+  bar=$(get-progress-string 10 "<b>  </b>" "<b>  </b>" "$volume")
 
 	icon=$(getIcon "$volume")
 
-	notify-send.sh --icon="$icon" --replace-file=/tmp/volumenotification "$bar"
+	notify-send.sh "$volume" --icon="$icon" --replace-file=/tmp/volumenotification "$bar"
 }
 
 toggle() {

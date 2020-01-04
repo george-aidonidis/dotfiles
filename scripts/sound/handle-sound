@@ -17,14 +17,14 @@ alert() {
   mediaStatus=$(! pacmd list-sink-inputs | grep -c "state: RUNNING")
 
   if [ $volume -le 99 ] && [ $mediaStatus == 0 ]; then
-    play -q /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga
+     canberra-gtk-play -i audio-volume-change -d "changeVolume"
   fi
 
-	bar=$(seq -s "─" "$(($volume / 6))" | sed 's/[0-9]//g')
+  bar=$(get-progress-string 10 "<b>  </b>" "<b>  </b>" "$volume")
 
 	icon=$(getIcon "$volume")
 
-	notify-send.sh --icon="$icon" --replace-file=/tmp/volumenotification "$bar"
+	notify-send.sh "$volume" --icon="$icon" --replace-file=/tmp/volumenotification "$bar"
 }
 
 toggle() {
