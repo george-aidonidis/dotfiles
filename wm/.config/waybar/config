@@ -3,7 +3,7 @@
 	"output":["eDP-1", "DP-3", "DP-4", "DP-5", "DP-6"],
   "height": 17,
   "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-center": ["custom/spotify", "custom/weather-icon", "custom/weather-text"],
+  "modules-center": ["disk", "custom/spotify", "custom/weather-icon", "custom/weather-text"],
   "modules-right": [
 		"custom/packages",
     "backlight",
@@ -115,6 +115,11 @@
       "default": ["", ""]
     },
     "on-click": "pavucontrol"
+  },
+  "disk": {
+    "interval": "30",
+    "format": "<span color='#ffd271'> </span>{percentage_used}%",
+    "path": "/"
   },
   "custom/spotify": {
     "format": " {}",

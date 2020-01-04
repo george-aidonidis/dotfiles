@@ -1,11 +1,8 @@
 ignore-empty-password
 daemonize
-clock
-indicator
 indicator-radius=100
 image=~/.config/wall.png
 show-keyboard-layout
-datestr=%a, %d %b %Y
 text-color=ffffffff
 line-uses-inside
 inside-ver-color=232c31ff
