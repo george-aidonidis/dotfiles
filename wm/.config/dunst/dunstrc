@@ -300,7 +300,16 @@
 
 #[history-ignore]
 #    # This notification will not be saved in history
-    summary = ""
+    # summary = ""
+    # history_ignore = yes
+
+[history-ignore-volume]
+    # This notification will not be saved in history
+    appname = "changeVolume"
+    history_ignore = yes
+[history-ignore-brightness]
+    # This notification will not be saved in history
+    appname = "changeBrightness"
     history_ignore = yes
 
 #[signed_on]
