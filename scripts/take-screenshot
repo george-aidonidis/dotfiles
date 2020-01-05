@@ -4,13 +4,8 @@ set -e
 FILENAME="$HOME/Pictures/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
 INPUT=$1
 
-area() {
-	rect=$(slop)
-
-	size=$(echo "$rect" | cut -d '+' -f1)
-	xAxis=$(echo "$rect" | cut -d '+' -f2)
-	yAxis=$(echo "$rect" | cut -d '+' -f3)
-	echo "$xAxis,$yAxis $size"
+wlWindow() {
+  swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp
 }
 
 wlActiveScreen() {
@@ -21,11 +16,15 @@ wlActiveScreen() {
 }
 
 wlActiveWindow() {
-	echo "Not yet implemented for wayland 😭"
+  WINDOW=$(swaymsg -t get_tree | jq -r 'recurse(.nodes[]?, .floating_nodes[]?) | select(.focused)')
+  GEOM=$(echo "$WINDOW" | jq -r '.rect | "\(.x),\(.y) \(.width)x\(.height)"')
+
+	grim -g "$GEOM" "$FILENAME"
+	wl-copy < "$FILENAME"
 }
 
 wlRegion() {
-	grim -g "$(area)" "$FILENAME"
+	grim -g "$(slurp)" "$FILENAME"
 	wl-copy < "$FILENAME"
 }
 
