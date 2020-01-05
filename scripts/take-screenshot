@@ -4,10 +4,6 @@ set -e
 FILENAME="$HOME/Pictures/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
 INPUT=$1
 
-wlWindow() {
-  swaymsg -t get_tree | jq -r '.. | select(.pid? and .visible?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | slurp
-}
-
 wlActiveScreen() {
 	SCREEN=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
