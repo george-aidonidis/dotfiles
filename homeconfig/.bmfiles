@@ -2,7 +2,7 @@
 cff	~/dotfiles/homeconfig/.bmfiles
 cfd	~/dotfiles/homeconfig/.bmdirs
 cfs	~/dotfiles/wm/.config/sway/config
-cfc	~/dotfiles/config-dotfiles/.config/compton.conf
+cfc	~/dotfiles/config-dotfiles/.config/picom.conf
 cfz	~/dotfiles/zsh/.zshrc
 cfn	~/dotfiles/applications/.config/nvim/init.vim
 cfi	~/dotfiles/wm/.config/i3/config

@@ -30,5 +30,4 @@ export UPDATE_ZSH_DAYS=3
 export KEYTIMEOUT=1
 neofetch
 
-export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin"
-
+export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin:$(ruby -e 'puts Gem.user_dir')/bin"

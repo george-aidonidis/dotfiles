@@ -11,7 +11,11 @@ PP	~/Pictures/
 PW	~/Dropbox/Pictures/Wallpapers/
 PS	~/Pictures/screenshots/
 vv	~/Videos/
-cf	~/dotfiles/
+cf	~/dotfiles
+ci	~/dotfiles/wm/.config/i3
+cs	~/dotfiles/wm/.config/sway
+cw	~/dotfiles/wm/.config/waybar
+cp	~/dotfiles/wm/.config/polybar
 sc	~/dotfiles/scripts/
 mn	/mnt/
 

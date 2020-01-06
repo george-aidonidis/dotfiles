@@ -41,8 +41,6 @@ applications=(
 )
 stowed=(
 	"
-	compton
-	dunst
 	gtk-3.0
 	homeconfig
 	i3
@@ -129,7 +127,7 @@ done
 }
 
 function checkMissingPackages {
-	declare -a arr=("stow" "compton" "dunst" "i3" "nvim" "polybar" "redshift" "rofi" "parcellite" "terminator" "tmux" "zsh")
+	declare -a arr=("stow" "i3" "nvim" "polybar" "redshift" "rofi" "parcellite" "terminator" "tmux" "zsh")
 	echo "Checking if there are any missing packages"
 	for item in "${arr[@]}"
 	do
