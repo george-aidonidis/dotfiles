@@ -12,6 +12,8 @@ PW	~/Dropbox/Pictures/Wallpapers/
 PS	~/Pictures/screenshots/
 vv	~/Videos/
 cf	~/dotfiles
+cr	~/dotfiles/applications/.config/ranger
+cn	~/dotfiles/applications/.config/init
 ci	~/dotfiles/wm/.config/i3
 cs	~/dotfiles/wm/.config/sway
 cw	~/dotfiles/wm/.config/waybar

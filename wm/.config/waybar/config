@@ -3,9 +3,10 @@
 	"output":["eDP-1", "DP-3", "DP-4", "DP-5", "DP-6"],
   "height": 17,
   "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-center": ["disk", "custom/spotify", "custom/weather-icon", "custom/weather-text"],
+  "modules-center": ["custom/spotify", "custom/weather-icon", "custom/weather-text"],
   "modules-right": [
 		"custom/packages",
+    "disk",
     "backlight",
     "pulseaudio",
     "cpu",
@@ -118,7 +119,7 @@
   },
   "disk": {
     "interval": "30",
-    "format": "<span color='#ffd271'> </span>{percentage_used}%",
+    "format": "<span color='#3ec13f'>  </span>{percentage_used}%",
     "path": "/"
   },
   "custom/spotify": {
