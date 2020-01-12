@@ -1,0 +1,20 @@
+#!/bin/sh
+
+FALLBACK="1:1:AT_Translated_Set_2_keyboard"
+EXTERNAL="6127:24647:Lenovo_ThinkPad_Compact_USB_Keyboard_with_TrackPoint"
+
+MATCH=$(
+swaymsg -t get_inputs |
+  jq -r --arg EXTERNAL "$EXTERNAL" '
+  .[]
+  | select(.identifier == $EXTERNAL)'
+)
+
+ENGLISH=$"English (US)"
+
+if [ "$MATCH" ]; then
+  export KEYBOARD="$EXTERNAL"
+else
+  export KEYBOARD="$FALLBACK"
+fi
+

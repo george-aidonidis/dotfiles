@@ -29,5 +29,6 @@ export QT_SCALE_FACTOR=0
 export UPDATE_ZSH_DAYS=3
 export KEYTIMEOUT=1
 neofetch
+. $HOME/dotfiles/scripts/wayland/wayland-active-keyboard
 
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin:$(ruby -e 'puts Gem.user_dir')/bin"
