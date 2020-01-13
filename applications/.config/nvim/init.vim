@@ -12,7 +12,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'matze/vim-move'
-" Autocomplete
 
 Plug 'w0rp/ale'
 Plug 'mgee/lightline-bufferline'
