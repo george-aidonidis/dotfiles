@@ -26,12 +26,25 @@ alias "gcom=git checkout master"
 alias "gcob=git checkout -b"
 alias "gfp=git fetch --prune"
 alias "gla=git pull --all"
+alias "glr=git pull --rebase"
 # Remove every local branch except master
 # git delete expect master branch
 alias "gdema=git branch | grep -v 'master' | xargs git branch -D"
 # Remove all merged branches
 # git delete merged
 alias "gdme=git branch --merged | grep -v \* | xargs git branch -D"
+
+gclw() {
+  if [ -z $1 ]
+  then
+    echo "No repository entered"
+  else
+   project=`echo $1 | sed -e 's/git@github.com:toptal\///' -e 's/\.git$//'`
+    git clone $1
+    cd $project
+    git config user.email "george.aidonidis@toptal.com"
+  fi
+};
 
 #######
 # Yarn #
