@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import os
 from i3ipc import Connection, Event
 from subprocess import call
 from helpers import getActiveLanguage
@@ -9,7 +10,8 @@ import subprocess
 windows = {}
 default = "0"
 
-KEYBOARD = "1:1:AT_Translated_Set_2_keyboard"
+print("Current keyboard:", os.environ.get('KEYBOARD', '1:1:AT_Translated_Set_2_keyboard'))
+KEYBOARD = os.environ.get('KEYBOARD', '1:1:AT_Translated_Set_2_keyboard')
 
 i3 = Connection()
 
