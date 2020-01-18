@@ -16,7 +16,7 @@ function confirm {
 	echo
 }
 
-aurPackages=("autotiling redshift-wlr-gamma-control-git network-manager-applet-indicator direnv enpass-bin google-chrome light-git nerd-fonts-source-code-pro spaceship-prompt-git ttf-lato ttf-weather-icons xkb-switch-i3 xkblayout-state-git xidlehook")
+aurPackages=("autotiling redshift-wlr-gamma-control-git network-manager-applet-indicator direnv enpass-bin light-git nerd-fonts-source-code-pro spaceship-prompt-git ttf-lato ttf-weather-icons xkb-switch-i3 xkblayout-state-git xidlehook")
 applications=("flameshot docker docker-compose parcellite")
 stowed=("applications config-dotfiles homeconfig terminals wm")
 
@@ -33,7 +33,7 @@ function createFolders {
 	mkdir -p $HOME/Pictures/screenshots;
 }
 
-basicPackages=("adobe-source-code-pro-fonts arandr arc-gtk-theme alsa-lib alsa-utils alsa-plugins awesome-terminal-fonts picom cronie dialog diff-so-fancy dunst feh fwupd gnome-themes-extra gpicview gsimplecal grim wl-clipboard htop i3-gaps i3status jq lsd lxappearance npm maim mplayer nautilus neofetch neovim noto-fonts-emoji pacman-contrib papirus-icon-theme pigz polybar playerctl python-dbus python-pywal ranger redshift rofi slurp sxiv stow terminator the_silver_searcher ttf-droid ttf-ubuntu-font-family w3m xclip xcursor-breeze xorg-server xorg-xinit xsel yay z zsh")
+basicPackages=("adobe-source-code-pro-fonts arandr arc-gtk-theme alsa-lib alsa-utils alsa-plugins awesome-terminal-fonts picom cronie dialog diff-so-fancy dunst feh fwupd gnome-themes-extra gpicview gsimplecal grim wl-clipboard htop i3-gaps i3status jq lsd lxappearance npm maim mplayer nautilus neofetch neovim noto-fonts-emoji pacman-contrib papirus-icon-theme pigz playerctl python-dbus python-pywal ranger redshift rofi slurp sxiv stow terminator the_silver_searcher ttf-droid ttf-ubuntu-font-family w3m xclip xcursor-breeze xorg-server xorg-xinit xsel yay z zsh")
 
 function installZsh {
 	echo "source $HOME/dotfiles/zsh/.zshrc
