@@ -1,7 +1,8 @@
 " Change ale symbol of error
 let g:ale_sign_error = '😭'
 let g:ale_fixers = {
-      \  'javascript': ['prettier', 'eslint']
+      \  'javascript': ['prettier', 'eslint'],
+      \  'typescript': ['prettier', 'eslint']
       \}
 
 " Map ALEFix to a key shortcut

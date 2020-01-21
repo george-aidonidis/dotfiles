@@ -2,6 +2,7 @@ source "$HOME/dotfiles/zsh/.zshrc"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+eval "$(rbenv init -)"
 fpath=($fpath "$HOME/.zfunctions")
 
 export PATH=$PATH
