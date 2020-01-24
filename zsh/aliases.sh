@@ -6,6 +6,9 @@
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+GREEN="$(tput setaf 2)"
+BLUE="$(tput setaf 4)"
+NORMAL="$(tput sgr0)"
 
 ########
 # Arch #
@@ -70,7 +73,24 @@ alias nid="npm install --save-dev "
 ########
 # Arch #
 ########
-alias update="sudo pacman --noconfirm -Syu && yay -Syu --aur --noconfirm"
+update() {
+  upgrade_oh_my_zsh
+  printf '%s' "$BLUE"
+  printf '%s\n' ' _ __   __ _  ___ _ __ ___   __ _ _ __  '
+  printf '%s\n' '|  _ \ / _` |/ __|  _ ` _ \ / _` |  _ \ '
+  printf '%s\n' '| |_) | (_| | (__| | | | | | (_| | | | |'
+  printf '%s\n' '| .__/ \__,_|\___|_| |_| |_|\__,_|_| |_|'
+  printf '%s\n' '|_|                                     '
+  printf '%s' "$NORMAL"
+  sudo pacman --noconfirm -Syu
+  printf '%s' "$BLUE"
+  printf '%s\n' '  _   _  __ _ _   _'
+  printf '%s\n' ' | | | |/ _` | | | |'
+  printf '%s\n' ' | |_| | (_| | |_| |'
+  printf '%s\n' '  \__, |\__,_|\__, |'
+  printf '%s\n' '  |___/       |___/'
+  yay -Syu --aur --noconfirm
+}
 
 ########
 # Bios #
