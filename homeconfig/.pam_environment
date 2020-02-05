@@ -1,0 +1,4 @@
+EDITOR=/usr/bin/nvim
+FILEMANAGER=/usr/bin/nautilus
+MAINBROWSER=/usr/bin/firefox-developer-edition
+SECONDARYBROWSER=/usr/bin/google-chrome-stable
