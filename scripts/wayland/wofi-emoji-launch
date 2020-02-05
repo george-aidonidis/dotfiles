@@ -1,0 +1,12 @@
+#!/bin/sh
+
+opt=$(rofi-emoji | wofi --dmenu -p ' 😀')
+return_code=$?
+
+if [ $return_code -ne 1 ]
+then
+  smiley=$(echo $opt | cut -d' ' -f1)
+  wl-copy "$smiley"
+  ydotool key Ctrl+Insert
+  exit 0
+fi
