@@ -7,6 +7,6 @@ if [ $return_code -ne 1 ]
 then
   smiley=$(echo $opt | cut -d' ' -f1)
   wl-copy "$smiley"
-  ydotool key Ctrl+Insert
+  ydotool key Shift+Insert
   exit 0
 fi
