@@ -5,12 +5,10 @@ WALLPAPER=$1
 MODE=$2
 
 x11Set() {
-  cp "$WALLPAPER" ~/.config/wall.png
   feh --bg-fill ~/.config/wall.png
 }
 
 wlSet() {
-  cp "$WALLPAPER" ~/.config/wall.png
 	swaymsg output "*" background "$WALLPAPER" fill
 }
 
@@ -25,6 +23,8 @@ action() {
 
 case "$MODE" in
   fill)
+			cp "$WALLPAPER" ~/.config/wall.png
+			cp "$WALLPAPER" /usr/share/backgrounds/wall.png
 			action wlSet x11Set
 			notify-send -i "$WALLPAPER" "Wallpaper changed"
 		;;
