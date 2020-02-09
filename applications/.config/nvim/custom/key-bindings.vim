@@ -7,13 +7,16 @@ let g:mapleader = " "
 " Easily navigate up/down on text in the same line
 nnoremap j gj
 nnoremap k gk
+"###########################
+"      Buffers & Tabs      #
+"###########################
 " Show all buffers
 nnoremap <F5> :buffers<CR>:buffer<Space>
-" remap arrow keys
-nnoremap <Left> :bprevious<CR>
-nnoremap <Right> :bnext<CR>
 nnoremap <C-PAGEDOWN> :bnext<CR>
 nnoremap <C-PAGEUP> :bprevious<CR>
+" Close buffer without closing the window
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+
 " Navigate to active panes more easily
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -22,7 +25,7 @@ nnoremap <C-l> <C-w>l
 " Disable highlight until next search
 nnoremap <silent><leader>c :let @/ = ""<CR>
 nnoremap <leader>g :Ag<CR>
-" nnoremap <C-P> :Files<CR>
+nnoremap <C-P> :Files<CR>
 " Pass copied text to clipboard (works on normal and visual mode)
 "nnoremap Y "+Y
 "nnoremap y "+y
@@ -39,8 +42,6 @@ map ; :
 noremap ;; ;
 " bind K to grep word under cursor
 nnoremap <leader>a :Ag <C-R><C-W><CR>
-" Close buffer without closing the window
-map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 " Coding helpers "
 inoremap [<CR> [<CR>]<C-o>O
 inoremap {<CR> {<CR>}<C-o>O
@@ -59,5 +60,4 @@ tnoremap <Esc> <C-\><C-n>
 " Map save to Ctrl-S
 noremap <silent> <C-S> :update<CR>
 vnoremap <silent> <C-S> <C-C>:update<CR>
-inoremap <silent> <C-S> <C-O>:update<CR><Paste>
-
+inoremap <silent> <C-S> <C-O>:update<CR>
