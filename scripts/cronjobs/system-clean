@@ -7,6 +7,7 @@ rm -r $HOME/.local/applications/Trash/files/*
 notify-send "Cleaning completed" "Trash, Spotify, screenshots cleared 🧹" --icon=trashindicator
 
 sudo pacman -Sc
+yay -Yc
 yarn cache clean
 setopt kshglob
 cd $HOME/.cache/yay/ && rm -r -- !(*.cache|*.json) && cd -
