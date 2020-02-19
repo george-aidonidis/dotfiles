@@ -3,3 +3,5 @@
 .tern-config
 .git
 node_modules
+.projections.json
+.tmux

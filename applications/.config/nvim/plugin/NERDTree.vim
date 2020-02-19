@@ -15,7 +15,7 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 " Open path of active file
 map <leader>n :NERDTreeFind<cr>
 " Toggle nerd tree
-map <C-K><C-B> :NERDTreeToggle<cr>
+map <leader>b :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 
 let NERDTreeIgnore = ['\.tern-config$', '\.tern-port$', '\.netrwhist$']
