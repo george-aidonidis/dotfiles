@@ -15,7 +15,6 @@ if [[ $TERM == xterm-termite ]]; then
   __vte_osc7
 fi
 
-
 # Setting ag as the default source for fzf
 # fzf (w/o pipe) will use ag instead of find
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git,node_modules,dist,build,vendor -g ""'
