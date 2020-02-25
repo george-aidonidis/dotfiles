@@ -2,7 +2,7 @@ let g:lightline = {
 			\ 'colorscheme': 'one',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'gitbranch', 'modified' ] ]
+      \             [ 'cocstatus', 'readonly', 'relativepath', 'gitbranch', 'modified' ] ]
       \ },
 			\ 'tabline': {
 			\   'left': [ [ 'buffers' ],

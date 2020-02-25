@@ -10,10 +10,10 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 autocmd FileChangedShellPost *
       \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." |
 echohl None
-command TrimWhiteSpace call TrimWhiteSpace()
+command! TrimWhiteSpace call TrimWhiteSpace()
 " Quit from current buffer and move to previous one (does not close
 " active window
-command Bd bp\|bd \#
+command! Bd bp\|bd \#
 if has("autocmd")
   filetype plugin indent on
 
