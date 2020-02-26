@@ -21,3 +21,5 @@ set splitbelow splitright
 " Disable automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
+set undofile                 "turn on the feature
+set undodir=~/.cache/undo  "directory where the undo files will be stored

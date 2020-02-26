@@ -7,6 +7,8 @@ let g:mapleader = " "
 " Easily navigate up/down on text in the same line
 nnoremap j gj
 nnoremap k gk
+nnoremap k gk
+nmap <leader>r :so ~/.config/nvim/init.vim<CR>
 "###########################
 "      Buffers & Tabs      #
 "###########################
@@ -17,16 +19,24 @@ nnoremap <C-PAGEUP> :bprevious<CR>
 " Close buffer without closing the window
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
+nnoremap <A-h> :vertical resize +5<CR>
+nnoremap <A-j> :resize +5<CR>
+nnoremap <A-k> :resize -5<CR>
+nnoremap <A-l> :vertical resize -5<CR>
+
 " Navigate to active panes more easily
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " Disable highlight until next search
-nnoremap <silent><leader>c :let @/ = ""<CR>
+nnoremap <esc> :noh<CR><CR>
+nnoremap <leader>9 :FzfPreviewGitStatus<CR>
 nnoremap <leader>p :FzfPreviewBuffers<CR>
-nnoremap <leader>g :FzfPreviewProjectGrep<CR>
-nnoremap <C-P> :FzfPreviewProjectFiles<CR>
+nnoremap <C-p> :FzfPreviewProjectFiles<CR>
+nnoremap <leader>g :Ag<CR>
+" nnoremap <leader>g :Ag<CR>
+" fzf --preview 'bat --style=numbers --color=always {} | head -500'
 " Pass copied text to clipboard (works on normal and visual mode)
 "nnoremap Y "+Y
 "nnoremap y "+y

@@ -16,7 +16,7 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
-Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mgee/lightline-bufferline'
 Plug 'christoomey/vim-sort-motion'
 Plug 'rakr/vim-one'
@@ -29,6 +29,8 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
 
 Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'ryanoasis/vim-devicons'
@@ -50,5 +52,4 @@ so ~/dotfiles/applications/.config/nvim/custom/commands.vim
 so ~/dotfiles/applications/.config/nvim/custom/user-interface.vim
 
 let g:neosnippet#enable_completed_snippet = 1
-
 autocmd BufWritePost ~/dotfiles/homeconfig/.bm* !shortcuts
