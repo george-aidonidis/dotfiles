@@ -34,9 +34,9 @@ nnoremap <esc> :noh<CR><CR>
 nnoremap <leader>9 :FzfPreviewGitStatus<CR>
 nnoremap <leader>p :FzfPreviewBuffers<CR>
 nnoremap <C-p> :FzfPreviewProjectFiles<CR>
-nnoremap <leader>g :Ag<CR>
-" nnoremap <leader>g :Ag<CR>
-" fzf --preview 'bat --style=numbers --color=always {} | head -500'
+" Find generic -> fg
+nnoremap <leader>fg :Ag<CR>
+
 " Pass copied text to clipboard (works on normal and visual mode)
 "nnoremap Y "+Y
 "nnoremap y "+y
@@ -51,8 +51,8 @@ nmap <silent> <DOWN> :cnext<CR>
 nmap <silent> <UP> :cprev<CR>
 map ; :
 noremap ;; ;
-" bind K to grep word under cursor
-nnoremap <leader>a :Ag <C-R><C-W><CR>
+" find word (fw) under cursor
+nnoremap <silent> <leader>fw :Ag <C-R>=expand("<cword>")<CR><CR>
 " Coding helpers "
 inoremap [<CR> [<CR>]<C-o>O
 inoremap {<CR> {<CR>}<C-o>O
