@@ -1,19 +1,31 @@
 let g:projectionist_heuristics = {
-      \  "*.ts": {
-      \    "alternate": "{dirname}/test.ts",
-      \    "type": "source"
-      \  },
-      \  "*/test.ts": {
-      \    "alternate": "{}/index.ts",
-      \    "type": "test"
-      \  },
-      \  "*.tsx": {
-      \    "alternate": "{dirname}/test.tsx",
-      \    "type": "source"
-      \  },
-      \  "*/test.tsx": {
-      \    "alternate": "{}/{basename}.tsx",
-      \    "type": "test"
+      \ '*': {
       \  }
       \}
 
+" Helper function for batch-updating the g:projectionist_heuristics variable.
+function! s:project(...)
+  for [l:pattern, l:projection] in a:000
+    let g:projectionist_heuristics['*'][l:pattern] = l:projection
+  endfor
+endfunction
+
+for s:extension in ['.js', '.jsx', '.ts', '.tsx']
+  call s:project(
+        \ ['*' . s:extension, {
+        \   'alternate': [
+        \     '{dirname}/test' . s:extension,
+        \     '{dirname}/{basename}.spec' . s:extension,
+        \     '{dirname}/{basename}.test' . s:extension
+        \   ],
+        \   'type': 'source'
+        \ }],
+        \ ['*/test' . s:extension, {
+        \   'alternate': [
+        \     '{}/index' . s:extension,
+        \     '{}/{basename}' . s:extension
+        \   ],
+        \   'type': 'test',
+        \ }]
+        \ )
+endfor
