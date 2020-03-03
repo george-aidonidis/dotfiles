@@ -12,3 +12,4 @@ set ignorecase
 set showmatch
 let g:ackprg = 'ag --vimgrep'
 
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
