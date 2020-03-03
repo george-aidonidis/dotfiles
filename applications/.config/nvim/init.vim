@@ -22,6 +22,7 @@ Plug 'prettier/vim-prettier', {
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mgee/lightline-bufferline'
 Plug 'christoomey/vim-sort-motion'
+" one dark theme
 Plug 'rakr/vim-one'
 Plug 'itchyny/lightline.vim'
 Plug 'christoomey/vim-system-copy'
@@ -29,6 +30,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -37,7 +39,8 @@ Plug 'mileszs/ack.vim'
 
 Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'bogado/file-line'
+" search in a new buffer
+Plug 'dyng/ctrlsf.vim'
 call plug#end()
 
 """""""""""""""""""""""
