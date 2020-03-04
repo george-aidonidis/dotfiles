@@ -1,9 +1,18 @@
 {
-	"tsserver.formatOnType": false,
-	"coc.preferences.formatOnSaveFiletypes": ["false"],
-	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
-	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
-	"javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
+  "tsserver.formatOnType": false,
+  "coc.preferences.formatOnSaveFiletypes": ["false"],
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
   "tsserver.enable": true,
-	"diagnostic.enableSign": false
+  "typescript.suggest.autoImports": false,
+  "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+  "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+  "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "diagnostic.enableSign": false
 }
