@@ -10,5 +10,4 @@ set scrolloff=3
 " The number of screen columns to keep to the left and right of the cursor.
 set sidescrolloff=5
 " Enable syntax highlighting.
-syntax enable
 set list listchars=tab:»·,trail:·  " Display extra whitespace characters
