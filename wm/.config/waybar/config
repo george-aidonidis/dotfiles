@@ -1,20 +1,20 @@
 [{
   "layer": "top",
-	"output":["eDP-1", "DP-3", "DP-4", "DP-5", "DP-6"],
+  "output":["eDP-1", "DP-3", "DP-4", "DP-5", "DP-6"],
   "height": 17,
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["custom/spotify", "custom/weather-icon", "custom/weather-text"],
   "modules-right": [
-		"custom/packages",
+    "custom/packages",
     "disk",
     "backlight",
     "pulseaudio",
     "cpu",
-		"temperature",
+    "temperature",
     "memory",
     "battery",
-		"clock",
-		"custom/keyboard",
+    "clock",
+    "custom/keyboard",
     "tray"
   ],
   "sway/workspaces": {
@@ -51,12 +51,14 @@
     "interval": 3,
     "spacing": 10
   },
-	"temperature": {
-		"thermal-zone": 1,
-		"critical-threshold": 68,
-		"format-critical": " {temperatureC}°C",
-		"format": " {temperatureC}°C"
-	},
+  "temperature": {
+    "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input",
+    "interval": 1,
+    "thermal-zone": 1,
+    "critical-threshold": 68,
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C"
+  },
   "clock": {
     "tooltip-format": "{:%Y-%m-%d | %H:%M}",
     "format-alt": "{:%Y-%m-%d}",
@@ -88,23 +90,23 @@
     "bat": "BAT2"
   },
   "network": {
-		"interface": "wlp58s0",
-		"format": "{ifname}",
-		"format-wifi": "",
-		"format-ethernet": "{ifname} ",
-		"format-disconnected": "",
-		"tooltip-format": "{ifname}",
-		"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-		"tooltip-format-ethernet": "{ifname} ",
-		"tooltip-format-disconnected": "Disconnected",
-		"max-length": 50
+    "interface": "wlp58s0",
+    "format": "{ifname}",
+    "format-wifi": "",
+    "format-ethernet": "{ifname} ",
+    "format-disconnected": "",
+    "tooltip-format": "{ifname}",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
   },
   "pulseaudio": {
     "scroll-step": 2,
     "format": "<span font_desc='DejaVuSansMono'>{format_source:3} </span> {icon} <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
     "format-bluetooth": "<span font_desc='DejaVuSansMono'>{format_source:3} </span> <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
-		"format-source": " <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
-		"format-source-muted": "  ",
+    "format-source": " <span font_desc='DejaVuSansMono'>{volume:3}%</span>",
+    "format-source-muted": "  ",
     "format-muted": "{format_source} ",
     "format-icons": {
       "headphones": "",
@@ -125,26 +127,26 @@
   "custom/spotify": {
     "format": " {}",
     "max-length": 40,
-		"exec-if": "pgrep -x spotify",
+    "exec-if": "pgrep -x spotify",
     "exec": "$HOME/dotfiles/scripts/polybar/player-mpris-tail -f '{artist} - {title}'",
     "on-click": "playerctl play-pause"
   },
   "custom/packages": {
     "format": "📦 {}",
-		"interval": 1800,
+    "interval": 1800,
     "max-length": 40,
     "exec": "sleep 5; $HOME/dotfiles/scripts/polybar/archupdates"
   },
-	"custom/weather-text": {
+  "custom/weather-text": {
     "interval": 600,
     "exec": "$HOME/dotfiles/scripts/polybar/openweathermap-simple-text"
   },
-	"custom/weather-icon": {
+  "custom/weather-icon": {
     "interval": 600,
     "exec": "$HOME/dotfiles/scripts/polybar/openweathermap-simple-icon"
   },
-	"custom/keyboard": {
-		"format": " {}",
+  "custom/keyboard": {
+    "format": " {}",
     "exec": "wl-monitor-input-layout"
   }
 }]
