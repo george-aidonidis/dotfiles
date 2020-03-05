@@ -39,7 +39,7 @@ nmap <leader>fw <Plug>CtrlSFCwordPath<CR>
 " Match word (fW) under cursor
 nmap <leader>fW <Plug>CtrlSFCwordPath -W<CR>
 " Find generic -> fg
-nmap <leader>fg <Plug>CtrlSFPrompt
+nmap <leader>fg <Plug>CtrlSFPrompt -hidden<space>
 
 " Pass copied text to clipboard (works on normal and visual mode)
 "nnoremap Y "+Y

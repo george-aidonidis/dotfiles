@@ -22,8 +22,8 @@ for s:extension in ['.js', '.jsx', '.ts', '.tsx']
         \ }],
         \ ['*/test' . s:extension, {
         \   'alternate': [
-        \     '{}/index' . s:extension,
-        \     '{}/{basename}' . s:extension
+        \     '{}/{basename}' . s:extension,
+        \     '{}/index' . s:extension
         \   ],
         \   'type': 'test',
         \ }]
