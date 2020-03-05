@@ -7,5 +7,5 @@ cfz	~/dotfiles/zsh/.zshrc
 cfn	~/dotfiles/applications/.config/nvim/init.vim
 cfi	~/dotfiles/wm/.config/i3/config
 cfr	~/dotfiles/applications/.config/ranger/rc.conf
-cft	~/dotfiles/terminals/.config/kitty/kitty.conf
+cfk	~/dotfiles/terminals/.config/kitty/kitty.conf
 cfp	~/dotfiles/wm/.config/polybar/config
