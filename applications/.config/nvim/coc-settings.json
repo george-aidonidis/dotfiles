@@ -14,5 +14,7 @@
   "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
   "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
   "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-  "diagnostic.enableSign": false
+  "diagnostic.enableSign": false,
+  "yank.highlight.duration": 250,
+  "yank.list.maxsize": 30
 }

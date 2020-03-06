@@ -17,5 +17,6 @@ map <leader>n :NERDTreeFind<cr>
 " Toggle nerd tree
 map <leader>b :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
+let NERDTreeAutoDeleteBuffer=1
 
 let NERDTreeIgnore = ['\.tern-config$', '\.tern-port$', '\.netrwhist$']
