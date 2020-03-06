@@ -17,7 +17,8 @@ nnoremap <F5> :buffers<CR>:buffer<Space>
 nnoremap <C-PAGEDOWN> :bnext<CR>
 nnoremap <C-PAGEUP> :bprevious<CR>
 " Close buffer without closing the window
-map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+" map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+map <leader>q :BD<CR>
 
 nnoremap <A-h> :vertical resize +5<CR>
 nnoremap <A-j> :resize +5<CR>
@@ -33,7 +34,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <esc> :noh<CR><CR>
 nnoremap <leader>9 :FzfPreviewGitStatus<CR>
 nnoremap <leader>p :FzfPreviewBuffers<CR>
-nnoremap <C-p> :FzfPreviewProjectFiles<CR>
+nnoremap <C-p> :History<CR>
 " Find word (fw) under cursor
 nmap <leader>fw <Plug>CtrlSFCwordPath<CR>
 " Match word (fW) under cursor

@@ -37,6 +37,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 
+Plug 'qpkorr/vim-bufkill'
 Plug 'janko/vim-test'
 Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'ryanoasis/vim-devicons'
