@@ -36,6 +36,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'qpkorr/vim-bufkill'
 Plug 'janko/vim-test'
