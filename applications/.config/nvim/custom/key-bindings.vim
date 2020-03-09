@@ -34,7 +34,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <esc> :noh<CR><CR>
 nnoremap <leader>9 :FzfPreviewGitStatus<CR>
 nnoremap <leader>p :FzfPreviewBuffers<CR>
-nnoremap <C-p> :History<CR>
+nnoremap <C-p> :Files<CR>
 " Find word (fw) under cursor
 nmap <leader>fw <Plug>CtrlSFCwordPath<CR>
 " Match word (fW) under cursor

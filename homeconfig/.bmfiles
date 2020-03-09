@@ -1,6 +1,7 @@
 # nvim: filetype=sh
 cff	~/dotfiles/homeconfig/.bmfiles
 cfd	~/dotfiles/homeconfig/.bmdirs
+cft	~/dotfiles/homeconfig/.tmux.conf
 cfs	~/dotfiles/wm/.config/sway/config
 cfc	~/dotfiles/config-dotfiles/.config/picom.conf
 cfz	~/dotfiles/zsh/.zshrc
