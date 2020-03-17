@@ -1,7 +1,7 @@
 " Install Vim Plug if not installed
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
 
@@ -16,8 +16,8 @@ Plug 'tpope/vim-sensible'
 
 Plug 'jiangmiao/auto-pairs'
 Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+      \ 'do': 'yarn install',
+      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mgee/lightline-bufferline'
@@ -62,3 +62,6 @@ so ~/dotfiles/applications/.config/nvim/custom/user-interface.vim
 
 let g:neosnippet#enable_completed_snippet = 1
 autocmd BufWritePost ~/dotfiles/homeconfig/.bm* !shortcuts
+
+map ; :
+noremap ;; ;

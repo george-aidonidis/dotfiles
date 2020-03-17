@@ -57,8 +57,8 @@ nmap <silent> <UP> :cprev<CR>
 map ; :
 noremap ;; ;
 " Coding helpers "
-inoremap [<CR> [<CR>]<C-o>O
-inoremap {<CR> {<CR>}<C-o>O
+" inoremap [<CR> [<CR>]<C-o>O
+" inoremap {<CR> {<CR>}<C-o>O
 " Javascript
 inoremap <leader>clr console.dir();<esc>F(a
 inoremap <leader>clg console.log();<esc>F(a
