@@ -1,4 +1,5 @@
 #!/bin/sh
+MINUTE=1000
 
 getIcon() {
 	volume="$1"
@@ -20,7 +21,7 @@ alert() {
 
 	icon=$(getIcon "$volume")
 
-	notify-send.sh "$volume" --icon="$icon" --replace-file=/tmp/volumenotification "$bar"
+	notify-send.sh "$volume" --icon="$icon" --replace-file=/tmp/volumenotification "$bar" -t "$MINUTE"
 }
 
 toggle() {
@@ -32,7 +33,7 @@ toggle() {
 			icon="/usr/share/icons/Papirus/48x48/status/notification-microphone-sensitivity-high.svg"
 		fi
 
-	notify-send.sh --icon="$icon" " " --replace-file=/tmp/volumenotification
+	notify-send.sh --icon="$icon" " " --replace-file=/tmp/volumenotification -t "$MINUTE"
 }
 
 case "$1" in

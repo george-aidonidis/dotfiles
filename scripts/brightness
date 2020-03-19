@@ -1,4 +1,5 @@
 #!/bin/sh
+MINUTE=1000
 
 getIcon() {
 	brightness="$1"
@@ -22,7 +23,7 @@ alert() {
 
 	icon=$(getIcon "$brightness")
 
-	notify-send.sh -a "changeBrightness" "$brightness" --icon="$icon" --replace-file=/tmp/brightnessnotification "$bar"
+	notify-send.sh -a "changeBrightness" "$brightness" --icon="$icon" --replace-file=/tmp/brightnessnotification "$bar" -t "$MINUTE"
 }
 
 case "$1" in
