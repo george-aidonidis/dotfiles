@@ -27,17 +27,17 @@ wlRegion() {
 x11ActiveScreen() {
 	SCREEN=$(get-active-monitor)
 
-	maim -g "$SCREEN" "$FILENAME"
+	maim -g "$SCREEN" "$FILENAME" --noopengl
 	xclip -selection clipboard -t image/png -i "$FILENAME"
 }
 
 x11ActiveWindow() {
-	maim -i "$(xdotool getactivewindow)" "$FILENAME"
+	maim -i "$(xdotool getactivewindow)" "$FILENAME" --noopengl
 	xclip -selection clipboard -t image/png -i "$FILENAME"
 }
 
 x11Region() {
-	maim -s "$FILENAME"
+	maim -s "$FILENAME" --noopengl
 	xclip -selection clipboard -t image/png -i "$FILENAME"
 }
 
