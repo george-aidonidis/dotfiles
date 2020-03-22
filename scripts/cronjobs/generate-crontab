@@ -1,14 +1,13 @@
 #!/bin/sh
 set -e
 
-file=$HOME/dotfiles/scripts/cronjobs/.my-crontab
+file=/home/george/dotfiles/scripts/cronjobs/.my-crontab
 : > "$file"
-i3sock=$(i3 --get-socketpath)
 
 echo SHELL=$SHELL >> "$file"
 echo XDG_SESSION_PATH=$XDG_SESSION_PATH >> "$file"
 echo SECONDARYBROWSER=$SECONDARYBROWSER >> "$file"
-echo I3SOCK="$i3sock" >> "$file"
+i3sock=$(i3 --get-socketpath) && echo I3SOCK="$i3sock" >> "$file"
 echo FREETYPE_PROPERTIES=$FREETYPE_PROPERTIES >> "$file"
 echo SSH_AUTH_SOCK=$SSH_AUTH_SOCK >> "$file"
 echo DESKTOP_SESSION=$DESKTOP_SESSION >> "$file"
