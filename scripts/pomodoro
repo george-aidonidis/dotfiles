@@ -1,0 +1,54 @@
+#!/bin/bash
+
+WORK=25
+PAUSE=5
+MINUTE=60
+TOMATO="🍅"
+BREAK="🏖️"
+
+timefy() {
+ minutes=$(((${1}%3600)/60))
+ seconds=$((${1}%60))
+ printf "%02d:%02d" "$minutes" "$seconds"
+}
+
+show_help() {
+	cat <<-END
+		usage: pomodoro [-w {minutes}] [-b {minutes}] [-h]
+		    -w {minutes}: let work periods last m {minutes} (default is 25)
+		    -b {minutes}: let break periods last m {minutes} (default is 5)
+		    -h: print this message
+	END
+}
+
+while getopts :w:b:h opt; do
+	case "$opt" in
+	w)
+		WORK=$OPTARG
+	;;
+	b)
+		PAUSE=$OPTARG
+	;;
+	h|\?)
+		show_help
+		exit 1
+	;;
+	esac
+done
+
+while true
+do
+  play -q "$HOME/dotfiles/.static/alert-work.mp3"
+	for ((i=WORK*MINUTE; i>0; i--))
+	do
+		printf "%s%s\r" "$TOMATO" "$(timefy "$i")"
+		sleep 1
+	done
+
+  play -q "$HOME/dotfiles/.static/alert-short-break.mp3"
+	for ((i=PAUSE*MINUTE; i>0; i--))
+	do
+		printf "%s%s\r" "$BREAK" "$(timefy "$i")"
+		sleep 1
+	done
+done
