@@ -6,7 +6,7 @@ let g:ale_fixers = {
       \}
 
 " Map ALEFix to a key shortcut
-nmap <F8> <Plug>(ale_fix)
+" nmap <F8> <Plug>(ale_fix)
 
 let g:ale_fix_on_save = 1
 

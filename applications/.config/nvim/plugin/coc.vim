@@ -51,6 +51,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+command! -nargs=0 Lint :call CocAction('runCommand', 'eslint.executeAutofix')
+nmap <F8> :Lint<CR>
+
 " Mappings using CoCList:
 " Show all diagnostics.
 nnoremap <silent> <leader>ca  :<C-u>CocList diagnostics<cr>

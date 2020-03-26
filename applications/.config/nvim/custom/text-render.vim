@@ -6,7 +6,7 @@ set linebreak
 " Enable line wrapping.
 set wrap
 " The number of screen lines to keep above and below the cursor.
-set scrolloff=3
+" set scrolloff=3
 " The number of screen columns to keep to the left and right of the cursor.
 set sidescrolloff=5
 " Enable syntax highlighting.
