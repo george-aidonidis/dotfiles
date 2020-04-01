@@ -6,7 +6,6 @@ let g:lightline = {
       \ },
 			\ 'tabline': {
 			\   'left': [ [ 'buffers' ],
-			\             [ 'separator' ],
 			\             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
 			\   'right': [ [ 'close' ], ],
 			\ },
@@ -30,10 +29,7 @@ let g:lightline = {
       \   'bufferbefore': 'lightline#buffer#bufferbefore',
       \   'bufferafter': 'lightline#buffer#bufferafter',
       \   'bufferinfo': 'lightline#buffer#bufferinfo',
-      \ },
-			\ 'component': {
-			\   'separator': '',
-			\ },
+      \ }
       \ }
 
 function! CustomModified()
@@ -78,7 +74,3 @@ let g:lightline#bufferline#unnamed = '[No Name]'
 "let g:lightline#bufferline#minflen = 16
 "let g:lightline#bufferline#minfextlen = 3
 "let g:lightline#bufferline#reservelen = 20
-
-set hidden  " allow buffer switching without saving
-set showtabline=2  " always show tabline
-set noshowmode

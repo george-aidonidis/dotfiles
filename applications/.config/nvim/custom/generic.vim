@@ -15,11 +15,10 @@ set wildmenu
 set wildignore+=**/node_modules/**
 set backspace=2   " Backspace deletes like most programs in insert mode
 
-" Splits open at the bottom and right, unlike vim-defaults
-set splitbelow splitright
-
 " Disable automatic commenting on newline
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 set undofile                 "turn on the feature
 set undodir=~/.cache/undo  "directory where the undo files will be stored
+
+set hidden  " allow buffer switching without saving
