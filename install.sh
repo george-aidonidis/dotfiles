@@ -33,7 +33,7 @@ function createFolders {
 	mkdir -p $HOME/Pictures/screenshots;
 }
 
-basicPackages=("adobe-source-code-pro-fonts arandr arc-gtk-theme alsa-lib alsa-utils alsa-plugins awesome-terminal-fonts bat picom ccat cronie dialog diff-so-fancy dunst exa feh fwupd gnome-themes-extra gpicview gsimplecal grim wl-clipboard htop i3-gaps i3status jq lsd lxappearance npm maim mplayer nautilus neofetch neovim noto-fonts-emoji pacman-contrib pamixer papirus-icon-theme pigz playerctl python-dbus python-pywal ranger redshift rofi slurp sxiv stow terminator the_silver_searcher tldr ttf-droid ttf-ubuntu-font-family w3m xclip xcursor-breeze xorg-server xorg-xinit xsel yay z zsh")
+basicPackages=("adobe-source-code-pro-fonts arandr arc-gtk-theme alsa-lib alsa-utils alsa-plugins awesome-terminal-fonts bat picom ccat cronie eog dialog diff-so-fancy dunst exa feh fwupd gnome-themes-extra gpicview gsimplecal grim wl-clipboard htop i3-gaps i3status jq lsd lxappearance npm maim mplayer nautilus neofetch neovim noto-fonts-emoji pacman-contrib pamixer papirus-icon-theme pigz playerctl python-dbus python-pywal ranger redshift rofi slurp sxiv stow terminator the_silver_searcher tldr ttf-droid ttf-ubuntu-font-family w3m xclip xcursor-breeze xorg-server xorg-xinit xsel yay z zsh")
 
 function installZsh {
 	echo "source $HOME/dotfiles/zsh/.zshrc
