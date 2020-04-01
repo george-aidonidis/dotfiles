@@ -13,9 +13,9 @@ let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 " Open path of active file and navigate to right buffer
 " map <leader><leader> :NERDTreeFind<cr><C-w>l
 " Open path of active file
-map <leader>n :NERDTreeFind<cr>
+map <leader>nn :NERDTreeFind<cr>
 " Toggle nerd tree
-map <leader>b :NERDTreeToggle<cr>
+map <leader>nb :NERDTreeToggle<cr>
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer=1
 
