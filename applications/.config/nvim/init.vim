@@ -15,9 +15,7 @@ Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-sensible'
 
 Plug 'jiangmiao/auto-pairs'
-Plug 'prettier/vim-prettier', {
-      \ 'do': 'yarn install',
-      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mgee/lightline-bufferline'
@@ -37,6 +35,9 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 Plug 'qpkorr/vim-bufkill'
 Plug 'janko/vim-test'
