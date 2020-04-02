@@ -1,0 +1,419 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'D
+	/home/george/Downloads/
+	..
+1585808591
+'H
+	/home/george/
+	..
+1585636302
+'S
+	/home/george/Pictures/screenshots/
+	..
+1585810840
+'W
+	/home/george/Dropbox/Pictures/Wallpapers/
+	..
+1585808591
+'b
+	/home/george/bin/
+	..
+1585808256
+'d
+	/home/george/Dropbox/
+	..
+1585808591
+'h
+	/home/george/
+	..
+1585636302
+'k
+	/home/george/dotfiles/zsh/plugins/zsh-autosuggestions
+	..
+1585807963
+'p
+	/home/george/dotfiles/homeconfig
+	.fehbg
+1585807981
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/george/dotfiles
+	homeconfig
+6
+d/home/george/dotfiles/zsh/plugins/zsh-autosuggestions
+	..
+0
+d/home/george/dotfiles/zsh/plugins
+	zsh-autosuggestions
+1
+d/home/george/dotfiles/zsh
+	plugins
+1
+d/home/george/dotfiles
+	install.sh
+16
+d/home/george
+	.config
+9
+d/home/george/.config
+	vifm
+65
+d/home/george/.config/vifm
+	vifmrc
+5
+d/home/george/dotfiles
+	.gitignore
+13
+d/home/george
+	.config
+9
+d/home/george/.config
+	vifm
+65
+d/home/george/.config/vifm
+	vifmrc
+5
+d/home/george/dotfiles
+	scripts
+7
+d/home/george
+	Dropbox
+40
+d/home/george/Dropbox
+	Pictures
+8
+d/home/george/Dropbox/Pictures
+	Wallpapers
+1
+d/home/george/Dropbox/Pictures/Wallpapers
+	vector-tie.jpg
+17
+d/home/george/Dropbox/Pictures
+	Wallpapers
+1
+d/home/george/Dropbox
+	Pictures
+8
+d/home/george
+	.config
+9
+d/home/george/.config
+	vifm
+65
+d/home/george/.config/vifm
+	vifmrc
+5
+d/home/george/dotfiles
+	scripts
+7
+d/home/george
+	dotfiles
+45
+d/home
+	george
+1
+d/home/george
+	.config
+9
+d/home/george/.config
+	vifm
+45
+d/home/george/.config/vifm
+	colors
+1
+d/home/george/.config/vifm/colors
+	..
+0
+d/home/george/.config/vifm
+	vifmrc
+5
+d/home/george/.config
+	vifm
+45
+d/home/george/.config/vifm
+	vifmrc
+5
+d/home/george/Dropbox
+	Pictures
+8
+d/home/george/Dropbox/Pictures
+	Wallpapers
+1
+d/home/george/Dropbox/Pictures/Wallpapers
+	vector-tie.jpg
+17
+d/home/george/.config/vifm/scripts
+	vifmimg
+2
+d/home/george/Pictures/screenshots
+	..
+0
+d/home/george/Pictures
+	Wallpapers
+1
+d/home/george/Pictures/Wallpapers
+	..
+0
+d/home/george/Pictures
+	Wallpapers
+1
+d/home/george
+	Dropbox
+12
+d/home/george/Dropbox
+	Pictures
+8
+d/home/george/Dropbox/Pictures
+	Wallpapers
+1
+d/home/george/Dropbox/Pictures/Wallpapers
+	.git
+2
+d/home/george/Dropbox/Pictures
+	Wallpapers
+1
+d/home/george/Dropbox
+	..
+0
+d/home/george
+	..
+0
+d/home
+	george
+1
+d/home/george
+	.config
+9
+d/home/george/.config
+	vifm
+15
+d/home/george/.config/vifm
+	colors
+1
+d/home/george/.config/vifm/colors
+	Default.vifm
+1
+d/home/george/.config/vifm
+	scripts
+2
+d/home/george/.config
+	sway
+6
+d/home/george
+	.config
+9
+d/home
+	george
+1
+d/home/george
+	.config
+9
+d/home/george/.dropbox-dist
+	dropbox-lnx.x86_64-94.4.384
+1
+d/home/george/Work/billing-frontend
+	src
+14
+d/home/george/Work/billing-frontend/src
+	components
+3
+d/home/george/Work/billing-frontend/src/components
+	AddMemoModalForm
+2
+d/home/george/Work/billing-frontend/src/components/AddMemoModalForm
+	AddMemoModalForm.tsx
+3
+d/home/george/Work/billing-frontend/cypress/integration/InvoiceDetails/Memo
+	..
+0
+d/home/george/Work/billing-frontend/cypress/integration/InvoiceDetails
+	Payments
+4
+d/home/george/Work/billing-frontend/cypress/integration/InvoiceDetails/Payments
+	..
+0
+d/home/george/Work/billing-frontend/cypress/integration/InvoiceDetails
+	RecordBadDebtModal
+5
+d/home/george/Work/billing-frontend/cypress/integration/InvoiceDetails/RecordBadDebtModal
+	..
+0
+d/home/george/Work/billing-frontend/cypress/integration/InvoiceDetails
+	Notes
+3
+d/home/george/Work/billing-frontend/cypress/integration/InvoiceDetails/Notes
+	spec.ts
+1
+d/home/george/Work/billing-frontend/cypress/integration/InvoiceDetails
+	Notes
+3
+d/home/george/Work/billing-frontend/cypress/integration
+	InvoiceDetails
+2
+d/home/george/Work/billing-frontend/cypress
+	integration
+1
+d/home/george/Work/billing-frontend
+	cypress
+14
+d/home/george/Work/billing-frontend/cypress
+	integration
+1
+d/home/george/Work/billing-frontend/cypress/integration
+	StaffJobAndEngagementPage
+3
+d/home/george/Work/billing-frontend/cypress/integration/StaffJobAndEngagementPage
+	BillingCycleTable
+1
+d/home/george/Work/billing-frontend/cypress/integration/StaffJobAndEngagementPage/BillingCycleTable
+	..
+0
+d/home/george/Work/billing-frontend/cypress/integration/StaffJobAndEngagementPage
+	Timesheet
+6
+d/home/george/Work/billing-frontend/cypress/integration/StaffJobAndEngagementPage/Timesheet
+	..
+0
+d/home/george/Work/billing-frontend/cypress/integration/StaffJobAndEngagementPage
+	Timesheet
+6
+d/home/george/Work/billing-frontend/cypress/integration/StaffJobAndEngagementPage/Timesheet
+	spec.ts
+1
+d/home/george/Pictures/screenshots
+	screenshot-2020-01-22-12-20-55.png
+6
+d/home/george/Work/billing-frontend/cypress/integration/StaffOverview
+	spec.ts
+1
+d/home/george/Work/billing-frontend/cypress/integration
+	StaffOverview
+4
+d/home/george/Work/billing-frontend/cypress
+	integration
+1
+d/home/george/Work/billing-frontend
+	src
+17
+d/home/george/Work/billing-frontend/src
+	components
+3
+d/home/george/Work/billing-frontend/src/components
+	AddMemoModal
+1
+d/home/george/Work/billing-frontend/src/components/AddMemoModal
+	AddMemoModal.tsx
+3
+d/home/george/Work/billing-frontend/src/components
+	..
+0
+d/home/george/Work/billing-frontend/src
+	components
+3
+d/home/george/Work/billing-frontend
+	.jest-coverage
+6
+d/home/george/Work/billing-frontend/.jest-coverage
+	lcov.info
+4
+d/home/george/Work/billing-frontend
+	.combined-report
+1
+d/home/george/Work/billing-frontend/.combined-report
+	from-jest.json
+3
+d/home/george/Work/billing-frontend
+	.combined-report
+1
+d/home/george/Work
+	billing-frontend
+2
+d/home/george
+	.config
+9
+d/home/george/.config
+	vifm
+14
+d/home/george/.config/vifm
+	vifmimgpdffile
+4
+d
+
+# Right window history (oldest to newest):
+D/home/george/Work/billing-frontend
+	
+0
+D/home/george
+	Work
+11
+D/home/george/Work
+	billing-frontend
+2
+D/home/george/Work/billing-frontend
+	src
+10
+D/home/george/Work/billing-frontend/src
+	widget
+8
+D/home/george/Work/billing-frontend/src/widget
+	..
+0
+D/home/george/Work/billing-frontend/src
+	widget
+8
+D/home/george/Work/billing-frontend
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:sp
+:vs
+:only
+:marks
+::q
+:q
+
+# Search history (oldest to newest):
+/insta
+/confi
+/drop
+/vifm
+/config
+
+# Prompt history (oldest to newest):
+pinstall
+pinstall.sh
+
+# Local filter history (oldest to newest):
+
+# Registers:
+""/home/george/dotfiles/install.sh
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.0
+[F
+F
+I1
+].1
+]F
+s0
