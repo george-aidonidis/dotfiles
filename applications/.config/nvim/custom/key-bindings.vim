@@ -54,8 +54,8 @@ set ma
 " Jump through searches easily
 nmap <silent> <DOWN> :cnext<CR>
 nmap <silent> <UP> :cprev<CR>
-map ; :
-noremap ;; ;
+" map ; :
+" noremap ;; ;
 " Coding helpers "
 " inoremap [<CR> [<CR>]<C-o>O
 " inoremap {<CR> {<CR>}<C-o>O
