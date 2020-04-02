@@ -36,9 +36,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
-
+Plug 'vifm/vifm.vim'
 Plug 'qpkorr/vim-bufkill'
 Plug 'janko/vim-test'
 Plug 'yuki-ycino/fzf-preview.vim'
@@ -63,6 +61,3 @@ so ~/dotfiles/applications/.config/nvim/custom/user-interface.vim
 
 let g:neosnippet#enable_completed_snippet = 1
 autocmd BufWritePost ~/dotfiles/homeconfig/.bm* !shortcuts
-
-map ; :
-noremap ;; ;
