@@ -179,7 +179,7 @@ function tmux() {
 alias "t=tmux"
 alias "tmux-dev= tmux split-window -h -p 70 \; split-window -p 18"
 alias "e=ranger"
-alias "v=vifm"
+alias "v=vifm ."
 alias "npm-show-global=npm list -g --depth=0"
 
 # Feed the output of ag into fzf
