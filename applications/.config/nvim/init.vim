@@ -8,7 +8,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rhubarb' "Gbrowse
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-projectionist'
@@ -41,6 +41,7 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'janko/vim-test'
 Plug 'yuki-ycino/fzf-preview.vim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'mbbill/undotree'
 " search in a new buffer
 Plug 'dyng/ctrlsf.vim'
 call plug#end()
