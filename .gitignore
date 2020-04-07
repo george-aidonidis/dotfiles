@@ -13,6 +13,9 @@ tags
 .tern-config
 
 vim/plugged
+!applications/.config/vifm/vifmrc
+!applications/.config/vifm/colors
+!applications/.config/vifm/scripts
 applications/.config/ranger/history
 applications/.config/ranger/bookmarks
 applications/.config/ranger/tagged
