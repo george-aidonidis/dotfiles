@@ -17,4 +17,3 @@ if [ "$MATCH" ]; then
 else
   export KEYBOARD="$FALLBACK"
 fi
-

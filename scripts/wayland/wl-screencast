@@ -2,4 +2,4 @@
 
 filename="$HOME/Videos/screencast-$(date +%Y-%m-%d_%H-%M-%S).mp4"
 
-wf-recorder -f "$filename" -o "$1"
+wf-recorder -f "$filename" --audio=2 "$1"
