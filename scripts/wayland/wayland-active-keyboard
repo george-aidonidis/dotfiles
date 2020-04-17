@@ -3,7 +3,7 @@
 FALLBACK="1:1:AT_Translated_Set_2_keyboard"
 EXTERNAL="6127:24647:Lenovo_ThinkPad_Compact_USB_Keyboard_with_TrackPoint"
 
-if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+if [[ "$XDG_SESSION_TYPE" == "wayland" ]] && [[ $(pgrep -x sway) ]]; then
   MATCH=$(
   swaymsg -t get_inputs |
     jq -r --arg EXTERNAL "$EXTERNAL" '
@@ -15,5 +15,5 @@ fi
 if [ "$MATCH" ]; then
   export KEYBOARD="$EXTERNAL"
 else
-  export KEYBOARD="$FALLBACK"
+  export KEYBOARD="$EXTERNAL"
 fi
