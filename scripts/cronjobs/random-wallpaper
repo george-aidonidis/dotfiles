@@ -20,6 +20,9 @@ cp "$WALLPAPER" /usr/share/backgrounds/wall.png
 if [ "$XDG_SESSION_TYPE" = "x11" ]
 then
 	feh --bg-fill ~/.config/wall.png
+elif [ "$XDG_SESSION_DESKTOP" = "gnome" ]
+then
+  gsettings set "org.gnome.desktop.background" picture-uri "file:///$HOME/.config/wall.png"
 else
 	swaymsg output "*" background ~/.config/wall.png fill
 fi
