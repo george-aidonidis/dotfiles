@@ -22,7 +22,7 @@ then
 	feh --bg-fill ~/.config/wall.png
 elif [ "$XDG_SESSION_DESKTOP" = "gnome" ]
 then
-  gsettings set "org.gnome.desktop.background" picture-uri "file:///$HOME/.config/wall.png"
+  gsettings set "org.gnome.desktop.background" picture-uri "file:///$WALLPAPER"
 else
 	swaymsg output "*" background ~/.config/wall.png fill
 fi
