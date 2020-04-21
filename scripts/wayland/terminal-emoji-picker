@@ -1,0 +1,11 @@
+#!/bin/sh
+
+emoji=$(cat ~/dotfiles/.emojis.txt | fzf | awk '{ print $1 }')
+return_code=$?
+
+if [ $return_code -ne 1 ]
+then
+  wl-copy "$emoji"
+  ydotool key Shift+Insert
+  exit 0
+fi
