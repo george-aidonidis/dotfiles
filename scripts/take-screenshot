@@ -4,6 +4,19 @@ set -e
 FILENAME="$HOME/Pictures/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
 INPUT=$1
 
+gnomeActiveScreen() {
+	gnome-screenshot --clipboard --file "$FILENAME"
+}
+
+gnomeRegion() {
+	gnome-screenshot --clipboard --area --file "$FILENAME"
+}
+
+gnomeActiveWindow() {
+	gnome-screenshot --clipboard --window --file "$FILENAME"
+}
+
+
 wlActiveScreen() {
 	SCREEN=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
@@ -42,7 +55,10 @@ x11Region() {
 }
 
 action() {
-	if [ "$XDG_SESSION_TYPE" = "wayland" ]
+	if [ "$XDG_SESSION_DESKTOP" = "gnome" ]
+	then
+		$3
+	elif [ "$XDG_SESSION_TYPE" = "wayland" ]
 	then
 		$1
 	else
@@ -52,7 +68,7 @@ action() {
 
 case "$INPUT" in
 	imgur)
-			action wlRegion x11Region
+			action wlRegion x11Region gnomeRegion
 			imgur "$FILENAME"
 		;;
 	imgur-window)
@@ -64,15 +80,15 @@ case "$INPUT" in
 			imgur "$FILENAME"
 		;;
 	screen)
-			action wlActiveScreen x11ActiveScreen
+			action wlActiveScreen x11ActiveScreen gnomeActiveScreen
 			notify-send -i "$FILENAME" "Saved active screen to clipboard and under ~/Pictures/screenshots/"
 		;;
 	window)
-			action wlActiveWindow x11ActiveWindow
+			action wlActiveWindow x11ActiveWindow gnomeActiveWindow
 			notify-send -i "$FILENAME" "Saved focused window to clipboard and under ~/Pictures/screenshots/"
 		;;
 	region)
-			action wlRegion x11Region
+			action wlRegion x11Region gnomeRegion
 			notify-send -i "$FILENAME" "Image copied to clipboard and under ~/Pictures/screenshots/"
 		;;
 	*)
