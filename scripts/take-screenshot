@@ -6,14 +6,17 @@ INPUT=$1
 
 gnomeActiveScreen() {
 	gnome-screenshot --clipboard --file "$FILENAME"
+	wl-copy < "$FILENAME"
 }
 
 gnomeRegion() {
 	gnome-screenshot --clipboard --area --file "$FILENAME"
+	wl-copy < "$FILENAME"
 }
 
 gnomeActiveWindow() {
 	gnome-screenshot --clipboard --window --file "$FILENAME"
+	wl-copy < "$FILENAME"
 }
 
 
