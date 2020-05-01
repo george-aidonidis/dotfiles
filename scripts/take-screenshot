@@ -6,17 +6,20 @@ INPUT=$1
 
 gnomeActiveScreen() {
 	gnome-screenshot --clipboard --file "$FILENAME"
-	wl-copy < "$FILENAME"
+	[ "$XDG_SESSION_TYPE" = "wayland" ] && wl-copy < "$FILENAME"
+	[ "$XDG_SESSION_TYPE" = "x11" ] && xclip -selection clipboard -t image/png -i "$FILENAME"
 }
 
 gnomeRegion() {
 	gnome-screenshot --clipboard --area --file "$FILENAME"
-	wl-copy < "$FILENAME"
+	[ "$XDG_SESSION_TYPE" = "wayland" ] && wl-copy < "$FILENAME"
+	[ "$XDG_SESSION_TYPE" = "x11" ] && xclip -selection clipboard -t image/png -i "$FILENAME"
 }
 
 gnomeActiveWindow() {
 	gnome-screenshot --clipboard --window --file "$FILENAME"
-	wl-copy < "$FILENAME"
+	[ "$XDG_SESSION_TYPE" = "wayland" ] && wl-copy < "$FILENAME"
+	[ "$XDG_SESSION_TYPE" = "x11" ] && xclip -selection clipboard -t image/png -i "$FILENAME"
 }
 
 
@@ -58,7 +61,7 @@ x11Region() {
 }
 
 action() {
-	if [ "$XDG_SESSION_DESKTOP" = "gnome" ]
+	if [[ "$XDG_SESSION_DESKTOP" == "gnome"* ]]
 	then
 		$3
 	elif [ "$XDG_SESSION_TYPE" = "wayland" ]
