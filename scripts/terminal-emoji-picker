@@ -1,6 +1,6 @@
 #!/bin/sh
 
-emoji=$(less ~/dotfiles/.emojis.txt | fzf | awk '{ print $1 }')
+emoji=$(cat ~/dotfiles/.emojis.txt | fzf | awk '{ print $1 }')
 return_code=$?
 
 if [ $return_code -ne 1 ]
