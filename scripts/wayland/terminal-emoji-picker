@@ -1,11 +1,19 @@
 #!/bin/sh
 
-emoji=$(cat ~/dotfiles/.emojis.txt | fzf | awk '{ print $1 }')
+emoji=$(less ~/dotfiles/.emojis.txt | fzf | awk '{ printf $1 }')
 return_code=$?
 
 if [ $return_code -ne 1 ]
 then
-  wl-copy "$emoji"
-  ydotool key Shift+Insert
-  exit 0
+  if [ "$XDG_SESSION_TYPE" = "wayland" ]
+  then
+    wl-copy "$emoji"
+    ydotool key Shift+Insert
+    exit 0
+  else
+    printf "$emoji" | xclip -selection clipboard
+    xdotool key Shift+Insert
+    exit 0
+  fi
 fi
+
