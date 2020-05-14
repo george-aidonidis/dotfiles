@@ -16,7 +16,7 @@ function confirm {
 	echo
 }
 
-aurPackages=("autotiling redshift-wlr-gamma-control-git network-manager-applet-indicator direnv enpass-bin light-git nerd-fonts-source-code-pro spaceship-prompt-git ttf-lato ttf-weather-icons xkb-switch-i3 xkblayout-state-git xidlehook")
+aurPackages=("autotiling redshift-wlr-gamma-control-git network-manager-applet-indicator direnv enpass-bin light-git nerd-fonts-source-code-pro spaceship-prompt-git ttf-lato ttf-weather-icons xkb-switch-i3 xkblayout-state-git xidlehook ydotool-git")
 applications=("flameshot docker docker-compose parcellite")
 stowed=("applications config-dotfiles homeconfig terminals wm")
 
