@@ -5,99 +5,113 @@ FILENAME="$HOME/Pictures/screenshots/screenshot-$(date +%Y-%m-%d-%H-%M-%S).png"
 INPUT=$1
 
 gnomeActiveScreen() {
-	gnome-screenshot --clipboard --file "$FILENAME"
-	[ "$XDG_SESSION_TYPE" = "wayland" ] && wl-copy < "$FILENAME"
-	[ "$XDG_SESSION_TYPE" = "x11" ] && xclip -selection clipboard -t image/png -i "$FILENAME"
+  gnome-screenshot --clipboard --file "$FILENAME"
+  if [ "$XDG_SESSION_TYPE" = "wayland" ]
+  then
+    wl-copy < "$FILENAME"
+  else
+    xclip -selection clipboard -t image/png -i "$FILENAME"
+  fi
 }
 
 gnomeRegion() {
-	gnome-screenshot --clipboard --area --file "$FILENAME"
-	[ "$XDG_SESSION_TYPE" = "wayland" ] && wl-copy < "$FILENAME"
-	[ "$XDG_SESSION_TYPE" = "x11" ] && xclip -selection clipboard -t image/png -i "$FILENAME"
+  gnome-screenshot --clipboard --area --file "$FILENAME"
+  if [ "$XDG_SESSION_TYPE" = "wayland" ]
+  then
+    wl-copy < "$FILENAME"
+  else
+    xclip -selection clipboard -t image/png -i "$FILENAME"
+  fi
 }
 
 gnomeActiveWindow() {
-	gnome-screenshot --clipboard --window --file "$FILENAME"
-	[ "$XDG_SESSION_TYPE" = "wayland" ] && wl-copy < "$FILENAME"
-	[ "$XDG_SESSION_TYPE" = "x11" ] && xclip -selection clipboard -t image/png -i "$FILENAME"
+  gnome-screenshot --clipboard --window --file "$FILENAME"
+  if [ "$XDG_SESSION_TYPE" = "wayland" ]
+  then
+    wl-copy < "$FILENAME"
+  else
+    xclip -selection clipboard -t image/png -i "$FILENAME"
+  fi
 }
 
 
 wlActiveScreen() {
-	SCREEN=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
+  SCREEN=$(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name')
 
-	grim -o "$SCREEN" "$FILENAME"
-	wl-copy < "$FILENAME"
+  grim -o "$SCREEN" "$FILENAME"
+  wl-copy < "$FILENAME"
 }
 
 wlActiveWindow() {
   WINDOW=$(swaymsg -t get_tree | jq -r 'recurse(.nodes[]?, .floating_nodes[]?) | select(.focused)')
   GEOM=$(echo "$WINDOW" | jq -r '.rect | "\(.x),\(.y) \(.width)x\(.height)"')
 
-	grim -g "$GEOM" "$FILENAME"
-	wl-copy < "$FILENAME"
+  grim -g "$GEOM" "$FILENAME"
+  wl-copy < "$FILENAME"
 }
 
 wlRegion() {
-	grim -g "$(slurp)" "$FILENAME"
-	wl-copy < "$FILENAME"
+  grim -g "$(slurp)" "$FILENAME"
+  wl-copy < "$FILENAME"
 }
 
 x11ActiveScreen() {
-	SCREEN=$(get-active-monitor)
+  SCREEN=$(get-active-monitor)
 
-	maim -g "$SCREEN" "$FILENAME" --noopengl
-	xclip -selection clipboard -t image/png -i "$FILENAME"
+  maim -g "$SCREEN" "$FILENAME" --noopengl
+  xclip -selection clipboard -t image/png -i "$FILENAME"
 }
 
 x11ActiveWindow() {
-	maim -i "$(xdotool getactivewindow)" "$FILENAME" --noopengl
-	xclip -selection clipboard -t image/png -i "$FILENAME"
+  maim -i "$(xdotool getactivewindow)" "$FILENAME" --noopengl
+  xclip -selection clipboard -t image/png -i "$FILENAME"
 }
 
 x11Region() {
-	maim -s "$FILENAME" --noopengl
-	xclip -selection clipboard -t image/png -i "$FILENAME"
+  maim -s "$FILENAME" --noopengl
+  xclip -selection clipboard -t image/png -i "$FILENAME"
 }
 
 action() {
-	if [[ "$XDG_SESSION_DESKTOP" == "gnome"* ]]
-	then
-		$3
-	elif [ "$XDG_SESSION_TYPE" = "wayland" ]
-	then
-		$1
-	else
-		$2
-	fi
+  desktop=$(echo "$XDG_CURRENT_DESKTOP" | awk '{print tolower($0)}')
+
+  if [ "$desktop" = "gnome" ]
+  then
+    $3
+  elif [ "$XDG_SESSION_TYPE" = "wayland" ]
+  then
+    $1
+  else
+    $2
+  fi
 }
 
 case "$INPUT" in
-	imgur)
-			action wlRegion x11Region gnomeRegion
-			imgur "$FILENAME"
-		;;
-	imgur-window)
-			action wlActiveWindow x11ActiveWindow
-			imgur "$FILENAME"
-		;;
-	imgur-screen)
-			action wlActiveScreen x11ActiveScreen
-			imgur "$FILENAME"
-		;;
-	screen)
-			action wlActiveScreen x11ActiveScreen gnomeActiveScreen
-			notify-send -i "$FILENAME" "Saved active screen to clipboard and under ~/Pictures/screenshots/"
-		;;
-	window)
-			action wlActiveWindow x11ActiveWindow gnomeActiveWindow
-			notify-send -i "$FILENAME" "Saved focused window to clipboard and under ~/Pictures/screenshots/"
-		;;
-	region)
-			action wlRegion x11Region gnomeRegion
-			notify-send -i "$FILENAME" "Image copied to clipboard and under ~/Pictures/screenshots/"
-		;;
-	*)
-		echo "💩 Invalid option"
-		;;
+  imgur)
+    action wlRegion x11Region gnomeRegion
+    imgur "$FILENAME"
+    ;;
+  imgur-window)
+    action wlActiveWindow x11ActiveWindow
+    imgur "$FILENAME"
+    ;;
+  imgur-screen)
+    action wlActiveScreen x11ActiveScreen
+    imgur "$FILENAME"
+    ;;
+  screen)
+    action wlActiveScreen x11ActiveScreen gnomeActiveScreen
+    notify-send -i "$FILENAME" "Saved active screen to clipboard and under ~/Pictures/screenshots/"
+    ;;
+  window)
+    action wlActiveWindow x11ActiveWindow gnomeActiveWindow
+    notify-send -i "$FILENAME" "Saved focused window to clipboard and under ~/Pictures/screenshots/"
+    ;;
+  region)
+    action wlRegion x11Region gnomeRegion
+    notify-send -i "$FILENAME" "Image copied to clipboard and under ~/Pictures/screenshots/"
+    ;;
+  *)
+    echo "💩 Invalid option"
+    ;;
 esac
