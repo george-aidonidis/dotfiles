@@ -11,9 +11,8 @@ then
     ydotool key Shift+Insert
     exit 0
   else
-    printf "$emoji" | xclip -selection clipboard
+    printf "%s\n $emoji" | xclip -selection clipboard
     xdotool key Shift+Insert
     exit 0
   fi
 fi
-
