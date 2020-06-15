@@ -1,0 +1,29 @@
+[custom0]
+binding='<Super>Return'
+command='kitty'
+name='Terminal'
+
+[custom1]
+binding='<Shift><Super>d'
+command='kitty -e terminal-emoji-picker'
+name='Terminal emoji picker'
+
+[custom2]
+binding='<Super>a'
+command='kitty -e vifm'
+name='Vifm'
+
+[custom3]
+binding='<Super>i'
+command='kitty -e htop'
+name='Htop'
+
+[custom4]
+binding='<Primary>Print'
+command='flameshot gui'
+name='Flameshot'
+
+[custom5]
+binding='<Super>Print'
+command='random-wallpaper'
+name='Set random wallpaper'

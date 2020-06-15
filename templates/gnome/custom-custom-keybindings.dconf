@@ -1,0 +1,49 @@
+[custom0]
+binding='<Super>Return'
+command='kitty'
+name='Terminal'
+
+[custom1]
+binding='<Shift><Super>d'
+command='kitty -e terminal-emoji-picker'
+name='Terminal emoji picker'
+
+[custom2]
+binding='<Super>a'
+command='kitty -e vifm'
+name='Vifm'
+
+[custom3]
+binding='<Super>i'
+command='kitty -e htop'
+name='Htop'
+
+[custom4]
+binding='<Primary>Print'
+command='flameshot gui'
+name='Flameshot'
+
+[custom5]
+binding='<Super>Print'
+command='random-wallpaper'
+name='Set random wallpaper'
+
+[custom6]
+binding='<Shift><Super>s'
+command='subl3'
+name='Sublime 3'
+
+[custom7]
+binding='<Super>F2'
+command='handle-mic --decrease 2'
+name="Lower mic's volume"
+
+[custom8]
+binding='<Super>F3'
+command='handle-mic --increase 2'
+name="Raise mic's volume"
+
+[custom9]
+binding='<Shift><Super>a'
+command='kitty -e ranger'
+name='Ranger'

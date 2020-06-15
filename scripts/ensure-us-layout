@@ -1,13 +1,31 @@
 #!/bin/sh
-CURRENT=$(xkblayout-state print %s)
+desktop=$(echo "$XDG_CURRENT_DESKTOP" | awk '{print tolower($0)}')
 
-if [ "$CURRENT" != "us" ]
+
+if [ "$desktop" = "gnome" ]
 then
-	xkb-switch -n
-	$1
-	xkb-switch -n
-	exit 0
+  isGreek=$(gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval "imports.ui.status.keyboard.getInputSourceManager()._mruSources[0]" | grep "Greek")
+
+  if [ "$isGreek" ]
+  then
+    gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval "imports.ui.status.keyboard.getInputSourceManager()._mruSources[1].activate()"
+    $1
+    gdbus call --session --dest org.gnome.Shell --object-path /org/gnome/Shell --method org.gnome.Shell.Eval "imports.ui.status.keyboard.getInputSourceManager()._mruSources[1].activate()"
+  else
+    $1
+    exit 0
+  fi
 else
-	$1
-	exit 0
+  CURRENT=$(xkblayout-state print %s)
+
+  if [ "$CURRENT" != "us" ]
+  then
+    xkb-switch -n
+    $1
+    xkb-switch -n
+    exit 0
+  else
+    $1
+    exit 0
+  fi
 fi
