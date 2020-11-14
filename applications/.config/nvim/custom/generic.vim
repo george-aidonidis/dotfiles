@@ -6,7 +6,6 @@ filetype off
 set ic
 " Disable safe write
 set backupcopy=yes
-autocmd Filetype gitcommit setlocal spell textwidth=72
 " Search down into subfolders
 " Provides tab-completion for all file-related tasks
 set path+=**
@@ -22,3 +21,11 @@ set undodir=~/.cache/undo  "directory where the undo files will be stored
 set undofile                 "turn on the feature
 
 set hidden  " allow buffer switching without saving
+
+""""""""""""""""""""
+" Git settings "
+""""""""""""""""""""
+autocmd FileType gitcommit setlocal textwidth=72
+autocmd FileType gitcommit set colorcolumn=73
+
+
