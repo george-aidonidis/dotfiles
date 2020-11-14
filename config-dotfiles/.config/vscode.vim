@@ -1,5 +1,5 @@
 call plug#begin()
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-projectionist'
 Plug 'christoomey/vim-system-copy'

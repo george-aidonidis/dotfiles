@@ -7,7 +7,7 @@ endif
 
 call plug#begin('~/.config/nvim/plugged')
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
+Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-rhubarb' "Gbrowse
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
