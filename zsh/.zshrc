@@ -1,9 +1,10 @@
 source $HOME/.tokens
 export PATH=$PATH$HOME/bin:/usr/local/bin:$HOME/.local/bin
 source $HOME/dotfiles/homeconfig/.bash_shortcuts
+source $HOME/dotfiles/zsh/.pre-hook
 
 export ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="geoffgarside"
+ZSH_THEME="spaceship"
 plugins=(git vi-mode)
 # direnv hook into the shell
 eval "$(direnv hook zsh)"
@@ -47,8 +48,6 @@ SPACESHIP_PROMPT_ORDER=(
 	char
 )
 
-source $HOME/.oh-my-zsh/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 source $HOME/dotfiles/zsh/aliases.sh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source $HOME/dotfiles/zsh/.zplugins

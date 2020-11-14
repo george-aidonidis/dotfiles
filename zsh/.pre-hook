@@ -1,0 +1,10 @@
+# vim: ft=sh
+
+# stop these errors https://github.com/asdf-vm/asdf/issues/266
+# & make it fast https://carlosbecker.com/posts/speeding-up-zsh/
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+    compinit;
+else
+    compinit -C;
+fi;
