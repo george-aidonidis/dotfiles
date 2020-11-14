@@ -29,3 +29,5 @@ scripts/cronjobs/.my-crontab
 wm/.config/polybar/config
 wm/.config/i3/config
 __pycache__
+__init__*
+devicons_linemode.pyo
