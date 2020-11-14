@@ -105,7 +105,7 @@
 #    "qutebrowser"
 # ]
 
-alt - return : open -n /Applications/iTerm.app ~
+alt - return : open -na /Applications/iTerm.app ~
 # alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
 alt - w : open -na /Applications/Brave\ Browser.app
 alt - n : open -na /System/Library/CoreServices/Finder.app

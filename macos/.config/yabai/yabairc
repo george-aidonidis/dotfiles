@@ -1,5 +1,16 @@
 #!/usr/bin/env sh
 
+# the scripting-addition must be loaded manually if
+# you are running yabai on macOS Big Sur. Uncomment
+# the following line to have the injection performed
+# when the config is executed during startup.
+#
+# for this to work you must configure sudo such that
+# it will be able to run the command without password
+
+sudo yabai --load-sa
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+
 # global settings
 yabai -m config mouse_follows_focus          on
 yabai -m config focus_follows_mouse          on
@@ -46,5 +57,8 @@ yabai -m rule --add app="^Android File Transfer$" manage=off
 yabai -m rule --add app="^Digital Colour Meter$" manage=off
 yabai -m rule --add app="^Caprine$" manage=off
 yabai -m rule --add app="^Authy Desktop$" manage=off
+yabai -m rule --add app="^System Information$" manage=off
+yabai -m rule --add app="^Preview$" manage=off
+yabai -m rule --add app="^FaceTime$" manage=off
 
 echo "yabai configuration loaded.."
