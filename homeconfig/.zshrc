@@ -1,15 +1,11 @@
 source "$HOME/dotfiles/zsh/.zshrc"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+source "$(brew --prefix)/etc/profile.d/z.sh"
 eval "$(rbenv init -)"
 fpath=($fpath "$HOME/.zfunctions")
 
 export PATH=$PATH
-# Set Spaceship ZSH as a prompt
-autoload -U promptinit; promptinit
-prompt spaceship
-
 if [[ $TERM == xterm-termite ]]; then
   . /etc/profile.d/vte.sh
   __vte_osc7
@@ -28,7 +24,8 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export QT_SCALE_FACTOR=0
 export UPDATE_ZSH_DAYS=3
 export KEYTIMEOUT=1
-neofetch
-. $HOME/dotfiles/scripts/wayland/wayland-active-keyboard
+export LC_CTYPE='UTF-8'
 
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin:$(ruby -e 'puts Gem.user_dir')/bin"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
