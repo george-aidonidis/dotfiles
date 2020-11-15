@@ -1,7 +1,7 @@
+export ZSH_DISABLE_COMPFIX=true
 source $HOME/.tokens
 export PATH=$PATH$HOME/bin:/usr/local/bin:$HOME/.local/bin
 source $HOME/dotfiles/homeconfig/.bash_shortcuts
-source $HOME/dotfiles/zsh/.pre-hook
 
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="spaceship"
@@ -50,4 +50,4 @@ SPACESHIP_PROMPT_ORDER=(
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/dotfiles/zsh/aliases.sh
-source $HOME/dotfiles/zsh/.zplugins
+source $HOME/dotfiles/zsh/.zinit

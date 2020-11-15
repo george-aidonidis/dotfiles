@@ -1,8 +1,9 @@
 source "$HOME/dotfiles/zsh/.zshrc"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-source "$(brew --prefix)/etc/profile.d/z.sh"
-eval "$(rbenv init -)"
+# source "$(brew --prefix)/etc/profile.d/z.sh"
+source "/usr/local/opt/z/etc/profile.d/z.sh"
+# eval "$(rbenv init -)"
 fpath=($fpath "$HOME/.zfunctions")
 
 export PATH=$PATH
@@ -26,6 +27,6 @@ export UPDATE_ZSH_DAYS=3
 export KEYTIMEOUT=1
 export LC_CTYPE='UTF-8'
 
-export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin:$(ruby -e 'puts Gem.user_dir')/bin"
+export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
