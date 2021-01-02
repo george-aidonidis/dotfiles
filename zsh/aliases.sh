@@ -25,9 +25,6 @@ alias "pclean=sudo paccache -r"
 ########
 # Brew #
 ########
-alias "bci=brew cask install"
-alias "bcu=brew cask uninstall"
-alias "bcz=brew cask zap"
 alias "bi=brew install"
 alias "bu=brew uninstall"
 
