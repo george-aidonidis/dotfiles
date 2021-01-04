@@ -60,5 +60,6 @@ yabai -m rule --add app="^Authy Desktop$" manage=off
 yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^FaceTime$" manage=off
+yabai -m rule --add app="^Skype$" manage=off
 
 echo "yabai configuration loaded.."
