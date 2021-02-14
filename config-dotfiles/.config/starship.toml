@@ -1,0 +1,31 @@
+format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$docker_context\
+$package\
+$nodejs\
+$ruby\
+$rust\
+$env_var\
+$custom\
+$cmd_duration\
+$line_break\
+$time\
+$status\
+$character"""
+
+[hostname]
+ssh_only = false
+format =  "on [$hostname](bold red) "
+trim_at = "@toptal.com"
+disabled = true
+
+# [character]
+# success_symbol = "🥦🐑💨🐣[❯](bold green) "
+# error_symbol = "🥦🐑💨🐣[❯](bold red) "
+
+# vicmd_symbol = "🥦🐑💨🐣[❮](bold green) "
+
