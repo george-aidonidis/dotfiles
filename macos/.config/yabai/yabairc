@@ -46,6 +46,7 @@ yabai -m rule --add app="^zoom.us$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Slack$" manage=off
 yabai -m rule --add app="^Enpass$" manage=off
+yabai -m rule --add app="^Bitwarden$" manage=off
 yabai -m rule --add app="^Telegram$" manage=off
 yabai -m rule --add app="^Viber$" manage=off
 yabai -m rule --add app="^Steam$" manage=off
@@ -61,5 +62,6 @@ yabai -m rule --add app="^System Information$" manage=off
 yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^FaceTime$" manage=off
 yabai -m rule --add app="^Skype$" manage=off
+yabai -m rule --add app="^Stats$" manage=off
 
 echo "yabai configuration loaded.."
