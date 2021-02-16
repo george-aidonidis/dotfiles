@@ -63,5 +63,6 @@ yabai -m rule --add app="^Preview$" manage=off
 yabai -m rule --add app="^FaceTime$" manage=off
 yabai -m rule --add app="^Skype$" manage=off
 yabai -m rule --add app="^Stats$" manage=off
+yabai -m rule --add app="^Messages$" manage=off
 
 echo "yabai configuration loaded.."
