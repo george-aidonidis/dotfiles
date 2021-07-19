@@ -9,14 +9,12 @@ set nrformats=
 set exrc
 " Disable unsafe commands in project-specific settings
 set secure
-" set completeopt=longest,menuone
+set completeopt=longest,menuone
 " Disable swap files
 set noswapfile
-" Enable spellchecking
-set spell
 " Set visual bell {not working in gnome terminal :'( }. Also disable sound
 " bells
-"set visualbell
+set visualbell
 " Automatically :write before running commands
 set autowrite
 " Hide history when switching to other buffers

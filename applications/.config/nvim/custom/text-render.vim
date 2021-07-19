@@ -11,3 +11,6 @@ set wrap
 set sidescrolloff=5
 " Enable syntax highlighting.
 set list listchars=tab:»·,trail:·  " Display extra whitespace characters
+" set filetypes as typescript.tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+

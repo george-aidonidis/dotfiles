@@ -37,5 +37,3 @@ fun! TrimWhiteSpace()
   %s/\s\+$//e
   call winrestview(l:save)
 endfun
-
-

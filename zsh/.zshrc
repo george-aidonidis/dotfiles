@@ -4,14 +4,13 @@ export PATH=$PATH$HOME/bin:/usr/local/bin:$HOME/.local/bin
 source $HOME/dotfiles/homeconfig/.bash_shortcuts
 
 export ZSH=$HOME/.oh-my-zsh
-plugins=(git vi-mode)
+plugins=(git)
 # direnv hook into the shell
 eval "$(direnv hook zsh)"
 
 # https://stackoverflow.com/questions/815686/unable-to-make-a-backward-tab-as-shift-tab-in-zsh
 bindkey '^[[Z' reverse-menu-complete
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
@@ -40,3 +39,5 @@ source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 # The next line enables zsh completion for gcloud.
 source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 eval "$(starship init zsh)"
+zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+

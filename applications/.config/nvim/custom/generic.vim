@@ -1,7 +1,6 @@
 """"""""""""""""""""
 " Generic settings "
 """"""""""""""""""""
-set nocompatible
 filetype off
 set ic
 " Disable safe write

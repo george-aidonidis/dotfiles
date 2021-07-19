@@ -79,7 +79,7 @@ alias nid="npm install --save-dev "
 ########
 # Arch #
 ########
-update() {
+aupdate() {
   upgrade_oh_my_zsh
   printf '%s' "$BLUE"
   printf '%s\n' ' _ __   __ _  ___ _ __ ___   __ _ _ __  '
@@ -96,6 +96,15 @@ update() {
   printf '%s\n' '  \__, |\__,_|\__, |'
   printf '%s\n' '  |___/       |___/'
   yay -Syu --aur --noconfirm
+}
+
+#########
+# MacOS #
+#########
+update() {
+  omz update
+  zinit self-update
+  zinit update --parallel
 }
 
 ########

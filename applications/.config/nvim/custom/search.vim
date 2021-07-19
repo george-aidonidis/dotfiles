@@ -7,7 +7,7 @@ set hlsearch
 set incsearch
 " Automatically switch search to case-sensitive when search query contains
 " an uppercase letter.
-set ignorecase
+set smartcase
 " highlight matching [{()}]
 set showmatch
 let g:ackprg = 'ag --vimgrep'

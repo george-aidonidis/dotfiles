@@ -1,6 +1,15 @@
 {
   "tsserver.formatOnType": false,
-  "coc.preferences.formatOnSaveFiletypes": ["false"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact",
+    "markdown",
+    "css",
+    "json",
+    "graphql"
+  ],
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": false,
@@ -16,5 +25,7 @@
   "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
   "diagnostic.enableSign": false,
   "yank.highlight.duration": 250,
-  "yank.list.maxsize": 30
+  "yank.list.maxsize": 30,
+  "explorer.previewAction.onHover": false,
+  "explorer.icon.enableVimDevicons": true
 }
