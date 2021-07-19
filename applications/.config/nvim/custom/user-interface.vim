@@ -6,14 +6,10 @@ set mouse=a
 " Always display the status bar
 set laststatus=2
 
-" let g:gruvbox_italic=1
-" let g:gruvbox_termcolors=16
-" let g:gruvbox_contrast_dark='hard'
-" colorscheme gruvbox
 au ColorScheme * hi Normal ctermbg=None
-colorscheme one
-set background=dark
-let g:one_allow_italics = 1
+let g:tokyonight_style = "night"
+colorscheme tokyonight
+
 set termguicolors
 syntax enable
 syntax on
@@ -21,7 +17,7 @@ syntax on
 set cursorline
 " Show line numbers
 set number
-" Open new split panes to right and bottom, which feels more natural {{{2
+" Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
 set showcmd
