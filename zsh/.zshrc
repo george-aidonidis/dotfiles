@@ -34,10 +34,10 @@ source $HOME/dotfiles/zsh/aliases.sh
 source $HOME/dotfiles/zsh/.zinit
 
 # The next line updates PATH for the Google Cloud SDK.
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+# source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
 
 # The next line enables zsh completion for gcloud.
-source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+# source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 eval "$(starship init zsh)"
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
 
