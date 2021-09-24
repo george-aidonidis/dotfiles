@@ -11,6 +11,8 @@ function! s:load_fugitive() abort
     " Open current line in the browser
     nnoremap <Leader>gB :.GBrowse<CR>
     nnoremap <Leader>gl :Git log<CR>
+    nnoremap <Leader>gf :gitdiff //2<CR>
+    nnoremap <Leader>gj :gitdiff //3<CR>
 
     " Open visual selection in the browser
     vnoremap <Leader>gB :GBrowse<CR>
@@ -25,6 +27,8 @@ function! s:load_fugitive() abort
       let g:which_key_map.g.b = 'Copy line in clipboard'
       let g:which_key_map.g.B = 'Open line in browser'
       let g:which_key_map.g.l = 'Git log'
+      let g:which_key_map.g.f = 'Get hunk from left side'
+      let g:which_key_map.g.j = 'Get hunk from right side'
     endif
   endif
 endfunction

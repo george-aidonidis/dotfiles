@@ -8,6 +8,8 @@ set laststatus=2
 
 au ColorScheme * hi Normal ctermbg=None
 let g:tokyonight_style = "night"
+let g:tokyonight_italic_variables = 1
+let g:tokyonight_italic_functions = 1
 colorscheme tokyonight
 
 set termguicolors

@@ -1,9 +1,9 @@
 function! s:load_undo_tree() abort
   " Navigate to active panes more easily
-  nmap <silent> <leader>uu :UndotreeToggle<CR>
+  nmap <silent> <leader>U :UndotreeToggle<CR>
   if g:enable_whichkey
-    let g:which_key_map.u = { 'name': '+Undo' }
-    let g:which_key_map.u.u = 'Open undo tree'
+    let g:which_key_map.U = { 'name': '+Undo' }
+    let g:which_key_map.U = 'Open undo tree'
   endif
 endfunction
 

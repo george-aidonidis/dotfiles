@@ -1,6 +1,6 @@
 function! g:BuffetSetCustomColors()
   hi! BuffetCurrentBuffer    gui=NONE guibg=#1d212e guifg=#fff
-  hi! BuffetActiveBuffer     gui=NONE guibg=#1a1d25 guifg=#fff
+  hi! BuffetActiveBuffer     gui=NONE guibg=#1a1d25 guifg=#6b717d
   hi! BuffetBuffer           gui=NONE guibg=#1a1d25 guifg=#6b717d
   hi! BuffetModCurrentBuffer gui=NONE guibg=#8be9fd guifg=#282a36
   hi! BuffetModActiveBuffer  gui=NONE guibg=#ffb86c guifg=#282a36

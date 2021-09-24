@@ -70,26 +70,12 @@ if !exists('g:vscode')
   call s:load_windows()
 endif
 
-""""""""""""""""
-" Key bindings "
-""""""""""""""""
-" Easily navigate up/down on text in the same line
-nnoremap j gj
-nnoremap k gk
-nnoremap k gk
 "###########################
 "      Buffers & Tabs      #
 "###########################
 " Disable highlight until next search
-nnoremap <esc> :noh<CR><CR>
+nnoremap <esc> :noh<CR>
 
-" Pass copied text to clipboard (works on normal and visual mode)
-"nnoremap Y "+Y
-"nnoremap y "+y
-"vnoremap y "+y
-"nnoremap D "+D
-"nnoremap d "+d
-"vnoremap d "+d
 " Make buffer modifiable
 set ma
 " Jump through searches easily
@@ -101,12 +87,12 @@ nmap <silent> <UP> :cprev<CR>
 " inoremap [<CR> [<CR>]<C-o>O
 " inoremap {<CR> {<CR>}<C-o>O
 " Javascript
-inoremap <leader>clr console.dir();<esc>F(a
-inoremap <leader>clg console.log();<esc>F(a
-inoremap <leader>cls console.log(JSON.stringify(, null, 2));<esc>F(a
-vnoremap <leader>clr dOconsole.dir(<esc>pA);<esc>$
-vnoremap <leader>clg dOconsole.log(<esc>pA);<esc>$
-vnoremap <leader>cls dOconsole.log(JSON.stringify(<esc>pA));<esc>$
+inoremap <leader>clr console.dir()<esc>F(a
+inoremap <leader>clg console.log()<esc>F(a
+inoremap <leader>cls console.log(JSON.stringify(, null, 2))<esc>F(a
+vnoremap <leader>clr dOconsole.dir(<esc>pA)<esc>$
+vnoremap <leader>clg dOconsole.log(<esc>pA)<esc>$
+vnoremap <leader>cls dOconsole.log(JSON.stringify(<esc>pA))<esc>$
 set runtimepath+=~/.fzf
 
 " Esc allows to exit `insert` mode on terminal

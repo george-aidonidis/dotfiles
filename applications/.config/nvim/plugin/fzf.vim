@@ -20,7 +20,12 @@ command! FZFMru call fzf#run({
 "
 " nnoremap <leader>9 :FzfPreviewGitStatus<CR>
 " nnoremap <leader>p :FzfPreviewBuffers<CR>
+nmap <silent> <Leader>bb    :Buffers<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <silent> <Leader>ff :Rg<cr>
 
+nnoremap <silent> <leader>fh :History: <CR>
+nnoremap <silent> <leader>fH :History <CR>
 nnoremap <silent> <leader>fw :Rg <c-r><c-w><CR>
