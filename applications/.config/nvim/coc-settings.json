@@ -23,7 +23,7 @@
   "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
   "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
   "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-  "diagnostic.enableSign": false,
+  "diagnostic.enableSign": true,
   "yank.highlight.duration": 250,
   "yank.list.maxsize": 30,
   "explorer.previewAction.onHover": false,

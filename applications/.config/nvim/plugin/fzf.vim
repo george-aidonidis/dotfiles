@@ -2,7 +2,10 @@
 imap <c-x><c-f> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, '--color-path "1;36"', fzf#vim#with_preview(), <bang>0)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
 
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo', 'rounded': v:false } }
 
@@ -14,3 +17,15 @@ command! FZFMru call fzf#run({
 \  'sink':    'e',
 \  'options': '-m -x +s',
 \  'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Todo', 'rounded': v:false }})
+"
+" nnoremap <leader>9 :FzfPreviewGitStatus<CR>
+" nnoremap <leader>p :FzfPreviewBuffers<CR>
+nmap <silent> <Leader>bb    :Buffers<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <silent> <Leader>ff :Rg<cr>
+
+nnoremap <silent> <leader>fh :History: <CR>
+nnoremap <silent> <leader>fH :History <CR>
+nnoremap <silent> <leader>fw :Rg <c-r><c-w><CR>
