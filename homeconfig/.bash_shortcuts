@@ -2,7 +2,6 @@
 alias h='cd ~/ && ls -a'
 alias d='cd ~/Dropbox && ls -a'
 alias D='cd ~/Downloads && ls -a'
-alias m='cd ~/Music && ls -a'
 alias PP='cd ~/Pictures && ls -a'
 alias PW='cd ~/Pictures/Wallpapers && ls -a'
 alias PS='cd ~/Pictures/screenshots && ls -a'

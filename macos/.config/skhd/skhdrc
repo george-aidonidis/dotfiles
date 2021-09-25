@@ -107,7 +107,8 @@
 
 alt - return : open -na /Applications/iTerm.app ~
 # alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-alt - w : open -na /Applications/Brave\ Browser.app
+# alt - w : open -na /Applications/Brave\ Browser.app
+alt - w : open -na /Applications/Firefox\ Developer\ Edition.app/Contents/MacOS/firefox
 alt - n : open -na /System/Library/CoreServices/Finder.app
 
 shift + alt - c : skhd -r

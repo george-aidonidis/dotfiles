@@ -105,6 +105,8 @@ update() {
   omz update
   zinit self-update
   zinit update --parallel
+  echo "Updating brew"
+  brew update && brew upgrade
 }
 
 ########
