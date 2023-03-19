@@ -28,6 +28,7 @@ export KEYTIMEOUT=1
 export LC_CTYPE='UTF-8'
 
 export PATH="$PATH:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.npm-packages/bin"
+export PATH="$HOME/tools/lua-language-server/bin/macOS:$PATH"
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 # eval "$(rbenv init -)"

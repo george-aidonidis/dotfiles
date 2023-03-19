@@ -13,7 +13,6 @@ autoload -Uz _zinit
 ### End of Zinit's installer chunk
 
 zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
 
 zinit wait lucid for \
  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \

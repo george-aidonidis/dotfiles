@@ -17,6 +17,8 @@ $time\
 $status\
 $character"""
 
+command_timeout = 10000
+
 [hostname]
 ssh_only = false
 format =  "on [$hostname](bold red) "
@@ -28,4 +30,3 @@ disabled = true
 # error_symbol = "🥦🐑💨🐣[❯](bold red) "
 
 # vicmd_symbol = "🥦🐑💨🐣[❮](bold green) "
-
