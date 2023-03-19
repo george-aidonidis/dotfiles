@@ -24,6 +24,7 @@ applications/.config/ranger/__pycache__ ranger/.config/ranger/plugins
 applications/.config/ranger/shortcuts.conf
 applications/.config/nvim/plugged
 applications/.config/nvim/autoload/plug.*
+applications/.config/nvim/plugin/packer_compiled.lua
 
 scripts/cronjobs/.my-crontab
 wm/.config/polybar/config
@@ -31,3 +32,5 @@ wm/.config/i3/config
 __pycache__
 __init__*
 devicons_linemode.pyo
+
+.DS_STORE
