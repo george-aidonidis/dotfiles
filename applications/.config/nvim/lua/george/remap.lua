@@ -23,8 +23,8 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- next greatest remap ever : asbjornHaland
 -- Copy/paste to/from clipboard
 vim.keymap.set({'n', 'x'}, 'cv', '"+p')
-vim.keymap.set("n", "cp", [["+y]])
-vim.keymap.set({'n', 'x'}, "cp", 'my"+y`y')
+vim.keymap.set({'n', 'v'}, 'cp', [["+y]])
+-- vim.keymap.set({'n', 'x'}, "cp", 'my"+y`y')
 vim.keymap.set({'n', 'x'}, "cP", 'mYV"+y`Y')
 
 vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
@@ -52,3 +52,6 @@ vim.keymap.set('n', '<C>S', ':wa<CR>')
 -- Prevent space from moving right on normal mode
 vim.keymap.set('n', '<Space>', '<Nop>')
 
+vim.keymap.set("n", "<leader>R", function()
+  vim.cmd("so")
+end)
