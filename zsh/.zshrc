@@ -11,7 +11,6 @@ eval "$(direnv hook zsh)"
 # https://stackoverflow.com/questions/815686/unable-to-make-a-backward-tab-as-shift-tab-in-zsh
 bindkey '^[[Z' reverse-menu-complete
 
-
 # Fix for arrow-key searching
 # start typing + [Up-Arrow] - fuzzy find history forward
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
@@ -40,4 +39,3 @@ source $HOME/dotfiles/zsh/.zinit
 # source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 eval "$(starship init zsh)"
 zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
-
