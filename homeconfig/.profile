@@ -11,3 +11,4 @@ export PATH="$PATH:$(du "$HOME/dotfiles/scripts/" | cut -f2 | tr '\n' ':')"
 . $HOME/dotfiles/scripts/wayland/wayland-active-keyboard
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+. "$HOME/.cargo/env"

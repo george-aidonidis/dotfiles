@@ -1,6 +1,9 @@
 export ZSH_DISABLE_COMPFIX=true
 source $HOME/.tokens
-export PATH=$PATH$HOME/bin:/usr/local/bin:$HOME/.local/bin
+export PATH=$PATH$HOME/bin:/usr/local/bin:$HOME/.local/bin:/Applications/Docker.app/Contents/Resources/bin/
+# Homebrew sbin
+export PATH="/usr/local/sbin:$PATH"
+
 source $HOME/dotfiles/homeconfig/.bash_shortcuts
 
 export ZSH=$HOME/.oh-my-zsh

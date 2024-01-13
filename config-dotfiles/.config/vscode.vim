@@ -1,7 +1,6 @@
 call plug#begin()
 Plug 'machakann/vim-sandwich'
 Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-projectionist'
 Plug 'christoomey/vim-system-copy'
 call plug#end()
 

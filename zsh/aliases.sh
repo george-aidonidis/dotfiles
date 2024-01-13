@@ -31,6 +31,8 @@ alias "bu=brew uninstall"
 #######
 # Git #
 #######
+alias "gr=git standup -b master -d 15"
+alias "gwr=z staff && gr && z client && gr"
 alias "gcom=git checkout master"
 alias "gcob=git checkout -b"
 alias "gfp=git fetch --prune"
@@ -61,6 +63,7 @@ gclw() {
 alias y="yarn"
 alias ygl0="yarn global list --depth=0"
 alias yi="yarn install"
+alias yt="yarn kurama test $1 --watchAll"
 alias yr="yarn run"
 alias ya="yarn add"
 alias yad="yarn add --dev "
@@ -134,8 +137,13 @@ alias discharge-bat1="sudo tlp discharge BAT1"
 ########
 # Misc #
 ########
-alias "ls=lsd"
 alias "n=nvim"
+alias "c=code ."
+alias "ls=lsd"
+alias "music-suits=mpv --no-video --shuffle https://music.youtube.com/playlist\?list\=PLGzQmUINJ8RNIrtNufvz1cEBFtmJV-oQH"
+alias "music-skyrim=mpv --no-video --shuffle https://www.youtube.com/watch\?v\=rSDoXnslLsg"
+alias "music-pirates=mpv --no-video --shuffle https://www.youtube.com/watch\?v\=91E_lYSUmg8"
+alias "music-lofi=mpv --no-video --shuffle https://www.youtube.com/playlist\?list\=UULFibrITpMjWZX1yMYloJY5iw"
 # Make and enter inside a directory
 # mkdir -p test && cd test --->➡️ mkcd test
 alias mkcd='foo(){ mkdir -p "$1"; cd "$1" }; foo '

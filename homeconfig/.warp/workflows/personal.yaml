@@ -1,0 +1,2 @@
+name: Play gzdoom with new map
+command: /Applications/GZDoom.app/Contents/MacOS/gzdoom brutalv21.pk3 HXRTCHUD_BRUTALDOOM21RC8.pk3 hellonearthstarterpack.wad;
