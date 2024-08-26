@@ -1,4 +1,5 @@
 vim.opt.number = true
+vim.cmd("let g:netrw_liststyle = 3")
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
