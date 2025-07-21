@@ -11,7 +11,9 @@ opt.shiftwidth = 2 -- 2 spaces for indent width
 opt.expandtab = true -- expand tab to spaces
 opt.autoindent = true -- copy indent from current line when starting new one
 
-opt.wrap = false
+opt.wrap = true
+opt.signcolumn = "yes"
+opt.scrolloff = 8
 
 -- search settings
 opt.ignorecase = true
@@ -32,3 +34,14 @@ opt.backspace = "indent,eol,start"
 -- split windows
 opt.splitright = true
 opt.splitbelow = true
+-- Undo
+opt.swapfile = false
+opt.backup = false
+
+if vim.fn.isdirectory("/tmp/.vim-undo-dir") == 0 then
+  vim.fn.mkdir("/tmp/.vim-undo-dir", "", 0700)
+end
+
+---@diagnostic disable-next-line: assign-type-mismatch
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+opt.undofile = true
