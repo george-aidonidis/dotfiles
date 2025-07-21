@@ -32,3 +32,5 @@
 	autoStash = true
 [push]
 	default = simple
+[diff-so-fancy]
+	stripLeadingSymbols = false

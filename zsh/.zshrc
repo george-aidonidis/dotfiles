@@ -4,7 +4,10 @@ export PATH=$PATH$HOME/bin:/usr/local/bin:$HOME/.local/bin
 # export PATH=$PATH$HOME/bin:/usr/local/bin:$HOME/.local/bin:/Applications/Docker.app/Contents/Resources/bin/
 # Homebrew sbin
 export PATH="/usr/local/sbin:$PATH"
-
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
 # direnv hook into the shell
 eval "$(direnv hook zsh)"
 
@@ -36,4 +39,5 @@ source $HOME/dotfiles/zsh/aliases.sh
 # The next line enables zsh completion for gcloud.
 # source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
 eval "$(starship init zsh)"
-# zvm_after_init_commands+=('[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh')
+eval "$(fnm env --use-on-cd --version-file-strategy=recursive --resolve-engines --shell zsh)"
+source $HOME/Personal/fzf-git.sh/fzf-git.sh
